@@ -11,7 +11,6 @@
 }
 
 body {
-	background-color: #DDD;
 	padding: 0px;
 	margin: 0px;
 }
@@ -35,7 +34,7 @@ body {
 	height: 150px;
 	width: 150px;
 	background-color: #CCC;
-	background-image: url(../_img/portrait.jpg);
+	background-image: url(../img/portrait.jpg);
 	padding: 0px;
 	box-shadow: 0px 0px 20px #EEE;
 }
