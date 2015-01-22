@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<title>TikTok Color</title>
+	<style>
+	body{
+		padding: 0px;
+		-webkit-transition: all 0.8s;
+		-moz-transition: all 0.8s;
+		transition: all 0.8s;
+	}
+	h1 {
+		font-size: 8em;
+		color: #FFF;
+		font-family: Helvetica, Tahoma, sans-serif;
+	}
+	h2 {
+		font-size: 4em;
+		color: #FFF;
+		font-family: Helvetica, Tahoma, sans-serif;
+	}
+	</style>
+</head>
+<body>
+	<table width="100%" height="100%" align="center" valign="middle">
+		<tr>
+			<td align="center" valign="middle">
+				<h1 id="time">00:00:00</h1>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="middle">
+				<h2 id="color">#000000</h1>
+			</td>
+		</tr>
+	</table>
+	<script>
+	window.onload = tiktok();
+
+	function tiktok() {
+		var day = new Date();
+		var hour = day.getHours();
+		var min = day.getMinutes();
+		var sec = day.getSeconds();
+
+		if(hour<10) {hour = "0" + hour;}
+		if(min<10)  {min  = "0" + min;}
+		if(sec<10)  {sec  = "0" + sec;}
+
+		var time = hour.toString() + ":" + min.toString() + ":" + sec.toString();
+		var hex = "#" + hour.toString() + min.toString() + sec.toString();
+
+		document.getElementById("time").innerHTML = time;
+		document.getElementById("color").innerHTML = hex;
+
+		document.body.style.background = hex;
+	
+		setTimeout(tiktok, 1000);
+	}
+	</script>
+</body>
+</html>
