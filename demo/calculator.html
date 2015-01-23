@@ -65,6 +65,31 @@
 		text-align: right;
 		padding-right: 0em;
 	}
+	@media all and (max-width: 1024px) {
+		#formula {
+			float: left;
+			width: 100%;
+		}
+		#go {
+			clear: both;
+			float: left;
+			width: 100%;
+			margin-top: 0.3em;
+		}
+		#output {
+			clear: both;
+			float: left;
+			margin-top: 1em;
+		}
+		h3{
+			clear: both;
+			float: left;
+			margin-top: 2em;
+		}
+		#detail {
+			clear: both;
+		}		
+	}
 	</style>
 </head>
 <body>
@@ -74,7 +99,7 @@
 			<input id="formula" type="text" />
 			<input id="go" type="button" value="Go"/>
 		</div>
-		<h1>Result: <span id="result"></span></h1>
+		<h1 id="output">Result: <span id="result"></span></h1>
 
 		<h3>Details:</h3>
 		<table id="detail">
