@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+	<title>Calculator</title>
+	<style type="text/css">
+	body {
+		padding: 0px;
+		background-color: #151718;
+	}
+	#wrapper {
+		width: 480px;
+		margin: 0px auto;
+	}
+	h1 {
+		font-family: consolas, Tahoma, sans-serif;
+		color: #FFF;
+		margin-top: 0.2em;
+		margin-bottom: 0.2em;
+	}
+	#title {
+		margin-top: 2em;
+	}
+	input {
+		height: 1.5em;
+		font-family: consolas, Tahoma, sans-serif;
+		font-size: 1.5em;
+	}
+	#go {
+		width: 3em;
+		height: 1.75em;
+		padding: 0px;
+		margin: 0px;
+		color: #FFF;
+		background-color: #15DB18;
+		border: 0px;
+	}
+	#result {
+		color: #15DB18;
+	}
+	h3 {
+		font-family: consolas, Tahoma, sans-serif;
+		margin-top: 2em;
+		margin-bottom: 0px;
+		color: #FFF;
+	}
+	table {
+		font-family: consolas, Tahoma, sans-serif;
+		color: #FFF;
+		margin-top: 0px;
+	}
+	th {
+		padding-right: 2em;
+		padding-left: 0px;
+		font-size: 1.1em;
+		/*border-bottom: 2px dashed #FFF;*/
+		padding-bottom: 0.2em;
+	}
+	td {
+		font-weight: light;
+		padding-left: 0px;
+	}
+	td:last-child, th:last-child {
+		text-align: right;
+		padding-right: 0em;
+	}
+	</style>
+</head>
+<body>
+	<div id="wrapper">
+		<h1 id="title">Formula: </h1>
+		<div id="inputBox">
+			<input id="formula" type="text" />
+			<input id="go" type="button" value="Go"/>
+		</div>
+		<h1>Result: <span id="result"></span></h1>
+
+		<h3>Details:</h3>
+		<table id="detail">
+			<thead>
+				<th>S_Operator</th>
+				<th>S_Number</th>
+				<th>Input</th>
+			</thead>
+			<tbody id="steps"></tbody>
+		</table>
+	</div>
+	
+	<script type="text/javascript">
+
+	window.onload = function() {
+		// test
+		// document.getElementById("formula").value = "5*(2+3)-35/7";
+		
+		// click event
+		var go = document.getElementById("go");
+		go.onclick = function() {
+			console.log("Go!");
+			document.getElementById("steps").innerHTML = "";
+			var formula = document.getElementById("formula").value;
+			var result = calculate(formula+"#");	// # is delimiter, meaning end of formula.
+			document.getElementById("result").innerHTML = "" + result;
+		};
+
+		// calculate the formula
+		function calculate(formula) {
+			console.log("calculating: "+formula);
+			var num = [];	// stack of Digits
+			var op = [];	// stack of Operators
+			op.push('#');	// begin symbol
+			displayStatus(op, num, formula);	// Inital status
+
+			var cache = null;	// stores last character read in
+			var c = formula.charAt(0);	// get first character.
+			while(c!='#' || op[op.length-1] != '#') {	// # means end of calculation
+				if( isNumber(c) ) {
+					// handel numbers > 9 (2 digits)
+					if(cache!=null && isNumber(cache)) {
+						var tmp = num[num.length-1];
+						tmp = Number(cache)*10 + Number(c);
+						num[num.length-1] = tmp;
+					} else {
+						num.push(c);
+					}
+					formula = formula.substring(1, formula.length);	// cut the first character in the formula
+					cache = c;										// cache last character
+					c = formula.charAt(0);							// get next character
+				} else {	// Not number, operator
+					switch(compare(op[op.length-1], c)) {			// actions according to priority
+						case -1: 	// the latter has higher priority, wait
+							op.push(c);
+							formula = formula.substring(1, formula.length);
+							cache = c;
+							c = formula.charAt(0);
+							break;
+						case 0: 	// same priority, ')' or '#'
+							op.pop();
+							formula = formula.substring(1, formula.length);
+							cache = c;
+							c = formula.charAt(0);
+							break;
+						case 1: 	// the former has higher priority, calculate
+							var o = op.pop();
+							var b = num.pop();
+							var a = num.pop();
+							var r = cal(o, a, b);
+							num.push(r);
+							cache = c;
+							break;
+						default:
+							break;
+					} // switch
+				} // else
+				displayStatus(op, num, formula);
+			} // while
+			console.info(num[num.length-1]);
+			return num[num.length-1];
+
+		}
+
+		// check if the character is data(or operator)
+		function isNumber(char) {
+			return char.match(/\d/i);
+		}
+
+		// Compare 2 operators, figure out their priority
+		function compare(op1, op2) {
+			var table = new Array(7);
+			for(var i=0; i<table.length; i++) {
+				table[i] = new Array(7);
+			}
+
+			// define priority between 2 operators
+			//  1: '>'
+			// -1: '<'
+			//  0: '='
+			//  9: no relationship
+			table[0][0] = 1;
+			table[0][1] = 1;
+			table[0][2] = -1;
+			table[0][3] = -1;
+			table[0][4] = -1;
+			table[0][5] = 1;
+			table[0][6] = 1;
+
+			table[1][0] = 1;
+			table[1][1] = 1;
+			table[1][2] = -1;
+			table[1][3] = -1;
+			table[1][4] = -1;
+			table[1][5] = 1;
+			table[1][6] = 1;
+
+			table[2][0] = 1;
+			table[2][1] = 1;
+			table[2][2] = 1;
+			table[2][3] = 1;
+			table[2][4] = -1;
+			table[2][5] = 1;
+			table[2][6] = 1;
+
+			table[3][0] = 1;
+			table[3][1] = 1;
+			table[3][2] = 1;
+			table[3][3] = 1;
+			table[3][4] = -1;
+			table[3][5] = 1;
+			table[3][6] = 1;
+
+			table[4][0] = -1;
+			table[4][1] = -1;
+			table[4][2] = -1;
+			table[4][3] = -1;
+			table[4][4] = -1;
+			table[4][5] = 0;
+			table[4][6] = 9;
+
+			table[5][0] = 1;
+			table[5][1] = 1;
+			table[5][2] = 1;
+			table[5][3] = 1;
+			table[5][4] = 9;
+			table[5][5] = 1;
+			table[5][6] = 1;
+
+			table[6][0] = -1;
+			table[6][1] = -1;
+			table[6][2] = -1;
+			table[6][3] = -1;
+			table[6][4] = -1;
+			table[6][5] = 9;
+			table[6][6] = 0;
+
+			// locate the 2 operators
+			var ops = ['+', '-', '*', '/', '(', ')', '#'];
+			var r = ops.indexOf(op1);
+			var c = ops.indexOf(op2);
+			
+			return table[r][c];
+		}
+		
+		// basic calculation of add/minus/multiply/divide
+		function cal(o, a, b) {
+			// a, b was string.
+			// convert to number to do 'add'
+			a = Number(a);
+			b = Number(b);
+
+			if(o=='+') {
+				return a+b;
+			} else if(o=='-') {
+				return a-b;
+			} else if(o=='*') {
+				return a*b;
+			} else if(o=='/') {
+				return a/b;
+			}
+		}
+
+		// display the progress of the calculation
+		// and show them on table
+		function displayStatus(s1, s2, f) {
+			// To console
+			console.info(s1+"   |   "+s2+"   |   "+f);
+
+			// To table
+			var steps = document.getElementById("steps");
+			var row = document.createElement("tr");
+			var stack_op = document.createElement("td");
+			var stack_num = document.createElement("td");
+			var str_formula = document.createElement("td");
+			var s1 = document.createTextNode(s1);
+			var s2 = document.createTextNode(s2);
+			var f = document.createTextNode(f);
+			stack_op.appendChild(s1);
+			stack_num.appendChild(s2);
+			str_formula.appendChild(f);
+			row.appendChild(stack_op);
+			row.appendChild(stack_num);
+			row.appendChild(str_formula);
+			steps.appendChild(row);
+		}
+
+		// check if the format of the formula is correct
+		// if not then skip calculation and return 'Invalida'
+		function validateFormula(formula){}
+
+		// TODO:
+		// 1. 负数的读取（左括号后面紧跟减号）
+		// 2. 方程式有效性的检测
+		// 3. Go按钮的样式
+	}
+	</script>
+</body>
+</html>
