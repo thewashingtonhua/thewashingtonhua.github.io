@@ -1,75 +1,155 @@
-@font-face {
+/* ========== Setup ========== */
+
+/*@font-face {
     font-family: 'Helvetica';
-    src: url('Helvetica.eot');
-    src: url('Helvetica.eot?#iefix') format('embedded-opentype'),
-         url('Helvetica.woff2') format('woff2'),
-         url('Helvetica.woff') format('woff'),
-         url('Helvetica.ttf') format('truetype'),
-         url('Helvetica.svg#Helvetica') format('svg');
+    src: url('../font/Helvetica/Helvetica.eot');
+    src: url('../font/Helvetica/Helvetica.eot?#iefix') format('embedded-opentype'),
+         url('../font/Helvetica/Helvetica.woff2') format('woff2'),
+         url('../font/Helvetica/Helvetica.woff') format('woff'),
+         url('../font/Helvetica/Helvetica.ttf') format('truetype'),
+         url('../font/Helvetica/Helvetica.svg#Helvetica') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}*/
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../font/Roboto/roboto.eot');
+    src: url('../font/Roboto/roboto.eot?#iefix') format('embedded-opentype'),
+         url('../font/Roboto/roboto.woff2') format('woff2'),
+         url('../font/Roboto/roboto.woff') format('woff'),
+         url('../font/Roboto/roboto.ttf') format('truetype'),
+         url('../font/Roboto/roboto.svg#roboto') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
+/*@font-face {
+    font-family: 'robotocondensed';
+    src: url('../font/RobotoCondensed/robotocondensed.eot');
+    src: url('../font/RobotoCondensed/robotocondensed.eot?#iefix') format('embedded-opentype'),
+         url('../font/RobotoCondensed/robotocondensed.woff2') format('woff2'),
+         url('../font/RobotoCondensed/robotocondensed.woff') format('woff'),
+         url('../font/RobotoCondensed/robotocondensed.ttf') format('truetype'),
+         url('../font/RobotoCondensed/robotocondensed.svg#robotocondensed') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}*/
+
+/*@font-face {
+  font-family: 'SourceHanSans';
+  src: url('../font/SourceHanSansCN/SourceHanSans.eot');
+  src: url('../font/SourceHanSansCN/SourceHanSans.eot?#iefix') format('embedded-opentype'),
+       url('../font/SourceHanSansCN/SourceHanSans.woff2') format('woff2'),
+       url('../font/SourceHanSansCN/SourceHanSans.woff') format('woff'),
+       url('../font/SourceHanSansCN/SourceHanSans.ttf') format('truetype'),
+       url('../font/SourceHanSansCN/SourceHanSans.svg#SourceHanSans') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}*/
+
 body {
-	padding: 0px;
-	margin: 0px;
+	padding: 0;
+	margin: 0;
 }
 
-#wrapper {
-	width: 480px;
-	height: 100%;
-	margin: 10% auto;
-	padding: 0px;
-	/*border: 1px dashed #000;*/
+/* ========== Sidebar ========== */
+
+#mf_sidebar {
+	position: fixed;
+	width: 300px;
+	min-height: 500px;
+	margin: 0;
+	background-color: #007EB8;
 }
 
-#profile {
-	float: left;
-	width: 150px;
-	height: 150px;
-	margin: 0px 165px 10px;
+#mf_portrait {
+	width: 120px;
+	height: 120px;
+	background-color: #EEE;
+	background-image: url(../img/portrait_120.jpg);	
+	border-radius: 50%;
+	margin-top: 30px;
+	margin-left: 90px;
+	border: 2px solid #FFF;
+	box-shadow: 2px 2px 2px #666;
 }
 
-#portrait {
-	height: 150px;
-	width: 150px;
-	background-color: #CCC;
-	background-image: url(../img/portrait.jpg);
-	padding: 0px;
-	box-shadow: 0px 0px 20px #EEE;
-	transition: box-shadow 0.2s ease-in;
-	-webkit-transition: box-shadow 0.2s ease-in-out;
-	-moz-transition: box-shadow 0.2s ease-in;
-	-o-transition: box-shadow 0.2s ease-in;
-}
-
-#portrait:hover {
-	box-shadow: 0px 0px 20px #666;
-}
-
-#uid {
-	clear: both;
-	color: #999;
-	font-family: Tahoma, Arial, sans-serif;
-	font-style: italic;
-	font-weight: bold;
-	margin-left: 178px;
+#mf_ghid {
+	display: block;
+	width: 300px;
+	text-align: center;
+	font-family: Roboto, Helvetica;
+	color: #FFF;
+	font-size: 1.5em;
+	line-height: 1.5em;
+	margin-top: 1em;
 	text-decoration: none;
-	transition: color 0.1s ease-in;
-	-webkit-transition: color 0.1s ease-in;
-	-moz-transition: color 0.1s ease-in;
-	-o-transition: color 0.1s ease-in;
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
 }
 
-#uid:hover {
-	color: #1697CB;
+#mf_ghid::before {
+	content: url(../img/github24.png);
+	vertical-align: bottom;
 }
 
-h2 {
-	font-family: Helvetica;
-	font-style: italic;
-	font-weight: lighter;
-	color: #999;
-	margin-left: 80px;
-	margin-top: 50px;
+#mf_ghid:hover {
+	text-shadow: 4px 4px 4px #444;
+}
+
+#mf_category {
+	width: 200px;
+	list-style: none;
+	margin-top: 4em;
+	padding-left: 100px;
+}
+
+#mf_category li {
+	height: 2em;
+	line-height: 2em;
+	font-size: 1.5em;
+	font-family: Roboto, Helvetica;
+	text-align: right;
+	padding-right: 46px;
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
+
+#mf_category li:hover {
+	font-size: 2em;
+	text-shadow: 4px 4px 4px #444;
+}
+
+#mf_category li.active {
+	background-color: #3F9EC9;
+	border-left: 6px solid #FFF;
+}
+
+#mf_category li a {
+	color: #FFF;
+	text-decoration: none;
+}
+
+#mf_category li a:hover {
+	color: #FFF;
+	text-decoration: none;
+}
+
+#mf_category li a:active {
+	color: #FFF;
+	text-decoration: none;
+}
+
+#mf_category li a:visited {
+	color: #FFF;
+	text-decoration: none;
+}
+
+/* ========== Content ========== */
+
+#mf_content {
+	padding: 20px;
 }

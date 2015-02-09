@@ -1,0 +1,80 @@
+/* ========== Cards ========== */
+
+.card {
+	height: 300px;
+	margin-left: 310px;
+	margin-right: 10px;
+	margin-bottom: 20px;
+	padding: 0px;
+	box-shadow: 2px 2px 5px 1px #999;
+	background-color: #FFF;
+}
+
+.banner {
+	height: 240px;
+	padding: 0px;
+	background-position: 50%;
+	background-size: cover;
+}
+
+.title {
+	float: left;
+	height: 90px;
+	margin-top: 120px;
+	margin-left: 0px;
+	padding: 30px 30px 0 30px;
+}
+
+.light-theme {
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme {
+	background-color: rgba(0, 0, 0, 0.75);
+}
+
+.title a {
+	text-decoration: none;
+	color: #FFF;
+	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
+	font-size: 2.3em;
+	margin: 0;
+	padding: 0;
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	transition: all 0.2s;
+}
+
+.title a:hover {
+	color: #007EB8;
+}
+
+.title a:active {
+	color: #007EB8;
+}
+
+.title a:visited {
+	color: #FFF;
+}
+
+.title h3 {
+	color: #FFF;
+	font-family: Roboto;
+	margin: 0;
+	padding: 0;
+	margin-top: 0.2em;
+}
+
+.description {
+	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";;
+	padding-top: 20px;
+	padding-left: 30px;
+}
+
+#stackCalculator div.banner{
+	background-image: url(../img/calculator.jpg);
+}
+
+#tiktokCalculator div.banner{
+	background-image: url(../img/tiktokcolor.jpg);
+}
