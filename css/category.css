@@ -68,6 +68,9 @@
 	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";;
 	padding-top: 20px;
 	padding-left: 30px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 #stackCalculator div.banner{
@@ -81,6 +84,49 @@
 /* Styles for mobile device */
 @media all and (max-width: 960px) {
 	.card {
-		margin-bottom: 60px;
+		height: 200px;
+		margin-bottom: 10px;
+		margin-right: 0;
+		box-shadow: 0 2px 5px 1px #999;
+	}
+
+	.banner {
+		height: 160px;
+	}
+
+	.title {
+		float: left;
+		height: 60px;
+		margin-top: 80px;
+		margin-left: 0px;
+		padding: 12px 20px 4px 20px;
+	}
+
+	.title a {
+		text-decoration: none;
+		color: #FFF;
+		font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
+		font-size: 1.6em;
+		margin: 0;
+		padding: 0 0 8px 0;
+		-webkit-transition: all 0.2s;
+		-moz-transition: all 0.2s;
+		transition: all 0.2s;
+	}
+
+	.title h3 {
+		color: #FFF;
+		font-family: Roboto;
+		margin: 0;
+		padding: 0;
+		margin-top: 0.2em;
+		font-size: 0.8em;
+	}
+
+	.description {
+		font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";;
+		padding-top: 10px;
+		padding-left: 10px;
+		font-size: 0.8em;
 	}
 }

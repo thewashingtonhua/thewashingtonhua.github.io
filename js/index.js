@@ -4,40 +4,27 @@ function init() {
 	var mf_sidebar 	= document.getElementById("mf_sidebar");
 	var mf_portrait = document.getElementById("mf_portrait");
 	var mf_ghid 	= document.getElementById("mf_ghid");
+	var mf_category = document.getElementById("mf_category");
 	
-	console.log("calling goMobile() on init");
 	goMobile();
 
-	window.onresize = function() {
-		console.log("calling goMobile() on resize");
-		goMobile();
-	}
+	window.onresize = goMobile();
 
 	function goMobile() {
 		console.log("goMobile() called");
 		if (window.innerWidth >960) {
 			// PC Style
-			mf_sidebar.style.height 	 = window.innerHeight+"px";
-			mf_portrait.style.marginLeft = "90px";
-			mf_ghid.style.marginLeft = "0px";
+			mf_sidebar.style.height = window.innerHeight+"px";
 		} else {
 			// Mobile Style
-			mf_sidebar.style.height = "300px";
-			
-			var mf_portrait_style 		= getCurrentStyle(mf_portrait);
-			var mf_portrait_style_width = mf_portrait_style['width'];
-			mf_portrait_style_width 	= mf_portrait_style_width.substring(0, mf_portrait_style_width.length-2);
-
-			var mf_ghid_style	  		= getCurrentStyle(mf_ghid);
-			var mf_ghid_style_width 	= mf_ghid_style['width'];
-			mf_ghid_style_width 		= mf_ghid_style_width.substring(0, mf_ghid_style_width.length-2);
-
-			console.log("window.innerWidth: " + window.innerWidth);
-			console.log("mf_portrait_style_width: "		+ mf_portrait_style_width);
-			console.log("mf_ghid_style_width: " 		+ mf_ghid_style_width);
-
-			mf_portrait.style.marginLeft = (window.innerWidth - mf_portrait_style_width ) / 2 + "px";
-			mf_ghid.style.marginLeft 	 = (window.innerWidth - mf_ghid_style_width ) 	 / 2 + "px";
+			mf_sidebar.style.height = "48px";
+			// console.log(window.innerWidth);
+			// console.log(getCurrentStyle(mf_sidebar)['height']);
+			// mf_category.style.width = (window.innerWidth - getCurrentStyle(mf_sidebar)['height']) + "px";
+			// console.log("mf_category.style.width: " + mf_category.style.width);
+			// console.log("getCurrentStyle(mf_category)['width']: " + getCurrentStyle(mf_category)['width']);
+			// console.log(mf_category.getElementsByTagName("li"));
+			// alert(mf_category.getElementsByTagName("li"));
 		}
 	}
 
