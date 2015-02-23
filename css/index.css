@@ -1,17 +1,5 @@
 /* ========== Setup ========== */
 
-/*@font-face {
-	font-family: 'Helvetica';
-	src: url('../font/Helvetica/Helvetica.eot');
-	src: url('../font/Helvetica/Helvetica.eot?#iefix') format('embedded-opentype'),
-		 url('../font/Helvetica/Helvetica.woff2') format('woff2'),
-		 url('../font/Helvetica/Helvetica.woff') format('woff'),
-		 url('../font/Helvetica/Helvetica.ttf') format('truetype'),
-		 url('../font/Helvetica/Helvetica.svg#Helvetica') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}*/
-
 @font-face {
 	font-family: 'Roboto';
 	src: url('../font/Roboto/roboto.eot');
@@ -23,30 +11,6 @@
 	font-weight: normal;
 	font-style: normal;
 }
-
-/*@font-face {
-	font-family: 'robotocondensed';
-	src: url('../font/RobotoCondensed/robotocondensed.eot');
-	src: url('../font/RobotoCondensed/robotocondensed.eot?#iefix') format('embedded-opentype'),
-		 url('../font/RobotoCondensed/robotocondensed.woff2') format('woff2'),
-		 url('../font/RobotoCondensed/robotocondensed.woff') format('woff'),
-		 url('../font/RobotoCondensed/robotocondensed.ttf') format('truetype'),
-		 url('../font/RobotoCondensed/robotocondensed.svg#robotocondensed') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}*/
-
-/*@font-face {
-  font-family: 'SourceHanSans';
-  src: url('../font/SourceHanSansCN/SourceHanSans.eot');
-  src: url('../font/SourceHanSansCN/SourceHanSans.eot?#iefix') format('embedded-opentype'),
-	   url('../font/SourceHanSansCN/SourceHanSans.woff2') format('woff2'),
-	   url('../font/SourceHanSansCN/SourceHanSans.woff') format('woff'),
-	   url('../font/SourceHanSansCN/SourceHanSans.ttf') format('truetype'),
-	   url('../font/SourceHanSansCN/SourceHanSans.svg#SourceHanSans') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}*/
 
 body {
 	padding: 0;
@@ -164,11 +128,12 @@ body {
 
 	#mf_portrait {
 		float: left;
-		width: 36px;
-		height: 36px;
+		width: 32px;
+		height: 32px;
 		background-size: 100%;
 		border-width: 1px;
-		margin: 4px;
+		margin: 7px 10px;
+		box-shadow: none;
 	}
 
 	#mf_ghid {
@@ -185,7 +150,7 @@ body {
 		float: left;
 		font-size: 1em;
 		padding: 0;
-		height: 45px;
+		height: 48px;
 		width: 5em;
 		line-height: 45px;
 		text-align: center;
@@ -199,16 +164,25 @@ body {
 	#mf_category li.active {
 		background-color: #3F9EC9;
 		border-left: none;
-		border-bottom: 3px solid #FFF;
 	}
 
 	#mf_content {
-		padding: 58px 0px 20px 0px;
+		padding: 58px 10px 20px 10px;
 	}
 }
 
 @media all and (max-width: 480px) {
 	#mf_category li {
 		width: 4em;
+	}
+}
+
+@media all and (max-width: 320px) {
+	#mf_category li {
+		font-size: 0.8em;
+	}
+
+	#mf_category li:hover {
+		font-size: 0.8em;
 	}
 }
