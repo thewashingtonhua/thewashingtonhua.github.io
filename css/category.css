@@ -99,7 +99,7 @@
 		height: 60px;
 		margin-top: 80px;
 		margin-left: 0px;
-		padding: 12px 20px 4px 20px;
+		padding: 12px 20px 8px 20px;
 	}
 
 	.title a {
@@ -107,7 +107,7 @@
 		color: #FFF;
 		font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
 		font-size: 1.6em;
-		margin: 0;
+		margin: 0 0 2px 0;
 		padding: 0 0 8px 0;
 		-webkit-transition: all 0.2s;
 		-moz-transition: all 0.2s;

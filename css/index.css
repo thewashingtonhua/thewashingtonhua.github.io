@@ -185,9 +185,9 @@ body {
 		float: left;
 		font-size: 1em;
 		padding: 0;
-		height: 42px;
+		height: 45px;
 		width: 5em;
-		line-height: 48px;
+		line-height: 45px;
 		text-align: center;
 	}
 
@@ -199,7 +199,7 @@ body {
 	#mf_category li.active {
 		background-color: #3F9EC9;
 		border-left: none;
-		border-bottom: 6px solid #FFF;
+		border-bottom: 3px solid #FFF;
 	}
 
 	#mf_content {
