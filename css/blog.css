@@ -19,7 +19,11 @@
 }
 
 #tiktokcolor .titleBanner {
-	background-image: url(../img/tiktokcolor2.jpg);
+	background-image: url(../img/tiktokcolor.jpg);
+}
+
+#stackcalculator .titleBanner {
+	background-image: url(../img/stackcalculator.jpg);
 }
 
 article h1 {

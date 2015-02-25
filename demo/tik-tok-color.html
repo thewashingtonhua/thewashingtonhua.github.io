@@ -11,58 +11,305 @@
 		-moz-transition: all 0.8s;
 		transition: all 0.8s;
 	}
+	
 	h1 {
 		font-size: 8em;
 		color: #FFF;
 		font-family: Helvetica, Tahoma, sans-serif;
+		margin-top: 1em;
+		margin-bottom: 0;
+		text-align: center;
+		min-width: 380px;
 	}
-	h2 {
-		font-size: 4em;
+
+	h4 {
+		font-size: 2em;
 		color: #FFF;
 		font-family: Helvetica, Tahoma, sans-serif;
+		margin-top: 0;
+		text-align: center;
+		min-width: 380px;
 	}
+
+	#mode_switch{
+		width: 380px;
+		min-width: 380px;
+		padding: 0;
+	}
+
+	#btn_rgb, #btn_hsl, #btn_cmyk {
+		float: left;
+		width: 100px;
+		height: 40px;
+		border: 1px solid #FFF;
+		border-radius: 4px;
+		color: #FFF;
+		padding: 0;
+		margin: 10px;
+		text-align: center;
+		line-height: 40px;
+		-webkit-transition: all 0.8s;
+		-moz-transition: all 0.8s;
+		transition: all 0.8s;
+	}
+
+	#btn_rgb:hover, #btn_hsl:hover, #btn_cmyk:hover {
+		cursor: pointer;
+	}
+
+	#mode_switch div.chosen {
+		color: #000;
+		background-color: #FFF;
+	}
+
 	@media all and (max-width: 1024px) {
-		h1 { font-size: 3em;	}
-		h2 { font-size: 1.5em;	}
+		h1 {
+			font-size: 5em;
+			margin-top: 2em;
+		}
+		h4 { font-size: 1.4em;	}
 	}
+
+	@media all and (max-width: 420px) {
+		h1, h4 {
+			min-width: 300px;
+		}
+		#mode_switch {
+			width: 300px;
+			min-width: 300px;
+		}
+		#btn_rgb, #btn_hsl, #btn_cmyk {
+			width: 70px;
+			height: 30px;
+			line-height: 30px;
+			font-size: 0.8em;
+		}
+	}
+
 	</style>
 </head>
 <body>
-	<table width="100%" height="100%" align="center" valign="middle">
-		<tr>
-			<td align="center" valign="middle">
-				<h1 id="time">00:00:00</h1>
-			</td>
-		</tr>
-		<tr>
-			<td align="center" valign="middle">
-				<h2 id="color">#000000</h1>
-			</td>
-		</tr>
-	</table>
+	<h1 id="time">00:00:00</h1>
+	<h4 id="color">#000000</h4>
+
+	<div id="mode_switch">
+		<div id="btn_rgb" class="chosen">RGB</div>
+		<div id="btn_hsl">HSL</div>
+		<div id="btn_cmyk">CMYK</div>
+	</div>
+
 	<script>
-	window.onload = tiktok();
+	var mode = "rgb";
+
+	window.onload = function(){
+
+		var btn_rgb = document.getElementById("btn_rgb");
+		var btn_hsl = document.getElementById("btn_hsl");
+		var btn_cmyk = document.getElementById("btn_cmyk");
+		
+		// button behaviors
+		btn_rgb.onclick = function(){
+			btn_rgb.className = "chosen";
+			btn_hsl.className = "";
+			btn_cmyk.className = "";
+			mode = "rgb";
+			tiktok();
+		};
+		btn_hsl.onclick = function(){
+			btn_rgb.className = "";
+			btn_hsl.className = "chosen";
+			btn_cmyk.className = "";
+			mode = "hsl";
+			tiktok();
+		};
+		btn_cmyk.onclick = function(){
+			btn_rgb.className = "";
+			btn_hsl.className = "";
+			btn_cmyk.className = "chosen";
+			mode = "cmyk";
+			tiktok();
+		};
+		
+		position();
+		window.onresize = position;
+
+		tiktok();
+
+		setInterval(tiktok, 1000);
+	}
+
+	// layout
+	function position(){
+		var modeSwitch 	= document.getElementById("mode_switch");
+		var modeswitch_width = getCurrentStyle(modeSwitch)['width'];
+		modeSwitch.style.marginLeft = ( window.innerWidth - modeswitch_width.substr(0, modeswitch_width.length-2) ) / 2 + "px";
+		// console.log("modeSwitch.style.marginLeft: " + modeSwitch.style.marginLeft);
+	}
+
+	// get computed style
+	function getCurrentStyle(node) {
+	    var style = null;
+	    
+	    if(window.getComputedStyle) {
+	        style = window.getComputedStyle(node, null);	// Not IE
+	    }else{
+	        style = node.currentStyle;	// IE
+	    }
+	    
+	    return style;
+	}
 
 	function tiktok() {
-		var day = new Date();
-		var hour = day.getHours();
-		var min = day.getMinutes();
-		var sec = day.getSeconds();
+		var date = new Date();
+		var day  = date.getDay();
+		var hour = date.getHours();
+		var min  = date.getMinutes();
+		var sec  = date.getSeconds();
 
+		if(day<10)	{day  = "0" + day;}
 		if(hour<10) {hour = "0" + hour;}
 		if(min<10)  {min  = "0" + min;}
 		if(sec<10)  {sec  = "0" + sec;}
 
+		/* time */
 		var time = hour.toString() + ":" + min.toString() + ":" + sec.toString();
-		var hex = "#" + hour.toString() + min.toString() + sec.toString();
 
+		/* set color by mode*/
+		var color;		// rgb(r, g, b)
+		var color_str;	// RGB/HSL/CMYK
+		var hex;		// #rrggbb
+
+		if (mode == "rgb") {
+			/* rgb */
+			var rgb = "rgb(" + hour.toString() + "," + min.toString() + "," + sec.toString() + ")";
+			color = rgb;
+			color_str = "R:" + hour.toString() + " G:" + min.toString() + " B:" + sec.toString();
+		} else if (mode == "hsl") {
+			/* hsl */
+			var hsl = "hsl(" + hour.toString() + "," + min.toString() + "%," + sec.toString() + "%)";
+			var rgb4hsl = hsl2rgb(hsl);
+			color = rgb4hsl;
+			color_str = "H:" + hour.toString() + " S:" + min.toString() + "% L:" + sec.toString() + "%";
+		} else {
+			/* cmyk */
+			var c = hour;
+			var m = min;
+			var y = sec;
+			var k = day;
+
+			var r = 1 - c * ( 1 - k ) - k;
+			var g = 1 - m * ( 1 - k ) - k;
+			var b = 1 - y * ( 1 - k ) - k;
+
+			var rgb4cmyk = "rgb(" + r + "," + g + "," + b + ")";
+			color = rgb4cmyk;
+			color_str = "C:" + c + " M:" + m + " Y:" + y + " K:" + k;
+		}
+
+		hex = rgb2hex(color);
+
+		// apply data
 		document.getElementById("time").innerHTML = time;
-		document.getElementById("color").innerHTML = hex;
+		document.body.style.backgroundColor = color;
+		document.getElementById("color").innerHTML = color_str + "  (" + hex + ")";
 
-		document.body.style.background = hex;
-	
-		setTimeout(tiktok, 1000);
+		// button color fix
+		if(btn_rgb.className == "chosen") {
+			btn_rgb.style.color = color;
+		} else {
+			btn_rgb.style.color = "#FFF";
+		}
+		if(btn_hsl.className == "chosen") {
+			btn_hsl.style.color = color;
+		} else {
+			btn_hsl.style.color = "#FFF";
+		}
+		if(btn_cmyk.className == "chosen") {
+			btn_cmyk.style.color = color;
+		} else {
+			btn_cmyk.style.color = "#FFF";
+		}
 	}
+
+	// from rgb(r, g, b) to #rrggbb
+	function rgb2hex(color) {
+		color = color.substring(4,color.length-1);
+		var rgb_array = color.trim().split(',');
+		var rd = Number(rgb_array[0]);
+		var gd = Number(rgb_array[1]);
+		var bd = Number(rgb_array[2]);
+		var rh = dec2hex(rd);
+		var gh = dec2hex(gd);
+		var bh = dec2hex(bd);
+		var hex = "#" + rh +gh + bh;
+		// console.log("rgb2hex:" + hex);
+		return hex;
+	}
+
+	// from decimal to heximal
+	function dec2hex(dec) {
+		var tens = Math.floor(dec/16);
+		var single = dec%16;
+		if(single == 10) {
+			single = "A";
+		} else if (single == 11) {
+			single = "B";
+		} else if (single == 12) {
+			single = "C";
+		} else if (single == 13) {
+			single = "D";
+		} else if (single == 14) {
+			single = "E";
+		} else if (single == 15) {
+			single = "F";
+		}
+		var hex = tens + "" + single;
+		// console.log("dec2hex:" + hex);
+		return hex;
+	}
+
+	// convert from HSL to RGB
+	function hsl2rgb(hsl) {
+		hsl = hsl.substring(4,hsl.length-1);
+		var hsl_array = hsl.trim().split(',');
+		var h = Number(hsl_array[0]);
+		var s = Number(hsl_array[1].substring(0, hsl_array[1].length-1))/100;
+		var l = Number(hsl_array[2].substring(0, hsl_array[2].length-1))/100;
+		// console.log("hsl_array:"+h+"|"+s+"|"+l);
+		var r, g, b;
+		if(s==0) {
+			r=l; g=l; b=l;	// pure grey
+		} else {
+			var tmp2 = (l<0.5) ? (l*(1+s)) : ((l*100+s*100)-l*s*100)/100;
+			var tmp1 = (2*l*100-tmp2*100)/100;
+			var h2 = h/360;
+
+			function hue2rgb(tmp1, tmp2, tmp3){
+				// console.log("tmp1: " + tmp1 + ", tmp2: " + tmp2 + ", tmp3: " + tmp3);
+	            if(tmp3 < 0) tmp3 += 1;
+	            if(tmp3 > 1) tmp3 -= 1;
+	            var result = 0;
+	            if(tmp3 < 1/6) {
+	            	result =  tmp1 + (tmp2 - tmp1) * 6 * tmp3;
+	            } else if(tmp3 < 1/2) {
+	            	result =  tmp2;
+	            } else if(tmp3 < 2/3) {
+	            	result =  tmp1 + (tmp2 - tmp1) * (2/3 - tmp3) * 6;
+	            } else {
+	            	result = tmp1;
+	            }
+	            return Math.round(result*255);
+	        }
+
+	        r = hue2rgb(tmp1, tmp2, h2 + 1/3);
+	        g = hue2rgb(tmp1, tmp2, h2);
+	        b = hue2rgb(tmp1, tmp2, h2 - 1/3);
+		}
+		var rgb = "rgb(" + r + "," + g + "," + b + ")";
+		// console.log("hsl2rgb: " + rgb);
+		return rgb;
+	}
+	
 	</script>
 </body>
 </html>
