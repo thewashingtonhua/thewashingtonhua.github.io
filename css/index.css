@@ -39,6 +39,12 @@ body {
 	border: 2px solid #FFF;
 	box-shadow: 2px 2px 2px #666;
 }
+/* Firefox hack*/
+@-moz-document url-prefix() {
+	#mf_portrait {
+		background-image: url(../img/portrait_120.jpg);
+	}
+}
 
 #mf_portrait:hover {
 	cursor: pointer;
@@ -61,6 +67,13 @@ body {
 
 #mf_ghid::before {
 	content: url(../img/github24.webp);
+}
+
+/* Firefox hack*/
+@-moz-document url-prefix() {
+	#mf_ghid::before {
+		content: url(../img/github24.png);
+	}
 }
 
 #mf_ghid:hover {
@@ -190,3 +203,4 @@ body {
 		font-size: 0.8em;
 	}
 }
+

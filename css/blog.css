@@ -21,9 +21,22 @@
 #tiktokcolor .titleBanner {
 	background-image: url(../img/tiktokcolor.webp);
 }
+/* Firefox hack*/
+@-moz-document url-prefix() {
+	#tiktokcolor .titleBanner {
+		background-image: url(../img/tiktokcolor.jpg);
+	}
+}
 
 #stackcalculator .titleBanner {
 	background-image: url(../img/stackcalculator.webp);
+	@-moz-document background-image: url(../img/stackcalculator.webp);
+}
+/* Firefox hack*/
+@-moz-document url-prefix() {
+	#stackcalculator .titleBanner {
+		background-image: url(../img/stackcalculator.webp);
+	}
 }
 
 article h1 {

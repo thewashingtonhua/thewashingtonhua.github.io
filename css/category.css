@@ -81,9 +81,19 @@
 #stackCalculator div.banner{
 	background-image: url(../img/stackcalculator.webp);
 }
+@-moz-document url-prefix() {
+	#stackCalculator div.banner {
+		background-image: url(../img/stackcalculator.jpg);
+	}
+}
 
 #tiktokCalculator div.banner{
 	background-image: url(../img/tiktokcolor.webp);
+}
+@-moz-document url-prefix() {
+	#tiktokCalculator div.banner{
+		background-image: url(../img/tiktokcolor.jpg);
+	}
 }
 
 /* Styles for mobile device */

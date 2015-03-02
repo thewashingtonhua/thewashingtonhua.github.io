@@ -9,8 +9,6 @@ function init() {
 	console.log("There are only 10 people in this");
 	console.log("world know i'm here. You are one");
 	console.log("of them. That makes us friends. ");
-	console.log("here: ideal19920402@gmail.com. ");
-	console.log("Contact me via that. ");
 	console.log("================================");
 
 	var mf_sidebar 	= document.getElementById("mf_sidebar");
