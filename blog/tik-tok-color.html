@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-	<title>Tik-tok Color - TongHuaShuo</title>
+	<title>Tik Tok Color - TongHuaShuo</title>
 	<link rel="shortcut icon" href="../img/favicon.ico" />
 	<link rel="stylesheet" href="../css/index.css" />
 	<link rel="stylesheet" href="../css/blog.css" />
@@ -30,11 +30,36 @@
 			<h1>时间是什么颜色的</h1>
 			<h3><time datetime="2015-02-10">Feb 10th 2015<time></h3>
 			<div class="titleBanner"></div>
-			<a href="../demo/tik-tok-color.html" target="_blank">Demo</a>
-			<a href="https://github.com/tonghuashuo/TikTokColor" target="_blank">View Source</a>
-			<p>最初在<a href="">这里</a>看到了这个案例，觉得挺有意思的，就尝试自己仿制了一个。</p>
-			<p>原理其实很简单，将时、分、秒的值对应为颜色的三个通道的数值，原作仅为RGB模式，我在其基础之上还尝试了HSL模式的效果</p>
-			<p>CMYK模式由于Web端暂时不支持显示，因此没法实现</p>
+			<a href="../demo/tik-tok-color.html" target="_blank" class="view_demo">Demo</a>
+			<a href="https://github.com/tonghuashuo/TikTokColor" target="_blank" class="view_source">View Source</a>
+			
+			<h2>简单说两句</h2>
+			<p>最初在<a href="http://whatcolourisit.scn9a.org/">这里</a>看到了这个案例，觉得挺有意思的，就尝试自己仿制了一个。</p>
+			<p>原理上讲其实很简单，将时间的值对应为颜色通道的数值，并通过视觉效果体现出来。原作仅为RGB模式，我在其基础之上还尝试了HSL模式和CMYK的效果，并支持3种模式之间的切换查看。CMYK模式在Web端并没有原生支持，因此没法直接实现，这里我把时、分、秒分别对应到C、M、Y通道，K通道用日期表示，一天一变，保证每个通道都能有变化，还不带重的。</p>
+			<p>原理简单，但要实现这一效果，还是涉及了不少的格式转换，例如：HSL到RGB的转换，CMYK到RGB的转换，RGB表示法到十六进制表示法的转换，十进制到十六进制的转换……</p>
+			<p>不同色彩空间的色域不完全相同，彼此间也不是简单的子集关系，因此可能会存在一定程度的转换失真，但误差都在可控范围内。并且由于时间的范围只有0-60，其中时只有0-24，日期也不过0-31，对应可现实的颜色范围只有其色域的一小部分（当然，我们完全可以通过换算来覆盖完整的色域空间，但是没有必要，这个idea的重点就在于把时间的值直接用做颜色值，看会是什么效果，因此这里我们不考虑这个问题）。</p>
+			<p>下面给出一些关键之处的实现说明，不足之处欢迎大家指正。（联系方式参见关于页面）</p>
+			
+			<h2>HSL到RGB的转换</h2>
+			<p>HSL模式在CSS中原生支持的，直接调用很简单，这里我们为了显示其对应的十六进制表示，需要把它先转换到RGB。算法如下：</p>
+			<code>code</code>
+			<a href="">Wikipedia 链接</a>
+			
+			<h2>CMYK到RGB的转换</h2>
+			<p>CMYK模式作为一种印刷行业的色彩空间，在Web上并没有原生的实现，只能借助RGB进行转换显示，</p>
+			<code>code</code>
+			<a href="">Wikipedia 链接</a>
+
+			<h2>RGB表示法到十六进制表示法的转换</h2>
+			<p>前面计算所得的RGB数值我们是将其作为十进制看待的，这一步我们需要将其转换为十六进制进行显示，</p>
+			<code>code</code>
+			
+			<h2>十进制到十六进制的转换</h2>
+			<p>这一步其实很简单，无非就是一个除法一个取模，需要注意的是，1）JavaScript中的数字全都是浮点数，因此除法的结果需要通过floor()向下取整。2）10-15需要映射到A-F显示</p>
+			<code>code</code>
+			
+			<h2>小结</h2>
+			<p>整个项目，难度并没有多少，但是要求有扎实的基础，否则实现起来免不了漏洞百出，例如字符串的截取和拼接，数字和字符的转换，数值范围的控制，转换算法的实现。实用价值倒没多大，练练基本功了。</p>
 		</article>
 	</div>
 

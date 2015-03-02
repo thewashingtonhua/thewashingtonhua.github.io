@@ -1,0 +1,56 @@
+/* ========== Article ========== */
+
+#mf_content article {
+	padding: 20px;
+	background-color: #FFF;
+	border: 1px solid #D8D8D8;
+	border-radius: 3px;
+}
+
+.titleBanner{
+	height: 300px;
+	margin-top: 20px;
+	margin-right: 0;
+	background-color: #EEE;
+	background-size: cover;
+	background-position: 50%;
+	border-radius: 3px;
+	padding: 0;
+}
+
+article h1 {
+	color: #262626;
+	font-size: 2.5em;
+	font-weight: 100;
+	margin: 0;
+	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
+}
+
+article h3 {
+	color: #999999;
+	font-weight: 100;
+	font-size: 1.2em;
+	margin: 0.1em 0 0 0;
+	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
+}
+
+article a.view_demo {
+	font-family: Roboto;
+}
+
+article a.view_source {
+	font-family: Roboto;
+}
+
+article h2 {
+	color: #262626;
+	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
+	font-weight: 100;
+}
+
+article p {
+	color: #262626;
+	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
+	font-weight: 400;
+	line-height: 1.8em;
+}

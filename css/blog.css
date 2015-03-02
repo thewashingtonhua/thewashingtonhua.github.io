@@ -54,3 +54,24 @@ article h3 {
 	margin: 0.1em 0 0 0;
 	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
 }
+
+article a.view_demo {
+	font-family: Roboto;
+}
+
+article a.view_source {
+	font-family: Roboto;
+}
+
+article h2 {
+	color: #262626;
+	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
+	font-weight: 100;
+}
+
+article p {
+	color: #262626;
+	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
+	font-weight: 100;
+	line-height: 1.8em;
+}
