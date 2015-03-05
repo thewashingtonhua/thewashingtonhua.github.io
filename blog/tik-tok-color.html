@@ -30,36 +30,123 @@
 			<h1>时间是什么颜色的</h1>
 			<h3><time datetime="2015-02-10">Feb 10th 2015<time></h3>
 			<div class="titleBanner"></div>
-			<a href="../demo/tik-tok-color.html" target="_blank" class="view_demo">Demo</a>
-			<a href="https://github.com/tonghuashuo/TikTokColor" target="_blank" class="view_source">View Source</a>
+			<p id="buttons">
+				<a href="../demo/tik-tok-color.html" target="_blank" class="view_demo">演示地址</a>
+				<a href="https://github.com/tonghuashuo/TikTokColor" target="_blank" class="view_source">查看源码</a>
+			</p>
 			
 			<h2>简单说两句</h2>
 			<p>最初在<a href="http://whatcolourisit.scn9a.org/">这里</a>看到了这个案例，觉得挺有意思的，就尝试自己仿制了一个。</p>
-			<p>原理上讲其实很简单，将时间的值对应为颜色通道的数值，并通过视觉效果体现出来。原作仅为RGB模式，我在其基础之上还尝试了HSL模式和CMYK的效果，并支持3种模式之间的切换查看。CMYK模式在Web端并没有原生支持，因此没法直接实现，这里我把时、分、秒分别对应到C、M、Y通道，K通道用日期表示，一天一变，保证每个通道都能有变化，还不带重的。</p>
-			<p>原理简单，但要实现这一效果，还是涉及了不少的格式转换，例如：HSL到RGB的转换，CMYK到RGB的转换，RGB表示法到十六进制表示法的转换，十进制到十六进制的转换……</p>
-			<p>不同色彩空间的色域不完全相同，彼此间也不是简单的子集关系，因此可能会存在一定程度的转换失真，但误差都在可控范围内。并且由于时间的范围只有0-60，其中时只有0-24，日期也不过0-31，对应可现实的颜色范围只有其色域的一小部分（当然，我们完全可以通过换算来覆盖完整的色域空间，但是没有必要，这个idea的重点就在于把时间的值直接用做颜色值，看会是什么效果，因此这里我们不考虑这个问题）。</p>
-			<p>下面给出一些关键之处的实现说明，不足之处欢迎大家指正。（联系方式参见关于页面）</p>
+			<p>原理上讲其实很简单，将时间的值对应为颜色通道的数值，并通过视觉效果体现出来。原作仅为RGB模式，我在其基础之上还尝试了HSL模式和CMYK的效果，并支持3种模式之间的切换查看。CMYK模式在Web端并没有原生支持，无法直接使用，因此我把时、分、秒分别对应到C、M、Y通道，K通道用日期表示，一天一变，保证每个通道都能有变化。</p>
+			<p>原理虽然简单，但实现过程涉及颜色空间和数值进制之间的格式转换，需要多加注意，否则会出现各种Bug。</p>
+			<p>不同色彩空间的色域不完全相同，彼此间也不是简单的包含关系，因此存在一定程度的转换失真。但由于时间的各个值最大不超过60，对应可显示的颜色范围只有完整色域的一小部分（当然，我们完全可以通过换算来覆盖完整的色域空间，但是没有必要，这个idea的重点就在于把时间的值直接用做颜色值，看会是什么效果，因此这里我们不考虑这个问题）。</p>
+			<p>下面给出一些关键之处的实现说明，不足之处欢迎大家到我的github上提Issue。</p>
 			
 			<h2>HSL到RGB的转换</h2>
-			<p>HSL模式在CSS中原生支持的，直接调用很简单，这里我们为了显示其对应的十六进制表示，需要把它先转换到RGB。算法如下：</p>
-			<code>code</code>
-			<a href="">Wikipedia 链接</a>
+			<p>CSS中原生支持通过HSL模式来表示颜色，因此可以直接调用hsl(h, s, l)来进行显示。这里我们为了显示其对应的十六进制表示，还需要进行一次从HSL到RGB的转换。转换算法如下：</p>
+			<code><pre>
+<span class='comment'>/*
+ * @Param hsl: a hsl expression like 'hsl(50, 0.6, 0.7)'
+ * @Return:    a rgb expression like 'rgb(152, 163, 204)'
+ */</span>
+<span class='keyword'>function</span> hsl2rgb(hsl) {
+
+    var hsl_array = hsl.substring(<span class='number'>4</span>,hsl.length-1).trim().split(',');
+    var h = Number(hsl_array[<span class='number'>0</span>]);
+    var s = Number(hsl_array[<span class='number'>1</span>].substring(<span class='number'>0</span>, hsl_array[<span class='number'>1</span>].length-1))/<span class='number'>100</span>;
+    var l = Number(hsl_array[<span class='number'>2</span>].substring(<span class='number'>0</span>, hsl_array[<span class='number'>2</span>].length-1))/<span class='number'>100</span>;
+
+    var r, g, b;
+    if(s==0) {
+        r=l; g=l; b=l;
+    } else {
+        var tmp2 = (l&lt0.5) ? (l*(1+s)) : ((l*100+s*100)-l*s*100)/100;
+        var tmp1 = (2*l*100-tmp2*100)/100;
+        var h2 = h/360;
+
+        function hue2rgb(tmp1, tmp2, tmp3){
+            if(tmp3 &lt 0) tmp3 += 1;
+            if(tmp3 &gt 1) tmp3 -= 1;
+            var result = 0;
+            if(tmp3 &lt 1/6) {
+                result =  tmp1 + (tmp2 - tmp1) * 6 * tmp3;
+            } else if(tmp3 &lt 1/2) {
+                result =  tmp2;
+            } else if(tmp3 &lt 2/3) {
+                result =  tmp1 + (tmp2 - tmp1) * (2/3 - tmp3) * 6;
+            } else {
+                result = tmp1;
+            }
+            return Math.round(result*255);
+        }
+
+        r = hue2rgb(tmp1, tmp2, h2 + 1/3);
+        g = hue2rgb(tmp1, tmp2, h2);
+        b = hue2rgb(tmp1, tmp2, h2 - 1/3);
+    }
+
+    var rgb = "rgb(" + r + "," + g + "," + b + ")";
+    return rgb;
+}</pre>
+			</code>
+			<p>由于IEEE745浮点数的精度问题，在计算过程中不得不通过缩放来维持计算的准确性。详细的算法描述可以参见下面的wikipedia的链接。</p>
+			<a href="http://zh.wikipedia.org/wiki/HSL%E5%92%8CHSV%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4">[Wikipedia] HSL到RGB的转换算法</a>
 			
 			<h2>CMYK到RGB的转换</h2>
-			<p>CMYK模式作为一种印刷行业的色彩空间，在Web上并没有原生的实现，只能借助RGB进行转换显示，</p>
-			<code>code</code>
-			<a href="">Wikipedia 链接</a>
+			<p>CMYK模式作为一种印刷行业的色彩空间，在Web上并没有原生的实现，因此只能借助RGB进行中转。好在CMYK到RGB的转换并不复杂，公式化简之后可以一步到位。</p>
+			<code><pre>
+var c = hour;
+var m = min;
+var y = sec;
+var k = day;
 
-			<h2>RGB表示法到十六进制表示法的转换</h2>
-			<p>前面计算所得的RGB数值我们是将其作为十进制看待的，这一步我们需要将其转换为十六进制进行显示，</p>
-			<code>code</code>
+var r = Math.round( (1 - c/100 * ( 1 - k/100 ) - k/100 ) * 255);
+var g = Math.round( (1 - m/100 * ( 1 - k/100 ) - k/100 ) * 255);
+var b = Math.round( (1 - y/100 * ( 1 - k/100 ) - k/100 ) * 255);</pre></code>
+			<p>变量hour, min, sec, day在之前的代码中有定义，来自于new Date()，这里将其省略了。时间值与CMYK值的映射关系是我自定义的，因为色相主要由C、M、Y决定，如果这三个值变化太慢的话，视觉上不容易看出效果，而K主要负责定位套版的颜色，一天一变问题不大，你也可以变换尝试其他的组合，说不定会有意想不到的效果。详细的算法描述可以参见下面的wikipedia的链接。</p>
+			<a href="http://zh.wikipedia.org/wiki/%E5%8D%B0%E5%88%B7%E5%9B%9B%E5%88%86%E8%89%B2%E6%A8%A1%E5%BC%8F">[Wikipedia] CMYK到RGB的转换算法</a>
+
+			<h2>RGB的十六进制表示法</h2>
+			<p>前面计算所得的R、G、B数值，不管是在RGB模式下，还是从HSL和CMYK转换过来的，我们都是将其作为十进制看待的，取值范围为0-255，这一步我们需要将其转换为6位十六进制进行显示</p>
+			<code><pre>
+function rgb2hex(color) {
+    var rgb_array = color.substring(4,color.length-1).trim().split(',');
+    var rd = Number(rgb_array[0]);
+    var gd = Number(rgb_array[1]);
+    var bd = Number(rgb_array[2]);
+    
+    var rh = dec2hex(rd);
+    var gh = dec2hex(gd);
+    var bh = dec2hex(bd);
+    
+    var hex = "#" + rh +gh + bh;
+    return hex;
+}</pre></code>
+			<p>rd、gd、bd为从color中分离出来的RGB通道各自的十进制数，后缀d表示decimal，十进制。rh、gh、bh为转换后RGB通道各自的2位的十六进制值，后缀h表示hexadecimal，十六进制。</p>
 			
 			<h2>十进制到十六进制的转换</h2>
-			<p>这一步其实很简单，无非就是一个除法一个取模，需要注意的是，1）JavaScript中的数字全都是浮点数，因此除法的结果需要通过floor()向下取整。2）10-15需要映射到A-F显示</p>
-			<code>code</code>
+			<p>上一段有一个dec2hex()函数，这也是一个自定义函数，传入一个0-255的十进制数，返回其对应的2位十六进制数。这一步其实很简单，无非就是一个除法一个取模，需要注意的是：1）JavaScript中的数字全都是浮点数，因此除法的结果需要通过floor()向下取整。2）十六进制，10-15需要映射到A-F显示</p>
+			<code><pre>
+function dec2hex(dec) {
+    var tens = Math.floor(dec/16);
+    var single = dec%16;
+
+    var ch = ['A', 'B', 'C', 'D', 'E', 'F'];
+
+    if(tens >= 10) {
+        tens = ch[tens-10];
+    }
+
+    if(single >= 10) {
+        single = ch[single-10];
+    }
+
+    var hex = tens + "" + single;
+    return hex;
+}</pre></code>
 			
 			<h2>小结</h2>
-			<p>整个项目，难度并没有多少，但是要求有扎实的基础，否则实现起来免不了漏洞百出，例如字符串的截取和拼接，数字和字符的转换，数值范围的控制，转换算法的实现。实用价值倒没多大，练练基本功了。</p>
+			<p>看似简单的东西，做起来却又陷阱重重，没有扎实的基本功就免不了漏洞百出。练习作品，全当娱乐了。</p>
 		</article>
 	</div>
 

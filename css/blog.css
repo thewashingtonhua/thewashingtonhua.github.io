@@ -1,3 +1,17 @@
+/* Setups */
+
+@font-face {
+    font-family: 'SourceCodePro';
+    src: url('../font/SourceCodePro/SourceCodePro-Regular.eot');
+    src: url('../font/SourceCodePro/SourceCodePro-Regular.eot?#iefix') format('embedded-opentype'),
+         url('../font/SourceCodePro/SourceCodePro-Regular.woff2') format('woff2'),
+         url('../font/SourceCodePro/SourceCodePro-Regular.woff') format('woff'),
+         url('../font/SourceCodePro/SourceCodePro-Regular.ttf') format('truetype'),
+         url('../font/SourceCodePro/SourceCodePro-Regular.svg#SourceCodePro') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* ========== Article ========== */
 
 #mf_content article {
@@ -7,10 +21,45 @@
 	border-radius: 3px;
 }
 
+article h1 {
+	color: #262626;
+	font-size: 2.5em;
+	font-weight: 100;
+	margin: 0;
+	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
+}
+
+article h2 {
+	color: #262626;
+	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
+	font-weight: 400;
+	margin-top: 1em;
+	margin-bottom: 0.5em;
+	font-size: 2em;
+}
+
+article h3 {
+	color: #999999;
+	font-size: 1.2em;
+	font-weight: 100;
+	margin: 0.1em 0 0 0;
+	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
+}
+
+article p {
+	color: #262626;
+	font-family: Noto, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
+	font-weight: 100;
+	line-height: 1.8em;
+	margin-top: 0.8em;
+	margin-bottom: 0.8em;
+}
+
 .titleBanner{
 	height: 300px;
 	margin-top: 20px;
 	margin-right: 0;
+	margin-bottom: 40px;
 	background-color: #EEE;
 	background-size: cover;
 	background-position: 50%;
@@ -39,39 +88,62 @@
 	}
 }
 
-article h1 {
-	color: #262626;
-	font-size: 2.5em;
-	font-weight: 100;
-	margin: 0;
+#buttons {
+	text-align: center;
+}
+
+article a {
+	color: #007EB8;
+	text-decoration: none;
+	font-weight: 700;
 	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
+	padding: 0.1em 0.5em;
 }
 
-article h3 {
-	color: #999999;
-	font-weight: 100;
-	font-size: 1.2em;
-	margin: 0.1em 0 0 0;
-	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
-}
-
-article a.view_demo {
-	font-family: Roboto;
-}
-
-article a.view_source {
-	font-family: Roboto;
-}
-
-article h2 {
-	color: #262626;
-	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
+article a.view_demo, article a.view_source {
+	color: #FFF;
+	background-color: #007EB8;
+	border-radius: 4px;
+	padding: 10px 20px;
+	margin: 0 10px;
 	font-weight: 100;
 }
 
-article p {
-	color: #262626;
-	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
-	font-weight: 100;
-	line-height: 1.8em;
+article a.view_demo:hover, article a.view_source:hover {}
+
+article a.view_demo:visited, article a.view_source:visited {}
+
+code {
+	display: block;
+	font-family: SourceCodePro;
+	border-left: 4px solid #CCC;
+	padding-left: 1em;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	margin-left: 1em;
 }
+
+pre {
+	font-family: SourceCodePro;
+	word-wrap: break-word;
+}
+
+pre span.keyword {
+	color: #00792C;
+	font-weight: 700;
+}
+
+pre span.comment {
+	color: #999;
+}
+
+pre span.number {
+	color: #D8130B;
+	font-weight: 700;
+}
+
+pre span.string {}
+
+pre span.variable {}
+
+
