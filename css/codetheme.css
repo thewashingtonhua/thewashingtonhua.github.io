@@ -1,0 +1,38 @@
+pre span.keyword {
+	color: #00792C;
+	font-weight: 700;
+}
+
+pre span.comment {
+	color: #999;
+}
+
+pre span.number {
+	color: #D8130B;
+	font-weight: 700;
+}
+
+pre span.string {
+	color: #7F532D;
+	font-weight: 700;
+}
+
+pre span.variable {
+	color: #001CC3;
+	font-weight: 700;
+}
+
+pre span.function {
+	color: #00A1C3;
+	font-weight: 700;
+}
+
+pre span.property {
+	color: #B009BD;
+	font-weight: 700;
+}
+
+pre span.arguement {
+	color: #F4A300;
+	font-weight: 700;
+}

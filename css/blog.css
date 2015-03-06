@@ -55,6 +55,26 @@ article p {
 	margin-bottom: 0.8em;
 }
 
+article p span.code {
+	padding: 0.2em  0.5em;
+	margin: 0.5em;
+	background-color: #EEE;
+	border-radius: 4px;
+	font-weight: 400;
+	box-shadow: inset 1px 1px 1px #BBB;
+	font-family: SourceCodePro;
+}
+
+/*article P::selection{
+	background-color: #007EB8;
+	color: #FFF;
+}
+
+article P::-moz-selection{
+	background-color: #007EB8;
+	color: #FFF;
+}*/
+
 .titleBanner{
 	height: 300px;
 	margin-top: 20px;
@@ -68,24 +88,11 @@ article p {
 }
 
 #tiktokcolor .titleBanner {
-	background-image: url(../img/tiktokcolor.webp);
-}
-/* Firefox hack*/
-@-moz-document url-prefix() {
-	#tiktokcolor .titleBanner {
-		background-image: url(../img/tiktokcolor.jpg);
-	}
+	background-image: url(../img/tiktokcolor.jpg);
 }
 
 #stackcalculator .titleBanner {
-	background-image: url(../img/stackcalculator.webp);
-	@-moz-document background-image: url(../img/stackcalculator.webp);
-}
-/* Firefox hack*/
-@-moz-document url-prefix() {
-	#stackcalculator .titleBanner {
-		background-image: url(../img/stackcalculator.webp);
-	}
+	background-image: url(../img/stackcalculator.jpg);
 }
 
 #buttons {
@@ -100,7 +107,11 @@ article a {
 	padding: 0.1em 0.5em;
 }
 
-article a.view_demo, article a.view_source {
+article a.reference{
+	padding: 0;
+}
+
+#buttons a {
 	color: #FFF;
 	background-color: #007EB8;
 	border-radius: 4px;
@@ -109,41 +120,61 @@ article a.view_demo, article a.view_source {
 	font-weight: 100;
 }
 
-article a.view_demo:hover, article a.view_source:hover {}
+#buttons a:hover {
+	color: #FFF;
+	background-color: #57AAD0;
+}
 
-article a.view_demo:visited, article a.view_source:visited {}
 
-code {
-	display: block;
-	font-family: SourceCodePro;
-	border-left: 4px solid #CCC;
-	padding-left: 1em;
-	margin-top: 1em;
-	margin-bottom: 1em;
-	margin-left: 1em;
+#buttons a:active {
+	color: #FFF;
+	background-color: #005D87;
 }
 
 pre {
+	border-left: 4px solid #CCC;
+	background-color: #F6F6F6;
+	padding-left: 1em;
+	padding-right: 1em;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	margin-left: 1em;
+	overflow-x: scroll;
+}
+
+code {
 	font-family: SourceCodePro;
-	word-wrap: break-word;
+	color: #262626;
 }
 
-pre span.keyword {
-	color: #00792C;
-	font-weight: 700;
+@media all and (max-width: 480px) {
+	.titleBanner {
+		height: 160px;
+	}
+
+	article h1 {
+		font-size: 2em;
+	}
+
+	article h2 {
+		font-size: 1.6em;
+		/*font-weight: 100;*/
+	}
+
+	pre {
+		margin-left: 0;
+		font-size: 0.8em;
+	}
 }
 
-pre span.comment {
-	color: #999;
+@media all and (max-width: 320px) {
+	.titleBanner {
+		height: 100px;
+	}
+
+	#buttons a {
+		margin: 0 5px;
+		padding: 6px 12px;
+		font-size: 0.8em;
+	}
 }
-
-pre span.number {
-	color: #D8130B;
-	font-weight: 700;
-}
-
-pre span.string {}
-
-pre span.variable {}
-
-

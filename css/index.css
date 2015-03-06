@@ -51,18 +51,12 @@ body {
 	width: 120px;
 	height: 120px;
 	background-color: #EEE;
-	background-image: url(../img/portrait_120.webp);	
+	background-image: url(../img/portrait_120.jpg);
 	border-radius: 50%;
 	margin-top: 30px;
 	margin-left: 89px;
 	border: 2px solid #FFF;
 	box-shadow: 2px 2px 2px #666;
-}
-/* Firefox hack*/
-@-moz-document url-prefix() {
-	#mf_portrait {
-		background-image: url(../img/portrait_120.jpg);
-	}
 }
 
 #mf_portrait:hover {
@@ -85,14 +79,7 @@ body {
 }
 
 #mf_ghid::before {
-	content: url(../img/github24.webp);
-}
-
-/* Firefox hack*/
-@-moz-document url-prefix() {
-	#mf_ghid::before {
-		content: url(../img/github24.png);
-	}
+	content: url(../img/github24.png);
 }
 
 #mf_ghid:hover {

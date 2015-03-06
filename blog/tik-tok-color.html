@@ -7,6 +7,7 @@
 	<link rel="shortcut icon" href="../img/favicon.ico" />
 	<link rel="stylesheet" href="../css/index.css" />
 	<link rel="stylesheet" href="../css/blog.css" />
+	<!-- <link rel="stylesheet" href="../css/codetheme.css" /> -->
 </head>
 <body>
 	<div id="mf_sidebar">
@@ -44,17 +45,14 @@
 			
 			<h2>HSL到RGB的转换</h2>
 			<p>CSS中原生支持通过HSL模式来表示颜色，因此可以直接调用hsl(h, s, l)来进行显示。这里我们为了显示其对应的十六进制表示，还需要进行一次从HSL到RGB的转换。转换算法如下：</p>
-			<code><pre>
-<span class='comment'>/*
- * @Param hsl: a hsl expression like 'hsl(50, 0.6, 0.7)'
- * @Return:    a rgb expression like 'rgb(152, 163, 204)'
- */</span>
-<span class='keyword'>function</span> hsl2rgb(hsl) {
+			<pre>
+				<code>
+function hsl2rgb(hsl) {
 
-    var hsl_array = hsl.substring(<span class='number'>4</span>,hsl.length-1).trim().split(',');
-    var h = Number(hsl_array[<span class='number'>0</span>]);
-    var s = Number(hsl_array[<span class='number'>1</span>].substring(<span class='number'>0</span>, hsl_array[<span class='number'>1</span>].length-1))/<span class='number'>100</span>;
-    var l = Number(hsl_array[<span class='number'>2</span>].substring(<span class='number'>0</span>, hsl_array[<span class='number'>2</span>].length-1))/<span class='number'>100</span>;
+    var hsl_array = hsl.substring(4,hsl.length-1).trim().split(',');
+    var h = Number(hsl_array[0]);
+    var s = Number(hsl_array[1].substring(0, hsl_array[1].length-1))/100;
+    var l = Number(hsl_array[2].substring(0, hsl_array[2].length-1))/100;
 
     var r, g, b;
     if(s==0) {
@@ -87,14 +85,14 @@
 
     var rgb = "rgb(" + r + "," + g + "," + b + ")";
     return rgb;
-}</pre>
-			</code>
-			<p>由于IEEE745浮点数的精度问题，在计算过程中不得不通过缩放来维持计算的准确性。详细的算法描述可以参见下面的wikipedia的链接。</p>
-			<a href="http://zh.wikipedia.org/wiki/HSL%E5%92%8CHSV%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4">[Wikipedia] HSL到RGB的转换算法</a>
+}
+				</code>
+			</pre>
+			<p>函数接受一个形如<span class="code">hsl(h, s%, l%)</span>的表达式作为参数，返回值为形如<span class="code">rgb(r, g, b)</span>的表达式。由于IEEE745浮点数的精度问题，在计算过程中不得不通过缩放来维持计算的准确性。详细的算法描述可以参见：<a class="reference" href="http://zh.wikipedia.org/wiki/HSL%E5%92%8CHSV%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4">[Wikipedia] HSL到RGB的转换算法</a></p>
 			
 			<h2>CMYK到RGB的转换</h2>
-			<p>CMYK模式作为一种印刷行业的色彩空间，在Web上并没有原生的实现，因此只能借助RGB进行中转。好在CMYK到RGB的转换并不复杂，公式化简之后可以一步到位。</p>
-			<code><pre>
+			<p>CMYK模式作为一种印刷行业的色彩空间，在Web上并没有原生的实现，因此只能借助RGB进行中转。好在CMYK到RGB的转换并不复杂，公式化简之后可以一步到位，关键算法如下：</p>
+			<pre><code>
 var c = hour;
 var m = min;
 var y = sec;
@@ -102,13 +100,13 @@ var k = day;
 
 var r = Math.round( (1 - c/100 * ( 1 - k/100 ) - k/100 ) * 255);
 var g = Math.round( (1 - m/100 * ( 1 - k/100 ) - k/100 ) * 255);
-var b = Math.round( (1 - y/100 * ( 1 - k/100 ) - k/100 ) * 255);</pre></code>
-			<p>变量hour, min, sec, day在之前的代码中有定义，来自于new Date()，这里将其省略了。时间值与CMYK值的映射关系是我自定义的，因为色相主要由C、M、Y决定，如果这三个值变化太慢的话，视觉上不容易看出效果，而K主要负责定位套版的颜色，一天一变问题不大，你也可以变换尝试其他的组合，说不定会有意想不到的效果。详细的算法描述可以参见下面的wikipedia的链接。</p>
-			<a href="http://zh.wikipedia.org/wiki/%E5%8D%B0%E5%88%B7%E5%9B%9B%E5%88%86%E8%89%B2%E6%A8%A1%E5%BC%8F">[Wikipedia] CMYK到RGB的转换算法</a>
+var b = Math.round( (1 - y/100 * ( 1 - k/100 ) - k/100 ) * 255);
+			</code></pre>
+			<p>变量<span class="code">hour</span>, <span class="code">min</span>, <span class="code">sec</span>, <span class="code">day</span>在之前的代码中有定义，来自于new Date()，这里将其省略了。时间值与CMYK值的映射关系是我自定义的，因为色相主要由C、M、Y决定，如果这三个值变化太慢的话，视觉上不容易看出效果，而K主要负责定位套版的颜色，一天一变问题不大，你也可以变换尝试其他的组合，说不定会有意想不到的效果。详细的算法描述可以参见：<a class="reference" href="http://zh.wikipedia.org/wiki/%E5%8D%B0%E5%88%B7%E5%9B%9B%E5%88%86%E8%89%B2%E6%A8%A1%E5%BC%8F">[Wikipedia] CMYK到RGB的转换算法</a></p>
 
 			<h2>RGB的十六进制表示法</h2>
-			<p>前面计算所得的R、G、B数值，不管是在RGB模式下，还是从HSL和CMYK转换过来的，我们都是将其作为十进制看待的，取值范围为0-255，这一步我们需要将其转换为6位十六进制进行显示</p>
-			<code><pre>
+			<p>前面计算所得的R、G、B数值，不管是在RGB模式下，还是从HSL和CMYK转换过来的，我们都是将其作为十进制看待的，取值范围为0-255，这一步我们需要将其转换为6位十六进制进行显示。</p>
+			<pre><code>
 function rgb2hex(color) {
     var rgb_array = color.substring(4,color.length-1).trim().split(',');
     var rd = Number(rgb_array[0]);
@@ -121,12 +119,13 @@ function rgb2hex(color) {
     
     var hex = "#" + rh +gh + bh;
     return hex;
-}</pre></code>
-			<p>rd、gd、bd为从color中分离出来的RGB通道各自的十进制数，后缀d表示decimal，十进制。rh、gh、bh为转换后RGB通道各自的2位的十六进制值，后缀h表示hexadecimal，十六进制。</p>
+}
+			</code></pre>
+			<p><span class="code">rd</span>、<span class="code">gd</span>、<span class="code">bd</span>为从color中分离出来的RGB通道各自的十进制数，后缀d表示decimal，十进制。<span class="code">rh</span>、<span class="code">gh</span>、<span class="code">bh</span>为转换后RGB通道各自的2位的十六进制值，后缀h表示hexadecimal，十六进制。</p>
 			
 			<h2>十进制到十六进制的转换</h2>
-			<p>上一段有一个dec2hex()函数，这也是一个自定义函数，传入一个0-255的十进制数，返回其对应的2位十六进制数。这一步其实很简单，无非就是一个除法一个取模，需要注意的是：1）JavaScript中的数字全都是浮点数，因此除法的结果需要通过floor()向下取整。2）十六进制，10-15需要映射到A-F显示</p>
-			<code><pre>
+			<p>上一段有一个<span class="code">dec2hex()</span>函数，这也是一个自定义函数，传入一个0-255的十进制数，返回其对应的2位十六进制数。这一步其实很简单，无非就是一个除法一个取模，需要注意的是：1）JavaScript中的数字全都是浮点数，因此除法的结果需要通过<span class="code">floor()</span>向下取整。2）十六进制，10-15需要映射到A-F显示。</p>
+			<pre><code>
 function dec2hex(dec) {
     var tens = Math.floor(dec/16);
     var single = dec%16;
@@ -143,7 +142,8 @@ function dec2hex(dec) {
 
     var hex = tens + "" + single;
     return hex;
-}</pre></code>
+}
+			</code></pre>
 			
 			<h2>小结</h2>
 			<p>看似简单的东西，做起来却又陷阱重重，没有扎实的基本功就免不了漏洞百出。练习作品，全当娱乐了。</p>
