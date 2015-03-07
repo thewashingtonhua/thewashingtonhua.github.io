@@ -38,11 +38,19 @@ article h2 {
 	font-size: 2em;
 }
 
-article h3 {
-	color: #999999;
-	font-size: 1.2em;
+article h3{
+	color: #262626;
+	font-size: 1.5em;
+	font-weight: 400;
+	margin: 1.3em 0 0 0;
+	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
+}
+
+article div.time{
+	color: #999;
+	font-size: 1.5em;
 	font-weight: 100;
-	margin: 0.1em 0 0 0;
+	margin: 0.5em 0 0 0;
 	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
 }
 
@@ -58,6 +66,16 @@ article p {
 article p span.code {
 	padding: 0.2em  0.5em;
 	margin: 0.5em;
+	background-color: #EEE;
+	border-radius: 4px;
+	font-weight: 400;
+	box-shadow: inset 1px 1px 1px #BBB;
+	font-family: SourceCodePro;
+}
+
+article h3 span.code {
+	padding: 0.1em 0.3em;
+	margin: 0 0.3em;
 	background-color: #EEE;
 	border-radius: 4px;
 	font-weight: 400;
@@ -102,7 +120,7 @@ article P::-moz-selection{
 article a {
 	color: #007EB8;
 	text-decoration: none;
-	font-weight: 700;
+	font-weight: 400;
 	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
 	padding: 0.1em 0.5em;
 }
@@ -132,7 +150,7 @@ article a.reference{
 }
 
 pre {
-	border-left: 4px solid #CCC;
+	border-left: 4px solid #007EB8;
 	background-color: #F6F6F6;
 	padding-left: 1em;
 	padding-right: 1em;

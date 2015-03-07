@@ -14,12 +14,12 @@ h1.title {
 	float: left;
 	width: 280px;
 	min-width: 280px;
-	height: 320px;
+	height: 276px;
 	padding: 0;
 	background-color: #FFF;
 	border: 1px solid #D8D8D8;
 	border-radius: 3px;
-	font-family: Roboto, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
+	/*font-family: Roboto, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";*/
 	margin-right: 20px;
 	margin-bottom: 50px;
 }
@@ -36,30 +36,27 @@ h1.title {
 	border-radius: 3px 3px 0 0;
 }
 
-#sunke .cover {
-	background-image: url(../img/lucode.jpg);
+#tiktokcolor .cover {
+	background-image: url(../img/tiktokcolor_thumb.jpg);
 }
 
-#xiehaozhe .cover {
-	background-image: url(../img/trunkshell.jpg);
-}
-
-#lvzhonghou .cover {
-	background-image: url(../img/lvzhonghou.jpg);
+#stackcalculator .cover {
+	background-image: url(../img/stackcalculator_thumb.jpg);
 }
 
 .card h3 {
+	font-family: Roboto, "Helvetica", "Sans-Serif";
 	padding: 0.5em;
 	margin: 0;
 	font-weight: 100;
 }
 
-.card ul {
+.card p {
 	padding: 0 0.5em;
 	margin: 0 0 0.5em 0;
 	font-weight: 100;
-	list-style: none;
 	color: #999;
+	font-family: Roboto, "Helvetica", "Sans-Serif", "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
 }
 
 .card a {
@@ -71,21 +68,19 @@ h1.title {
 .card a p {
 	width: 280px;
 	min-width: 280px;
-	text-align: center;
-	font-family: Roboto, "Helvetica", "Sans-Serif", "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体" ;
-	margin: 1em 0 0 0;
-	border-top: 1px solid #DDD;
 	height: 2.8em;
 	line-height: 2.8em;
+	text-align: center;
+	color: #007EB8;
+	font-family: Roboto, "Helvetica", "Sans-Serif", "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
+	margin: 1em 0 0 0;
+	padding: 0;
+	border-top: 1px solid #DDD;
+	border-radius: 0 0 2px 2px;
 	-webkit-transition: all 0.5s;
 	-moz-transition: all 0.5s;
 	-o-transition: all 0.5s;
 	transition: all 0.5s;
-}
-
-.card a p:visited {
-	background-color: #FFF;
-	color: #007EB8;
 }
 
 .card a p:hover {

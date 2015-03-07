@@ -1,3 +1,17 @@
+/* Setups */
+
+@font-face {
+    font-family: 'SourceCodePro';
+    src: url('../font/SourceCodePro/SourceCodePro-Regular.eot');
+    src: url('../font/SourceCodePro/SourceCodePro-Regular.eot?#iefix') format('embedded-opentype'),
+         url('../font/SourceCodePro/SourceCodePro-Regular.woff2') format('woff2'),
+         url('../font/SourceCodePro/SourceCodePro-Regular.woff') format('woff'),
+         url('../font/SourceCodePro/SourceCodePro-Regular.ttf') format('truetype'),
+         url('../font/SourceCodePro/SourceCodePro-Regular.svg#SourceCodePro') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* ========== Article ========== */
 
 #mf_content article {
@@ -7,10 +21,53 @@
 	border-radius: 3px;
 }
 
+article h1 {
+	color: #262626;
+	font-size: 2.5em;
+	font-weight: 100;
+	margin: 0 0 0.5em 0;
+	font-family: Roboto, "Helvetica", "Sans-Serif", "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
+}
+
+table {
+	display: block;
+	font-family: Roboto, "Helvetica", "Sans-Serif", "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
+	background-color: #EEE;
+	overflow-x: scroll;
+}
+
+td {
+	height: 2em;
+	line-height: 2em;
+}
+
+td:nth-child(odd) {
+	font-weight: 700;
+	width: 5.5em;
+	min-width: 5.5em;
+	text-align: right;
+	border-left: 4px solid #007EB8;
+}
+
+td:nth-child(even) {
+	width: 20em;
+	min-width: 20em;
+}
+
+
+article a {
+	color: #007EB8;
+	text-decoration: none;
+	font-weight: 700;
+	font-family: Roboto, "Helvetica", "Sans-Serif", "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
+	padding: 0;
+}
+
 .titleBanner{
 	height: 300px;
 	margin-top: 20px;
 	margin-right: 0;
+	margin-bottom: 40px;
 	background-color: #EEE;
 	background-size: cover;
 	background-position: 50%;
@@ -18,39 +75,33 @@
 	padding: 0;
 }
 
-article h1 {
-	color: #262626;
-	font-size: 2.5em;
-	font-weight: 100;
-	margin: 0;
-	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
+@media all and (max-width: 480px) {
+	article h1 {
+		font-size: 2em;
+	}
+
+	td {
+		font-size: 0.8em;
+	}
+
+	td:nth-child(even) {
+		width: 10em;
+		min-width: 10em;
+	}
 }
 
-article h3 {
-	color: #999999;
-	font-weight: 100;
-	font-size: 1.2em;
-	margin: 0.1em 0 0 0;
-	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
-}
+@media all and (max-width: 320px) {
+	article h1 {
+		font-size: 1.5em;
+	}
 
-article a.view_demo {
-	font-family: Roboto;
-}
+	td {
+		font-size: 0.6em;
+		padding-right: 0.6em;
+	}
 
-article a.view_source {
-	font-family: Roboto;
-}
-
-article h2 {
-	color: #262626;
-	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
-	font-weight: 100;
-}
-
-article p {
-	color: #262626;
-	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
-	font-weight: 400;
-	line-height: 1.8em;
+	td:nth-child(even) {
+		width: 7em;
+		min-width: 7em;
+	}
 }

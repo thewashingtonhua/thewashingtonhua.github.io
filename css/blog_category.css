@@ -47,16 +47,16 @@
 	transition: color 0.2s;
 }
 
+.title a:visited {
+	color: #FFF;
+}
+
 .title a:hover {
 	color: #007EB8;
 }
 
 .title a:active {
 	color: #007EB8;
-}
-
-.title a:visited {
-	color: #FFF;
 }
 
 .title h3 {
@@ -140,9 +140,9 @@
 }
 
 /* Styles for 1080P device */
-@media all and (min-width: 1920px) {
-}
+/* @media all and (min-width: 1920px) {
+} */
 
 /* Styles for 2K+ device */
-@media all and (min-width: 2560px) {
-}
+/* @media all and (min-width: 2560px) {
+} */
