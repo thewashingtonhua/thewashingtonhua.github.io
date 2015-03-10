@@ -320,22 +320,11 @@
 
 	// from decimal to heximal
 	function dec2hex(dec) {
-		var tens = Math.floor(dec/16);
-		var single = dec%16;
-
-		var ch = ['A', 'B', 'C', 'D', 'E', 'F'];
-
-		if(tens >= 10) {
-			tens = ch[tens-10];
+		var d = Number(dec);
+		if(d < 16) {
+			return "0" + d.toString(16);
 		}
-
-		if(single >= 10) {
-			single = ch[single-10];
-		}
-
-		var hex = tens + "" + single;
-		// console.log("dec2hex:" + hex);
-		return hex;
+		return d.toString(16);
 	}
 
 	// convert from HSL to RGB
