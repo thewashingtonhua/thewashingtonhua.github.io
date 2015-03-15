@@ -142,26 +142,25 @@
 				if( isNumber(c) ) {
 					// handel numbers > 9 (2+ digits)
 					if(cache!=null && isNumber(cache)) {
-						var tmp = num[num.length-1];
-						tmp = Number(cache)*10 + Number(c);
+						var tmp = Number(cache)*10 + Number(c);
 						num[num.length-1] = tmp;
 					} else {
 						num.push(c);
 					}
-					formula = formula.substring(1, formula.length);	// cut the first character in the formula
+					formula = formula.substr(1);
 					cache = c;										// cache last character
 					c = formula.charAt(0);							// get next character
 				} else {	// Not number, operator
 					switch(compare(op[op.length-1], c)) {			// actions according to priority
 						case -1: 	// the latter has higher priority, wait
 							op.push(c);
-							formula = formula.substring(1, formula.length);
+							formula = formula.substr(1);
 							cache = c;
 							c = formula.charAt(0);
 							break;
 						case 0: 	// same priority, ')' or '#'
 							op.pop();
-							formula = formula.substring(1, formula.length);
+							formula = formula.substr(1);
 							cache = c;
 							c = formula.charAt(0);
 							break;

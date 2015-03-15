@@ -78,6 +78,8 @@
 	-webkit-font-smoothing: antialiased;
 }
 
+/* 1024 x 512 px */
+
 #stackCalculator div.banner{
 	background-image: url(../img/stackcalculator.jpg);
 }
@@ -85,6 +87,11 @@
 #tiktokCalculator div.banner{
 	background-image: url(../img/tiktokcolor.jpg);
 }
+
+#substring div.banner{
+	background-image: url(../img/substring.jpg);
+}
+
 
 /* Styles for mobile device */
 @media all and (max-width: 960px) {
@@ -145,4 +152,4 @@
 
 /* Styles for 2K+ device */
 /* @media all and (min-width: 2560px) {
-} */
+} 

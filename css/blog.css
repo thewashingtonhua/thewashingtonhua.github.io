@@ -15,7 +15,7 @@
 /* ========== Article ========== */
 
 #mf_content article {
-	padding: 20px;
+	padding: 50px 20px;
 	background-color: #FFF;
 	border: 1px solid #D8D8D8;
 	border-radius: 3px;
@@ -26,12 +26,12 @@ article h1 {
 	font-size: 2.5em;
 	font-weight: 100;
 	margin: 0;
-	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
+	font-family: Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
 }
 
 article h2 {
 	color: #262626;
-	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
+	font-family: Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
 	font-weight: 400;
 	margin-top: 1em;
 	margin-bottom: 0.5em;
@@ -43,7 +43,7 @@ article h3{
 	font-size: 1.5em;
 	font-weight: 400;
 	margin: 1.3em 0 0 0;
-	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
+	font-family: Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
 }
 
 article div.time{
@@ -51,12 +51,12 @@ article div.time{
 	font-size: 1.5em;
 	font-weight: 100;
 	margin: 0.5em 0 0 0;
-	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
+	font-family: Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
 }
 
 article p {
 	color: #262626;
-	font-family: Noto, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
+	font-family: Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
 	font-weight: 100;
 	line-height: 1.8em;
 	margin-top: 0.8em;
@@ -105,12 +105,18 @@ article P::-moz-selection{
 	padding: 0;
 }
 
+/* 1024 x 512 px*/
+
 #tiktokcolor .titleBanner {
 	background-image: url(../img/tiktokcolor.jpg);
 }
 
 #stackcalculator .titleBanner {
 	background-image: url(../img/stackcalculator.jpg);
+}
+
+#substring .titleBanner {
+	background-image: url(../img/substring.jpg);
 }
 
 #buttons {
@@ -121,12 +127,41 @@ article a {
 	color: #007EB8;
 	text-decoration: none;
 	font-weight: 400;
-	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
+	font-family: Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
 	padding: 0.1em 0.5em;
 }
 
 article a.reference{
 	padding: 0;
+	font-weight: 700;
+}
+
+article ul {
+	list-style: none;
+	padding-left: 30px;
+	margin: 0;
+}
+
+article ul li {
+	font-size: 1.2em;
+	line-height: 1.5em;
+	font-family: Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
+	font-size: 1em;
+	font-weight: 100;
+}
+
+article ol {
+	padding-left: 30px;
+	margin: 0;
+	margin-left: 20px;
+}
+
+article ol li {
+	font-size: 1.2em;
+	line-height: 1.5em;
+	font-family: Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
+	font-size: 1em;
+	font-weight: 100;
 }
 
 #buttons a {
@@ -161,7 +196,7 @@ pre {
 }
 
 code {
-	font-family: SourceCodePro;
+	font-family: SourceCodePro, Consolas;
 	color: #262626;
 }
 
@@ -176,7 +211,6 @@ code {
 
 	article h2 {
 		font-size: 1.6em;
-		/*font-weight: 100;*/
 	}
 
 	pre {
