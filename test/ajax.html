@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ajax</title>
+	<script>
+	window.onload = doajax;
+
+	function doajax() {
+		var xmlhttp;
+		if (window.XMLHttpRequest)
+		{
+			// code for IE7+, Firefox, Chrome, Opera, Safari
+			xmlhttp=new XMLHttpRequest();
+		}
+		else
+		{
+			// code for IE6, IE5
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+
+		xmlhttp.open("GET", "resource.txt", false);
+		xmlhttp.send();
+
+		document.getElementById("content").innerHTML = xmlhttp.responseText;
+	}
+	</script>
+</head>
+<body>
+	<h1>If succeeded, You should see some text below</h1>
+	<!-- <input type="button" value="get" id="btn" onclick="doajax()"> -->
+	<p id="content">aaa</p>
+
+</body>
+</html>
