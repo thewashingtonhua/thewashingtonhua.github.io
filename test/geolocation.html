@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+	<meta name="description" content="童话说，一个关于Web前端的个人技术博客，不定期发布Web前端及其相关技术的博文">
+	<meta name="keywords" content="tonghuashuo,github,前端,html,css,javascript,android">
+	<title>TongHuaShuo</title>
+</head>
+<body>
+	<script>
+	// Really? It's been over a decade since the 21th century, and you are still using IE ? Let's get you updated
+
+	// Geolocation
+	var location = navigator.geolocation.getCurrentPosition(
+		function (position) {
+			var coords = position.coords;
+			alert("latitude:" + coords.latitude + ", longtitude:" + coords.longtitude + ", altitude:" + coords.altitude + ", accuracy:" + coords.accuracy);
+		}, 
+		function (error) {
+			var errorType = {
+				1: "位置服务被拒绝",
+				2: "获取不到位置信息",
+				3: "获取信息超时"
+			};
+			alert(errorType[error.code] + "：无法获取你当前的地理位置");
+		}
+	);
+	// set href
+
+	/*var ua = window.navigator.userAgent.toLowerCase();
+	if(ua.indexOf("msie") > 0) {
+		var ie_ver = ua.match(/msie\s\d+/).toString().substr(4);
+		if(ie_ver < 9) {
+			// window.location.href = 
+		}
+	} */
+	
+
+	</script>
+</body>
+</html>
