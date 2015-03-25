@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+	<title>What color is it - Blog | TongHuaShuo</title>
+	<link rel="shortcut icon" href="../../img/favicon.ico" />
+	<link rel="stylesheet" href="../../css/index.css" />
+	<link rel="stylesheet" href="../../css/blog.css" />
+	<!-- <link rel="stylesheet" href="../css/codetheme.css" /> -->
+</head>
+<body>
+	<div id="mf_sidebar">
+		
+		<div id="mf_profile">
+			<div id="mf_portrait"></div>
+			<a id="mf_ghid" href="https://github.com/tonghuashuo" target="_blank"> @tonghuashuo</a>
+		</div>
+		
+		<ul id="mf_category">
+			<li id="blog" class="active"><a href="../blog.html">Blog</a></li>
+			<li id="project"><a href="../project.html">Project</a></li>
+			<li id="friend"><a href="../friend.html">Friend</a></li> <!-- Meet the furture -->
+			<li id="about"><a href="../about.html">About</a></li>
+		</ul>
+
+	</div>
+
+	<div id="mf_content">
+		<article id="tiktokcolor">
+			<h1>What color is it</h1>
+			<div class="time"><time datetime="2015-02-10">Feb 10th 2015<time></div>
+			<div class="titleBanner"></div>
+			<p id="buttons">
+				<a href="../../demo/tik-tok-color.html" target="_blank" class="view_demo">Demo</a>
+				<a href="https://github.com/tonghuashuo/TikTokColor" target="_blank" class="view_source">View Source</a>
+			</p>
+			
+			<h2>Intro</h2>
+			<p>I got this idea from <a class="reference" href="http://whatcolourisit.scn9a.org/">here</a>. Found it interesting. So did it.</p>
+			<p>Basically, it maps time (hour, minute, second) into color(channels), and then visualizes them. The original design only supports RGB mode. I added support for HSL and CMYK mode. You can click on the buttons to switch betwwen and see the difference. Currently, CSS doesn't support CMYK mode, which means we can't write code like <span class="code">background-color: cmyk(c, m, y, k);</span>. So I used the date as K (hour, minute, second as C, M, Y). So every second there will be a new color, and it won't duplicate within a month.</p>
+			<p>Simple as it is, the implement requires conversion of color mode and number system. If not paying enough attention, you will be trapped by bugs.</p>
+			<p>The 3 color mode, neither do they share the same color gamut nor any of them being sub collection of another. So there will be some loss of colors during conversion. But given that the maximum value of time is 59 (0 based), the result can only cover a small part of the color gamut. (Although we could convert then into full gamut but it won't be necessary coz the idea is to simply use the time value and see what color will come out.) So we gonna just skip this little problem.</p>
+			<p>Key to the implement will be given below. If you have any better ideas, you are welcomed to send me a issue on my github.</p>
+			
+			<h2>HSL to RGB</h2>
+			<p>CSS support HSLmode, so we can simply write<span class="code">hsl(h, s, l)</span>. Here we need to display the hexadecimal value too. so we need an extra conversion from HSL to RGB.</p>
+			<pre><code>function hsl2rgb(hsl) {
+
+    var hsl_array = hsl.substring(4,hsl.length-1).trim().split(',');
+    var h = Number(hsl_array[0]);
+    var s = Number(hsl_array[1].substring(0, hsl_array[1].length-1))/100;
+    var l = Number(hsl_array[2].substring(0, hsl_array[2].length-1))/100;
+
+    var r, g, b;
+    if(s==0) {
+        r=l; g=l; b=l;
+    } else {
+        var tmp2 = (l&lt;0.5) ? (l*(1+s)) : ((l*100+s*100)-l*s*100)/100;
+        var tmp1 = (2*l*100-tmp2*100)/100;
+        var h2   = h/360;
+
+        function hue2rgb(tmp1, tmp2, tmp3){
+            if(tmp3 &lt; 0) tmp3 += 1;
+            if(tmp3 &gt; 1) tmp3 -= 1;
+            var result = 0;
+            if(tmp3 &lt; 1/6) {
+                result =  tmp1 + (tmp2 - tmp1) * 6 * tmp3;
+            } else if(tmp3 &lt; 1/2) {
+                result =  tmp2;
+            } else if(tmp3 &lt; 2/3) {
+                result =  tmp1 + (tmp2 - tmp1) * (2/3 - tmp3) * 6;
+            } else {
+                result = tmp1;
+            }
+            return Math.round(result*255);
+        }
+
+        r = hue2rgb(tmp1, tmp2, h2 + 1/3);
+        g = hue2rgb(tmp1, tmp2, h2);
+        b = hue2rgb(tmp1, tmp2, h2 - 1/3);
+    }
+
+    var rgb = "rgb(" + r + "," + g + "," + b + ")";
+    return rgb;
+}			</code></pre>
+			<p>The function requires an expression like<span class="code">hsl(h, s%, l%)</span>as arguement, and returns an expression like<span class="code">rgb(r, g, b)</span>. But due to the precision problem of IEEE745 floating point number. It requires some zooming to mainten the accuracy. For detail of the algorithm, see: <a class="reference" href="https://en.wikipedia.org/wiki/HSL_and_HSV" target="_blank">Converting to RGB from HSL</a></p>
+			
+			<h2>CMYK to RGB</h2>
+			<p>CMYK mode is the standard color gamut of publishing industry. Haven't been supported by CSS yet. So need a little help from RGB. Lucky it's not too complex to convert from CMYK to RGB. After simplifing we can do it with just 3 lines of code：</p>
+			<pre><code>var c = hour;
+var m = min;
+var y = sec;
+var k = day;
+
+var r = Math.round( (100 - c） * ( 100 - k ) * 255 / 100);
+var g = Math.round( (100 - m） * ( 100 - k ) * 255 / 100);
+var b = Math.round( (100 - y） * ( 100 - k ) * 255 / 100);</code></pre>
+			<p><span class="code">hour</span>, <span class="code">min</span>, <span class="code">sec</span>, <span class="code">day</span> were defined in previous codes from <span class="code">new Date()</span>, which is not shown here. The map from time to CMYK is totally customized. The C, M, Y channel defines the hue of a color, if changing too slow, you won't see any obvious changes. The K channel defines, which stands for Key, is the outline of the color. It won't be a problem if this channel changes not that frequently. You can try other combinations as well. Might comes out quite interesting. For detail of this algorithm, see: <a class="reference" href="http://www.rapidtables.com/convert/color/cmyk-to-rgb.htm" target="_blank"> CMYK to RGB conversion formula</a></p>
+
+			<h2>RGB in hexadecimal</h2>
+			<p>The RGB value from the conversion, no matter from which mode, were treated as decimal, value from 0 to 255. Now we need to convert them into hexadecimal of 6 digits for display.</p>
+			<pre><code>function rgb2hex(color) {
+    var rgb_array = color.substring(4,color.length-1).trim().split(',');
+    var rd = Number(rgb_array[0]);
+    var gd = Number(rgb_array[1]);
+    var bd = Number(rgb_array[2]);
+    
+    var rh = rd.toString(16);
+    var gh = gd.toString(16);
+    var bh = bd.toString(16);
+    
+    var hex = "#" + rh +gh + bh;
+    return hex;
+}			</code></pre>
+			<p><span class="code">rd</span>、<span class="code">gd</span>、<span class="code">bd</span> are the decimal value for the RGB channel of arguement color. <span class="code">rh</span>、<span class="code">gh</span>、<span class="code">bh</span>are 2 digits hexadecimal value of each above. The 16 in <span class="code">toString(16)</span> means convert the number to string using hexadecimal.</p>
+			
+			<h2>Summary</h2>
+			<p>Simple idea, but not that simple to implement. Any reckless thinking would result in bugs.Practice is the sole criterion for testing truth.</p>
+		</article>
+	</div>
+
+	<script src="../../js/index.js"></script>
+</body>
+</html>

@@ -206,7 +206,7 @@
 
 	function tiktok() {
 		var date = new Date();
-		var day  = date.getDay();
+		var day  = date.getDate();
 		var hour = date.getHours();
 		var min  = date.getMinutes();
 		var sec  = date.getSeconds();
@@ -240,7 +240,7 @@
 			var hsl = "hsl(" + h + "," + s + "%," + l + "%)";
 			var rgb4hsl = hsl2rgb(hsl);
 			color_val = rgb4hsl;
-			color_str = "H:" + h + "&nbsp&nbspS:" + s + "%&nbsp&nbspL:" + l + "%";
+			color_str = "H:" + h + "&nbsp&nbspS:" + s + "&nbsp&nbspL:" + l;
 		} else {
 			/* CMYK  C:0-100%  M:0-100%  Y:0-100%  K:0-100% */
 			var c = hour;

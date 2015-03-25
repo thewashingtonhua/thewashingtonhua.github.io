@@ -1,17 +1,14 @@
-TongHuaShuo
-=====================
+>##Attention !!!!!!
+> ** For those who want EN version. change the 'cn' in the url into 'en' and you're good to go. I'll put a switch button later. But now my bed is calling me. **
 
-## Blog
-- Details about my project
-- Problem solved recently
-- Translation works
+#Major Change Log
 
-## Project
-- Introduction of my projects
-- Links to the Demos
+## 2015-03-26
+- Added English Version
 
-## Friend
-- Intro & Links to my friends' site.
-
-## About
-- About Me Page
+## 2015-03-08 ( V1.0 release )
+- Flat Design : Google Cards, Roboto, thin font-weight.
+- Responsive Design, mobile Friendly.
+- Uploaded 2 blogs.
+- Linked 2 projects.
+- Linked to lucode.net, trunk shell, lvzhonghou.com.
