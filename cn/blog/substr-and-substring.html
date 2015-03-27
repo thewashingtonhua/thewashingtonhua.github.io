@@ -72,9 +72,10 @@ console.log('(20, 2): '  + str.substr(20, 2));  // '(20, 2): '</code></pre>
 			<h2>substring( start [ , end ] )</h2>
 			<ul>
 				<li><strong><em>start</em></strong>
-					<ul>
+					<ol>
 						<li>介于0（包含）和字符串长度之间的整数，表示从该字符串开始截取子串；</li>
-					</ul>
+						<li>若 &ge; 字符串长度，则返回空字符串；</li>
+					</ol>
 				</li>
 				<li><strong><em>end（可选）</em></strong>
 					<ol>
@@ -85,9 +86,8 @@ console.log('(20, 2): '  + str.substr(20, 2));  // '(20, 2): '</code></pre>
 				</li>
 				<li><strong><em>特殊情况</em></strong>
 					<ol>
-						<li>若 start == end，则返回空字符串；</li>
 						<li>任一参数 &lt; 0，或为 NaN，则将其视为0；</li>
-						<li>任一参数 &ge; 字符串长度，则将其指定为字符串末尾；</li>
+						<li>若 start == end，则返回空字符串；</li>
 						<li>若 start &gt; end，则两者交换数值； </li>
 					</ol>
 			</ul>

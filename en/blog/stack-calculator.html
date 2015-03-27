@@ -1,9 +1,13 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-	<title>栈计算器 - Blog | TongHuaShuo</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="description" content="童话说，一个关于Web前端的个人技术博客，不定期发布Web前端及其相关技术的博文">
+    <meta name="keywords" content="tonghuashuo,github,前端,html,css,javascript,android">
+	<title>Stack Calculator - Blog | TongHuaShuo</title>
 	<link rel="shortcut icon" href="../../img/favicon.ico" />
 	<link rel="stylesheet" href="../../css/index.css" />
 	<link rel="stylesheet" href="../../css/blog.css" />
@@ -17,29 +21,29 @@
 		</div>
 		
 		<ul id="mf_category">
-			<li id="blog" class="active"><a href="../blog.html">博客</a></li>
-			<li id="project"><a href="../project.html">项目</a></li>
-			<li id="friend"><a href="../friend.html">朋友</a></li> <!-- Meet the furture -->
-			<li id="about"><a href="../about.html">关于</a></li>
+			<li id="blog" class="active"><a href="../blog.html">Blog</a></li>
+			<li id="project"><a href="../project.html">Project</a></li>
+			<li id="friend"><a href="../friend.html">Friend</a></li> <!-- Meet the furture -->
+			<li id="about"><a href="../about.html">About</a></li>
 		</ul>
 
 	</div>
 
 	<div id="mf_content">
 		<article id="stackcalculator">
-			<h1>栈计算器</h1>
+			<h1>Stack Calculator</h1>
 			<div class="time"><time datetime="2015-02-10">Feb 10th 2015<time></div>
 			<div class="titleBanner"></div>
 			<p id="buttons">
-				<a href="../demo/stack-calculator.html" target="_blank" class="view_demo">演示地址</a>
-				<a href="https://github.com/tonghuashuo/calculator" target="_blank" class="view_source">查看源码</a>
+				<a href="../demo/stack-calculator.html" target="_blank" class="view_demo">Demo</a>
+				<a href="https://github.com/tonghuashuo/calculator" target="_blank" class="view_source">Source Code</a>
 			</p>
 
-			<h2>简单说两句</h2>
-			<p>用栈实现计算器，这是数据结构中关于栈的一个经典案例，在很多数据结构的教材中也都有明确的算法说明。这里我们给出一个用JavaScript实现的版本。</p>
+			<h2>Intro</h2>
+			<p>Implementing a formula calculator using stack is a classic case in Data Structure. Has been metioned in many text books about Data Structure. Here is a demo developed by JavaScript.</p>
 
-			<h2>原理</h2>
-			<p>这个案例的原理，是通过建立两个栈，分别存储读入的操作符和数字，在读取过程中判断操作符之间的优先级关系，来进行计算或等待。因此算法的核心其实是要建立起一张关于操作符优先级的关系表，我们可以通过二维数组来记录这张表，并实现比较。</p>
+			<h2>Principle</h2>
+			<p>To do this. We need 2 stacks. One stores operators, the other one stores number. During the reading process, we compare the operators according to their priorities. Then we decide whether to calculate or wait for the next operator. So the key of this algorithm is to set up a table that records the priority relationship between any two operators. We can do it using an array.</p>
 			<pre><code>function compare(op1, op2) {
     var table = new Array(7);
 	
@@ -62,8 +66,8 @@
 	
     return table[row][col];
 }           </code></pre>
-			<p><span class="code">table</span>就是前面说到的优先级关系表，其顺序对应了<span class="code">ops</span>中定义的操作符的顺序。其中<span class="code">#</span>是我们额外加入的一个标记，用于标记方程式解析的开始和结束，在操作符栈<span class="code">op</span>的栈底和方程式的最右边各有一个，其本身并不是操作符。<span class="code">table[i]</span>记录了<span class="code">ops</span>中第i个操作符在遇到其它操作符时的优先级关系。</p>
-			<p>有了这张表，接下来我们就可以进行方程式的解析了。首先创建两个栈<span class="code">num</span>和<span class="code">op</span>（在JavaScript中栈其实也是数组），分别用于存储读入的数字和操作符，然后在<span class="code">op</span>中线存入一个<span class="code">#</span>，用于初始化。</p>
+			<p>The Variable <span class="code">table</span> is the priority relationship table we talked above. Order is defined in variable <span class="code">ops</span>. Notice we have an extra operator <span class="code">#</span>. It marks the begining and end of the whole process. It only appears in two place: one at the botton of operator stack<span class="code">op</span>, one at the right of the formula. <span class="code">table[i]</span> records the priority of the No.i operator in <span class="code">ops</span> when it meets the next operator.</p>
+			<p>Now we have the table. We can start interpretating the formula. First we create the two stacks: <span class="code">num</span> and <span class="code">op</span> (In Javascript, a stack is also an array). Then we push a <span class="code">#</span> into <span class="code">op</span> for initialization.</p>
 			<pre><code>function calculate(formula) {
     var num = [];                                // stack of Digits
     var op  = [];                                // stack of Operators
@@ -115,24 +119,23 @@
    } // end of while
    return num[num.length-1];
 }			</code></pre>
-			<p>上面代码中的<span class="code">displayStatus(op, num, formula)</span>是我自定义的一个函数，用于将解析的过程展现出来，每经过一步之后各个栈里都包含了哪些元素一目了然。<span class="code">isNumber(c)</span>用于判断读入的字符是数字还是操作符、<span class="code">compare(op1, op2)</span>在第一段代码中已经给出，用于比较两个操作符的优先级、<span class="code">cal(o, a, b)</span>用于执行二元运算。这些函数实现起来都很简单，这里就不贴代码了。</p>
-			<p>程序每次从方程式的左边读入一个字符，判断是数字还是操作符，然后压入对应的栈中，并对<span class="code">op</span>栈中最靠近栈顶的两个操作符进行优先级的比较，确定是进行计算还是需要等待更高优先级的计算。如此往复，直到最后<span class="code">op</span>只剩下<span class="code">#</span>，即为结束。</p>
-			<p>方程式的读取方式是每次读取一个字符，这就带来一个问题：如果数字&gt9（即不止个位数，例如：23、768、1024……）怎么办？因此在栈初始化完成之后，我设立了一个变量<span class="code">cache</span>，这个变量会缓存上一个读入的字符，和即将读入的字符作比较，如果两者都是数字，就把它们拼接成一个数字。</p>
-			<p>同理还有一个负数的问题，即减号后面跟一个数字，这时需要对减号进行判断，一方面是判断减号到底是操作符还是数字的一部分，另一方面这种情况通常意味着要么减号前面有一个左括号，要么减号是方程式的第一个字符，即方程式中的第一个数字就是负数。</p>
-			<p>另外还有一个问题，小数，因为是逐字符读入，因此小数点也会被单独读入，需要手动进行拼接。</p>
-			<p>好了，现在我们能够正常读取数字，并且正确分辨操作符了，接下来就要根据读入的内容进行解析了：如果读入的是数字，那就直接压入<span class="code">num</span>栈中；如果读入的是操作符，那么就要根据操作符之间的优先级关系进行判断，是立即执行计算，还是需要等待观望后序的方程内容。操作符之间的优先级关系无非3种情况：（这里我们约定，<span class="code">op</span>的栈顶元素为<span class="code">op1</span>，新读取到的操作符为<span class="code">op2</span>）</p>
+			<p>The <span class="code">displayStatus(op, num, formula)</span> function simply displays each step of the interpretation so we can see what's going on. The <span class="code">isNumber(c)</span> function returns a boolean value telling whether character <span class="code">c</span> is a number or an operator. The <span class="code">compare(op1, op2)</span> function was given in the first code sample. It compares two operator to see which one has higher priority.The <span class="code">cal(o, a, b)</span> function does a simple calculation of two numbers. These are too simple so there will be no necessity to paste the codes.</p>
+			<p>The programme reads one character from the left of the formula each time. Identify it's a number or operator and then push into the related stack. Compare the adjacent two operators at the top of the stack <span class="code">op</span> and decide whether to calculate or wait for higher priority calculation. Continue this until finally there's only <span class="code">#</span> in <span class="code">op</span>. And that means the end.</p>
+			<p>The programme reads one character from the formula each time. This brings a problem: what if the munber is > 9 (which means more than one character, eg.23, 768, 1024). To solve this problem. I have this variable <span class="code">cache</span> after initializing the stacks. This variable will cache the last character read from the formula. Then we compare it with the current input. if both were number, then join them as one.</p>
+			<p>For the same reason we have this problem about negative numbers (operator minus followed by number). we have to check whether it's a minus or it's part of a number. Also the negative number can be at the begining of the formula (without quotes) or in the middle of the formula (surrounded by quotes). So does the decimal point.</p>
+			<p>OK. Now we can read the numbers and operators correctly. How do we know whether to calculate or wait for further input? Here's the algorithm: read in one character. if it's number, push into <span class="code">num</span>. if it's operator, then refer to the priority relationship table. There're 3 kind of relationship between operators (here we use <span class="code">op1</span> to desrcibe the top element of <span class="code">op</span>, <span class="code">op2</span> to desrcibe the input)</p>
 
-			<h3>1. <span class="code">op1</span>优先级低于<span class="code">op2</span></h3>
-			<p>这种情况下，后面有可能还会有优先级更高的运算出现，因此需要先讲当前的状态暂存（即将新读入的操作符压入<span class="code">op</span>栈中），并继续读取后序的字符。</p>
+			<h3>1. <span class="code">op1</span> has lower priority than <span class="code">op2</span></h3>
+			<p>This situation dedicates that the next operator might still have higher priority. so we just push it into <span class="code">op</span> and wait for further input.</p>
 			
-			<h3>2. <span class="code">op1</span>优先级高于<span class="code">op2</span></h3>
-			<p>当出现这种情况时，说明短时间内不会出现比当前栈中已保存的运算优先级更高的运算了，因此可以立即进行一次运算。先不把新读入的字符压栈，从<span class="code">num</span>栈的栈顶出栈两个数字，并让<span class="code">op</span>栈的栈顶出栈，将这三个元素组合起来进行一次运算，运算结果压回<span class="code">num</span>栈中。</p>
+			<h3>2. <span class="code">op1</span> has higher priority than <span class="code">op2</span></h3>
+			<p>This means there won't be any higher priority operators by now. We shall do the calculation. So we hold the input (not push into stack). pop two numbers from the top of <span class="code">num</span> and one operator from the top of <span class="code">op</span>. Calculate "num1 op num2" and push the result back to <span class="code">num</span>.</p>
 
-			<h3>3. <span class="code">op1</span>和<span class="code">op2</span>优先级相同</h3>
-			<p>出现这种情况只有两种可能，要么<span class="code">op</span>的栈顶是左括号，新读入的是右括号，两者匹配，可以消除；要么<span class="code">op</span>栈顶是<span class="code">#</span>，新读入的也是<span class="code">#</span>，表示方程式读取完毕，计算全部结束。</p>
+			<h3>3. <span class="code">op1</span> and <span class="code">op2</span> share the same priority.</h3>
+			<p>There're two possibility in this case: Either the top of <span class="code">op</span> is <span class="code">(</span> and the input is <span class="code">)</span>. it's a match so we clear them out. Or the top of <span class="code">op</span> is <span class="code">#</span> and the input is also <span class="code">#</span>. This shows the end of the formula. We are done for the circulation. There should be only one number in <span class="code">num</span> and that is the answer.</p>
 
-			<h2>小结</h2>
-			<p>栈是数据结构中最基本的一种，用栈实现方程式的整式计算更是一个经典的案例，不过大部分的教材都是以10以内正整数的四则运算为例简单描述了一下算法，并未涉及一些特殊的情况，例如负数、小数、多位数等等，因此还是很有必要亲自写一遍感受一下。</p>
+			<h2>Summary</h2>
+			<p>Stack is one of the fundamentals of data structure. Implementing a stack calculator can't be more classic. But most cases in text books only went through the four arithmetic operations of non-negative numbers &lt; 10. It's necessary that we write the cod ourselves so we can find there's more then that to be complete.</p>
 		</article>
 	</div>
 
