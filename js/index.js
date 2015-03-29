@@ -1,9 +1,9 @@
-window.onload = init();
+window.onload = init;
 
 var BASE_LOCATION = "http://tonghuashuo.github.io";
 
 function init() {
-	console.log("================================");
+	/*console.log("================================");
 	console.log("Aha!");
 	console.log("You found me !");
 	console.log("There are only 10 people in this");
@@ -11,7 +11,7 @@ function init() {
 	console.log("of them. That makes us friends. ");
 	console.log("If you gonna contact me. Tell me");
 	console.log("you found me from console.      ");
-	console.log("================================");
+	console.log("================================");*/
 
 	var mf_sidebar 	= document.getElementById("mf_sidebar");
 	var mf_portrait = document.getElementById("mf_portrait");
@@ -35,12 +35,15 @@ function init() {
 	}
 
 	goMobile();
+	fixTitleHeight()
 
 	window.onresize = function() {
 		goMobile();
-	}
+		fixTitleHeight();
+	};
 
 	function goMobile() {
+		// console.log(window.innerWidth);
 		if (window.innerWidth > 960) {
 			// PC Style
 			mf_sidebar.style.height = window.innerHeight+"px";
@@ -68,19 +71,57 @@ function init() {
 		}
 	}
 
-	/** 
-	 * node is the DOM element to get style from
-	 * returns a key-value set of computed style
-	 */
-	function getCurrentStyle(node) {
-	    var style = null;
-	    
-	    if(window.getComputedStyle) {
-	        style = window.getComputedStyle(node, null);	// Not IE
-	    }else{
-	        style = node.currentStyle;	// IE
-	    }
-	    
-	    return style;
+	function fixTitleHeight() {
+		var blogs = document.getElementsByClassName("blog");
+		var banner = document.getElementsByClassName("banner")[0];
+		// console.log(banner);
+		var bannerHeight = Number(getCurrentStyle(banner)["height"].slice(0, -2));
+		console.log("BannerHeight: " + bannerHeight);
+		for (var i=0, len=blogs.length; i<len; i++) {
+		// for (var i=0; i<1; i++) {
+			var title = blogs[i].getElementsByClassName("title")[0];
+			var a = blogs[i].getElementsByTagName("a")[0];
+			var h3 = blogs[i].getElementsByTagName("h3")[0];
+			
+			var tpt = Number(getCurrentStyle(title)["padding-top"].slice(0, -2));
+			var tpb = Number(getCurrentStyle(title)["padding-bottom"].slice(0, -2));
+			var ah = Number(getCurrentStyle(a)["height"].slice(0, -2));
+			var apt = Number(getCurrentStyle(a)["padding-top"].slice(0, -2));
+			var apb = Number(getCurrentStyle(a)["padding-bottom"].slice(0, -2));
+			var amt = Number(getCurrentStyle(a)["margin-top"].slice(0, -2));
+			var amb = Number(getCurrentStyle(a)["margin-bottom"].slice(0, -2));
+			var h3h = Number(getCurrentStyle(h3)["height"].slice(0, -2));
+			var h3pt = Number(getCurrentStyle(h3)["padding-top"].slice(0, -2));
+			var h3pb = Number(getCurrentStyle(h3)["padding-bottom"].slice(0, -2));
+			var h3mt = Number(getCurrentStyle(h3)["margin-top"].slice(0, -2));
+			var h3mb = Number(getCurrentStyle(h3)["margin-bottom"].slice(0, -2));
+
+			// console.log("tpt:" + tpt + "   tpb:" + tpb);
+			// console.log("ah:" + ah + "   apt:" + apt + "   apb:" + apb + "   amt:" + amt + "   amt:" + amt);
+			// console.log("h3h:" + h3h + "   h3pt:" + h3pt + "   h3pb:" + h3pb + "   h3mt:" + h3mt + "   h3mb:" + h3mb);
+
+			// var totalheight = tpt + tpb + ah + apt + apb + amt + amb + h3h + h3pt + h3pb + h3mt + h3mb;
+			var totalheight = ah + apt + apb + amt + amb + h3h + h3pt + h3pb + h3mt + h3mb;
+			// console.log("totalheight: " + totalheight);
+			title.style.height = totalheight + "px";
+			title.style.marginTop = (bannerHeight - totalheight - tpt - tpb) + "px";
+			// console.log("margin-top: " + title.style.marginTop);
+		}
 	}
+}
+
+/** 
+ * node is the DOM element to get style from
+ * returns a key-value set of computed style
+ */
+function getCurrentStyle(node) {
+    var style = null;
+    
+    if(window.getComputedStyle) {
+        style = window.getComputedStyle(node, null);	// Not IE
+    }else{
+        style = node.currentStyle;	// IE
+    }
+    
+    return style;
 }
