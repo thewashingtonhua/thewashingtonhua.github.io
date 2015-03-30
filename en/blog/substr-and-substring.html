@@ -36,7 +36,7 @@
 			<div class="titleBanner"></div>
 			
 			<p>There're these two frequently used but confusing functions in JavaScript: <span class="code">substr()</span> and <span class="code">substring()</span>. Both are method of String that return a subset of a string.</p>
-			<p>For detail references of these two functions, see: <a class="reference" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substr">String.prototype.substr()</a> and <a class="reference" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring">String.prototype.substring()</a>.</p>
+			<p>For detail references of these two functions, see: <a class="reference" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substr">String.prototype.substr( )</a> and <a class="reference" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring">String.prototype.substring( )</a>.</p>
 			
 			<p>Both function accept two arguements to define the begining and end of the subset. The first arguement works the same ( with a little difference in action ): the start point. Characters starting from the start point will be included as the subset of the string. But the second arguement differs a lot. <span class="code">substr()</span> uses length to define how many characters should be included, while <span class="code">substring()</span> directly defines the end point. Any character starting from the end point will not be included.</p>
 
@@ -120,8 +120,21 @@ console.log(str.substring(0, 10));</code></pre>
 
 			<h2>Why three</h2>
 			<p><span class="code">substr()</span>, <span class="code">substring()</span> and <span class="code">slice()</span> provided us 3 different ways to extract a string: By length, form the positive direction, from both end. We can choose whatever works the best for our project.</p>
-
 		</article>
+
+		<footer>
+			<p>
+				<a href="../../cn/blog/substr-and-substring.html">简体中文</a>|
+				<a href="../../en/blog/substr-and-substring.html">English</a>
+			</p>
+			<p>
+				<a href="http://jigsaw.w3.org/css-validator/check/referer">
+				    <img style="border:0;width:88px;height:31px"
+				        src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+				        alt="Valid CSS!" />
+			    </a>
+			</p>
+		</footer>
 	</div>
 
 	<script src="../../js/index.js"></script>	

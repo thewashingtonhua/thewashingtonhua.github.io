@@ -35,7 +35,7 @@ function init() {
 	}
 
 	goMobile();
-	fixTitleHeight()
+	fixTitleHeight();
 
 	window.onresize = function() {
 		goMobile();
@@ -43,7 +43,7 @@ function init() {
 	};
 
 	function goMobile() {
-		// console.log(window.innerWidth);
+		// console.log("window.innerWidth: " + window.innerWidth);
 		if (window.innerWidth > 960) {
 			// PC Style
 			mf_sidebar.style.height = window.innerHeight+"px";
@@ -74,23 +74,22 @@ function init() {
 	function fixTitleHeight() {
 		var blogs = document.getElementsByClassName("blog");
 		var banner = document.getElementsByClassName("banner")[0];
-		// console.log(banner);
-		var bannerHeight = Number(getCurrentStyle(banner)["height"].slice(0, -2));
-		console.log("BannerHeight: " + bannerHeight);
+		if (banner) var bannerHeight = Number(getCurrentStyle(banner)["height"].slice(0, -2));
+
 		for (var i=0, len=blogs.length; i<len; i++) {
 		// for (var i=0; i<1; i++) {
 			var title = blogs[i].getElementsByClassName("title")[0];
 			var a = blogs[i].getElementsByTagName("a")[0];
 			var h3 = blogs[i].getElementsByTagName("h3")[0];
 			
-			var tpt = Number(getCurrentStyle(title)["padding-top"].slice(0, -2));
-			var tpb = Number(getCurrentStyle(title)["padding-bottom"].slice(0, -2));
-			var ah = Number(getCurrentStyle(a)["height"].slice(0, -2));
-			var apt = Number(getCurrentStyle(a)["padding-top"].slice(0, -2));
-			var apb = Number(getCurrentStyle(a)["padding-bottom"].slice(0, -2));
-			var amt = Number(getCurrentStyle(a)["margin-top"].slice(0, -2));
-			var amb = Number(getCurrentStyle(a)["margin-bottom"].slice(0, -2));
-			var h3h = Number(getCurrentStyle(h3)["height"].slice(0, -2));
+			var tpt  = Number(getCurrentStyle(title)["padding-top"].slice(0, -2));
+			var tpb  = Number(getCurrentStyle(title)["padding-bottom"].slice(0, -2));
+			var ah   = Number(getCurrentStyle(a)["height"].slice(0, -2));
+			var apt  = Number(getCurrentStyle(a)["padding-top"].slice(0, -2));
+			var apb  = Number(getCurrentStyle(a)["padding-bottom"].slice(0, -2));
+			var amt  = Number(getCurrentStyle(a)["margin-top"].slice(0, -2));
+			var amb  = Number(getCurrentStyle(a)["margin-bottom"].slice(0, -2));
+			var h3h  = Number(getCurrentStyle(h3)["height"].slice(0, -2));
 			var h3pt = Number(getCurrentStyle(h3)["padding-top"].slice(0, -2));
 			var h3pb = Number(getCurrentStyle(h3)["padding-bottom"].slice(0, -2));
 			var h3mt = Number(getCurrentStyle(h3)["margin-top"].slice(0, -2));
@@ -101,8 +100,8 @@ function init() {
 			// console.log("h3h:" + h3h + "   h3pt:" + h3pt + "   h3pb:" + h3pb + "   h3mt:" + h3mt + "   h3mb:" + h3mb);
 
 			// var totalheight = tpt + tpb + ah + apt + apb + amt + amb + h3h + h3pt + h3pb + h3mt + h3mb;
-			var totalheight = ah + apt + apb + amt + amb + h3h + h3pt + h3pb + h3mt + h3mb;
 			// console.log("totalheight: " + totalheight);
+			var totalheight = ah + apt + apb + amt + amb + h3h + h3pt + h3pb + h3mt + h3mb;
 			title.style.height = totalheight + "px";
 			title.style.marginTop = (bannerHeight - totalheight - tpt - tpb) + "px";
 			// console.log("margin-top: " + title.style.marginTop);

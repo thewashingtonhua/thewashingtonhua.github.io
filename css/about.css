@@ -29,15 +29,23 @@ article h1 {
 	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
 }
 
+article h2 {
+	color: #262626;
+	font-family: Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
+	font-weight: 400;
+	margin-top: 1em;
+	margin-bottom: 0.2em;
+	font-size: 2em;
+}
+
 article p {
 	color: #262626;
-	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
-	font-size: 1.3em;
-	line-height: 1.3em;
+	font-family: Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
+	line-height: 1.8em;
 	font-weight: 100;
 	margin: 0.2em 0;
 }
-
+/* 
 pre {
 	border-left: 4px solid #CCC;
 	background-color: #F6F6F6;
@@ -53,7 +61,7 @@ code {
 	font-family: SourceCodePro;
 	color: #262626;
 }
-
+ */
 #copyright {
 	font-family: Roboto;
 	color: #999;
