@@ -83,52 +83,13 @@ article h3 span.code {
 	font-family: SourceCodePro;
 }
 
-/*article P::selection{
-	background-color: #007EB8;
-	color: #FFF;
-}
-
-article P::-moz-selection{
-	background-color: #007EB8;
-	color: #FFF;
-}*/
-
-.titleBanner{
-	height: 300px;
-	margin-top: 20px;
-	margin-right: 0;
-	margin-bottom: 40px;
-	background-color: #EEE;
-	background-size: cover;
-	background-position: 50%;
-	border-radius: 3px;
-	padding: 0;
-}
-
-/* 1024 x 512 px*/
-
-#tiktokcolor .titleBanner {
-	background-image: url(../img/tiktokcolor.jpg);
-}
-
-#stackcalculator .titleBanner {
-	background-image: url(../img/stackcalculator.jpg);
-}
-
-#substring .titleBanner {
-	background-image: url(../img/substring.jpg);
-}
-
-#buttons {
-	text-align: center;
-}
-
 article a {
 	color: #007EB8;
 	text-decoration: none;
 	font-weight: 400;
 	font-family: Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
 	padding: 0.1em 0.5em;
+	word-wrap: break-word;
 }
 
 article a.reference{
@@ -164,6 +125,68 @@ article ol li {
 	font-weight: 100;
 }
 
+article div.tablewapper {
+	overflow-x: scroll;
+	width: 100%;
+}
+
+article table {
+	font-family: Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
+	overflow-x: scroll;
+}
+
+article table tr:nth-child(odd) {
+	background-color: #EEE;
+}
+
+article table tr:nth-child(even) {
+	background-color: #DDD;
+}
+
+article table td {
+	padding: 1em;
+	margin: 0;
+	word-wrap: normal;
+}
+
+article table td a {
+	padding: 0;
+}
+
+.titleBanner{
+	height: 300px;
+	margin-top: 20px;
+	margin-right: 0;
+	margin-bottom: 40px;
+	background-color: #EEE;
+	background-size: cover;
+	background-position: 50%;
+	border-radius: 3px;
+	padding: 0;
+}
+
+/* 1024 x 512 px*/
+
+#tiktokcolor .titleBanner {
+	background-image: url(../img/tiktokcolor.jpg);
+}
+
+#stackcalculator .titleBanner {
+	background-image: url(../img/stackcalculator.jpg);
+}
+
+#substring .titleBanner {
+	background-image: url(../img/substring.jpg);
+}
+
+#latexwithsublimetext .titleBanner {
+	background-image: url(../img/latexwithsublimetext.jpg);
+}
+
+#buttons {
+	text-align: center;
+}
+
 #buttons a {
 	color: #FFF;
 	background-color: #007EB8;
@@ -192,7 +215,8 @@ pre {
 	margin-top: 1em;
 	margin-bottom: 1em;
 	margin-left: 1em;
-	overflow-x: scroll;
+	/*overflow-x: scroll;*/
+	overflow-x: auto;
 }
 
 code {
@@ -219,7 +243,7 @@ code {
 	}
 }
 
-@media all and (max-width: 320px) {
+@media all and (max-width: 330px) {
 	.titleBanner {
 		height: 100px;
 	}

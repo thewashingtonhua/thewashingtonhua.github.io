@@ -90,7 +90,7 @@ article a {
 	}
 }
 
-@media all and (max-width: 320px) {
+@media all and (max-width: 330px) {
 	article h1 {
 		font-size: 1.5em;
 	}
