@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="description" content="童话说，一个关于Web前端的个人技术博客，不定期发布Web前端及其相关技术的博文">
+    <meta name="keywords" content="tonghuashuo,github,前端,html,css,javascript,android">
+	<title>Issue with MIUI Icon Cache - Blog | TongHuaShuo</title>
+	<link rel="shortcut icon" href="../../img/favicon.ico" />
+	<link rel="stylesheet" href="../../css/index.css" />
+	<link rel="stylesheet" href="../../css/blog.css" />
+</head>
+<body>
+
+	<div id="mf_content">
+		<article id="miuiiconcache">
+			<h1>Issue with MIUI Icon Cache</h1>
+			<div class="time"><time datetime="2015-04-18">Apr 18th 2015<time></div>
+			<div class="titleBanner"></div>
+
+            <h2>Issue</h2>
+            <p>It's easy to change the icon of an Android App. All you need to do is simply replace the ic_launcher.png file with your new design. But in MIUI(An 3rd-party Android ROM from XiaoMi co. which might be the best ROM there is by now. Really popular in China. Also popular in India, America and many other countries.), things get a little bit tricky. When you install the app, you won't see any changes of the icon. it's still using the default Android icon instead of you new design. All codes are right. You try to install again or change the file. But nothing works.</p>
+
+            <h2>Effects</h2>
+            <p>As far as we know, this issue was brought by MIUI 6. Previous versions should be working fine. As Consequence, when your app has major updates, your users will be running the latest program but seeing the old icon, until they find a way to fix it. Meanwhile it also brought trouble for Android developers cause they got one more problem to deal with.</p>
+
+            <h2>Cause</h2>
+            <p>The reason of this is that MIUI has a cache for icons. images in this cache won't disappear even after you uninstalled the app or ran a system clean up program.  That is why you can't solve this problem by reinstall or change the image.</p>
+
+            <h2>Sulution</h2>
+            <p>To solve this problem is easy. Just go into the "theme" app, choose another theme and apply, then switch back to the previous theme. Now you should be seeing the new icon. Mission accomplished. Changing theme will refresh the icon cache(Someone solve this by rebooting the phone, you can try your onw.)</p>
+
+            <h2>Folk Prescription</h2>
+            <p>There're some folk prescription claim to be the solution but actually doesn't work. Here I'll post some of them that I know for your information.</p>
+            <p>Folk prescription 1: If you already had root authority, go to "/data/system/customized_icons", find your icon and delete it. Theoretically this should be working, but seems MIUI's icon cache is not here. We tried but not working.</p>
+            <p>Folk prescription 2: Change the package name of the project(or module if you are using Android Studio) and reinstall. A new package name means a new App. Old cache has no effect on new apps. Sounds true but still not working.</p>
+		</article>
+
+	</div>
+
+	<script src="../../js/index.js"></script>
+</body>
+</html>

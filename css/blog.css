@@ -183,6 +183,10 @@ article table td a {
 	background-image: url(../img/latexwithsublimetext.jpg);
 }
 
+#miuiiconcache .titleBanner {
+	background-image: url(../img/miuiiconcache.jpg);
+}
+
 #buttons {
 	text-align: center;
 }

@@ -96,6 +96,10 @@
 	background-image: url(../img/latexwithsublimetext.jpg);
 }
 
+#miuiiconcache div.banner {
+	background-image: url(../img/miuiiconcache.jpg);
+}
+
 /* Styles for mobile device */
 @media all and (max-width: 960px) {
 	.card {
