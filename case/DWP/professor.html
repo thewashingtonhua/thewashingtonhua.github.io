@@ -8,17 +8,30 @@
 	<title>Dashboard</title>
 	<link rel="stylesheet" type="text/css" href="css/framework.css">
 	<link rel="stylesheet" type="text/css" href="css/dashboard.css">
+	<script src="js/jquery-2.1.4.min.js"></script>
 </head>
 <body>
 	<div class="nav">
-		<ul>
+		<ul class="font">
 			<a href="dashboard.html" class="active"><li>Intro</li></a>
 			<a href="filesystem.html"><li>File</li></a>
 			<a href="discuss.html"><li>Discuss</li></a>
 			<a href="notification.html"><li>Notification</li></a>
 		</ul>
 
-		<a href="login.html" class="logout">Logout</a>
+		<ul class="icon">
+			<a href="dashboard.html" class="active"><li></li></a>
+			<a href="filesystem.html"><li></li></a>
+			<a href="discuss.html"><li></li></a>
+			<a href="notification.html"><li></li></a>
+		</ul>		
+
+		<a href="profile.html" class="profile font">GuiFang</a>
+		<a href="profile.html" class="profile icon"></a>
+
+		<a href="login.html" class="logout font">Log out</a>
+		<a href="login.html" class="logout icon"></a>
+
 	</div>
 
 	<div class="content">
@@ -80,5 +93,7 @@
 		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
 	</div>
+	
+	<script src="js/mobile.js"></script>
 </body>
 </html>

@@ -9,7 +9,6 @@ html,body {
 div.wrapper {
 	width: 400px;
 	height: 100%;
-	/*background-color: #CCC;*/
 	margin: 100px auto;
 	padding: 20px;
 }
@@ -18,18 +17,18 @@ h1 {
 	text-align: center;
 	margin: 0 0 1em 0;
 	color: #6E6E6E;
-	font-family: Arial;
+	font-family: Segoe UI, Microsoft YaHei, Arial, Helvetica, Tahoma, Sans-serif;
 	font-size: 1.8em;
 }
 
 input {
 	width: 100%;
-	height: 1.5em;
+	height: 2em;
 	margin-bottom: 1em;
 	border: none;
-	border-radius: 1.5em;
+	border-radius: 1em;
 	outline: none;
-	font-size: 1.5em;
+	font-size: 1.2em;
 	box-sizing: border-box;
 }
 
@@ -38,6 +37,7 @@ input[type="text"], input[type="password"] {
 	background-color: #2B2B2B;
 	border: 2px solid #2B2B2B;
 	color: #FFF;
+	font-family: Segoe UI, Arial, Helvetica, Tahoma, Sans-serif;
 	transition: border linear 0.2s;
 }
 
@@ -52,4 +52,17 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
 	cursor: pointer;
+}
+
+@media all and (max-width: 540px) {
+	div.wrapper {
+		width: 100%;
+		box-sizing: border-box;
+		/*padding: 0;*/
+	}
+
+	input {
+		box-sizing: border-box;
+		width: 100%;
+	}
 }
