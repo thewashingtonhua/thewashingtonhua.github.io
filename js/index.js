@@ -232,7 +232,8 @@ function initNavigator() {
 function initFooter() {
 	var footer = document.createElement("footer");
 
-	footer.innerHTML = '<p><a id="toCN">简体中文</a>|<a id="toEN">English</a></p><p><a target="_blank" href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="Valid CSS!" /></a></p>';
+	footer.innerHTML = '<p><a id="toCN">简体中文</a>|<a id="toEN">English</a></p>';
+	// <p><a target="_blank" href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="Valid CSS!" /></a></p>';
 	document.getElementById("mf_content").appendChild(footer);
 
 	var url = window.location.href;

@@ -1,0 +1,113 @@
+html, body {
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	width: 100%
+}
+
+div.nav {
+	height: 100%;
+	position: fixed;
+	background-color: #2B2B2B;
+	width: 160px;
+	color: #9F9F9F;
+	font-family: Arial;
+}
+
+div.content {
+	box-sizing: border-box;
+	width: 100%;
+	height: auto;
+	min-height: 100%;
+	float: left;
+	background-color: #1C1C1C;
+	padding: 20px 20px 20px 180px;
+	font-family: Arial;
+}
+
+a.logout {
+	position: absolute;
+	bottom: 20px;
+	left: 20px;
+	color: #9F9F9F;
+}
+
+h2, p, label {
+	color: #AAA;
+}
+
+h2, p, a {
+	font-weight: 100;
+}
+
+p {
+	padding-top: 0;
+	margin-top: 0;
+}
+
+a {
+	color: #666;
+	text-decoration: none;
+}
+
+a.active {
+	color: #FFF;
+}
+
+ul:after {
+	content:"";
+	display: block;
+	clear: both;
+}
+
+li {
+	list-style: none;
+}
+
+ul.subnav li {
+	float: left;
+}
+
+ul {
+	padding-left: 0;
+	margin-top: 0;
+}
+
+div.nav ul {
+	padding-top: 20px;
+}
+
+div.nav ul li {
+	height: 2em;
+	line-height: 2em;
+	padding-left: 20px;
+}
+
+ul.subnav {
+	padding-top: 0;
+}
+
+ul.subnav a {
+	font-size: 3em;
+}
+
+ul.subnav li {
+	margin-right: 0.5em;
+}
+
+div.button {
+	display: inline-block;
+	border: 1px solid #FFF;
+	padding: 0.5em;
+	width: auto;
+	height: auto;
+	color: #FFF;
+	font-family: Arial;
+	transition: all linear 0.1s;
+}
+
+div.button:hover {
+	cursor: pointer;
+	background-color: #FFF;
+	color: #1C1C1C;
+}

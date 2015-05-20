@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+	<title>Dashboard</title>
+	<link rel="stylesheet" type="text/css" href="css/framework.css">
+	<link rel="stylesheet" type="text/css" href="css/filesystem.css">
+</head>
+<body>
+	<div class="nav">
+		<ul>
+			<a href="dashboard.html"><li>Intro</li></a>
+			<a href="filesystem.html" class="active"><li>File</li></a>
+			<a href="discuss.html"><li>Discuss</li></a>
+			<a href="notification.html"><li>Notification</li></a>
+		</ul>
+
+		<a href="login.html" class="logout">Logout</a>
+	</div>
+
+	<div class="content">
+
+		<ul class="subnav">
+			<a href="filesystem.html" class="active"><li>File</li></a>
+		</ul>
+		
+		<div class="tools">
+			<label for="sort">Sort By: </label>
+			<select id="sort">
+				<option>Date</option>
+				<option>Name</option>
+				<option>Size</option>
+			</select>
+			<select>
+				<option>Increase</option>
+				<option>Decrease</option>
+			</select>
+			<div class="button" id="upload">Upload</div>
+		</div>		
+
+		<table id="filelist">
+			<thead>
+				<tr>
+					<th>文件类型</th>
+					<th>文件名</th>
+					<th>文件大小</th>
+					<th>上传时间</th>
+					<th>上传者</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
