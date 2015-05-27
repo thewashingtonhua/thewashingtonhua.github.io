@@ -1,6 +1,247 @@
-body, html {
+h1, body, html {
 	padding: 0;
 	margin: 0;
-	width: 100%;
+}
+
+body {
+	font-family: "Segoe UI", "Microsoft YaHei", "Miragino Sans GB", sans-serif;
+}
+
+html, body {
+	height: 100%;
 	overflow: hidden;
 }
+
+h1 {
+	font-size: 3em;
+	font-weight: normal;
+	margin-bottom: 1em;
+	color: #FFF;
+}
+
+p {
+	font-size: 1.2em;
+	margin:  0.5em 0 1em 0;
+	color: #FFF;
+}
+
+#container, .section {
+	height: 100%;
+	position: relative;
+	background-color: #37589D;
+	box-sizing: border-box;
+}
+
+.section {
+	padding: 50px 100px;
+}
+
+
+#pages{
+	position:fixed;
+	right: 10px;
+	list-style: none;
+	transition: all 0.1s ease-out;
+}
+
+#pages li{
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: #fff;
+	margin: 0 0 10px 5px;
+}
+
+#pages li:hover {
+	cursor: pointer;
+}
+
+#pages li.active{
+	width: 14px;
+	height: 14px;
+	border: 2px solid #FFF;
+	background: none;
+	margin-left: 0;
+}
+
+#logo {
+	width: 128px;
+	height: 128px;
+	/*float: left;*/
+	margin-top: 10%;
+	margin-bottom: 20px;
+	background-position: 50%;
+	background-size: cover;
+	background-image: url(img/logo.png);
+	border-radius: 5px;
+}
+
+img {
+	max-width: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+.button {
+	display: inline-block;
+	border: 1px solid #FFF;
+	padding: 1em 2em;
+	width: auto;
+	height: auto;
+	color: #FFF;
+	font-family: Segoe UI, Microsoft YaHei, Arial, Helvetica, Tahoma, Sans-serif;
+	transition: all linear 0.1s;
+}
+
+.button:hover {
+	cursor: pointer;
+	background-color: #FFF;
+	color: #37589D;
+}
+
+/* @media all and (max-width: 720px) {
+	.button {
+		font-size: 0.8em;
+		padding: 0.2em 0.4em;
+	}
+}
+
+@media all and (max-width: 540px) {
+	.button {
+		font-size: 0.4em;
+		padding: 0.2em 0.4em;
+	}
+}
+ */
+
+@media all and (max-width: 960px) {
+	.section {
+		padding: 25px 50px;
+	}
+
+	h1 {
+		font-size: 2em;
+	}
+
+	p {
+		font-size: 0.5em;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* #sec_welcome {
+	background-color: #00204F;
+}
+
+#sec_how {
+	background-color: #00204F;
+}
+
+#sec_population {
+	background-color: #D09B24;
+}
+
+#sec_where {
+	background-color: #D0BE24;
+}
+
+#sec_lab {
+	background-color: #B9C823;
+}
+
+#sec_graduation {
+	background-color: #59B720;
+}
+
+#sec_se {
+	background-color: #1EAE6C;
+}
+
+#sec_preparation {
+	background-color: #1E73AE;
+}
+
+#sec_fee {
+	background-color: #1E32AE;
+}
+
+#sec_logo {
+	background-color: #571EAE;
+}
+
+#sec_studentunion {
+	background-color: #AE1EA6;
+}
+
+#sec_techcenter {
+	background-color: #BE2140;
+}
+
+#sec_microlove {
+	background-color: #D04424;
+}
+
+#sec_contact {
+	background-color: #D07924;
+} */
