@@ -84,12 +84,37 @@ a {
 	text-decoration: none;
 }
 
+.con_left, .con_right {
+	width: 50%;
+	box-sizing: border-box;
+	float: left;
+	/*border: 1px dotted #FFF;*/
+}
+
+.con_left p, .con_right p {
+	text-align: center;
+}
+
+#con_qqgroup {
+	width: 200px;
+	height: 200px;
+	display: block;
+	margin: 0 auto 20px;
+}
+
+#con_site {
+	margin: 75px auto 80px;
+	width: 100%;
+}
+
 .button {
 	display: inline-block;
 	border: 1px solid #FFF;
+	box-sizing: border-box;
 	padding: 1em 2em;
 	width: auto;
 	height: auto;
+	text-align: center;
 	color: #FFF;
 	font-family: Segoe UI, Microsoft YaHei, Arial, Helvetica, Tahoma, Sans-serif;
 	transition: all linear 0.1s;
@@ -101,24 +126,9 @@ a {
 	color: #37589D;
 }
 
-/* @media all and (max-width: 720px) {
-	.button {
-		font-size: 0.8em;
-		padding: 0.2em 0.4em;
-	}
-}
-
-@media all and (max-width: 540px) {
-	.button {
-		font-size: 0.4em;
-		padding: 0.2em 0.4em;
-	}
-}
- */
-
-@media all and (max-width: 960px) {
+@media all and (max-width: 768px) {
 	.section {
-		padding: 25px 50px;
+		padding: 30px;
 	}
 
 	h1 {
@@ -128,120 +138,13 @@ a {
 	p {
 		font-size: 0.5em;
 	}
+
+	.con_left, .con_right {
+		clear: both;
+		width: 100%;
+	}
+	
+	#con_site {
+		margin: 20px auto;
+	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* #sec_welcome {
-	background-color: #00204F;
-}
-
-#sec_how {
-	background-color: #00204F;
-}
-
-#sec_population {
-	background-color: #D09B24;
-}
-
-#sec_where {
-	background-color: #D0BE24;
-}
-
-#sec_lab {
-	background-color: #B9C823;
-}
-
-#sec_graduation {
-	background-color: #59B720;
-}
-
-#sec_se {
-	background-color: #1EAE6C;
-}
-
-#sec_preparation {
-	background-color: #1E73AE;
-}
-
-#sec_fee {
-	background-color: #1E32AE;
-}
-
-#sec_logo {
-	background-color: #571EAE;
-}
-
-#sec_studentunion {
-	background-color: #AE1EA6;
-}
-
-#sec_techcenter {
-	background-color: #BE2140;
-}
-
-#sec_microlove {
-	background-color: #D04424;
-}
-
-#sec_contact {
-	background-color: #D07924;
-} */

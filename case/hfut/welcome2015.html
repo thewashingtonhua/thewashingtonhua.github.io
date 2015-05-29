@@ -9,7 +9,7 @@
 	<meta name="keywords" content="合工大,合肥,工业,大学,软件,学院,HFUT,迎新,新生群,学长,学姐,QQ,无锡,高考,招生,咨询,分数线">
 	<title>10分钟带你了解合工大软件学院 - 合工大|软件|2015|怎么样|分数线|录取|学费|高考|新生|迎新</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<script src="../../lib/jquery-2.1.4.min.js"></script>
+	
 </head>
 <body>
 	
@@ -168,18 +168,25 @@
 	
 	<div class="section" id="sec_contact">
 		<h1>联系我们</h1>
-		<a class="button" target="_blank" href="http://jq.qq.com/?_wv=1027&k=asPnIr">点此加入新生QQ群</a>
-		<p>或搜索群号：432982838</p>
-		<a class="button" target="_blank" href="http://rjxy.hfut.edu.cn/cms/">点此访问学院官网</a>
-		<p>或浏览器访问：http://rjxy.hfut.edu.cn/</p>
+		<div class="con_left">
+			<img id="con_qqgroup" src="img/QR.jpg" alt="QQ群二维码" title="QQ群二维码">
+			<p>扫描二维码（点击图片可查看大图）</p>
+			<p>或搜索QQ群号：432982838，加入新生群</p>
+		</div>
+		<div class="con_right">
+			<a class="button" target="_blank" id="con_site" href="http://rjxy.hfut.edu.cn/cms/">点此访问学院官网</a>
+			<p>或浏览器访问：http://rjxy.hfut.edu.cn</p>
+		</div>
 	</div>
 </div>
 
+	<script src="jquery-2.1.4.min.js"></script>
 	<script src="pageswitch.js"></script>
 	<script>
 		$(function(){
 			$("#container").switchPage({
 				'keyboard' : true,
+				'loop' : true
 			});
 		});
 	</script>

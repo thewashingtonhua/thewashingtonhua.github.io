@@ -1,6 +1,8 @@
 // By Washington
 
 (function($) {
+
+	// 默认选项
 	var defaults = {
 		'container' : '#container',				// 容器
 		'sections' : '.section',				// 子容器
@@ -16,12 +18,15 @@
 	var win = $(window),
 		container,sections;
 
-	var opts = {},
-		canScroll = true;
+	var opts = {},			// 选项
+		canScroll = true;	// 滚动锁，防止连续滚动
 
-	var iIndex = 0;	// 配合arrElement进行section的定位
+	var arrElement = [];	// 用于缓存DOM元素（.section），避免频繁操作DOM
+	var iIndex = 0;			// 配合arrElement进行section的定位
 
-	var arrElement = [];
+	var startPos = { x: 0, y: 0 };
+	var mov 	 = { x: 0, y: 0 };
+	var endPos   = { x: 0, y: 0 };
 
 	// var scrollAmount = 0;
 
@@ -61,6 +66,7 @@
 		}
 		// console.log("arrElement[" + iIndex + "] " + arrElement[iIndex]);
 		scrollPage(arrElement[iIndex]);
+		console.log("scroll to page " + iIndex);
 	};
 
 	// 滚轮向下滑动事件（下面向上滚动）
@@ -72,6 +78,7 @@
 		}
 		// console.log("arrElement[" + iIndex + "] " + arrElement[iIndex]);
 		scrollPage(arrElement[iIndex]);
+		console.log("scroll to page " + iIndex);
 	};
 
 	// 私有方法，仅限组件内部调用
@@ -99,6 +106,66 @@
 		}
 		return false;
 	}
+
+	// 重写触屏滚动事件
+	// document.addEventListener('touchstart',touchstartHandler, false);
+	$(".section").bind('touchstart',touchstartHandler);
+	$(".section").bind('touchmove',touchmoveHandler);
+	$(".section").bind('touchend',touchendHandler);
+	function touchstartHandler(e) {
+		e.preventDefault();
+		var touch = e.originalEvent.touches[0];	// 获取第一个触点，多点触控时会同时有多个触点
+
+		endPos.x = startPos.x = touch.pageX;
+		endPos.y = startPos.y = touch.pageY;
+
+		console.log("==================================");
+		console.log("Touch start at ( " + startPos.x + ", " + startPos.y + " )");
+		// document.addEventListener('touchmove',touchmoveHandler, false);
+		// document.addEventListener('touchend',touchendHandler, false);
+	}
+	function touchmoveHandler(e) {
+		e.preventDefault();
+		
+		// 当屏幕有多个touch或者页面被缩放过，就不执行move操作
+		if (e.originalEvent.touches.length > 1 || e.scale && e.scale !== 1) return;
+	
+	    var touch = e.originalEvent.touches[0];
+	    endPos.x = touch.pageX;
+	    endPos.y = touch.pageY;
+	 
+		// console.log("moving to ( " + endPos.x + ", " + endPos.y + " )");
+	}
+	function touchendHandler(e) {
+		e.preventDefault();
+		console.log("Touch ended at ( " + endPos.x + ", " + endPos.y + " )");
+
+	    mov.x = endPos.x - startPos.x;
+	    mov.y = endPos.y - startPos.y;
+		var h_limit = $(window).height()/4;	// 最短滑动距离
+		
+	    // 执行操作，使元素移动
+		if(mov.y<0 && Math.abs(mov.y)>h_limit) {
+			SP.moveSectionDown();
+		} else if (mov.y>h_limit) {
+			SP.moveSectionUp();
+		} else {
+			console.log("Nothing done. (mov.x: " + mov.x + ", mov.y: " + mov.y + ", h_limit: " + h_limit + ")");
+		}
+		// reBuild();
+	}
+	$("#con_qqgroup").bind('touchend',function(e){
+		e.preventDefault();
+		console.log("con_qqgroup touched");
+		window.open("http://tonghuashuo.github.io/case/hfut/img/QR.jpg"); 
+
+	});
+	$("#con_site").bind('touchend',function(e){
+		e.preventDefault();
+		console.log("con_site touched");
+		window.open("http://rjxy.hfut.edu.cn");
+
+	});
 
 	// 横向布局初始化
 	function initLayout(){
