@@ -15,7 +15,7 @@ html, body {
 h1 {
 	font-size: 3em;
 	font-weight: normal;
-	margin-bottom: 1em;
+	margin-bottom: 0.75em;
 	color: #FFF;
 }
 
@@ -36,6 +36,11 @@ p {
 	padding: 50px 100px;
 }
 
+.section p a.link {
+	color: #FFF;
+	font-weight: bold;
+	text-decoration: underline;
+}
 
 #pages{
 	position:fixed;
@@ -64,21 +69,39 @@ p {
 	margin-left: 0;
 }
 
-#logo {
+#sec_welcome h1 {
+	box-sizing: border-box;
+	width: 100%;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+
+#logo{
+	display: inline-block;
 	width: 128px;
 	height: 128px;
-	/*float: left;*/
-	margin-top: 10%;
-	margin-bottom: 20px;
+	margin-bottom: 30px;
 	background-position: 50%;
 	background-size: cover;
 	background-image: url(img/logo.png);
 	border-radius: 5px;
 }
 
+#swipeUpToFlip {
+	box-sizing: border-box;
+	position: absolute;
+	margin: 0;
+	bottom: 10%;
+}
+
 img {
 	max-width: 100%;
 }
+
+/*img.banner {
+	height: 200px;
+}*/
 
 a {
 	text-decoration: none;
@@ -91,8 +114,14 @@ a {
 	/*border: 1px dotted #FFF;*/
 }
 
+.con_right {
+	padding: 0 10px;
+}
+
 .con_left p, .con_right p {
 	text-align: center;
+	margin-top: 0.1em;
+	margin-bottom: 0.1em;
 }
 
 #con_qqgroup {
@@ -128,23 +157,68 @@ a {
 
 @media all and (max-width: 768px) {
 	.section {
-		padding: 30px;
+		padding: 20px 30px;
+	}
+
+	#logo {
+		width: 64px;
+		height: 64px;
+		margin-bottom: 10px;
 	}
 
 	h1 {
-		font-size: 2em;
+		font-size: 1.8em;
 	}
 
 	p {
 		font-size: 0.5em;
 	}
 
+	/*img.banner {
+		height: 120px;
+	}*/
+
+	.button {
+		padding: 1em;
+	}
+
+	.con_left p, .con_right p {
+		text-align: center;
+	}
+
+	#con_qqgroup {
+		width: 100px;
+		height: 100px;
+		display: block;
+		margin: 0 auto 10px;
+	}
+
+	#con_site {
+		margin: 25px auto 35px;
+		width: 100%;
+	}
+}
+
+@media all and (max-width: 400px) {
+	#con_qqgroup {
+		width: 140px;
+		height: 140px;
+		margin: 20px auto;
+	}
+
+	#con_site {
+		margin: 50px auto 10px;
+	}
+
 	.con_left, .con_right {
 		clear: both;
 		width: 100%;
 	}
-	
-	#con_site {
-		margin: 20px auto;
-	}
 }
+
+/*@media all and (orientation: landscape) {
+	.con_left, .con_right {
+		float: left;
+		width: 50%;
+	}
+}*/

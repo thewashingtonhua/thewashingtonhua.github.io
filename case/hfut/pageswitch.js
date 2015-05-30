@@ -18,18 +18,26 @@
 	var win = $(window),
 		container,sections;
 
-	var opts = {},			// 选项
+	var opts = {},			// 配置选项
 		canScroll = true;	// 滚动锁，防止连续滚动
 
-	var arrElement = [];	// 用于缓存DOM元素（.section），避免频繁操作DOM
-	var iIndex = 0;			// 配合arrElement进行section的定位
+	var arrElement = [];	// 用于缓存.section元素集合，避免频繁操作DOM
+	var iIndex = 0;			// 配合arrElement进行.section的定位
 
+	// 触摸点坐标，左上角为原点，向右、向下分别为x、y正向
 	var startPos = { x: 0, y: 0 };
 	var mov 	 = { x: 0, y: 0 };
 	var endPos   = { x: 0, y: 0 };
 
-	// var scrollAmount = 0;
+	var sec_welcome = $("#sec_welcome"),
+		logo = $("#logo"),
+		title = $("#sec_welcome h1"),		
+		swipeUpToFlip = $("#swipeUpToFlip"),
+		canvas = $("canvas");
 
+	// var scrollAmount = 0;	// 第几次滚动，测试用
+
+	// 主函数
 	var SP = $.fn.switchPage = function(options) {
 		opts = $.extend({}, defaults , options||{});
 
@@ -57,7 +65,7 @@
 	}
 
 	// 公用方法，可通过类似$.fn.switchPage.moveSectionUp();进行调用
-	// 滚轮向上滑动事件（页面向下滚动）
+	// 滚轮向上滑动事件（查看上一页，页面向下滚动）
 	SP.moveSectionUp = function() {
 		if(iIndex){
 			iIndex--;
@@ -69,7 +77,7 @@
 		console.log("scroll to page " + iIndex);
 	};
 
-	// 滚轮向下滑动事件（下面向上滚动）
+	// 滚轮向下滑动事件（查看下一页，页面向上滚动）
 	SP.moveSectionDown = function(){
 		if(iIndex<(arrElement.length-1)){
 			iIndex++;
@@ -84,7 +92,7 @@
 	// 私有方法，仅限组件内部调用
 	// 页面滚动事件
 	function scrollPage(element){
-		var dest = element.position();	// 获取目标元素相对于浏览器窗口的offset
+		var dest = element.position();	// 获取目标元素相对于浏览器窗口的offset，绝对值通常等于浏览器窗口高度
 		// console.log("dest.left:"+dest.left+" dest.top:"+dest.top);
 		if(typeof dest === 'undefined'){ return; }
 		initEffects(dest,element);
@@ -108,7 +116,6 @@
 	}
 
 	// 重写触屏滚动事件
-	// document.addEventListener('touchstart',touchstartHandler, false);
 	$(".section").bind('touchstart',touchstartHandler);
 	$(".section").bind('touchmove',touchmoveHandler);
 	$(".section").bind('touchend',touchendHandler);
@@ -142,29 +149,106 @@
 
 	    mov.x = endPos.x - startPos.x;
 	    mov.y = endPos.y - startPos.y;
-		var h_limit = $(window).height()/4;	// 最短滑动距离
 		
 	    // 执行操作，使元素移动
-		if(mov.y<0 && Math.abs(mov.y)>h_limit) {
-			SP.moveSectionDown();
-		} else if (mov.y>h_limit) {
-			SP.moveSectionUp();
+		if(opts.direction == "horizontal"){
+			var w_limit = $(window).width()/4;	// 最短水平滑动距离
+			if(mov.x<0 && Math.abs(mov.x)>w_limit) {
+				SP.moveSectionDown();
+			} else if (mov.y>w_limit) {
+				SP.moveSectionUp();
+			} else {
+				console.log("Nothing done. (mov.x: " + mov.x + ", mov.y: " + mov.y + ", h_limit: " + h_limit + ", w_limit: " + w_limit + ")");
+			}
 		} else {
-			console.log("Nothing done. (mov.x: " + mov.x + ", mov.y: " + mov.y + ", h_limit: " + h_limit + ")");
+			var h_limit = $(window).height()/4;	// 最短垂直滑动距离
+			if(mov.y<0 && Math.abs(mov.y)>h_limit) {
+				SP.moveSectionDown();
+			} else if (mov.y>h_limit) {
+				SP.moveSectionUp();
+			} else {
+				console.log("Nothing done. (mov.x: " + mov.x + ", mov.y: " + mov.y + ", h_limit: " + h_limit + ")");
+			}
 		}
+
 		// reBuild();
 	}
+	
+	// handle the tap event
+	$("#con_qqgroup").bind('touchstart', touchstartHandler);
+	$("#con_qqgroup").bind('touchmove', touchmoveHandler);
+	
+	$("#con_site").bind('touchstart', touchstartHandler);
+	$("#con_site").bind('touchmove', touchmoveHandler);
+
 	$("#con_qqgroup").bind('touchend',function(e){
 		e.preventDefault();
-		console.log("con_qqgroup touched");
-		window.open("http://tonghuashuo.github.io/case/hfut/img/QR.jpg"); 
+		console.log("Touch ended at ( " + endPos.x + ", " + endPos.y + " )");
 
+	    mov.x = endPos.x - startPos.x;
+	    mov.y = endPos.y - startPos.y;
+	    var h_limit = $(window).height()/4;	// 最短滑动距离
+		
+	    // 执行操作，使元素移动
+		if( mov.x * mov.x + mov.y * mov.y <= 25) {
+			console.log("con_qqgroup touched");
+			window.open("http://192.168.31.230:8080/hfut/img/QR.jpg"); 
+			// window.open("http://tonghuashuo.github.io/case/hfut/img/QR.jpg"); 
+		} else {
+			if(opts.direction == "horizontal"){
+				var w_limit = $(window).width()/4;	// 最短水平滑动距离
+				if(mov.x<0 && Math.abs(mov.x)>w_limit) {
+					SP.moveSectionDown();
+				} else if (mov.y>w_limit) {
+					SP.moveSectionUp();
+				} else {
+					console.log("Nothing done. (mov.x: " + mov.x + ", mov.y: " + mov.y + ", h_limit: " + h_limit + ", w_limit: " + w_limit + ")");
+				}
+			} else {
+				var h_limit = $(window).height()/4;	// 最短垂直滑动距离
+				if(mov.y<0 && Math.abs(mov.y)>h_limit) {
+					SP.moveSectionDown();
+				} else if (mov.y>h_limit) {
+					SP.moveSectionUp();
+				} else {
+					console.log("Nothing done. (mov.x: " + mov.x + ", mov.y: " + mov.y + ", h_limit: " + h_limit + ")");
+				}
+			}
+		}
 	});
 	$("#con_site").bind('touchend',function(e){
 		e.preventDefault();
-		console.log("con_site touched");
-		window.open("http://rjxy.hfut.edu.cn");
+		console.log("Touch ended at ( " + endPos.x + ", " + endPos.y + " )");
 
+	    mov.x = endPos.x - startPos.x;
+	    mov.y = endPos.y - startPos.y;
+	    var h_limit = $(window).height()/4;	// 最短滑动距离
+		
+	    // 执行操作，使元素移动
+		if( mov.x * mov.x + mov.y * mov.y <= 25) {
+			console.log("con_site touched");
+			window.open("http://rjxy.hfut.edu.cn");
+		} else {
+			if(opts.direction == "horizontal"){
+				var w_limit = $(window).width()/4;	// 最短水平滑动距离
+				if(mov.x<0 && Math.abs(mov.x)>w_limit) {
+					SP.moveSectionDown();
+				} else if (mov.y>w_limit) {
+					SP.moveSectionUp();
+				} else {
+					console.log("Nothing done. (mov.x: " + mov.x + ", mov.y: " + mov.y + ", h_limit: " + h_limit + ", w_limit: " + w_limit + ")");
+				}
+			} else {
+				var h_limit = $(window).height()/4;	// 最短垂直滑动距离
+				if(mov.y<0 && Math.abs(mov.y)>h_limit) {
+					SP.moveSectionDown();
+				} else if (mov.y>h_limit) {
+					SP.moveSectionUp();
+				} else {
+					console.log("Nothing done. (mov.x: " + mov.x + ", mov.y: " + mov.y + ", h_limit: " + h_limit + ")");
+				}
+			}
+		}
 	});
 
 	// 横向布局初始化
@@ -257,12 +341,51 @@
 
 	// 窗口Resize
 	var resizeId;
+	win.ready(uiAlign);
 	win.resize(function(){
 		clearTimeout(resizeId);
 		resizeId = setTimeout(function(){
 			reBuild();
+			uiAlign();
 		},200);
 	});
+
+	// 用于定位页面元素
+	function uiAlign() {
+		var currentHeight = win.height(),
+			currentWidth = win.width();
+
+		// logo
+		var logo_w = logo.width();
+		var logo_h = logo.height();
+		var logo_mb = Number(logo.css('margin-bottom').slice(0, -2));
+		var sec_pl = Number(sec_welcome.css('padding-left').slice(0, -2));
+		var sec_pr = Number(sec_welcome.css('padding-right').slice(0, -2));
+		var sec_pt = Number(sec_welcome.css('padding-top').slice(0, -2));
+		var sec_pb = Number(sec_welcome.css('padding-bottom').slice(0, -2));
+		var title_h = title.height();
+		var logo_ml = (currentWidth - sec_pl - sec_pr - logo_w)/2 + "px";
+		var logo_mt = (currentHeight - sec_pt - sec_pb - logo_h - logo_mb - title_h)/2*0.618 + "px";
+		logo.css('margin-left', logo_ml);
+		logo.css('margin-top', logo_mt);
+
+		// swipeUpToFlip
+		var swipe_w = swipeUpToFlip.width();
+		var swipe_l = (currentWidth - swipe_w)/2 + "px";
+		swipeUpToFlip.css('left', swipe_l);
+
+		// canvas
+		var canvas_w = currentWidth - sec_pl - sec_pr;
+		canvas.attr({width: canvas_w});
+		if(currentWidth < 768) {
+			canvas.attr({height: 120});
+		} else {
+			canvas.attr({height: 200});
+		}
+
+
+
+	}
 
 	// 重新定位页面
 	function reBuild(){
