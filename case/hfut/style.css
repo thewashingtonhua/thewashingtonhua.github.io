@@ -44,7 +44,7 @@ p {
 
 #pages{
 	position:fixed;
-	right: 10px;
+	right: 25px;
 	list-style: none;
 	transition: all 0.1s ease-out;
 }
@@ -99,17 +99,17 @@ img {
 	max-width: 100%;
 }
 
-/*img.banner {
-	height: 200px;
-}*/
+img.banner {
+	max-height: 260px;
+}
 
 a {
 	text-decoration: none;
 }
 
 .con_left, .con_right {
-	width: 50%;
 	box-sizing: border-box;
+	width: 50%;
 	float: left;
 	/*border: 1px dotted #FFF;*/
 }
@@ -122,6 +122,12 @@ a {
 	text-align: center;
 	margin-top: 0.1em;
 	margin-bottom: 0.1em;
+}
+
+#scoreQuery {
+	box-sizing: border-box;
+	width: 100%;
+	margin-top: 10px;
 }
 
 #con_qqgroup {
@@ -157,13 +163,17 @@ a {
 
 @media all and (max-width: 768px) {
 	.section {
-		padding: 20px 30px;
+		padding: 20px 30px 20px 20px;
 	}
 
 	#logo {
 		width: 64px;
 		height: 64px;
 		margin-bottom: 10px;
+	}
+
+	#pages{
+		right: 5px;
 	}
 
 	h1 {
@@ -173,10 +183,6 @@ a {
 	p {
 		font-size: 0.5em;
 	}
-
-	/*img.banner {
-		height: 120px;
-	}*/
 
 	.button {
 		padding: 1em;
@@ -200,6 +206,11 @@ a {
 }
 
 @media all and (max-width: 400px) {
+	.con_left, .con_right {
+		clear: both;
+		width: 100%;
+	}
+	
 	#con_qqgroup {
 		width: 140px;
 		height: 140px;
@@ -210,9 +221,8 @@ a {
 		margin: 50px auto 10px;
 	}
 
-	.con_left, .con_right {
-		clear: both;
-		width: 100%;
+	p {
+		font-size: 0.1em;
 	}
 }
 

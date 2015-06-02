@@ -89,6 +89,17 @@
 		console.log("scroll to page " + iIndex);
 	};
 
+	// 滚动到指定页面，仅限测试用
+	SP.moveToSection = function(index) {
+		if(index>=0 && index<=(arrElement.length-1)){
+			iIndex = index;
+		}else{
+			console.err("index out of range");
+			return;
+		}
+		scrollPage(arrElement[iIndex]);
+	}
+
 	// 私有方法，仅限组件内部调用
 	// 页面滚动事件
 	function scrollPage(element){
@@ -175,11 +186,48 @@
 	}
 	
 	// handle the tap event
+	$("#scoreQuery").bind('touchstart', touchstartHandler);
 	$("#con_qqgroup").bind('touchstart', touchstartHandler);
 	$("#con_qqgroup").bind('touchmove', touchmoveHandler);
 	
+	$("#scoreQuery").bind('touchstart', touchstartHandler);
 	$("#con_site").bind('touchstart', touchstartHandler);
 	$("#con_site").bind('touchmove', touchmoveHandler);
+
+	$("#scoreQuery").bind('touchend',function(e){
+		e.preventDefault();
+		console.log("Touch ended at ( " + endPos.x + ", " + endPos.y + " )");
+
+	    mov.x = endPos.x - startPos.x;
+	    mov.y = endPos.y - startPos.y;
+	    var h_limit = $(window).height()/4;	// 最短滑动距离
+		
+	    // 执行操作，使元素移动
+		if( mov.x * mov.x + mov.y * mov.y <= 25) {
+			console.log("scoreQuery touched");
+			window.open("http://xbkzs.hfut.edu.cn/search/showd_fs_detail2.php"); 
+		} else {
+			if(opts.direction == "horizontal"){
+				var w_limit = $(window).width()/4;	// 最短水平滑动距离
+				if(mov.x<0 && Math.abs(mov.x)>w_limit) {
+					SP.moveSectionDown();
+				} else if (mov.y>w_limit) {
+					SP.moveSectionUp();
+				} else {
+					console.log("Nothing done. (mov.x: " + mov.x + ", mov.y: " + mov.y + ", h_limit: " + h_limit + ", w_limit: " + w_limit + ")");
+				}
+			} else {
+				var h_limit = $(window).height()/4;	// 最短垂直滑动距离
+				if(mov.y<0 && Math.abs(mov.y)>h_limit) {
+					SP.moveSectionDown();
+				} else if (mov.y>h_limit) {
+					SP.moveSectionUp();
+				} else {
+					console.log("Nothing done. (mov.x: " + mov.x + ", mov.y: " + mov.y + ", h_limit: " + h_limit + ")");
+				}
+			}
+		}
+	});
 
 	$("#con_qqgroup").bind('touchend',function(e){
 		e.preventDefault();
@@ -192,8 +240,8 @@
 	    // 执行操作，使元素移动
 		if( mov.x * mov.x + mov.y * mov.y <= 25) {
 			console.log("con_qqgroup touched");
-			window.open("http://192.168.31.230:8080/hfut/img/QR.jpg"); 
-			// window.open("http://tonghuashuo.github.io/case/hfut/img/QR.jpg"); 
+			// window.open("http://192.168.31.230:8080/hfut/img/QR.jpg"); 
+			window.open("http://tonghuashuo.github.io/case/hfut/img/QR.jpg"); 
 		} else {
 			if(opts.direction == "horizontal"){
 				var w_limit = $(window).width()/4;	// 最短水平滑动距离
@@ -377,11 +425,11 @@
 		// canvas
 		var canvas_w = currentWidth - sec_pl - sec_pr;
 		canvas.attr({width: canvas_w});
-		if(currentWidth < 768) {
+		/*if(currentWidth < 768) {
 			canvas.attr({height: 120});
 		} else {
 			canvas.attr({height: 200});
-		}
+		}*/
 
 
 

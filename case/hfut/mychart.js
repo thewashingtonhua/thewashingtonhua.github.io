@@ -3,7 +3,7 @@ var scoreData = {
     datasets: [
         {
             label: "安徽",
-            fillColor: "rgba(220,220,220,0.2)",
+            fillColor: "rgba(220,220,220,0.3)",
             strokeColor: "rgba(220,220,220,1)",
             pointColor: "rgba(220,220,220,1)",
             pointStrokeColor: "#fff",
@@ -13,7 +13,7 @@ var scoreData = {
         },
         {
             label: "国家线",
-            fillColor: "rgba(151,187,205,0.2)",
+            fillColor: "rgba(151,187,205,0.3)",
             strokeColor: "rgba(151,187,205,1)",
             pointColor: "rgba(151,187,205,1)",
             pointStrokeColor: "#fff",
@@ -29,8 +29,7 @@ var genderData = {
     datasets: [
         {
             label: "Boys",
-            // fillColor: "rgba(220,220,220,0.5)",
-            fillColor: "rgba(110,110,255,0.5)",
+            fillColor: "rgba(110,110,255,0.75)",
             strokeColor: "rgba(220,220,220,0.8)",
             highlightFill: "rgba(220,220,220,0.75)",
             highlightStroke: "rgba(220,220,220,1)",
@@ -38,8 +37,7 @@ var genderData = {
         },
         {
             label: "Girls",
-            // fillColor: "rgba(151,187,205,0.5)",
-            fillColor: "rgba(255,110,110,0.5)",
+            fillColor: "rgba(255,110,110,0.75)",
             strokeColor: "rgba(151,187,205,0.8)",
             highlightFill: "rgba(151,187,205,0.75)",
             highlightStroke: "rgba(151,187,205,1)",
@@ -57,12 +55,12 @@ window.onload = function(){
 
 	var scoreTrendLineChart = new Chart(ctx_scoreTrend).Line(scoreData, {
         // responsive: true,
-        scaleGridLineColor : "rgba(255,255,255,.1)"
+        scaleGridLineColor : "rgba(255,255,255,.05)"
     });
     var genderRateBarChart = new Chart(ctx_genderRate).Bar(genderData, {
         // responsive: true,
         barShowStroke : false,
-        scaleGridLineColor : "rgba(255,255,255,.1)"
+        scaleGridLineColor : "rgba(255,255,255,.05)"
 	});
 
 };
