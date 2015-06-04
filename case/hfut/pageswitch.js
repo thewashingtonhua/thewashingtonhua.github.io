@@ -240,7 +240,6 @@
 	    // 执行操作，使元素移动
 		if( mov.x * mov.x + mov.y * mov.y <= 25) {
 			console.log("con_qqgroup touched");
-			// window.open("http://192.168.31.230:8080/hfut/img/QR.jpg"); 
 			window.open("http://tonghuashuo.github.io/case/hfut/img/QR.jpg"); 
 		} else {
 			if(opts.direction == "horizontal"){
@@ -425,11 +424,15 @@
 		// canvas
 		var canvas_w = currentWidth - sec_pl - sec_pr;
 		canvas.attr({width: canvas_w});
-		/*if(currentWidth < 768) {
-			canvas.attr({height: 120});
+
+		// mobile
+		if(currentWidth < 768) {
+			canvas.attr({height: 160});
+			swipeUpToFlip.text("向上滑动滚屏");
 		} else {
-			canvas.attr({height: 200});
-		}*/
+			canvas.attr({height: 300});
+			swipeUpToFlip.text("滚轮向下翻页");
+		}
 
 
 

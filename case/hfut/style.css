@@ -142,6 +142,10 @@ a {
 	width: 100%;
 }
 
+#areaRate {
+	margin-bottom: 10px;
+}
+
 .button {
 	display: inline-block;
 	border: 1px solid #FFF;
