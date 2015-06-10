@@ -185,6 +185,10 @@
 		// reBuild();
 	}
 	
+	$("#con_qqgroup").bind('click', function(){
+		window.open("http://tonghuashuo.github.io/case/hfut/img/QR.jpg"); 
+	});
+	
 	// handle the tap event
 	$("#scoreQuery").bind('touchstart', touchstartHandler);
 	$("#con_qqgroup").bind('touchstart', touchstartHandler);
