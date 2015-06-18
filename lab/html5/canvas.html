@@ -13,19 +13,43 @@
 <body>
 	<h1>Canvas</h1>
 	<hr/>
-	<canvas id="mycanvas" height="300">Canvas is not supported on this browser</canvas>
+	<canvas id="mycanvas" height="300" width="300" style="background-color:#DDD">Canvas is not supported on this browser</canvas>
 	<hr/>
 	<a href="../index.html" class="back">&lt&lt Back</a>
 
 	<script>
 	var canvas = document.getElementById("mycanvas");
-	if(canvas) {
-		var win_w = window.innerWidth;
-		canvas.width = win_w;
 
-		var ctx = canvas.getContext("2d");
-		// draw background
-		// draw something
+	window.onload = draw;
+	window.onresize = draw;
+
+	function draw() {
+		if(!canvas) {
+			return false;
+		} else {
+			var win_w = window.innerWidth;
+			var body = document.body;
+			var pl = getCurrentStyle(body)["padding-left"].slice(0, -2);
+			var pr = getCurrentStyle(body)["padding-right"].slice(0, -2);
+			console.log(win_w + " " + pl + " " + pr);
+			canvas.width = win_w - pl - pr;
+
+			var ctx = canvas.getContext("2d");
+			ctx.fillStyle = '#999'; 
+	   		ctx.fillRect(100,100,canvas.width-200,100);   
+		}
+	}
+	
+	function getCurrentStyle(node) {
+	    var style = null;
+	    
+	    if(window.getComputedStyle) {
+	        style = window.getComputedStyle(node, null);	// Not IE
+	    }else{
+	        style = node.currentStyle;	// IE
+	    }
+	    
+	    return style;
 	}
 	</script>
 </body>

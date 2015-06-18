@@ -1,9 +1,13 @@
 html, body {
+	margin: 0;
+	padding: 0;
 	width: 100%;
-	height: 100%;
 	background-color: #EEE;
 	box-sizing: border-box;
-	padding: 0 10px;
+}
+
+body {
+	padding: 0 20px;
 }
 
 h1, h2, p, li, a {
@@ -52,4 +56,17 @@ li {
 
 a {
 	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+hr {
+	box-sizing: border-box;
+	width: 100%;
+}
+
+canvas {
+	display: block;
 }
