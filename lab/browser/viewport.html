@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+	<meta name="description" content="童话说，一个关于Web前端的原创技术博客，不定期发布Web前端及其相关技术的博文">
+	<meta name="keywords" content="tonghuashuo,github,前端,html,html5,css,css3,javascript,js,jquery,安卓,android,java,童话,童话说,华心童">
+	<title>Viewport - Tonghuashuo Lab</title>
+	<link rel="stylesheet" type="text/css" href="../style.css">
+
+</head>
+<body>
+	<h1>Viewport</h1>
+	<hr/>
+	<h2>Visiable</h2>
+	<p>Viewport Width:  <span id="win_w"></span> </p>
+	<p>Viewport Height: <span id="win_h"></span> </p>
+	<h2>Visiable + Scrollbar</h2>
+	<p>Client Width:    <span id="c_w"></span> </p>
+	<p>Client Height:   <span id="c_h"></span> </p>
+	<h2>Physical</h2>
+	<p>Screen Width:    <span id="scr_w"></span> </p>
+	<p>Screen Height:   <span id="scr_h"></span> </p>
+	<hr/>
+	<a href="../index.html" class="back">&lt&lt Back</a>
+
+	<script>
+	window.onload = function() {
+		var win_w = window.innerWidth;
+		var win_h = window.innerHeight;
+		var scr_w = screen.width;
+		var scr_h = screen.height;
+		var c_w = document.documentElement.clientWidth;
+		var c_h = document.documentElement.clientHeight;
+
+		document.getElementById("win_w").innerHTML = win_w + "px";
+		document.getElementById("win_h").innerHTML = win_h + "px";
+		document.getElementById("scr_w").innerHTML = scr_w + "px";
+		document.getElementById("scr_h").innerHTML = scr_h + "px";
+		document.getElementById("c_w").innerHTML = c_w + "px";
+		document.getElementById("c_h").innerHTML = c_h + "px";
+	};
+	</script>
+</body>
+</html>
