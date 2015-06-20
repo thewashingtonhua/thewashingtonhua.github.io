@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Test</title>
+	<style type="text/css">
+	cite {
+		border: 1px solid #333;
+		overflow: hidden;
+		display: inline-block;
+	}
+	</style>
+</head>
+<body>
+
+	<cite><img id="pic_origin" src="a.jpg"></cite>	<!-- Original, for compare -->
+	<img id="pic_bigger" src="a.jpg">					<!-- To cut -->
+	<img id="pic_smaller" src="a.jpg">					<!-- To cut -->
+
+	<script type="text/javascript" src="jquery-2.1.3.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		var img_bigger = document.getElementById("pic_bigger");
+		var img_smaller = document.getElementById("pic_smaller");
+		cutImgz(img_bigger, 300, 350);
+		cutImgz(img_smaller, 100, 60);
+		// var img = $("#pic");
+		// img.width(320);
+		// img.height(200);
+		// img.wrap("<cite/>");
+	});
+
+	function cutImgz(obj, v, h){
+	    var image = new Image();
+	    image.src=obj.src;
+
+	    $thiss=$(obj);
+	    var iwidth = v;//获取在CSS里固定的图片显示宽度
+	    var iheight = h;//获取在CSS里固定的图片显示高度
+
+	    console.log(image.width + "  " + image.height + "  " + iwidth + "  " + iheight);
+	    // 189 200 189 200
+
+	    if(1*image.width*iheight!=1*iwidth*image.height){
+	        //原始图片的尺寸与CSS里固定的图片尺寸比例不一致，则进行处理
+	        if(image.width/image.height>=iwidth/iheight){
+	            $thiss.height(iheight+'px');
+	            $thiss.width((image.width*iheight)/image.height+'px');
+	        }
+	        else{
+	            $thiss.width(iwidth+'px');
+	            $thiss.height((image.height*iwidth)/image.width+'px');
+	        }
+
+	        //用cite装起来，做出裁剪效果
+	        $thiss.wrap('<cite />');
+	        console.log($thiss.width());
+	    }
+	}
+
+	</script>
+</body>
+</html>
