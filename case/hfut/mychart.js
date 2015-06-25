@@ -1,8 +1,8 @@
 var scoreData = {
-    labels: ["2009", "2010", "2011", "2012", "2013", "2014"],
+    labels: ["2009", "2010", "2011", "2012", "2013", "2014", "2015"],
     datasets: [
         {
-            label: "安徽",
+            label: "合工大软件录取线",
             fillColor: "rgba(220,220,220,0.3)",
             strokeColor: "rgba(220,220,220,1)",
             pointColor: "rgba(220,220,220,1)",
@@ -12,14 +12,14 @@ var scoreData = {
             data: [610, 600, 587, 601, 552, 557]
         },
         {
-            label: "国家线",
+            label: "安徽理科一本线",
             fillColor: "rgba(151,187,205,0.3)",
             strokeColor: "rgba(151,187,205,1)",
             pointColor: "rgba(151,187,205,1)",
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(151,187,205,1)",
-            data: [579, 562, 534, 544, 490, 489]
+            data: [579, 562, 534, 544, 490, 489, 555]
         }
     ]
 };

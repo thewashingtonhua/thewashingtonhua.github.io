@@ -434,7 +434,7 @@
 			canvas.attr({height: 160});
 			swipeUpToFlip.text("向上滑动滚屏");
 		} else {
-			canvas.attr({height: 300});
+			canvas.attr({height: 250});
 			swipeUpToFlip.text("滚轮向下翻页");
 		}
 

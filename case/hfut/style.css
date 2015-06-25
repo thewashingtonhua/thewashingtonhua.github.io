@@ -4,7 +4,7 @@ h1, body, html {
 }
 
 body {
-	font-family: "Segoe UI", "Microsoft YaHei", "Miragino Sans GB", sans-serif;
+	font-family: "Segoe UI", Roboto, "Microsoft YaHei", "Helvetica Neue", Tahoma , Arial, sans-serif;
 }
 
 html, body {
@@ -111,7 +111,7 @@ a {
 	box-sizing: border-box;
 	width: 50%;
 	float: left;
-	/*border: 1px dotted #FFF;*/
+	margin-top: 80px;
 }
 
 .con_right {
@@ -155,7 +155,7 @@ a {
 	height: auto;
 	text-align: center;
 	color: #FFF;
-	font-family: Segoe UI, Microsoft YaHei, Arial, Helvetica, Tahoma, Sans-serif;
+	font-family: "Segoe UI", Roboto, "Microsoft YaHei", "Helvetica Neue", Tahoma , Arial, sans-serif;
 	transition: all linear 0.1s;
 }
 
@@ -165,6 +165,7 @@ a {
 	color: #37589D;
 }
 
+/* Tablet */
 @media all and (max-width: 768px) {
 	.section {
 		padding: 20px 30px 20px 20px;
@@ -209,10 +210,12 @@ a {
 	}
 }
 
+/* Phone */
 @media all and (max-width: 400px) {
 	.con_left, .con_right {
 		clear: both;
 		width: 100%;
+		margin-top: 0;
 	}
 	
 	#con_qqgroup {

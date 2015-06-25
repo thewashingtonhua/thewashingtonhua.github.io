@@ -13,7 +13,7 @@
 </head>
 <body>
 
-	<cite><img id="pic_origin" src="a.jpg"></cite>	<!-- Original, for compare -->
+	<cite><img id="pic_origin" src="a.jpg"></cite>		<!-- Original, for compare -->
 	<img id="pic_bigger" src="a.jpg">					<!-- To cut -->
 	<img id="pic_smaller" src="a.jpg">					<!-- To cut -->
 
@@ -54,7 +54,7 @@
 
 	        //用cite装起来，做出裁剪效果
 	        $thiss.wrap('<cite />');
-	        console.log($thiss.width());
+	        console.log($thiss.width() + "  " + $thiss.height());
 	    }
 	}
 
