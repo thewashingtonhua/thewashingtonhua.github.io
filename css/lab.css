@@ -1,0 +1,76 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	background-color: #EEE;
+	box-sizing: border-box;
+}
+
+body {
+	padding: 0 20px;
+}
+
+h1, h2, p, li, a {
+	font-family: "Segoe UI", "Roboto", "Microsoft YaHei", "Helvetica Neue", Helvetica, Tahoma, Arial, sans-serif;
+	font-weight: 400;
+}
+
+h1, h2, p, li, a {
+	color: #666;
+}
+
+/* h2, p {
+	color: #AAA;
+} */
+
+h2 {
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+
+p {
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+ul {
+	padding-left: 0;
+}
+
+ul ul {
+	padding-left: 2em;
+}
+
+ul li {
+	font-weight: 700;
+}
+
+ul li ul li {
+	font-weight: 100;
+}
+
+ul ul li {
+	font-weight: 400;
+}
+
+li {
+	list-style: none;
+	margin-bottom: 1em;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+hr {
+	box-sizing: border-box;
+	width: 100%;
+}
+
+canvas {
+	display: block;
+}
