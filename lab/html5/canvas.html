@@ -13,6 +13,7 @@
 <body>
 	<h1>Canvas</h1>
 	<hr/>
+	<h2 id="support"></h2>
 	<canvas id="mycanvas" height="300" width="300" style="background-color:#DDD">Canvas is not supported on this browser</canvas>
 	<hr/>
 	<a href="../index.html" class="back">&laquo; Back</a>
@@ -34,9 +35,12 @@
 			console.log(win_w + " " + pl + " " + pr);
 			canvas.width = win_w - pl - pr;
 
-			var ctx = canvas.getContext("2d");
-			ctx.fillStyle = '#999'; 
-	   		ctx.fillRect(100,100,canvas.width-200,100);   
+			if(canvas.getContext("2d")) {
+				support.innerHTML = "This browser supports canvas.";
+				var ctx = canvas.getContext("2d");
+				ctx.fillStyle = '#999'; 
+		   		ctx.fillRect(100,100,canvas.width-200,100);   
+		   	}
 		}
 	}
 	

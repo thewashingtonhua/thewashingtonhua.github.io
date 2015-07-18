@@ -74,7 +74,7 @@
 		}
 		// console.log("arrElement[" + iIndex + "] " + arrElement[iIndex]);
 		scrollPage(arrElement[iIndex]);
-		console.log("scroll to page " + iIndex);
+		// console.log("scroll to page " + iIndex);
 	};
 
 	// 滚轮向下滑动事件（查看下一页，页面向上滚动）
@@ -86,7 +86,7 @@
 		}
 		// console.log("arrElement[" + iIndex + "] " + arrElement[iIndex]);
 		scrollPage(arrElement[iIndex]);
-		console.log("scroll to page " + iIndex);
+		// console.log("scroll to page " + iIndex);
 	};
 
 	// 滚动到指定页面，仅限测试用

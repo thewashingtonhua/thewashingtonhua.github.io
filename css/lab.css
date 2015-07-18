@@ -13,15 +13,8 @@ body {
 h1, h2, p, li, a {
 	font-family: "Segoe UI", "Roboto", "Microsoft YaHei", "Helvetica Neue", Helvetica, Tahoma, Arial, sans-serif;
 	font-weight: 400;
-}
-
-h1, h2, p, li, a {
 	color: #666;
 }
-
-/* h2, p {
-	color: #AAA;
-} */
 
 h2 {
 	margin-top: 30px;
