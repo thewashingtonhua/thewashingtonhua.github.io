@@ -31,9 +31,11 @@
 
 	var sec_welcome = $("#sec_welcome"),
 		logo = $("#logo"),
-		title = $("#sec_welcome h1"),		
+		title = $("#sec_welcome h1"),
 		swipeUpToFlip = $("#swipeUpToFlip"),
-		canvas = $("canvas");
+		canvas = $("canvas"),
+		joinqqlink = $("#sec_contact .con_left img+p");
+
 
 	// var scrollAmount = 0;	// 第几次滚动，测试用
 
@@ -144,14 +146,14 @@
 	}
 	function touchmoveHandler(e) {
 		e.preventDefault();
-		
+
 		// 当屏幕有多个touch或者页面被缩放过，就不执行move操作
 		if (e.originalEvent.touches.length > 1 || e.scale && e.scale !== 1) return;
-	
+
 	    var touch = e.originalEvent.touches[0];
 	    endPos.x = touch.pageX;
 	    endPos.y = touch.pageY;
-	 
+
 		// console.log("moving to ( " + endPos.x + ", " + endPos.y + " )");
 	}
 	function touchendHandler(e) {
@@ -160,7 +162,7 @@
 
 	    mov.x = endPos.x - startPos.x;
 	    mov.y = endPos.y - startPos.y;
-		
+
 	    // 执行操作，使元素移动
 		if(opts.direction == "horizontal"){
 			var w_limit = $(window).width()/4;	// 最短水平滑动距离
@@ -184,16 +186,16 @@
 
 		// reBuild();
 	}
-	
+
 	$("#con_qqgroup").bind('click', function(){
-		window.open("http://tonghuashuo.github.io/case/hfut/img/QR.jpg"); 
+		window.open("http://tonghuashuo.github.io/case/hfut/img/QR.jpg");
 	});
-	
+
 	// handle the tap event
 	$("#scoreQuery").bind('touchstart', touchstartHandler);
 	$("#con_qqgroup").bind('touchstart', touchstartHandler);
 	$("#con_qqgroup").bind('touchmove', touchmoveHandler);
-	
+
 	$("#scoreQuery").bind('touchstart', touchstartHandler);
 	$("#con_site").bind('touchstart', touchstartHandler);
 	$("#con_site").bind('touchmove', touchmoveHandler);
@@ -205,11 +207,11 @@
 	    mov.x = endPos.x - startPos.x;
 	    mov.y = endPos.y - startPos.y;
 	    var h_limit = $(window).height()/4;	// 最短滑动距离
-		
+
 	    // 执行操作，使元素移动
 		if( mov.x * mov.x + mov.y * mov.y <= 25) {
 			console.log("scoreQuery touched");
-			window.open("http://xbkzs.hfut.edu.cn/search/showd_fs_detail2.php"); 
+			window.open("http://xbkzs.hfut.edu.cn/search/showd_fs_detail2.php");
 		} else {
 			if(opts.direction == "horizontal"){
 				var w_limit = $(window).width()/4;	// 最短水平滑动距离
@@ -240,11 +242,11 @@
 	    mov.x = endPos.x - startPos.x;
 	    mov.y = endPos.y - startPos.y;
 	    var h_limit = $(window).height()/4;	// 最短滑动距离
-		
+
 	    // 执行操作，使元素移动
 		if( mov.x * mov.x + mov.y * mov.y <= 25) {
 			console.log("con_qqgroup touched");
-			window.open("http://tonghuashuo.github.io/case/hfut/img/QR.jpg"); 
+			window.open("http://tonghuashuo.github.io/case/hfut/img/QR.jpg");
 		} else {
 			if(opts.direction == "horizontal"){
 				var w_limit = $(window).width()/4;	// 最短水平滑动距离
@@ -274,7 +276,7 @@
 	    mov.x = endPos.x - startPos.x;
 	    mov.y = endPos.y - startPos.y;
 	    var h_limit = $(window).height()/4;	// 最短滑动距离
-		
+
 	    // 执行操作，使元素移动
 		if( mov.x * mov.x + mov.y * mov.y <= 25) {
 			console.log("con_site touched");
@@ -433,10 +435,13 @@
 		if(currentWidth < 768) {
 			canvas.attr({height: 160});
 			swipeUpToFlip.text("向上滑动滚屏");
+			joinqqlink.html("扫描二维码，加入新生群");
 		} else {
 			canvas.attr({height: 250});
 			swipeUpToFlip.text("滚轮向下翻页");
+			joinqqlink.html("扫码 或 <a target='_blank' href='http://jq.qq.com/?_wv=1027&k=eJSoKa'>点此链接加入新生群</a>");
 		}
+		// 点击链接加入群【合工大软件2015新生群】：http://jq.qq.com/?_wv=1027&k=eJSoKa
 
 
 

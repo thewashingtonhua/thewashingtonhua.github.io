@@ -105,6 +105,11 @@ img.banner {
 
 a {
 	text-decoration: none;
+	color: #FFF;
+}
+
+a:hover {
+	text-decoration: underline;
 }
 
 .con_left, .con_right {
@@ -217,7 +222,7 @@ a {
 		width: 100%;
 		margin-top: 0;
 	}
-	
+
 	#con_qqgroup {
 		width: 140px;
 		height: 140px;
