@@ -28,25 +28,38 @@
 
 			var version = document.getElementById("version");
 			var ver = "";
-			if(ua.indexOf("msie") > 0) {
-				ver = ua.match(/msie\s\d+/).toString().substr(4);	// IE <10
+			if(ua.indexOf("edge") > 0) {							// Edge 12
+				ver = ua.match(/edge\/\d+.+/).toString().substr(5);
+				version.innerHTML = "Microsoft Edge " + ver;
+			} else if(ua.indexOf("msie") > 0) {						// IE <10
+				ver = ua.match(/msie\s\d+/).toString().substr(4);
 				version.innerHTML = "IE " + ver;
-			} else if (ua.indexOf("trident") > 0){
-				version.innerHTML = "IE 11";								// IE 11
-			} else if (ua.indexOf("firefox") > 0){
-				version.innerHTML = "Firefox";
-			} else if (ua.indexOf("opera") > 0){
-				version.innerHTML = "Opera";
-			} else if (ua.indexOf("opr") > 0) {
-				ver = ua.match(/opr\/\d+.\d+.\d+.\d+/).toString().substr(4);
+			} else if (ua.indexOf("trident") > 0){					// IE 11
+				version.innerHTML = "IE 11";
+			} else if (ua.indexOf("firefox") > 0){					// Firefox
+				ver = ua.match(/firefox\/\d+.+/).toString().substr(8);
+				version.innerHTML = "Firefox " + ver;
+			} else if (ua.indexOf("opera") > 0){					// Opera 9.8-
+				ver = ua.match(/opera\/\d+.+/).toString().substr(6);
+				if(Number(ver)>=9.8) {								// Opera 10+
+					ver = ua.match(/version\/\d+.+/).toString().substr(8);
+				}
 				version.innerHTML = "Opera " + ver;
-			} else if (ua.indexOf("chrome") > 0){
+			} else if (ua.indexOf("opr") > 0) {						// Opera with webkit/blink
+				ver = ua.match(/opr\/\d+.\d+.\d+.\d+/).toString().substr(4);
+				if(ua.indexOf("dev") > 0) {							// Opera dev edition
+					ver += " (edition developer)";
+				} else if(ua.indexOf("beta") > 0) {					// Opera beta edition
+					ver += " (edition beta)";
+				}
+				version.innerHTML = "Opera " + ver;
+			} else if (ua.indexOf("chrome") > 0){					// Chrome
 				ver = ua.match(/chrome\/\d+.\d+.\d+.\d+/).toString().substr(7);
 				version.innerHTML = "Chrome " + ver;
-			} else if (ua.indexOf("safari") > 0){
+			} else if (ua.indexOf("safari") > 0){					// Safari
 				ver = ua.match(/safari\/\d+.+/).toString().substr(7);
 				version.innerHTML = "Safari " + ver;
-			} else {
+			} else {												// Unknown
 				version.innerHTML = "Unknown";
 			}
 		} else {
