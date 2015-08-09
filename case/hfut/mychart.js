@@ -9,7 +9,7 @@ var scoreData = {
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(220,220,220,1)",
-            data: [610, 600, 587, 601, 552, 557]
+            data: [610, 600, 587, 601, 552, 557, 620]
         },
         {
             label: "安徽理科一本线",
@@ -25,7 +25,7 @@ var scoreData = {
 };
 
 var genderData = {
-    labels: ["2009", "2010", "2011", "2012", "2013", "2014"],
+    labels: ["2009", "2010", "2011", "2012", "2013", "2014", "2015"],
     datasets: [
         {
             label: "Boys",
@@ -33,7 +33,7 @@ var genderData = {
             strokeColor: "rgba(220,220,220,0.8)",
             highlightFill: "rgba(110,110,255,1)",
             highlightStroke: "rgba(220,220,220,1)",
-            data: [74, 76, 73, 79, 74, 79]
+            data: [74, 76, 73, 79, 74, 79, 76]
         },
         {
             label: "Girls",
@@ -41,7 +41,7 @@ var genderData = {
             strokeColor: "rgba(151,187,205,0.8)",
             highlightFill: "rgba(255,110,110,1)",
             highlightStroke: "rgba(151,187,205,1)",
-            data: [12, 11, 13, 9, 12, 6]
+            data: [12, 11, 13, 9, 12, 6, 12]
         }
     ]
 };
