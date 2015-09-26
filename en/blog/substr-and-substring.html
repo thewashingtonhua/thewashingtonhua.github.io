@@ -96,15 +96,15 @@ console.log(str.substring(-2, 7));
 console.log(str.substring(0, 10));</code></pre>
 
 			<h2>Immutable String</h2>
-			<p>Like in many other programming languages, String is immutable in JavaScript too.<span class="code">substr()</span> and <span class="code">substring()</span> only return the subset of the string. You gonna need another variable if you wanna store the result. Else it'll be just an oputput.</p>
+			<p>Like in many other programming languages, String is immutable in JavaScript too.<span class="code">substr()</span> and <span class="code">substring()</span> only return the subset of the string. You gonna need another variable if you wanna store the result. Otherwise it'll be just an output.</p>
 
 			<h2>Boundary crossing friend: slice ( start [ , end ] )</h2>
-			<p>Except for the two main character of this article, there's another function in JavaScript that can be used to get a subset of a string. It's their friend <span class="code">slice()</span>. The reason why I called "Boundary Crpssing" is that it's defined in both String and Array.</p>
+			<p>There's another function in JavaScript that can be used to get a subset of a string. It's their friend <span class="code">slice()</span>. The reason why I called "Boundary Crpssing" is that it's defined in both String and Array.</p>
 			<p><span class="code">slice()</span> somehow works like the combination of <span class="code">substr()</span> and <span class="code">substring()</span>. It uses starting point and end point to define what to extract, just like <span class="code">substring()</span>. But if either arguement is negative, it's not treated as 0, instead it starts the counting from the right. This works the same as <span class="code">substr()</span> (Nothice that it works for both arguements in <span class="code">slice()</span>, while only the first arguement in <span class="code">substr()</span> works like this). The second arguement is also optional. If omitted or is greater than the length of the rest string. The subset ends with the last character of the string. If the first arguement is greater than the second one, they wont exchange. An empty string will be returned.</p>
-			<p><span class="code">slice()</span> works the same in Array. Only the it's array elements. Anyway, String is somehow another kind of array in JavaScript. So it's not strange to see they share some functions.</p>
+			<p><span class="code">slice()</span> works the same in Array. Only that it's array elements. Anyway, String is somehow another kind of array in JavaScript. So it's not strange to see they share some functions.</p>
 
 			<h2>Why three</h2>
-			<p><span class="code">substr()</span>, <span class="code">substring()</span> and <span class="code">slice()</span> provided us 3 different ways to extract a string: By length, form the positive direction, from both end. We can choose whatever works the best for our project.</p>
+			<p><span class="code">substr()</span>, <span class="code">substring()</span> and <span class="code">slice()</span> provided us with 3 different ways to extract a string: By length, by positive direction, by both direction. We can choose whatever works the best for our project.</p>
 		</article>
 
 	</div>

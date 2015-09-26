@@ -142,6 +142,10 @@ a:hover {
 	margin: 0 auto 20px;
 }
 
+#con_qqgroup:hover {
+	cursor: pointer;
+}
+
 #con_site {
 	margin: 75px auto 80px;
 	width: 100%;
@@ -168,6 +172,7 @@ a:hover {
 	cursor: pointer;
 	background-color: #FFF;
 	color: #37589D;
+	text-decoration: none;
 }
 
 /* Tablet */
