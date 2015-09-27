@@ -42,6 +42,10 @@ h1.title {
 	background-image: url(../img/stackcalculator_thumb.jpg);
 }
 
+#css3mooncake .cover {
+	background-image: url(../img/css3mooncake_thumb.jpg);
+}
+
 .card h3 {
 	font-family: Roboto, "Helvetica", "Sans-Serif", "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
 	padding: 0.5em;
