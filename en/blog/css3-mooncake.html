@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+	<meta name="description" content="童话说，一个关于Web前端的个人技术博客，不定期发布Web前端及其相关技术的博文">
+	<meta name="keywords" content="tonghuashuo,github,前端,html,css,javascript,android,童话,童话说,华心童,css3,中秋,快乐,月饼,绘制">
+	<title>Draw a Mooncake with CSS3 - Blog|TongHuaShuo</title>
+	<link rel="shortcut icon" href="../../img/favicon.ico" />
+	<link rel="stylesheet" href="../../css/index.css" />
+	<link rel="stylesheet" href="../../css/blog.css" />
+</head>
+<body>
+
+	<div id="mf_content">
+		<article id="css3mooncake">
+			<h1>Draw a Mooncake with CSS3</h1>
+			<div class="time"><time datetime="2015-09-27">Sep 27st 2015<time></div>
+			<div class="titleBanner"></div>
+
+			<p>Drawing with CSS3 isn't something new. Many developers have tried it. But for me this is the first time. So while it's Mid-Autumn Festival, let's try draw a mooncake.</p>
+			<p>PS: Considering i'm not Art majored, please forgive my terrible drawing skill.</p>
+			<p>PPS: It's highly recommended that you try this on a Chrome (or any other browser have good support for CSS3) for best experience.</p>
+
+			<h2>Basic Structure</h2>
+			<p>The mooncake have 4 parts: the body, small decorative circles around the body, textures on top, text in the center.</p>
+
+			<h2>The body</h2>
+			<p>Using <span class="code">border-radius</span> to draw a circle is oone of the basic skills in CSS3 drawing.</p>
+			<pre><code>.main{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color: #C76603;
+    border: 4px solid #BA3B00;
+}
+
+&lt;div class=&quot;main&quot;&gt;&lt;/div&gt;</code></pre>
+			<p>I've set the background div as <span class="code">position: relative;</span>, so everything inside of it can be absolutely positioned. We gonna use quite a lot of absolute position in CSS3 drawing.</p>
+			<img src="../../img/css3-mooncake/01.jpg">
+			
+			<h2>Decorative circles</h2>
+			<p>The decorative circles are also circles, just smaller. For calculation convenience, I wrote 12 of them. The real mooncakes, of course, have way more than that. I'm just being lazy here. becaurse CSS3 has no expression. By using JavaScript, or extensions like LESS,SCSS,SASS, we can easily control the amount and have as many as we want.</p>
+			<p>Each small circle is position absolutely. By calculating the center coordinates of the circle with trigonometric, we know their positions. Be awared, the center coordinates of small circles are not the final coordinates we need because of the box model. We need to loose the radius to get the coordinates of the top-left corner.</p>
+			<img src="../../img/css3-mooncake/02-01.jpg">
+			<p>The small circles are overlayed. You might have found that part of the first small circle is covered by the last one, which is not what we want. Here we gonna solve it by a little tricks.</p>
+			<img src="../../img/css3-mooncake/02-02.jpg">
+			<p>First we need to get the first small circle on top. Make a copy of the first small circle. Use <span class="code">border-radius</span> to make is a semi-circle. And Ta-Da! the left part came to life again. (here I did a little change on color and layer relationship for better understanding)</p>
+			<pre><code>.ear.index12 {
+    height: 100px;
+    width: 50px;
+    border-radius: 50px 0 0 50px;
+}
+
+&lt;!--div.ear.index 0-11--&gt;
+
+&lt;div class=&quot;ear index12&quot;&gt;&lt;/div&gt;</code></pre>
+			<img src="../../img/css3-mooncake/02-03.jpg" style="float: left; margin-right:10px;">
+			<img src="../../img/css3-mooncake/02-04.jpg">
+			<p>But with the old problem solved, comes a new one. There's a verticle line in the middle of the first small circle. There are two ways to solve this. One is to set <span class="code">border-right-color: transparent;</span> for the semi-circle, which works but not perfectly. If you take a close look you will see a small breach on the top.</p>
+			<img src="../../img/css3-mooncake/02-05.jpg">
+			<p>The other way, which we used here, is to cover is up with a small piece. We made a copy of the semi-circle and did a lillte adjustment, so it can hide the vertical line but not too wide to cover the second small circle.</p>
+			<pre><code>.ear.index13 {
+    width: 25px;
+    height: 42px;
+    border-radius: 0 25px 0 0;
+    border-color: #C76603;
+}
+
+&lt;!--div.ear.index 0-11--&gt;
+
+&lt;div class=&quot;ear index12&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;ear index13&quot;&gt;&lt;/div&gt;</code></pre>
+			<img src="../../img/css3-mooncake/02-06.jpg">
+
+			<h2>Textures on top</h2>
+			<p>For textures on top, I chose cross-lines. Mainly because I'm bored with circles. Wanted some changes. Let's start by doing one quarter. The rest just need some rotation.</p>
+			<p>Here I chose <span class="code">ul>li</span> because it's basiclly a list of lines with different length. Set the <span class="code">ul</span> right. Then we just need to find the perfect amount and length for the lines.</p>
+			<img src="../../img/css3-mooncake/03-01.jpg">
+			<p>By default, <span class="code">ul>li</span> does down, which is the direction of 3 o'clock. The other 3 need <span class="code">transform: rotate(90deg);</span> to rotate and <span class="code">top</span>, <span class="code">left</span> to reposition. And it's done.</p>
+			<img src="../../img/css3-mooncake/03-02.jpg">
+
+			<h2>Text in the center</h2>
+			<p>The text part is easy. Inside <span class="code">div.text</span> I put 2 <span class="code">p</span> with text. Set the margin, position it right, create some round corners. And it's done. Be awared, the background of the text need some colors. otherwise it will be transparent and the cross-lines will show on top.</p>
+			<pre><code>.text {
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    background-color: #C76603;
+    border: 4px solid #BA3B00;
+    border-radius: 10px;
+}
+.text p {
+    font-size: 80px;
+    line-height: 80px;
+    padding: 0;
+    margin: 0;
+    color: #BA3B00;
+}
+
+&lt;div class="text"&gt;
+    &lt;p&gt;快中&lt;/p&gt;
+    &lt;p&gt;乐秋&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+			<img src="../../img/css3-mooncake/04.jpg">
+
+			<h2>Summary</h2>
+			<p>Using CSS3 to draw shapes is good for reducing network traffic and increasing render efficiency of the browser. technically, any picture that can be divided into basic graphics, can be drew by CSS3. But the worst thing about CSS3 drawing is that it takes too much time and energy because it requires a lot of calculation and position. Too much repetitive work. So in action, it can only be used on simple cases. For complex projects, it's not recommended.</p>
+			<p>Drawing some demos using CSS3 is a good way to know CSS3 feature better. Like borders, position, rotatiion, etc. And how to build something rather complex with it. Just like LEGO toys. Simple it is, but with imagination, we can build quite something with it.</p>
+		</article>
+
+	</div>
+
+	<script src="../../js/index.js"></script>
+</body>
+</html>

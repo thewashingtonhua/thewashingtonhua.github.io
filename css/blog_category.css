@@ -100,6 +100,10 @@
 	background-image: url(../img/miuiiconcache.jpg);
 }
 
+#css3mooncake div.banner {
+	background-image: url(../img/css3mooncake.jpg);
+}
+
 /* Styles for mobile device */
 @media all and (max-width: 960px) {
 	.card {
