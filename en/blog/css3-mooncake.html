@@ -32,7 +32,7 @@
 			<p>The mooncake have 4 parts: the body, small decorative circles around the body, textures on top, text in the center.</p>
 
 			<h2>The body</h2>
-			<p>Using <span class="code">border-radius</span> to draw a circle is oone of the basic skills in CSS3 drawing.</p>
+			<p>Using <span class="code">border-radius</span> to draw a circle is one of the basic skills in CSS3 drawing.</p>
 			<pre><code>&lt;!-- CSS code --&gt;
 .main{
     width: 300px;
@@ -49,11 +49,11 @@
 			
 			<h2>Decorative circles</h2>
 			<p>The decorative circles are also circles, just smaller. For calculation convenience, I wrote 12 of them. The real mooncakes, of course, have way more than that. I'm just being lazy here. becaurse CSS3 has no expression. By using JavaScript, or extensions like LESS,SCSS,SASS, we can easily control the amount and have as many as we want.</p>
-			<p>Each small circle is position absolutely. By calculating the center coordinates of the circle with trigonometric, we know their positions. Be awared, the center coordinates of small circles are not the final coordinates we need because of the box model. We need to loose the radius to get the coordinates of the top-left corner.</p>
+			<p>Each small circle is absolutely positioned. By calculating the center coordinates of the circle with trigonometric, we know their positions. Be awared, the center coordinates of small circles are not the final coordinates we need because of the box model. We need to loose the radius to get the coordinates of the top-left corner.</p>
 			<img src="../../img/css3-mooncake/02-01.jpg">
 			<p>The small circles are overlayed. You might have found that part of the first small circle is covered by the last one, which is not what we want. Here we gonna solve it by a little tricks.</p>
 			<img src="../../img/css3-mooncake/02-02.jpg">
-			<p>First we need to get the first small circle on top. Make a copy of the first small circle. Use <span class="code">border-radius</span> to make is a semi-circle. And Ta-Da! the left part came to life again. (here I did a little change on color and layer relationship for better understanding)</p>
+			<p>First we need to get the first small circle on top. Make a copy of the first small circle. Use <span class="code">border-radius</span> to make it a semi-circle. And Ta-Da! the left part came to life again. (here I did a little change on color and layer relationship for better understanding)</p>
 			<pre><code>&lt;!-- CSS code --&gt;
 .ear.index12 {
     height: 100px;
@@ -68,7 +68,7 @@
 			<img src="../../img/css3-mooncake/02-04.jpg">
 			<p>But with the old problem solved, comes a new one. There's a verticle line in the middle of the first small circle. There are two ways to solve this. One is to set <span class="code">border-right-color: transparent;</span> for the semi-circle, which works but not perfectly. If you take a close look you will see a small breach on the top.</p>
 			<img src="../../img/css3-mooncake/02-05.jpg">
-			<p>The other way, which we used here, is to cover is up with a small piece. We made a copy of the semi-circle and did a lillte adjustment, so it can hide the vertical line but not too wide to cover the second small circle.</p>
+			<p>The other way, which we used here, is to cover it up with a small piece. We made a copy of the semi-circle and did a lillte adjustment, so it can hide the vertical line but not too wide to cover the second small circle.</p>
 			<pre><code>&lt;!-- CSS code --&gt;
 .ear.index13 {
     width: 25px;
@@ -121,7 +121,7 @@ li:nth-child(3) {
 ul.top-qu>li*10
 </code></pre>
 			<img src="../../img/css3-mooncake/03-01.jpg">
-			<p>By default, <span class="code">ul>li</span> does down, which is the direction of 3 o'clock. The other 3 need <span class="code">transform: rotate(90deg);</span> to rotate and <span class="code">top</span>, <span class="code">left</span> to reposition. And it's done.</p>
+			<p>By default, <span class="code">ul>li</span> goes down, which is the direction of 3 o'clock. The other 3 need <span class="code">transform: rotate(90deg);</span> to rotate and <span class="code">top</span>, <span class="code">left</span> to reposition. And it's done.</p>
 			<img src="../../img/css3-mooncake/03-02.jpg">
 
 			<h2>Text in the center</h2>
@@ -149,8 +149,8 @@ ul.top-qu>li*10
 			<img src="../../img/css3-mooncake/04.jpg">
 
 			<h2>Summary</h2>
-			<p>Using CSS3 to draw shapes is good for reducing network traffic and increasing render efficiency of the browser. technically, any picture that can be divided into basic graphics, can be drew by CSS3. But the worst thing about CSS3 drawing is that it takes too much time and energy because it requires a lot of calculation and position. Too much repetitive work. So in action, it can only be used on simple cases. For complex projects, it's not recommended.</p>
-			<p>Drawing some demos using CSS3 is a good way to know CSS3 feature better. Like borders, position, rotatiion, etc. And how to build something rather complex with it. Just like LEGO toys. Simple it is, but with imagination, we can build quite something with it.</p>
+			<p>Using CSS3 to draw shapes is good for reducing network traffic and increasing render efficiency of the browser. Technically, any picture that can be divided into basic graphics, can be drew by CSS3. But the worst thing about CSS3 drawing is that it takes too much time and energy because it requires a lot of calculation and position. Too much repetitive work. So in action, it can only be used on simple cases. For complex projects, it's not recommended.</p>
+			<p>Drawing some demos using CSS3 is a good way to know CSS3 feature better. Like border, position, rotation, etc. And how to build something rather complex with it. Just like LEGO toys. Simple it is, but with imagination, we can build quite something with it.</p>
 		</article>
 
 	</div>
