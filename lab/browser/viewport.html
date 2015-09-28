@@ -14,20 +14,23 @@
 	<h1>Viewport</h1>
 	<hr/>
 	<ul>
-		<li>Visiable</li>
+		<li>Web Content (no tool/dev)</li>
 		<ul>
-			<li>Viewport Width:  <span id="win_w"></span> </li>
-			<li>Viewport Height: <span id="win_h"></span> </li>
+			<li>Viewport Width:  <span id="vp_w"></span> </li>
+			<li>Viewport Height: <span id="vp_h"></span> </li>
 		</ul>
-		<li>Visiable + Scrollbar</li>
+		<li>Web Content (no tool/dev/scroll)</li>
 		<ul>
 			<li>Client Width:    <span id="c_w"></span> </li>
 			<li>Client Height:   <span id="c_h"></span> </li>
 		</ul>
-		<li>Physical</li>
+		<li>Physical Device</li>
 		<ul>
-			<li>Screen Width:    <span id="scr_w"></span> </li>
-			<li>Screen Height:   <span id="scr_h"></span> </li>
+			<li>Screen Width:    	<span id="scr_w"></span> </li>
+			<li>Screen Height:   	<span id="scr_h"></span> </li>
+			<li>Screen AvailWeight:	<span id="scr_aw"></span> </li>
+			<li>Screen AvailHeight:	<span id="scr_ah"></span> (no taskbar)</li>
+			<li>Screen DPI:   		<span id="scr_dpi"></span> (IE/Edge)</li>
 		</ul>
 	</ul>
 	<hr/>
@@ -35,29 +38,38 @@
 
 	<script>
 	
-	var span_win_w = document.getElementById("win_w");
-	var span_win_h = document.getElementById("win_h");
-	var span_scr_w = document.getElementById("scr_w");
-	var span_scr_h = document.getElementById("scr_h");
-	var span_c_w = document.getElementById("c_w");
-	var span_c_h = document.getElementById("c_h");
+	var span_vp_w 		= document.getElementById("vp_w");
+	var span_vp_h 		= document.getElementById("vp_h");
+	var span_c_w 		= document.getElementById("c_w");
+	var span_c_h 		= document.getElementById("c_h");
+	var span_scr_w 		= document.getElementById("scr_w");
+	var span_scr_h 		= document.getElementById("scr_h");
+	var span_scr_aw 	= document.getElementById("scr_aw");
+	var span_scr_ah 	= document.getElementById("scr_ah");
+	var span_scr_dpi 	= document.getElementById("scr_dpi");
 
 	window.onload = window.onresize= init;
 
 	function init() {
-		var win_w = window.innerWidth;
-		var win_h = window.innerHeight;
-		var scr_w = screen.width;
-		var scr_h = screen.height;
-		var c_w = document.documentElement.clientWidth;
-		var c_h = document.documentElement.clientHeight;
+		var vp_w 	= window.innerWidth;
+		var vp_h 	= window.innerHeight;
+		var c_w 	= document.documentElement.clientWidth;
+		var c_h 	= document.documentElement.clientHeight;
+		var scr_w 	= screen.width;
+		var scr_h 	= screen.height;
+		var scr_aw 	= screen.availWidth;
+		var scr_ah 	= screen.availHeight;
+		var scr_dpi = screen.deviceXDPI;
 
-		span_win_w.innerHTML = win_w + "px";
-		span_win_h.innerHTML = win_h + "px";
-		span_scr_w.innerHTML = scr_w + "px";
-		span_scr_h.innerHTML = scr_h + "px";
-		span_c_w.innerHTML = c_w + "px";
-		span_c_h.innerHTML = c_h + "px";
+		span_vp_w.innerHTML 	= vp_w 		+ "px";
+		span_vp_h.innerHTML 	= vp_h 		+ "px";
+		span_c_w.innerHTML 		= c_w 		+ "px";
+		span_c_h.innerHTML 		= c_h 		+ "px";
+		span_scr_w.innerHTML 	= scr_w 	+ "px";
+		span_scr_h.innerHTML 	= scr_h 	+ "px";
+		span_scr_aw.innerHTML 	= scr_aw 	+ "px";
+		span_scr_ah.innerHTML 	= scr_ah 	+ "px";
+		span_scr_dpi.innerHTML 	= scr_dpi 	+ "px";
 	};
 	</script>
 </body>
