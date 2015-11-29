@@ -97,7 +97,6 @@
 		// UC
 
 		// qqbrowser
-		// ua = "Mozilla/5.0 (Linux; U; Android 4.4.4; zh-cn; MI 3C Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko)Version/4.0 Chrome/37.0.0.0 MQQBrowser/6.2 Mobile Safari/537.36".toLowerCase();
 		if (ua.indexOf("mqqbrowser") > -1) {
 			browserVersion = ua.match(/mqqbrowser\/\d+(.\d+)+/)[0].toString().substr(11);
 			if(ua.indexOf("mobile") > -1) {
@@ -115,7 +114,6 @@
 		}
 		
 		// QQ
-		// ua = "Mozilla/5.0 (Linux; U; Android 4.4.4; zh-cn; MI 3C Build/KTU84P) AppleWebKit/533.1 (KHTML, like Gecko)Version/4.0 MQQBrowser/5.4 TBS/025477 Mobile Safari/533.1 V1_AND_SQ_6.0.1_302_YYB_D QQ/6.0.1.2610 NetType/WIFI WebP/0.3.0 Pixel/1080".toLowerCase();
 		if (ua.indexOf("qq/") > -1) {
 			qqVersion = ua.match(/qq\/\d+(.\d+)+/)[0].toString().substr(3);
 			webkitVersion = ua.match(/webkit\/\d+(.\d+)+/)[0].toString().substr(7);
@@ -183,8 +181,10 @@
 					os = "Windows 10";
 		    }
 		    if (isAndroid) {
-		    	var androidVersion = ua.substr(ua.indexOf("android")+8, 5);
-		    	os = "Android " + androidVersion;
+		    	os = "Android";
+		    	var androidVersion = ua.substr(ua.indexOf("android")+8, 5).match(/\d+(.\d+)+/);
+		    	if(androidVersion)
+		    		os = os + " " + androidVersion[0];
 		    }
 		    if (isIOS) {
 		    	var iosVersion = "";
