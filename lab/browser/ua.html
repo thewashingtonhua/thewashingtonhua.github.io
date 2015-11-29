@@ -34,29 +34,29 @@
 			var browser = "Unknown";
 			var browserVersion = "";
 			if (ua.indexOf("edge") > -1) {							// Edge / 12+
-				browserVersion = ua.match(/edge\/\d+(.\d+)+/).toString().substr(5);
+				browserVersion = ua.match(/edge\/\d+(.\d+)+/)[0].toString().substr(5);
 				browser = "Microsoft Edge " + browserVersion;
 			} else if (ua.indexOf("trident") > -1){					// IE 11
 				browser = "IE 11";
 			} else if (ua.indexOf("msie") > -1) {					// IE <10
-				browserVersion = ua.match(/msie\s\d+/).toString().substr(4);
+				browserVersion = ua.match(/msie\s\d+/)[0].toString().substr(4);
 				browser = "IE " + browserVersion;
 			} else if (ua.indexOf("firefox") > -1){					// Firefox
-				browserVersion = ua.match(/firefox\/\d+(.\d+)+/).toString().substr(8);
+				browserVersion = ua.match(/firefox\/\d+(.\d+)+/)[0].toString().substr(8);
 				if(ua.indexOf("mobile"))
 					browserVersion += " (mobile)";
 				browser = "Firefox " + browserVersion;
 			} else if (ua.indexOf("opera") > -1){					// Opera 9.8-
-				browserVersion = ua.match(/opera\/\d+(.\d+)+/).toString().substr(6);
+				browserVersion = ua.match(/opera\/\d+(.\d+)+/)[0].toString().substr(6);
 				if(Number(browserVersion)>=9.8) {					// Opera 10+
-					browserVersion = ua.match(/version\/\d+(.\d+)+/).toString().substr(8);
+					browserVersion = ua.match(/version\/\d+(.\d+)+/)[0].toString().substr(8);
 				}
 				if(ua.indexOf("mini") > -1) {						// Opera mini
-					browserVersion = "mini " + ua.match(/mini\/\d+(.\d+)+/).toString().substr(5);
+					browserVersion = "mini " + ua.match(/mini\/\d+(.\d+)+/)[0].toString().substr(5);
 				}
 				browser = "Opera " + browserVersion;
 			} else if (ua.indexOf("opr") > -1) {					// Opera with webkit/blink
-				browserVersion = ua.match(/opr\/\d+.\d+.\d+.\d+/).toString().substr(4);
+				browserVersion = ua.match(/opr\/\d+.\d+.\d+.\d+/)[0].toString().substr(4);
 				if (ua.indexOf("dev") > -1) {						// Opera dev edition
 					browserVersion += " (edition developer)";
 				} else if(ua.indexOf("beta") > -1) {				// Opera beta edition
@@ -66,17 +66,17 @@
 					browserVersion += " (mobile)";					// Opera Mobile
 				browser = "Opera " + browserVersion;
 			} else if (ua.indexOf("chrome") > -1){					// Chrome
-				browserVersion = ua.match(/chrome\/\d+.\d+.\d+.\d+/).toString().substr(7);
+				browserVersion = ua.match(/chrome\/\d+.\d+.\d+.\d+/)[0].toString().substr(7);
 				if(ua.indexOf("mobile") > -1)
 					browserVersion += " (mobile)";					// Chrome Mobile
 				browser = "Chrome " + browserVersion;
 			} else if (ua.indexOf("safari") > -1){					// Safari
-				browserVersion = ua.match(/safari\/\d+(.\d+)+/).toString().substr(7);
+				browserVersion = ua.match(/safari\/\d+(.\d+)+/)[0].toString().substr(7);
 				browser = "Safari " + browserVersion;
 			}
 
 			// Unfinished Yet
-			otherBrowserCheck(browser);
+			browser = otherBrowserCheck(browser);
 
 			browser_span.innerHTML = browser;
 
@@ -95,17 +95,36 @@
 	function otherBrowserCheck(browser) {
 		var ua = window.navigator.userAgent.toLowerCase();
 		// UC
+
+		// qqbrowser
+		// ua = "Mozilla/5.0 (Linux; U; Android 4.4.4; zh-cn; MI 3C Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko)Version/4.0 Chrome/37.0.0.0 MQQBrowser/6.2 Mobile Safari/537.36".toLowerCase();
+		if (ua.indexOf("mqqbrowser") > -1) {
+			browserVersion = ua.match(/mqqbrowser\/\d+(.\d+)+/)[0].toString().substr(11);
+			if(ua.indexOf("mobile") > -1) {
+				browserVersion += "(mobile)";
+			}
+			webkitVersion = ua.match(/webkit\/\d+(.\d+)+/)[0].toString().substr(7);
+			browser = "QQ Browser " + browserVersion + "/wekit " + webkitVersion;
+		}
+
 		// WeiXin
 		if (ua.indexOf("micromessenger") > -1) {
-			weixinVersion = ua.match(/micromessenger\/\d+(.\d+)+/).toString().substr(15);
-			webkitVersion = ua.match(/webkit\/\d+(.\d+)+/).toString().substr(7);
+			weixinVersion = ua.match(/micromessenger\/\d+(.\d+)+/)[0].toString().substr(15);
+			webkitVersion = ua.match(/webkit\/\d+(.\d+)+/)[0].toString().substr(7);
 			browser = "WeiXin " + weixinVersion + "/wekit " + webkitVersion;
 		}
+		
 		// QQ
+		// ua = "Mozilla/5.0 (Linux; U; Android 4.4.4; zh-cn; MI 3C Build/KTU84P) AppleWebKit/533.1 (KHTML, like Gecko)Version/4.0 MQQBrowser/5.4 TBS/025477 Mobile Safari/533.1 V1_AND_SQ_6.0.1_302_YYB_D QQ/6.0.1.2610 NetType/WIFI WebP/0.3.0 Pixel/1080".toLowerCase();
+		if (ua.indexOf("qq/") > -1) {
+			qqVersion = ua.match(/qq\/\d+(.\d+)+/)[0].toString().substr(3);
+			webkitVersion = ua.match(/webkit\/\d+(.\d+)+/)[0].toString().substr(7);
+			browser = "QQ " + qqVersion + "/wekit " + webkitVersion;
+		}
+
 		// sougou
 		// 360
 		// baidu
-		// qqbrowser
 		// maxthon
 		// liebao
 		// Dolphin
