@@ -7,15 +7,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 	<meta name="description" content="童话说，一个关于Web前端的原创技术博客，不定期发布Web前端及其相关技术的博文">
 	<meta name="keywords" content="tonghuashuo,github,前端,html,html5,css,css3,javascript,js,jquery,安卓,android,java,童话,童话说,华心童">
-	<title>UserAgent - Tonghuashuo Lab</title>
+	<title>UserAgent - THS Lab</title>
 	<link rel="stylesheet" type="text/css" href="../../css/lab.css">
 
 </head>
 <body>
 	<h1>UserAgent</h1>
 	<hr/>
-	<p>This browser is: <span id="version"></span></p>
+	<p>Browser: <span id="browser"></span></p>
+	<p>OS: <span id="os"></span></p>
+	<br/>
 	<p>UA: <span id="ua"></span></p>
+	<p>Platform: <span id="platform"></span></p>
 	<p id="error"></p>
 	<hr/>
 	<a href="../index.html" class="back">&laquo; Back</a>
@@ -23,49 +26,179 @@
 	<script>
 	window.onload = function() {
 		if(navigator.userAgent) {
-			var ua = window.navigator.userAgent.toLowerCase();
-			document.getElementById("ua").innerHTML = ua;
+			var UA = window.navigator.userAgent;
+			var ua = UA.toLowerCase();
+			document.getElementById("ua").innerHTML = UA;
 
-			var version = document.getElementById("version");
-			var ver = "";
-			if(ua.indexOf("edge") > 0) {							// Edge 12
-				ver = ua.match(/edge\/\d+.+/).toString().substr(5);
-				version.innerHTML = "Microsoft Edge " + ver;
-			} else if(ua.indexOf("msie") > 0) {						// IE <10
-				ver = ua.match(/msie\s\d+/).toString().substr(4);
-				version.innerHTML = "IE " + ver;
-			} else if (ua.indexOf("trident") > 0){					// IE 11
-				version.innerHTML = "IE 11";
-			} else if (ua.indexOf("firefox") > 0){					// Firefox
-				ver = ua.match(/firefox\/\d+.+/).toString().substr(8);
-				version.innerHTML = "Firefox " + ver;
-			} else if (ua.indexOf("opera") > 0){					// Opera 9.8-
-				ver = ua.match(/opera\/\d+.+/).toString().substr(6);
-				if(Number(ver)>=9.8) {								// Opera 10+
-					ver = ua.match(/version\/\d+.+/).toString().substr(8);
+			var browser_span = document.getElementById("browser");
+			var browser = "Unknown";
+			var browserVersion = "";
+			if (ua.indexOf("edge") > -1) {							// Edge / 12+
+				browserVersion = ua.match(/edge\/\d+(.\d+)+/).toString().substr(5);
+				browser = "Microsoft Edge " + browserVersion;
+			} else if (ua.indexOf("trident") > -1){					// IE 11
+				browser = "IE 11";
+			} else if (ua.indexOf("msie") > -1) {					// IE <10
+				browserVersion = ua.match(/msie\s\d+/).toString().substr(4);
+				browser = "IE " + browserVersion;
+			} else if (ua.indexOf("firefox") > -1){					// Firefox
+				browserVersion = ua.match(/firefox\/\d+(.\d+)+/).toString().substr(8);
+				if(ua.indexOf("mobile"))
+					browserVersion += " (mobile)";
+				browser = "Firefox " + browserVersion;
+			} else if (ua.indexOf("opera") > -1){					// Opera 9.8-
+				browserVersion = ua.match(/opera\/\d+(.\d+)+/).toString().substr(6);
+				if(Number(browserVersion)>=9.8) {					// Opera 10+
+					browserVersion = ua.match(/version\/\d+(.\d+)+/).toString().substr(8);
 				}
-				version.innerHTML = "Opera " + ver;
-			} else if (ua.indexOf("opr") > 0) {						// Opera with webkit/blink
-				ver = ua.match(/opr\/\d+.\d+.\d+.\d+/).toString().substr(4);
-				if(ua.indexOf("dev") > 0) {							// Opera dev edition
-					ver += " (edition developer)";
-				} else if(ua.indexOf("beta") > 0) {					// Opera beta edition
-					ver += " (edition beta)";
+				if(ua.indexOf("mini") > -1) {						// Opera mini
+					browserVersion = "mini " + ua.match(/mini\/\d+(.\d+)+/).toString().substr(5);
 				}
-				version.innerHTML = "Opera " + ver;
-			} else if (ua.indexOf("chrome") > 0){					// Chrome
-				ver = ua.match(/chrome\/\d+.\d+.\d+.\d+/).toString().substr(7);
-				version.innerHTML = "Chrome " + ver;
-			} else if (ua.indexOf("safari") > 0){					// Safari
-				ver = ua.match(/safari\/\d+.+/).toString().substr(7);
-				version.innerHTML = "Safari " + ver;
-			} else {												// Unknown
-				version.innerHTML = "Unknown";
+				browser = "Opera " + browserVersion;
+			} else if (ua.indexOf("opr") > -1) {					// Opera with webkit/blink
+				browserVersion = ua.match(/opr\/\d+.\d+.\d+.\d+/).toString().substr(4);
+				if (ua.indexOf("dev") > -1) {						// Opera dev edition
+					browserVersion += " (edition developer)";
+				} else if(ua.indexOf("beta") > -1) {				// Opera beta edition
+					browserVersion += " (edition beta)";
+				}
+				if(ua.indexOf("mobile") > -1)
+					browserVersion += " (mobile)";					// Opera Mobile
+				browser = "Opera " + browserVersion;
+			} else if (ua.indexOf("chrome") > -1){					// Chrome
+				browserVersion = ua.match(/chrome\/\d+.\d+.\d+.\d+/).toString().substr(7);
+				if(ua.indexOf("mobile") > -1)
+					browserVersion += " (mobile)";					// Chrome Mobile
+				browser = "Chrome " + browserVersion;
+			} else if (ua.indexOf("safari") > -1){					// Safari
+				browserVersion = ua.match(/safari\/\d+(.\d+)+/).toString().substr(7);
+				browser = "Safari " + browserVersion;
 			}
+
+			// Unfinished Yet
+			otherBrowserCheck(browser);
+
+			browser_span.innerHTML = browser;
+
 		} else {
 			document.getElementById("error").innerHTML = "userAgent not detected.";
 		}
+
+		if (navigator.platform) {
+			var platform = window.navigator.platform;
+			document.getElementById("platform").innerHTML = platform;
+		}
+		
+		document.getElementById("os").innerHTML = detectOS();
 	};
+
+	function otherBrowserCheck(browser) {
+		var ua = window.navigator.userAgent.toLowerCase();
+		// UC
+		// WeiXin
+		if (ua.indexOf("micromessenger") > -1) {
+			weixinVersion = ua.match(/micromessenger\/\d+(.\d+)+/).toString().substr(15);
+			webkitVersion = ua.match(/webkit\/\d+(.\d+)+/).toString().substr(7);
+			browser = "WeiXin " + weixinVersion + "/wekit " + webkitVersion;
+		}
+		// QQ
+		// sougou
+		// 360
+		// baidu
+		// qqbrowser
+		// maxthon
+		// liebao
+		// Dolphin
+		// Lunascape
+
+		return browser;
+	}
+
+	function detectOS() {
+		if (navigator.userAgent) {
+		    var ua = navigator.userAgent.toLowerCase();
+		    var os = "Unknown";
+
+		    var isWin = navigator.platform == "Win32" || navigator.platform == "Windows";
+		    var isMac = navigator.platform == "Mac68K"
+		    		 || navigator.platform == "MacPPC" 
+		    		 || navigator.platform == "Macintosh"
+		    		 || navigator.platform == "MacIntel";
+		    var isUnix = navigator.platform == "X11" && !isWin && !isMac;
+		    var isLinux = navigator.platform.toLowerCase().indexOf("linux") > -1 || ua.indexOf("linux") > -1;
+
+		    var isAndroid = ua.indexOf("android") > -1;
+		    var isIPhone = ua.indexOf("iphone") > -1;;
+		    var isIPad = ua.indexOf("ipad") > -1;
+		    var isIOS = isIPhone || isIPad;
+		    var isWinPhone = ua.indexOf("windows phone") > -1;
+		    var isBlackbarry;
+		    var isMeeGo = ua.indexOf("meego") > -1;
+
+		    if (isMac)
+		    	os = "Mac";
+		    if (isUnix)
+		    	os = "Unix";
+		    if (isLinux && !isAndroid) {
+		    	os = "Linux";
+		    	if(ua.indexOf("kf")>-1) {
+		    		os += "/Amazon Kindle";
+		    	}
+		    }
+		    if (isWin) {
+		        if (ua.indexOf("windows nt 5.0") > -1 || ua.indexOf("windows 2000") > -1)
+		        	os = "Windows 2000";
+		        if (ua.indexOf("windows nt 5.1") > -1 || ua.indexOf("windows xp") > -1)
+		        	os = "Windows XP";
+		        if (ua.indexOf("windows nt 5.2") > -1 || ua.indexOf("windows 2003") > -1)
+		        	os = "Windows 2003";
+		        if (ua.indexOf("windows nt 6.0") > -1 || ua.indexOf("windows Vista") > -1)
+					os = "Windows Vista";
+		        if (ua.indexOf("windows nt 6.1") > -1 || ua.indexOf("windows 7") > -1)
+					os = "Windows 7";
+				if (ua.indexOf("windows nt 6.2") > -1 || ua.indexOf("Windows 8") > -1)
+					os = "Windows 8";
+				if (ua.indexOf("windows nt 6.3") > -1 || ua.indexOf("windows 8.1") > -1)
+					os = "Windows 8.1";
+				if (ua.indexOf("windows nt 6.4") > -1 || ua.indexOf("windows nt 10.0") > -1 || ua.indexOf("windows 10") > -1)
+					os = "Windows 10";
+		    }
+		    if (isAndroid) {
+		    	var androidVersion = ua.substr(ua.indexOf("android")+8, 5);
+		    	os = "Android " + androidVersion;
+		    }
+		    if (isIOS) {
+		    	var iosVersion = "";
+		    	if(isIPhone) {
+		    		var reg = /\d(\_\d)+/;
+		    		var str = ua.substr(ua.indexOf("cpu iphone os")+14, 5);
+		    		iosVersion = reg.exec(str)[0].replace(/\_/g, '.');
+		    		os = "iOS " + iosVersion + "/iPhone"
+				} else if (isIPad) {
+		    		var reg = /\d(\_\d)+/;
+		    		var str = ua.substr(ua.indexOf("cpu os")+6, 5);
+		    		iosVersion = reg.exec(str)[0].replace(/\_/g, '.');
+		    		os = "iOS " + iosVersion + "/iPad"
+		    	} else {
+		    		os = "iOS";
+		    	}
+		    }
+
+		    if (isWinPhone) {
+		    	var reg = /\d(.\d)+/;
+		    	var str = ua.substr(ua.indexOf("windows phone")+14, 5);
+		    	var winPhoneVersion = reg.exec(str)[0];
+		    	os = "Windows Phone " + winPhoneVersion;
+		    }
+
+		    if (isMeeGo) {
+		    	os = "MeeGo";
+		    }
+
+		    return os;
+		}
+	    return "Unknown";
+	}
 	</script>
 </body>
 </html>
