@@ -138,7 +138,15 @@
 	}
 }
 
-@media all and (max-width: 960px) {
+@media all and (max-width: 480px) {
+	.card {
+		border-radius: 0;
+	}
+
+	.banner {
+		border-radius: 0;
+	}
+
 	.title a {
 		font-size: 1.3em;
 		margin: 0 0 2px 0;

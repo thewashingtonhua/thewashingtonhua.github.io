@@ -169,7 +169,7 @@ body {
 		height: 32px;
 		background-size: 100%;
 		border-width: 1px;
-		margin: 7px 10px;
+		margin: 7px 7px;
 		box-shadow: none;
 	}
 
@@ -210,12 +210,17 @@ body {
 
 @media all and (max-width: 480px) {
 	#mf_category li {
-		width: 4em;
+		width: 3.6em;
+	}
+
+	#mf_content {
+		padding: 58px 0px 20px 0px;
 	}
 }
 
 @media all and (max-width: 330px) {
 	#mf_category li {
+		width: 3.2em;
 		font-size: 0.8em;
 	}
 
