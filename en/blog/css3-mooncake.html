@@ -17,7 +17,7 @@
 	<div id="mf_content">
 		<article id="css3mooncake">
 			<h1>Draw a Mooncake with CSS3</h1>
-			<div class="time"><time datetime="2015-09-27">Sep 27st 2015<time></div>
+			<div class="time"><time datetime="2015-09-27">Sep 27th 2015<time></div>
 			<div class="titleBanner"></div>
 			<p id="buttons">
 				<a href="../../case/css3mooncake/css3-mooncake.html" target="_blank" class="view_demo">Demo</a>
@@ -45,14 +45,14 @@
 &lt;!-- HTML code --&gt;
 &lt;div class=&quot;main&quot;&gt;&lt;/div&gt;</code></pre>
 			<p>I've set the background div as <span class="code">position: relative;</span>, so everything inside of it can be absolutely positioned. We gonna use quite a lot of absolute position in CSS3 drawing.</p>
-			<img src="../../img/css3-mooncake/01.jpg">
+			<img src="../../img/illustration/css3-mooncake/01.jpg">
 			
 			<h2>Decorative circles</h2>
 			<p>The decorative circles are also circles, just smaller. For calculation convenience, I wrote 12 of them. The real mooncakes, of course, have way more than that. I'm just being lazy here. becaurse CSS3 has no expression. By using JavaScript, or extensions like LESS,SCSS,SASS, we can easily control the amount and have as many as we want.</p>
 			<p>Each small circle is absolutely positioned. By calculating the center coordinates of the circle with trigonometric, we know their positions. Be awared, the center coordinates of small circles are not the final coordinates we need because of the box model. We need to loose the radius to get the coordinates of the top-left corner.</p>
-			<img src="../../img/css3-mooncake/02-01.jpg">
+			<img src="../../img/illustration/css3-mooncake/02-01.jpg">
 			<p>The small circles are overlayed. You might have found that part of the first small circle is covered by the last one, which is not what we want. Here we gonna solve it by a little tricks.</p>
-			<img src="../../img/css3-mooncake/02-02.jpg">
+			<img src="../../img/illustration/css3-mooncake/02-02.jpg">
 			<p>First we need to get the first small circle on top. Make a copy of the first small circle. Use <span class="code">border-radius</span> to make it a semi-circle. And Ta-Da! the left part came to life again. (here I did a little change on color and layer relationship for better understanding)</p>
 			<pre><code>&lt;!-- CSS code --&gt;
 .ear.index12 {
@@ -64,10 +64,10 @@
 &lt;!-- HTML structure --&gt;
 &lt;!-- div.ear.index 0-11 --&gt;
 &lt;div class=&quot;ear index12&quot;&gt;&lt;/div&gt;</code></pre>
-			<img src="../../img/css3-mooncake/02-03.jpg" style="float: left; margin-right:10px; margin-bottom: 10px;">
-			<img src="../../img/css3-mooncake/02-04.jpg">
+			<img src="../../img/illustration/css3-mooncake/02-03.jpg" style="float: left; margin-right:10px; margin-bottom: 10px;">
+			<img src="../../img/illustration/css3-mooncake/02-04.jpg">
 			<p>But with the old problem solved, comes a new one. There's a verticle line in the middle of the first small circle. There are two ways to solve this. One is to set <span class="code">border-right-color: transparent;</span> for the semi-circle, which works but not perfectly. If you take a close look you will see a small breach on the top.</p>
-			<img src="../../img/css3-mooncake/02-05.jpg">
+			<img src="../../img/illustration/css3-mooncake/02-05.jpg">
 			<p>The other way, which we used here, is to cover it up with a small piece. We made a copy of the semi-circle and did a lillte adjustment, so it can hide the vertical line but not too wide to cover the second small circle.</p>
 			<pre><code>&lt;!-- CSS code --&gt;
 .ear.index13 {
@@ -80,7 +80,7 @@
 &lt;!-- HTML structure --&gt;
 &lt;!--div.ear.index 0-12--&gt;
 &lt;div class=&quot;ear index13&quot;&gt;&lt;/div&gt;</code></pre>
-			<img src="../../img/css3-mooncake/02-06.jpg">
+			<img src="../../img/illustration/css3-mooncake/02-06.jpg">
 
 			<h2>Textures on top</h2>
 			<p>For textures on top, I chose cross-lines. Mainly because I'm bored with circles. Wanted some changes. Let's start by doing one quarter. The rest just need some rotation.</p>
@@ -120,9 +120,9 @@ li:nth-child(3) {
 &lt;!-- HTML structure --&gt;
 ul.top-qu>li*10
 </code></pre>
-			<img src="../../img/css3-mooncake/03-01.jpg">
+			<img src="../../img/illustration/css3-mooncake/03-01.jpg">
 			<p>By default, <span class="code">ul>li</span> goes down, which is the direction of 3 o'clock. The other 3 need <span class="code">transform: rotate(90deg);</span> to rotate and <span class="code">top</span>, <span class="code">left</span> to reposition. And it's done.</p>
-			<img src="../../img/css3-mooncake/03-02.jpg">
+			<img src="../../img/illustration/css3-mooncake/03-02.jpg">
 
 			<h2>Text in the center</h2>
 			<p>The text part is easy. Inside <span class="code">div.text</span> I put 2 <span class="code">p</span> with text. Set the margin, position it right, create some round corners. And it's done. Be awared, the background of the text need some colors. otherwise it will be transparent and the cross-lines will show on top.</p>
@@ -146,7 +146,7 @@ ul.top-qu>li*10
     &lt;p&gt;快中&lt;/p&gt;
     &lt;p&gt;乐秋&lt;/p&gt;
 &lt;/div&gt;</code></pre>
-			<img src="../../img/css3-mooncake/04.jpg">
+			<img src="../../img/illustration/css3-mooncake/04.jpg">
 
 			<h2>Summary</h2>
 			<p>Using CSS3 to draw shapes is good for reducing network traffic and increasing render efficiency of the browser. Technically, any picture that can be divided into basic graphics, can be drew by CSS3. But the worst thing about CSS3 drawing is that it takes too much time and energy because it requires a lot of calculation and position. Too much repetitive work. So in action, it can only be used on simple cases. For complex projects, it's not recommended.</p>

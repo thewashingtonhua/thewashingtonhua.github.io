@@ -35,15 +35,15 @@ h1.title {
 /* 280 x 150 px */
 
 #tiktokcolor .cover {
-	background-image: url(../img/tiktokcolor_thumb.jpg);
+	background-image: url(../img/thumb/tiktokcolor_thumb.jpg);
 }
 
 #stackcalculator .cover {
-	background-image: url(../img/stackcalculator_thumb.jpg);
+	background-image: url(../img/thumb/stackcalculator_thumb.jpg);
 }
 
 #css3mooncake .cover {
-	background-image: url(../img/css3mooncake_thumb.jpg);
+	background-image: url(../img/thumb/css3mooncake_thumb.jpg);
 }
 
 .card h3 {

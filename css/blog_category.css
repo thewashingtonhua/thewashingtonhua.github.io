@@ -81,27 +81,31 @@
 /* 1024 x 512 px */
 
 #stackCalculator div.banner{
-	background-image: url(../img/stackcalculator.jpg);
+	background-image: url(../img/banner/stackcalculator.jpg);
 }
 
 #tiktokCalculator div.banner{
-	background-image: url(../img/tiktokcolor.jpg);
+	background-image: url(../img/banner/tiktokcolor.jpg);
 }
 
 #substring div.banner{
-	background-image: url(../img/substring.jpg);
+	background-image: url(../img/banner/substring.jpg);
 }
 
 #latexwithsublimetext div.banner{
-	background-image: url(../img/latexwithsublimetext.jpg);
+	background-image: url(../img/banner/latexwithsublimetext.jpg);
 }
 
 #miuiiconcache div.banner {
-	background-image: url(../img/miuiiconcache.jpg);
+	background-image: url(../img/banner/miuiiconcache.jpg);
 }
 
 #css3mooncake div.banner {
-	background-image: url(../img/css3mooncake.jpg);
+	background-image: url(../img/banner/css3mooncake.jpg);
+}
+
+#es6daily01intro div.banner {
+	background-image: url(../img/banner/es6daily.jpg);
 }
 
 /* Styles for mobile device */

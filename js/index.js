@@ -6,7 +6,7 @@ function init() {
 	
 	printConsoleGreetings();
 	initNavigator();
-	initFooter();
+//	initFooter();
 
 	var mf_sidebar 	= document.getElementById("mf_sidebar");
 	var mf_portrait = document.getElementById("mf_portrait");
@@ -23,8 +23,10 @@ function init() {
 		fixTitleHeight();
 	};
 
+    /**
+     * Enable responsive card size
+     */
 	function goMobile() {
-		// console.log("window.innerWidth: " + window.innerWidth);
 		if (window.innerWidth > 960) {
 			// PC Style
 			mf_sidebar.style.height = window.innerHeight+"px";
@@ -52,12 +54,18 @@ function init() {
 		}
 	}
 
+    /**
+     * Title might wrap if too long
+     * this function dynamically calculate height for title
+     */
 	function fixTitleHeight() {
 		var blogs = document.getElementsByClassName("blog");
 		var banner = document.getElementsByClassName("banner")[0];
+        
 		// The following codes only work for blog category.
 		// Only blog category has banner.
-		if(banner) var bannerHeight = Number(getCurrentStyle(banner)["height"].slice(0, -2));
+		if (banner) 
+            var bannerHeight = Number(getCurrentStyle(banner)["height"].slice(0, -2));
 
 		for (var i=0, len=blogs.length; i<len; i++) {
 		// for (var i=0; i<1; i++) {
@@ -91,6 +99,9 @@ function init() {
 		}
 	}
 
+    /**
+     * Click on portrait to go to dashboard
+     */
 	mf_portrait.onclick = function() {
 		var lang = getLang();
 		if(lang) {
@@ -122,6 +133,9 @@ function getCurrentStyle(node) {
     return style;
 }
 
+/*
+ * get ducument language
+ */
 function getLang() {
 	if (document.getElementsByTagName('html')[0].hasAttribute("lang")) {
 		return document.getElementsByTagName('html')[0].getAttribute("lang");
@@ -129,6 +143,9 @@ function getLang() {
 	return null;
 }
 
+/*
+ * output greetings in console
+ */
 function printConsoleGreetings() {
 	console.log("================================");
 	console.log("Aha! You found me !");
@@ -140,6 +157,10 @@ function printConsoleGreetings() {
 	console.log("================================");
 }
 
+/*
+ * Generate Navigations
+ * support multi-language
+ */
 function initNavigator() {
 	var new_mf_sidebar = document.createElement("div");
 	var new_mf_profile = document.createElement("div");
@@ -237,6 +258,9 @@ function initNavigator() {
 	document.getElementById(channel).className = "active";
 }
 
+/*
+ * Auto-generate link for multi-language
+ */
 function initFooter() {
 	var footer = document.createElement("footer");
 

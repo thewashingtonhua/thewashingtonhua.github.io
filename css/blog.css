@@ -15,7 +15,7 @@
 /* ========== Article ========== */
 
 #mf_content article {
-	padding: 30px 20px;
+	padding: 40px 20px;
 	background-color: #FFF;
 	border: 1px solid #D8D8D8;
 	border-radius: 3px;
@@ -101,6 +101,7 @@ article ul {
 	list-style: none;
 	padding-left: 30px;
 	margin: 0;
+    color: #262626;
 }
 
 article ul li {
@@ -172,27 +173,31 @@ img {
 /* 1024 x 512 px*/
 
 #tiktokcolor .titleBanner {
-	background-image: url(../img/tiktokcolor.jpg);
+	background-image: url(../img/banner/tiktokcolor.jpg);
 }
 
 #stackcalculator .titleBanner {
-	background-image: url(../img/stackcalculator.jpg);
+	background-image: url(../img/banner/stackcalculator.jpg);
 }
 
 #substring .titleBanner {
-	background-image: url(../img/substring.jpg);
+	background-image: url(../img/banner/substring.jpg);
 }
 
 #latexwithsublimetext .titleBanner {
-	background-image: url(../img/latexwithsublimetext.jpg);
+	background-image: url(../img/banner/latexwithsublimetext.jpg);
 }
 
 #miuiiconcache .titleBanner {
-	background-image: url(../img/miuiiconcache.jpg);
+	background-image: url(../img/banner/miuiiconcache.jpg);
 }
 
 #css3mooncake .titleBanner {
-	background-image: url(../img/css3mooncake.jpg);
+	background-image: url(../img/banner/css3mooncake.jpg);
+}
+
+#es6daily01intro .titleBanner {
+    background-image: url(../img/banner/es6daily.jpg)
 }
 
 #buttons {

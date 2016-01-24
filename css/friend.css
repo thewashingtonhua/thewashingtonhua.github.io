@@ -35,15 +35,15 @@ h1.title {
 /* 280 x 150 px */
 
 #sunke .cover {
-	background-image: url(../img/lucode.jpg);
+	background-image: url(../img/friend/lucode.jpg);
 }
 
 #xiehaozhe .cover {
-	background-image: url(../img/trunkshell.jpg);
+	background-image: url(../img/friend/trunkshell.jpg);
 }
 
 #lvzhonghou .cover {
-	background-image: url(../img/lvzhonghou.jpg);
+	background-image: url(../img/friend/lvzhonghou.jpg);
 }
 
 .card h3 {
