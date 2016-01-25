@@ -30,30 +30,41 @@ article h1 {
 }
 
 table {
-	display: block;
 	font-family: Roboto, "Helvetica", "Sans-Serif", "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
-	background-color: #EEE;
 	overflow-x: scroll;
 }
 
+tr {
+    display: block;
+    border-bottom: 2px solid #FFF;
+}
+
 td {
+    display: table-cell;
 	height: 2em;
 	line-height: 2em;
+    padding: 0.1em;
 }
 
 td:nth-child(odd) {
+    background-color: #DDD;
 	font-weight: 700;
-	width: 5.5em;
-	min-width: 5.5em;
 	text-align: right;
-	border-left: 4px solid #007EB8;
+	width: 6em;
 }
 
 td:nth-child(even) {
-	width: 20em;
-	min-width: 20em;
+    background-color: #EEE;
+    padding-left: 1em;
 }
 
+tr:nth-child(-n+2) td:nth-child(even) {
+	width: 12em;
+}
+
+tr:nth-child(n+3) td:nth-child(even) {
+	width: 31.2em;
+}
 
 article a {
 	color: #007EB8;
@@ -75,33 +86,41 @@ article a {
 	padding: 0;
 }
 
-@media all and (max-width: 480px) {
+/* Styles for mobile device */
+/* 1024+ is for PC and above, considering scrollbar */
+@media all and (max-width: 768px) {}
+
+@media all and (max-width: 768px) {
 	article h1 {
 		font-size: 2em;
 	}
 
 	td {
 		font-size: 0.8em;
+        padding-left: 0.1em;
 	}
 
-	td:nth-child(even) {
-		width: 10em;
-		min-width: 10em;
-	}
+    td:nth-child(odd) {
+        width: 5.2em;
+    }
+    
+    tr:nth-child(-n+2) td:nth-child(even) {
+        width: 6em;
+    }
+
+    tr:nth-child(n+3) td:nth-child(even) {
+        width: 18.5em;
+    }
+
 }
 
-@media all and (max-width: 330px) {
+@media all and (max-width: 360px) {
 	article h1 {
 		font-size: 1.5em;
 	}
 
 	td {
 		font-size: 0.6em;
-		padding-right: 0.6em;
 	}
 
-	td:nth-child(even) {
-		width: 7em;
-		min-width: 7em;
-	}
 }

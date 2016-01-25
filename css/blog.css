@@ -87,6 +87,7 @@ article h3 span.code {
 article a {
 	color: #007EB8;
 	text-decoration: none;
+    font-size: 1em;
 	font-weight: 400;
 	font-family: Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
 	padding: 0.1em 0.5em;
@@ -263,7 +264,11 @@ ul.line-number li {
     line-height: 1.3em;
 }
 
-@media all and (max-width: 480px) {
+/* Styles for mobile device */
+/* 1024+ is for PC and above, considering scrollbar */
+@media all and (max-width: 1010px) {}
+
+@media all and (max-width: 768px) {
     #mf_content article {
         padding-left: 6px;
         padding-right: 6px;
@@ -286,7 +291,10 @@ ul.line-number li {
 		font-size: 1.6em;
 	}
     
-    p {
+    article p, 
+    article a,
+    article ul li,
+    article ol li {
         font-size: 0.8em;
     }
 
@@ -299,7 +307,7 @@ ul.line-number li {
     }
 }
 
-@media all and (max-width: 330px) {
+@media all and (max-width: 360px) {
 	#mf_content article {
         padding-left: 6px;
         padding-right: 6px;
@@ -322,7 +330,10 @@ ul.line-number li {
 		font-size: 1.2em;
 	}
     
-    p {
+    article p, 
+    article a,
+    article ul li,
+    article ol li {
         font-size: 0.6em;
     }
 

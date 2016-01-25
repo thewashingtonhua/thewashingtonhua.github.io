@@ -27,13 +27,13 @@ function init() {
      * Enable responsive card size
      */
 	function goMobile() {
-		if (window.innerWidth > 960) {
+		if (window.innerWidth > 1010) {
 			// PC Style
 			mf_sidebar.style.height = window.innerHeight+"px";
 		} else {
 			// Mobile Style
 			mf_sidebar.style.height = "48px";
-			if(window.innerWidth <= 630) {
+			if(window.innerWidth < 768) {
 				if(card_waterfall[3] && card_waterfall[3].className && (card_waterfall[3].className == "card project" || card_waterfall[3].className == "card friend")) {
 					for (var i=3; i<card_waterfall.length - 1; i+=2) {
 						card_waterfall[i].style.width = (window.innerWidth - 30) + "px";
