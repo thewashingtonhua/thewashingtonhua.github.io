@@ -57,7 +57,8 @@ article div.time{
 article p {
 	color: #262626;
 	font-family: Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
-	font-weight: 100;
+    font-size: 1em;
+    font-weight: 100;
 	line-height: 1.8em;
 	margin-top: 0.8em;
 	margin-bottom: 0.8em;

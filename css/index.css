@@ -45,6 +45,7 @@ body {
 	min-height: 500px;
 	margin: 0;
 	background-color: #007EB8;
+    z-index: 1;
 }
 
 #mf_portrait {
