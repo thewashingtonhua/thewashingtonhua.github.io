@@ -64,12 +64,12 @@ article p {
 }
 
 article p span.code {
-	padding: 0.1em 0.5em;
-	margin: 0.5em;
-	background-color: #EEE;
-	border-radius: 4px;
-	font-weight: 400;
-	box-shadow: inset 1px 1px 1px #BBB;
+	padding: 0.2em 0.5em;
+	margin: 0 0.5em;
+    font-size: 0.8em;
+    color: #FFF;
+	background-color: #262626;
+	border-radius: 2px;
 	font-family: SourceCodePro;
 }
 
@@ -156,9 +156,7 @@ article table td a {
 
 .titleBanner{
 	height: 300px;
-	margin-top: 20px;
-	margin-right: 0;
-	margin-bottom: 40px;
+	margin: 20px 0;
 	background-color: #EEE;
 	background-size: cover;
 	background-position: 50%;
@@ -196,7 +194,8 @@ img {
 	background-image: url(../img/banner/css3mooncake.jpg);
 }
 
-#es6daily01intro .titleBanner {
+#es6daily01intro .titleBanner,
+#es6daily02letandconst .titleBanner {
     background-image: url(../img/banner/es6daily.jpg)
 }
 
@@ -225,49 +224,119 @@ img {
 }
 
 pre {
-	border-left: 4px solid #007EB8;
+    position: relative;
+/*	border-left: 4px solid #007EB8;*/
 	background-color: #F6F6F6;
-	padding-left: 1em;
-	padding-right: 1em;
 	margin-top: 1em;
 	margin-bottom: 1em;
-	margin-left: 1em;
-	/*overflow-x: scroll;*/
-	overflow-x: auto;
+    overflow: hidden;
 }
 
 code {
 	font-family: SourceCodePro, Consolas;
 	color: #262626;
+    padding: 12px 24px;
+    font-size: 0.8em;
+    line-height: 1.3em;
+	overflow-x: auto;
+    overflow-y: hidden;
+}
+
+code.has-line-number {
+    padding-left: 34px;
+}
+
+ul.line-number {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 24px;
+    background-color: #23241F;
+    padding: 5px 6px 12px 2px;
+    text-align: right;
+    color: #AAA;
+}
+
+ul.line-number li {
+    font-size: 0.8em;
+    line-height: 1.3em;
 }
 
 @media all and (max-width: 480px) {
+    #mf_content article {
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+    
 	.titleBanner {
 		height: 160px;
 	}
 
 	article h1 {
-		font-size: 2em;
+		font-size: 1.6em;
 	}
+    
+    article div.time {
+        margin-top: 0;
+        font-size: 0.6em;
+    }
 
 	article h2 {
 		font-size: 1.6em;
 	}
+    
+    p {
+        font-size: 0.8em;
+    }
 
-	pre {
-		margin-left: 0;
-		font-size: 0.8em;
-	}
+    code {
+		font-size: 0.7em;
+    }
+    
+    ul.line-number li {
+        font-size: 0.7em;
+    }
 }
 
 @media all and (max-width: 330px) {
+	#mf_content article {
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+    
 	.titleBanner {
-		height: 100px;
+		height: 120px;
 	}
+
+	article h1 {
+		font-size: 1.2em;
+	}
+    
+    article div.time {
+        margin-top: 0;
+        font-size: 0.6em;
+    }
+
+	article h2 {
+		font-size: 1.2em;
+	}
+    
+    p {
+        font-size: 0.6em;
+    }
+
+    code {
+		font-size: 0.6em;
+    }
+    
+    il.line-number li {
+        font-size: 0.6em;
+    }
 
 	#buttons a {
 		margin: 0 5px;
 		padding: 6px 12px;
 		font-size: 0.8em;
 	}
+    
 }

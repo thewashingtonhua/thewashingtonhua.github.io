@@ -104,7 +104,8 @@
 	background-image: url(../img/banner/css3mooncake.jpg);
 }
 
-#es6daily01intro div.banner {
+#es6daily01intro div.banner,
+#es6daily02letandconst div.banner {
 	background-image: url(../img/banner/es6daily.jpg);
 }
 
