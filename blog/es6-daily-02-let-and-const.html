@@ -8,12 +8,12 @@
 	<meta name="description" content="童话说，一个关于Web前端的个人技术博客，不定期发布Web前端及其相关技术的博文">
 	<meta name="keywords" content="tonghuashuo,github,前端,html,css,javascript,android,童话,童话说,华心童,css3,每天,ES6,ECMAScript,let,const">
 	<title>每天一点ES6(2)：let和const - 博客|童话说</title>
-	<link rel="shortcut icon" href="../../img/favicon.ico" />
-	<link rel="stylesheet" href="../../css/index.css" />
-	<link rel="stylesheet" href="../../css/blog.css" />
+	<link rel="shortcut icon" href="../img/favicon.ico" />
+	<link rel="stylesheet" href="../css/index.css" />
+	<link rel="stylesheet" href="../css/blog.css" />
 	
     <!-- code highlight -->
-	<link rel="stylesheet" href="../../lib/hljs/monokai-sublime.css">
+	<link rel="stylesheet" href="../lib/hljs/monokai-sublime.css">
 	
 </head>
 <body>
@@ -36,8 +36,7 @@ console.log(b);    // ReferenceError
 console.log(c);    // undefined
 console.log(d);    // ReferenceError
 var c = 3;
-var d = 4;
-</code></pre>
+var d = 4;</code></pre>
             <p>下面的代码是关于 JavaScript 中“闭包”的经典案例。可以看到，使用<span class="code">var</span>时，由于变量声明提前，变量<span class="code">i</span>是共享的，因此无论数组的第几号索引，访问的都是<span class="code">i</span>的最后的值 10。而使用<span class="code">let</span>时，采用的是块级作用域，不存在声明提前，每一轮循环的<span class="code">j</span>都是独立的新变量，只在本轮有效，因此各索引输出的值都不一样。</p>
 <pre><code>var a = [];
 for (var i = 0; i < 10; i++) {
@@ -54,21 +53,18 @@ for (let j = 0; j < 10; j++) {
         console.log(j);
     };
 }
-b[6](); // 6
-</code></pre>
+b[6](); // 6</code></pre>
             <p>因此引入<span class="code">let</span>命令在事实上让 JavaScript 支持了“块级作用域”，此前广泛使用的各种闭包以及立即执行匿名函数变得不再必要了（用还是可以用的，只不过不必专门为了构造块级作用域而用了）。</p>
         
             <h2>const</h2>
             <p>和 Java/C++ 一样，<span class="code">const</span>命令用于声明常量，常量一旦声明，除非手动修改代码，否则值是不会变的。对常量进行重新赋值不会有任何作用。</p>
 <pre><code>const PI = 3.14;
 PI = 3;             // 非严格模式下不报错，但也没有任何效果
-console.log(PI);    // 3.14
-</code></pre>
+console.log(PI);    // 3.14</code></pre>
             <p>常量在声明的同时必须立即初始化，否则属于语法错误。常量一旦声明就不能再修改，如果声明和初始化可以分开的话，就有违这条原则了。</p>
 <pre><code>const foo;
 foo = 1;             // 无效操作，非严格模式不报错
-console.log(foo);    // undefined
-</code></pre>
+console.log(foo);    // undefined</code></pre>
         
 <!--
             <h2>暂时性死区 (TDZ, Temporal Dead Zone)</h2>
@@ -85,29 +81,24 @@ if (true) {
 
     tmp = 123;
     console.log(tmp); // 123
-}
-</code></pre>
+}</code></pre>
 -->
             <h2>该系列的其他文章</h2>
             <p>上一篇：<a href="es6-daily-01-intro.html">每天一点ES6(1)：概述</a></p>
             <p>下一篇：每天一点ES6(3)：解构赋值（待更）</p>
                 
-        
-			
-                 
-
 		</article>
 
 	</div>
 
-	<script src="../../js/index.js"></script>
+	<script src="../js/index.js"></script>
 	
     <!-- code highlight -->
-	<script src="../../lib/hljs/highlight.pack.js"></script>
+	<script src="../lib/hljs/highlight.pack.js"></script>
 	<script>hljs.initHighlightingOnLoad();</script>
 	
     <!-- line number -->
-	<script src="../../lib/jquery-3.0.0-beta1.min.js"></script>
-	<script src="../../js/line-number.js"></script>
+	<script src="../lib/jquery-3.0.0-beta1.min.js"></script>
+	<script src="../js/line-number.js"></script>
 </body>
 </html>

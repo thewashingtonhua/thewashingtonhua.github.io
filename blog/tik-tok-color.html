@@ -8,9 +8,12 @@
 	<meta name="description" content="童话说，一个关于Web前端的个人技术博客，不定期发布Web前端及其相关技术的博文">
 	<meta name="keywords" content="tonghuashuo,github,前端,html,css,javascript,android,童话,童话说,华心童,tik,tok,color">
 	<title>时间是什么颜色的 - 博客|童话说</title>
-	<link rel="shortcut icon" href="../../img/favicon.ico" />
-	<link rel="stylesheet" href="../../css/index.css" />
-	<link rel="stylesheet" href="../../css/blog.css" />
+	<link rel="shortcut icon" href="../img/favicon.ico" />
+	<link rel="stylesheet" href="../css/index.css" />
+	<link rel="stylesheet" href="../css/blog.css" />
+	
+	<!-- code highlight -->
+	<link rel="stylesheet" href="../lib/hljs/monokai-sublime.css">
 </head>
 <body>
 
@@ -20,7 +23,7 @@
 			<div class="time"><time datetime="2015-02-10">Feb 10th 2015<time></div>
 			<div class="titleBanner"></div>
 			<p id="buttons">
-				<a href="../../case/tiktokcolor/tik-tok-color.html" target="_blank" class="view_demo">演示地址</a>
+				<a href="../case/tiktokcolor/tik-tok-color.html" target="_blank" class="view_demo">演示地址</a>
 				<a href="https://github.com/tonghuashuo/TikTokColor" target="_blank" class="view_source">查看源码</a>
 			</p>
 			
@@ -109,6 +112,14 @@ var b = Math.round( (1 - y/100 * ( 1 - k/100 ) - k/100 ) * 255);</code></pre>
 
 	</div>
 
-	<script src="../../js/index.js"></script>
+	<script src="../js/index.js"></script>
+	
+    <!-- code highlight -->
+	<script src="../lib/hljs/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	
+    <!-- line number -->
+	<script src="../lib/jquery-3.0.0-beta1.min.js"></script>
+	<script src="../js/line-number.js"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 $(function(){
     $('pre code').each(function(){
-        var lines = $(this).text().split('\n').length - 1;
+        var lines = $(this).text().split('\n').length;
         var $numbering = $('<ul/>').addClass('line-number');
         $(this)
             .addClass('has-line-number')

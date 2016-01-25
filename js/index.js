@@ -1,10 +1,12 @@
-window.onload = init;
-
+//window.onload = init;
+(function(){
+    init();
+}());
 var BASE_LOCATION = "http://tonghuashuo.github.io";
 
 function init() {
 	
-	printConsoleGreetings();
+//	printConsoleGreetings();
 	initNavigator();
 //	initFooter();
 
@@ -140,7 +142,7 @@ function getLang() {
 	if (document.getElementsByTagName('html')[0].hasAttribute("lang")) {
 		return document.getElementsByTagName('html')[0].getAttribute("lang");
 	}
-	return null;
+	return "zh-CN";
 }
 
 /*
@@ -213,45 +215,36 @@ function initNavigator() {
 
 	document.body.insertBefore(new_mf_sidebar, new_mf_content);
 
-	var lang = getLang();
 	var url = window.location.href;
-	// console.log("lang: " + lang);
-	// console.log("url: " + url);
+	console.log("url: " + url);
 	var base = url.indexOf("tonghuashuo.github.io");
 	var sub = url.substr(base).split("/");
-	var level = sub.length - 3;
-	// console.log("sub: " + sub);
-	// console.log("level: " + level);
+	var level = sub.length - 2;
+    console.log("sub: " + sub);
+	console.log("level: " + level);
 
 	var sub_str = "";
 	for(var i=0; i<level; i++) {
 		sub_str += "../";
 	}
+    console.log("sub_str: " + sub_str);
 
 	blog_a.href = sub_str + "blog.html";
 	project_a.href = sub_str + "project.html";
-	lab_a.href = sub_str + "../lab/index.html";
+	lab_a.href = sub_str + "lab.html";
 	friend_a.href = sub_str + "friend.html";
 	about_a.href = sub_str + "about.html";
 	
-	if(lang == "zh-CN") {
-		blog_a.innerHTML = "博客";
-		project_a.innerHTML = "项目";
-		lab_a.innerHTML = "实验室";
-		friend_a.innerHTML = "朋友";
-		about_a.innerHTML = "关于";	
-	} else {
-		blog_a.innerHTML = "Blog";
-		project_a.innerHTML = "Project";
-		lab_a.innerHTML = "Lab";
-		friend_a.innerHTML = "Friend";
-		about_a.innerHTML = "About";	
-	}
+    blog_a.innerHTML = "博客";
+    project_a.innerHTML = "项目";
+    lab_a.innerHTML = "实验室";
+    friend_a.innerHTML = "朋友";
+    about_a.innerHTML = "关于";
 
 	if(level) {
-		var channel = sub[2];
+		var channel = sub[1];
 	} else {
-		var channel = sub[2].slice(0, -5);
+		var channel = sub[1].slice(0, -5);
 	}
 	// console.log("channel: " + channel);
 	// console.log(document.getElementById(channel));
@@ -297,3 +290,4 @@ function initFooter() {
 	toCN.href = target_cn;
 	toEN.href = target_en;
 }
+

@@ -6,64 +6,64 @@ html, body {
 	box-sizing: border-box;
 }
 
-body {
-	padding: 0 20px;
-}
-
-h1, h2, p, li, a {
+#mf_content h1, 
+#mf_content h2, 
+#mf_content p, 
+#mf_content li, 
+#mf_content a {
 	font-family: "Segoe UI", "Roboto", "Microsoft YaHei", "Helvetica Neue", Helvetica, Tahoma, Arial, sans-serif;
 	font-weight: 400;
 	color: #666;
 }
 
-h2 {
+#mf_content h2 {
 	margin-top: 30px;
 	margin-bottom: 10px;
 }
 
-p {
+#mf_content p {
 	margin-top: 0;
 	margin-bottom: 10px;
 }
 
-ul {
+#mf_content ul {
 	padding-left: 0;
 }
 
-ul ul {
+#mf_content ul ul {
 	padding-left: 2em;
 }
 
-ul li {
+#mf_content ul li {
 	font-weight: 700;
 }
 
-ul li ul li {
+#mf_content ul li ul li {
 	font-weight: 100;
 }
 
-ul ul li {
+#mf_content ul ul li {
 	font-weight: 400;
 }
 
-li {
+#mf_content li {
 	list-style: none;
 	margin-bottom: 1em;
 }
 
-a {
+#mf_content a {
 	text-decoration: none;
 }
 
-a:hover {
+#mf_content a:hover {
 	text-decoration: underline;
 }
 
-hr {
+#mf_content hr {
 	box-sizing: border-box;
 	width: 100%;
 }
 
-canvas {
+#mf_content canvas {
 	display: block;
 }
