@@ -216,18 +216,18 @@ function initNavigator() {
 	document.body.insertBefore(new_mf_sidebar, new_mf_content);
 
 	var url = window.location.href;
-	console.log("url: " + url);
+//	console.log("url: " + url);
 	var base = url.indexOf("tonghuashuo.github.io");
 	var sub = url.substr(base).split("/");
 	var level = sub.length - 2;
-    console.log("sub: " + sub);
-	console.log("level: " + level);
+//    console.log("sub: " + sub);
+//	console.log("level: " + level);
 
 	var sub_str = "";
 	for(var i=0; i<level; i++) {
 		sub_str += "../";
 	}
-    console.log("sub_str: " + sub_str);
+//    console.log("sub_str: " + sub_str);
 
 	blog_a.href = sub_str + "blog.html";
 	project_a.href = sub_str + "project.html";
