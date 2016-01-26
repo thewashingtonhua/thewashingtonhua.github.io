@@ -28,7 +28,7 @@
     
 	<script src="../../js/index.js"></script>
 	<script>
-	window.onload = function() {
+	(function() {
 		if(navigator.userAgent && navigator.platform) {
 			var UA = window.navigator.userAgent;
 			var platform = window.navigator.platform;
@@ -40,7 +40,7 @@
 		} else {
 			document.getElementById("error").innerHTML = "Browser info not detected.";
 		}		
-	};
+	}());
 
 	function getBrowser() {
 		var ua = window.navigator.userAgent.toLowerCase();
