@@ -23,7 +23,7 @@
 
 article h1 {
 	color: #262626;
-	font-size: 2.5em;
+	font-size: 4rem;
 	font-weight: 100;
 	margin: 0;
 	font-family: Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
@@ -31,24 +31,25 @@ article h1 {
 
 article h2 {
 	color: #262626;
+	font-size: 3rem;
 	font-family: Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
 	font-weight: 400;
-	margin-top: 1em;
-	margin-bottom: 0.5em;
-	font-size: 2em;
+	margin-top: 2rem;
+	margin-bottom: 1rem;
 }
 
 article h3{
 	color: #262626;
-	font-size: 1.5em;
+	font-size: 2.4rem;
 	font-weight: 400;
-	margin: 1.3em 0 0 0;
+	margin-top: 2rem;
+    margin-bottom: 1rem;
 	font-family: Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
 }
 
 article div.time{
 	color: #999;
-	font-size: 1.5em;
+	font-size: 2rem;
 	font-weight: 100;
 	margin: 0.5em 0 0 0;
 	font-family: Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
@@ -57,16 +58,14 @@ article div.time{
 article p {
 	color: #262626;
 	font-family: Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
-    font-size: 1em;
+    font-size: 1.4rem;
     font-weight: 100;
-	line-height: 1.8em;
-	margin-top: 0.8em;
-	margin-bottom: 0.8em;
+	line-height: 2.4rem;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
 }
 
-article p span.code {
-	padding: 0.2em 0.5em;
-	margin: 0 0.5em;
+span.code {
     font-size: 0.8em;
     color: #FFF;
 	background-color: #262626;
@@ -74,13 +73,14 @@ article p span.code {
 	font-family: SourceCodePro;
 }
 
+article p span.code {
+	padding: 0.2em 0.5em;
+	margin: 0 0.5em;
+}
+
 article h3 span.code {
 	padding: 0.1em 0.3em;
 	margin: 0 0.3em;
-    color: #FFF;
-	background-color: #262626;
-	border-radius: 2px;
-	font-family: SourceCodePro;
 }
 
 article a {
@@ -94,23 +94,23 @@ article a {
 }
 
 article a.reference{
-	padding: 0;
 	font-weight: 700;
 }
 
 article ul {
 	list-style: none;
 	padding-left: 30px;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
 	margin: 0;
     color: #262626;
 }
 
 article ul li {
-	font-size: 1.2em;
-	line-height: 1.5em;
+	font-size: 1.6rem;
 	font-family: Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
-	font-size: 1em;
 	font-weight: 100;
+	line-height: 1.8em;
 }
 
 article ol {
@@ -196,7 +196,14 @@ img {
 }
 
 #es6daily01intro .titleBanner,
-#es6daily02letandconst .titleBanner {
+#es6daily02letandconst .titleBanner,
+#es6daily03destructuring .titleBanner,
+#es6daily04string .titleBanner,
+#es6daily05regexp .titleBanner,
+#es6daily06value .titleBanner,
+#es6daily07array .titleBanner,
+#es6daily08function .titleBanner,
+#es6daily09object .titleBanner {
     background-image: url(../img/banner/es6daily.jpg)
 }
 
@@ -253,7 +260,7 @@ ul.line-number {
     left: 0;
     width: 24px;
     background-color: #23241F;
-    padding: 5px 6px 12px 2px;
+    padding: 6px 6px 12px 2px;
     text-align: right;
     color: #AAA;
 }
@@ -261,6 +268,11 @@ ul.line-number {
 ul.line-number li {
     font-size: 0.8em;
     line-height: 1.3em;
+}
+
+strong {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
 }
 
 /* Styles for mobile device */
@@ -271,6 +283,9 @@ ul.line-number li {
     #mf_content article {
         padding-left: 6px;
         padding-right: 6px;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
     }
     
 	.titleBanner {
@@ -278,23 +293,23 @@ ul.line-number li {
 	}
 
 	article h1 {
-		font-size: 1.6em;
+		font-size: 3.2rem;
 	}
     
     article div.time {
         margin-top: 0;
-        font-size: 0.6em;
+        font-size: 2rem;
     }
 
 	article h2 {
-		font-size: 1.6em;
+		font-size: 2.4rem;
 	}
     
     article p, 
     article a,
     article ul li,
     article ol li {
-        font-size: 0.8em;
+        font-size: 1.4rem;
     }
 
     code {
@@ -310,30 +325,32 @@ ul.line-number li {
 	#mf_content article {
         padding-left: 6px;
         padding-right: 6px;
+        padding-top: 20px;
     }
     
 	.titleBanner {
 		height: 120px;
+        margin-top: 16px;
 	}
 
 	article h1 {
-		font-size: 1.2em;
+		font-size: 2rem;
 	}
     
     article div.time {
-        margin-top: 0;
-        font-size: 0.6em;
+        margin-top: 0.5em;
+        font-size: 1.2rem;
     }
 
 	article h2 {
-		font-size: 1.2em;
+		font-size: 1.8em;
 	}
     
     article p, 
     article a,
     article ul li,
     article ol li {
-        font-size: 0.6em;
+        font-size: 1.2rem;
     }
 
     code {

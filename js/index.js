@@ -35,12 +35,12 @@ function init() {
 		} else {
 			// Mobile Style
 			mf_sidebar.style.height = "48px";
-			if(window.innerWidth < 768) {
+			if(window.innerWidth <= 360) {
 				if(card_waterfall[3] && card_waterfall[3].className && (card_waterfall[3].className == "card project" || card_waterfall[3].className == "card friend")) {
 					for (var i=3; i<card_waterfall.length - 1; i+=2) {
-						card_waterfall[i].style.width = (window.innerWidth - 30) + "px";
-						card_waterfall[i].childNodes[1].style.width = (window.innerWidth - 30) + "px";
-						card_waterfall[i].childNodes[7].childNodes[0].style.width = (window.innerWidth - 30) + "px";
+						card_waterfall[i].style.width = 
+						card_waterfall[i].childNodes[1].style.width = 
+						card_waterfall[i].childNodes[7].childNodes[0].style.width = window.innerWidth + "px";
 						// console.log(card_waterfall[i].childNodes[7].childNodes[0]);
 					}
 				}
@@ -73,7 +73,7 @@ function init() {
 		// for (var i=0; i<1; i++) {
 			var title = blogs[i].getElementsByClassName("title")[0];
 			var a = blogs[i].getElementsByTagName("a")[0];
-			var h3 = blogs[i].getElementsByTagName("h3")[0];
+			var p = blogs[i].getElementsByTagName("p")[0];
 			
 			var tpt  = Number(getCurrentStyle(title)["padding-top"].slice(0, -2));
 			var tpb  = Number(getCurrentStyle(title)["padding-bottom"].slice(0, -2));
@@ -82,19 +82,19 @@ function init() {
 			var apb  = Number(getCurrentStyle(a)["padding-bottom"].slice(0, -2));
 			var amt  = Number(getCurrentStyle(a)["margin-top"].slice(0, -2));
 			var amb  = Number(getCurrentStyle(a)["margin-bottom"].slice(0, -2));
-			var h3h  = Number(getCurrentStyle(h3)["height"].slice(0, -2));
-			var h3pt = Number(getCurrentStyle(h3)["padding-top"].slice(0, -2));
-			var h3pb = Number(getCurrentStyle(h3)["padding-bottom"].slice(0, -2));
-			var h3mt = Number(getCurrentStyle(h3)["margin-top"].slice(0, -2));
-			var h3mb = Number(getCurrentStyle(h3)["margin-bottom"].slice(0, -2));
+			var ph  = Number(getCurrentStyle(p)["height"].slice(0, -2));
+			var ppt = Number(getCurrentStyle(p)["padding-top"].slice(0, -2));
+			var ppb = Number(getCurrentStyle(p)["padding-bottom"].slice(0, -2));
+			var pmt = Number(getCurrentStyle(p)["margin-top"].slice(0, -2));
+			var pmb = Number(getCurrentStyle(p)["margin-bottom"].slice(0, -2));
 
 			// console.log("tpt:" + tpt + "   tpb:" + tpb);
 			// console.log("ah:" + ah + "   apt:" + apt + "   apb:" + apb + "   amt:" + amt + "   amt:" + amt);
-			// console.log("h3h:" + h3h + "   h3pt:" + h3pt + "   h3pb:" + h3pb + "   h3mt:" + h3mt + "   h3mb:" + h3mb);
+			// console.log("ph:" + ph + "   ppt:" + ppt + "   ppb:" + ppb + "   pmt:" + pmt + "   pmb:" + pmb);
 
-			// var totalheight = tpt + tpb + ah + apt + apb + amt + amb + h3h + h3pt + h3pb + h3mt + h3mb;
+			// var totalheight = tpt + tpb + ah + apt + apb + amt + amb + ph + ppt + ppb + pmt + pmb;
 			// console.log("totalheight: " + totalheight);
-			var totalheight = ah + apt + apb + amt + amb + h3h + h3pt + h3pb + h3mt + h3mb;
+			var totalheight = ah + apt + apb + amt + amb + ph + ppt + ppb + pmt + pmb;
 			title.style.height = totalheight + "px";
 			title.style.marginTop = (bannerHeight - totalheight - tpt - tpb) + "px";
 			// console.log("margin-top: " + title.style.marginTop);

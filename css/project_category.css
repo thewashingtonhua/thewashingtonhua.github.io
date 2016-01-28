@@ -3,14 +3,14 @@
 h1.title {
 	font-family: Roboto, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
 	font-weight: 100;
-	font-size: 2.5em;
+	font-size: 3.3rem;
 }
 
 .card {
 	float: left;
 	width: 280px;
 	min-width: 280px;
-	height: 276px;
+	height: 280px;
 	padding: 0;
 	background-color: #FFF;
 	border: 1px solid #D8D8D8;
@@ -47,18 +47,21 @@ h1.title {
 }
 
 .card h3 {
+    height: 35px;
 	font-family: Roboto, "Helvetica", "Sans-Serif", "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
-	padding: 0.5em;
+    font-size: 2rem;
+	padding: 1rem 1rem 0.1rem 1rem;
 	margin: 0;
-	font-weight: 100;
 }
 
 .card p {
-	padding: 0 0.5em;
-	margin: 0 0 0.5em 0;
+    height: 25px;
+	font-family: Roboto, "Helvetica", "Sans-Serif", "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
+    font-size: 1.2rem;
 	font-weight: 100;
 	color: #999;
-	font-family: Roboto, "Helvetica", "Sans-Serif", "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
+	padding: 0 1rem;
+	margin: 0 0 0.5em 0;
 }
 
 .card a {
@@ -70,12 +73,13 @@ h1.title {
 .card a p {
 	width: 280px;
 	min-width: 280px;
-	height: 2.8em;
-	line-height: 2.8em;
+	height: 50px;
+	line-height: 50px;
+    font-size: 1.4rem;
 	text-align: center;
 	color: #007EB8;
 	font-family: Roboto, "Helvetica", "Sans-Serif", "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
-	margin: 1em 0 0 0;
+	margin: 0;
 	padding: 0;
 	border-top: 1px solid #DDD;
 	border-radius: 0 0 2px 2px;
@@ -93,4 +97,31 @@ h1.title {
 .card a p:active {
 	background-color: #007EB8;
 	color: #FFF;
+}
+
+@media all and (max-width: 768px) {
+    #mf_content {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+@media all and (max-width: 360px) {
+    #mf_content {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    h1.title {
+        font-size: 2.6rem;       
+    }
+    .card {
+        height: 300px;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+    .cover {
+        height: 170px;
+        border-radius: 0;
+    }
 }
