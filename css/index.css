@@ -31,9 +31,16 @@
     font-style: normal;
 }*/
 
-body {
+html, body {
 	padding: 0;
 	margin: 0;
+}
+
+html {
+    font-size: 12px;
+}
+
+body {
 	background-color: #E5E5E5;
 }
 
@@ -70,9 +77,9 @@ body {
 	text-align: center;
 	font-family: Roboto, Helvetica;
 	color: #FFF;
-	font-size: 1.5em;
-	line-height: 1.5em;
-	margin-top: 1em;
+	font-size: 2.4rem;
+	line-height: 2.4rem;
+	margin-top: 1.6rem;
 	text-decoration: none;
 	transition: text-shadow 0.2s ease-in-out;
 }
@@ -88,14 +95,13 @@ body {
 #mf_category {
 	width: 200px;
 	list-style: none;
-	margin-top: 2em;
+	margin-top: 3.2rem;
 	padding-left: 100px;
 }
 
 #mf_category li {
-	height: 2em;
-	line-height: 2em;
-	font-size: 1.5em;
+	line-height: 5rem;
+	font-size: 2.4rem;
 	font-family: Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
 	font-weight: 100;
 	text-align: right;
@@ -104,7 +110,7 @@ body {
 }
 
 #mf_category li:hover {
-	font-size: 2em;
+	font-size: 3rem;
 	text-shadow: 4px 4px 4px #444;
 }
 
@@ -187,7 +193,7 @@ body {
 
 	#mf_category li {
 		float: left;
-		font-size: 1em;
+		font-size: 1.5rem;
 		padding: 0;
 		height: 48px;
 		width: 5em;
@@ -196,7 +202,7 @@ body {
 	}
 
 	#mf_category li:hover {
-		font-size: 1em;
+		font-size: 1.5rem;
 		text-shadow: none;
 	}
 
@@ -211,23 +217,23 @@ body {
 }
 
 @media all and (max-width: 768px) {
-	#mf_category li {
-		width: 3.6em;
-	}
-
 	#mf_content {
 		padding: 58px 0px 20px 0px;
+	}
+
+	#mf_category li {
+		width: 3.8em;
+        font-size: 1.3rem;
+	}
+    
+    #mf_category li:hover {
+		font-size: 1.3rem;
 	}
 }
 
 @media all and (max-width: 360px) {
 	#mf_category li {
-		width: 3.2em;
-		font-size: 0.8em;
-	}
-
-	#mf_category li:hover {
-		font-size: 0.8em;
+		width: 3.7em;
 	}
 }
 

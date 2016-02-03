@@ -23,7 +23,7 @@
 
 article h1 {
 	color: #262626;
-	font-size: 2.5em;
+	font-size: 3.3rem;
 	font-weight: 100;
 	margin: 0 0 0.5em 0;
 	font-family: Roboto, "Helvetica", "Sans-Serif", "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
@@ -41,7 +41,7 @@ tr {
 
 td {
     display: table-cell;
-	height: 2em;
+    font-size: 1.4rem;
 	line-height: 2em;
     padding: 0.1em;
 }
@@ -92,7 +92,7 @@ article a {
 
 @media all and (max-width: 768px) {
 	article h1 {
-		font-size: 2em;
+		font-size: 3.3rem;
 	}
 
 	td {
@@ -100,6 +100,29 @@ article a {
         padding-left: 0.1em;
 	}
 
+    td:nth-child(odd) {
+        width: 7.2em;
+    }
+    
+    tr:nth-child(-n+2) td:nth-child(even) {
+        width: 12em;
+    }
+
+    tr:nth-child(n+3) td:nth-child(even) {
+        width: 32.5em;
+    }
+
+}
+
+@media all and (max-width: 360px) {
+	article h1 {
+		font-size: 2.4rem;
+	}
+
+	td {
+		font-size: 0.6em;
+	}
+    
     td:nth-child(odd) {
         width: 5.2em;
     }
@@ -111,16 +134,5 @@ article a {
     tr:nth-child(n+3) td:nth-child(even) {
         width: 18.5em;
     }
-
-}
-
-@media all and (max-width: 360px) {
-	article h1 {
-		font-size: 1.5em;
-	}
-
-	td {
-		font-size: 0.6em;
-	}
 
 }

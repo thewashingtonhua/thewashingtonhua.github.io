@@ -23,49 +23,25 @@
 
 article h1 {
 	color: #262626;
-	font-size: 2.5em;
+	font-size: 3.3rem;
 	font-weight: 100;
 	margin: 0 0 0.5em 0;
 	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
 }
 
-article h2 {
-	color: #262626;
-	font-family: Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
-	font-weight: 400;
-	margin-top: 1em;
-	margin-bottom: 0.2em;
-	font-size: 2em;
-}
-
 article p {
 	color: #262626;
+    font-size: 1.4rem;
 	font-family: Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
 	line-height: 1.8em;
 	font-weight: 100;
 	margin: 0.2em 0;
 }
-/* 
-pre {
-	border-left: 4px solid #CCC;
-	background-color: #F6F6F6;
-	padding-left: 1em;
-	padding-right: 1em;
-	margin-top: 1em;
-	margin-bottom: 1em;
-	margin-left: 1em;
-	overflow-x: scroll;
-}
 
-code {
-	font-family: SourceCodePro;
-	color: #262626;
-}
- */
 #copyright {
 	font-family: Roboto;
 	color: #999;
-	font-size: 1em;
+	font-size: 1rem;
 	margin-top: 50px;
 	font-weight: 100;
 }
@@ -74,4 +50,13 @@ code {
 	color: #007EB8;
 	text-decoration: none;
 	font-weight: 100;
+}
+
+@media all and (max-width: 360px) {
+    article h1 {
+        font-size: 2.6rem;
+    }
+    article p {
+        font-size: 1.2rem;
+    }
 }

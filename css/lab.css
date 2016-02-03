@@ -1,11 +1,3 @@
-html, body {
-	margin: 0;
-	padding: 0;
-	width: 100%;
-	background-color: #EEE;
-	box-sizing: border-box;
-}
-
 #mf_content h1, 
 #mf_content h2, 
 #mf_content p, 
@@ -16,12 +8,18 @@ html, body {
 	color: #666;
 }
 
+#mf_content h1 {
+    font-size: 3rem;
+}
+
 #mf_content h2 {
+    font-size: 2rem;
 	margin-top: 30px;
 	margin-bottom: 10px;
 }
 
 #mf_content p {
+    font-size: 1.6rem;
 	margin-top: 0;
 	margin-bottom: 10px;
 }
@@ -35,11 +33,17 @@ html, body {
 }
 
 #mf_content ul li {
+    font-size: 1.6rem;
+    line-height: 2em;
 	font-weight: 700;
+    margin-bottom: 0;
 }
 
 #mf_content ul li ul li {
+    font-size: 1.4rem;
+    line-height: 2em;
 	font-weight: 100;
+    margin-bottom: 0;
 }
 
 #mf_content ul ul li {
@@ -52,6 +56,7 @@ html, body {
 }
 
 #mf_content a {
+    font-size: 1.6rem;
 	text-decoration: none;
 }
 
@@ -66,4 +71,11 @@ html, body {
 
 #mf_content canvas {
 	display: block;
+}
+
+@media all and (max-width: 1010px) {
+    #mf_content {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
 }

@@ -3,8 +3,8 @@
 .card {
 	height: 300px;
 	overflow: hidden;
-	margin-bottom: 20px;
-	margin-right: 10px;
+	margin-bottom: 2rem;
+	margin-right: 1rem;
 	padding: 0px;
 	background-color: #FFF;
 	border: 1px solid #D8D8D8;
@@ -13,7 +13,7 @@
 
 .banner {
 	height: 240px;
-	padding: 0px;
+	padding: 0;
 	background-color: #EEE;
 	background-position: 50%;
 	background-size: cover;
@@ -22,7 +22,7 @@
 
 .title {
 	float: left;
-	padding: 20px;
+	padding: 2rem 2rem 1rem 2rem;
 }
 
 .light-theme {
@@ -38,8 +38,8 @@
 	text-decoration: none;
 	color: #FFF;
 	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
-	font-size: 2.3em;
-	line-height: 1.2em;
+	font-size: 3.2rem;
+	line-height: 1.5em;
 	margin: 0;
 	padding: 0;
 	-webkit-transition: color 0.2s;
@@ -59,27 +59,28 @@
 	color: #007EB8;
 }
 
-.title h3 {
+.title p {
 	color: #FFF;
+    font-size: 2rem;
 	font-family: Roboto;
-	margin: 0;
+	margin: 0.2em 0 0 0;
 	padding: 0;
-	margin-top: 0.2em;
 }
 
 .description {
 	color: #262626;
+    font-size: 1.6rem;
 	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";;
-	padding-top: 20px;
-	padding-left: 20px;
+	padding-top: 1em;
+	padding-left: 1em;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	-webkit-font-smoothing: antialiased;
 }
 
+/* Banner Images */
 /* 1024 x 512 px */
-
 #stackCalculator div.banner{
 	background-image: url(../img/banner/stackcalculator.jpg);
 }
@@ -104,8 +105,16 @@
 	background-image: url(../img/banner/css3mooncake.jpg);
 }
 
+/* ES6 Daily Series */
 #es6daily01intro div.banner,
-#es6daily02letandconst div.banner {
+#es6daily02letandconst div.banner,
+#es6daily03destructuring div.banner,
+#es6daily04string div.banner,
+#es6daily05regexp div.banner,
+#es6daily06value div.banner,
+#es6daily07array div.banner,
+#es6daily08function div.banner,
+#es6daily09object div.banner {
 	background-image: url(../img/banner/es6daily.jpg);
 }
 
@@ -126,44 +135,46 @@
 
 	.title {
 		float: left;
-		padding: 10px;
+		padding: 4px 10px;
 	}
 
 	.title a {
-		font-size: 1.6em;
+		font-size: 2.4rem;
 		margin: 0 0 2px 0;
 		padding: 0 0 2px 0;
 	}
 
-	.title h3 {
-		font-size: 0.8em;
+	.title p {
+		font-size: 1.6rem;
 	}
 
 	.description {
 		padding-top: 10px;
 		padding-left: 10px;
-		font-size: 0.8em;
+		font-size: 1.2rem;
 	}
 }
 
 @media all and (max-width: 360px) {
 	.card {
+        height: 180px;
 		border-radius: 0;
 	}
 
 	.banner {
+        height: 140px;
 		border-radius: 0;
 	}
 
 	.title a {
-		font-size: 1.3em;
+		font-size: 2rem;
 		margin: 0 0 2px 0;
 		padding: 0 0 2px 0;
 	}
 
-	.title h3 {
+	.title p {
 		margin-top: 0.1em;
-		font-size: 0.5em;
+		font-size: 1.3rem;
 	}
 }
 
