@@ -6,7 +6,7 @@ $(function(){
             .addClass('has-line-number')
             .parent()
             .append($numbering);
-        for(i=1;i<=lines;i++){
+        for(var i=1; i<=lines; i++){
             $numbering.append($('<li/>').text(i));
         }
     });
