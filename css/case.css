@@ -1,72 +1,57 @@
+* {
+    font-family: Segoe, Roboto, Helvetica, "Microsoft YaHei", Arial, sans-serif;
+}
 html, body {
-	margin: 0;
-	padding: 0;
-	width: 100%;
-	background-color: #EEE;
-	box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
-
+html {
+    font-size: 10px;
+}
 body {
-	padding: 0 20px;
+    padding: 30px 40px;
+    background-color: #121314;
 }
-
-h1, h2, p, li, a {
-	font-family: "Segoe UI", "Roboto", "Microsoft YaHei", "Helvetica Neue", Helvetica, Tahoma, Arial, sans-serif;
-	font-weight: 400;
+h1 {
+    text-align: center;
+    color: #AAD123;
+    margin-top: 0;
+    font-size: 5rem;
+    margin-bottom: 2rem;
 }
-
-h1, li, a {
-	color: #666;
-}
-
-h2, p {
-	color: #AAA;
-}
-
-h2 {
-	margin-top: 30px;
-	margin-bottom: 10px;
-}
-
-p {
-	margin-top: 0;
-	margin-bottom: 10px;
-}
-
-ul {
-	padding-left: 0;
-}
-
-ul ul {
-	padding-left: 2em;
-}
-
-ul>li {
-	font-weight: 700;
-}
-
-ul li ul li {
-	font-weight: 100;
-}
-
-li {
-	list-style: none;
-	margin-bottom: 1em;
-}
-
 a {
-	text-decoration: none;
+    text-decoration: none;
 }
-
-a:hover {
-	text-decoration: underline;
+ul {
+    padding-left: 0;
 }
-
-hr {
-	box-sizing: border-box;
-	width: 100%;
+li {
+    list-style: none;
+    margin-bottom: 1rem;
+    border: 1px solid #AAD123;
+    padding: 1rem;
 }
-
-canvas {
-	display: block;
+li:hover {
+    background-color: #AAD123;
+}
+p {
+    box-sizing: border-box;
+    margin: 0;
+}
+.title {
+    font-weight: 700;
+    font-size: 2rem;
+    color: #AAA;
+    padding-bottom: 0.3rem;
+}
+.description {
+    font-size: 1.5rem;
+    color: #444;
+    padding-top: 0.3rem;
+}
+li:hover .title {
+    color: #333;
+}
+li:hover .description {
+    color: #666;
 }
