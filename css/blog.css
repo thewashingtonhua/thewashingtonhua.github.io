@@ -208,11 +208,19 @@ img {
 #es6daily07array .titleBanner,
 #es6daily08function .titleBanner,
 #es6daily09object .titleBanner {
-    background-image: url(../img/banner/es6daily.jpg)
+    background-image: url(../img/banner/es6daily.jpg);
+}
+
+#elevator .titleBanner {
+	background-image: url(../img/banner/elevator.jpg);
 }
 
 #buttons {
 	text-align: center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px 20px;
 }
 
 #buttons a {
@@ -248,7 +256,7 @@ code {
 	font-family: SourceCodePro, Consolas;
 	color: #262626;
     padding: 12px 24px;
-    font-size: 0.8em;
+    font-size: 1.2rem;
     line-height: 1.3em;
 	overflow-x: auto;
     overflow-y: hidden;
@@ -270,7 +278,7 @@ ul.line-number {
 }
 
 ul.line-number li {
-    font-size: 0.8em;
+    font-size: 1.2rem;
     line-height: 1.3em;
 }
 
