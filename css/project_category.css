@@ -46,6 +46,10 @@ h1.title {
 	background-image: url(../img/thumb/css3mooncake_thumb.jpg);
 }
 
+#elevator .cover {
+	background-image: url(../img/thumb/elevator_thumb.jpg);
+}
+
 .card h3 {
     height: 35px;
 	font-family: Roboto, "Helvetica", "Sans-Serif", "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
