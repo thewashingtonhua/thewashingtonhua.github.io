@@ -42,14 +42,10 @@ $("#close").click(closeDoor);
 function dial(floor) {
     if ( queue.indexOf(floor) < 0 ) {               // Don't add if already exist.
         queue.push(floor);
-        if (goingup) {
-            queue.sort(compareNumbersIncrease);
-        } else {
-            queue.sort(compareNumbersDecrease);
+        queue.sort();
+        if(!running) {
+            checkStatus();
         }
-    }
-    if(!running) {
-        checkStatus();
     }
 }
 
@@ -122,52 +118,36 @@ function run() {
     
     if(running) {
         if (queue.indexOf(currentFloor) > -1) {             // if elevator is right where it's called
-            if (timer)
-                clearInterval(timer);
-            lightsOut(currentFloor);
-            removeFromQueue(queue, currentFloor);
-            openDoor();
-            setTimeout(function(){
-                closeDoor();
-                setTimeout(function(){
-                    timer = setInterval(run, 1000);
-                }, 3000);
-            }, 4000);
+            ding(currentFloor);
         } else if (goingup) {
             moveUp();
             updateFloorInfo();
             if ( queue.indexOf(currentFloor) > -1 ) {
-                if (timer)
-                    clearInterval(timer);
-                lightsOut(currentFloor);
-                removeFromQueue(queue, currentFloor);
-                openDoor();
-                setTimeout(function(){
-                    closeDoor();
-                    setTimeout(function(){
-                        timer = setInterval(run, 1000);
-                    }, 3000);
-                }, 4000);
+                ding(currentFloor);
             }
         } else {
             moveDown();
             updateFloorInfo();
             if ( queue.indexOf(currentFloor) > -1 ) {
-                if (timer)
-                    clearInterval(timer);
-                lightsOut(currentFloor);
-                removeFromQueue(queue, currentFloor);
-                openDoor();
-                setTimeout(function(){
-                    closeDoor();
-                    setTimeout(function(){
-                        timer = setInterval(run, 1000);
-                    }, 3000);
-                }, 4000);
+                ding(currentFloor);
             }
         }
         checkStatus();
     }
+}
+
+function ding(floor) {
+    if (timer)
+        clearInterval(timer);
+    lightsOut(floor);
+    removeFromQueue(queue, floor);
+    openDoor();
+    setTimeout(function(){
+        closeDoor();
+        setTimeout(function(){
+            timer = setInterval(run, 1000);
+        }, 3000);
+    }, 4000);
 }
 
 // utilities
@@ -190,8 +170,6 @@ function checkStatus() {
             goingup = true;
         }
     }
-    
-    goingup ? queue.sort(compareNumbersIncrease) : queue.sort(compareNumbersDecrease);
 }
 
 // get max from an array
@@ -250,14 +228,6 @@ function removeFromQueue(queue, floor) {
             queue.pop();
         }
     }
-}
-
-function compareNumbersIncrease(a, b) {
-  return a - b;
-}
-
-function compareNumbersDecrease(a, b) {
-  return b - a;
 }
 
 var timer = setInterval(run, 1000);
