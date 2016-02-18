@@ -34,12 +34,11 @@
             <p>相比之下，还是阮一峰老师的这本最实用，中文的，免费的，在业内评价也很高。（为了表达对阮一峰老师的感谢与崇敬之情，整个系列我会不断安利这本书。推荐在线看，在线的已经更新到第二版了，纸质书还是第一版的，内容不及现在这么全）</p>
             
             <h2>ES6 的支持度</h2>
-            <p>主流浏览器都已经开始拥抱 ES6，Chrome 一如既往的走在标准的最前沿，截止到本文发布之日，在 Chrome 49 上支持度高达 92%。Firefox 45 紧随其后，支持度为85%。Microsoft Edge 13 奇迹般的竟然支持度还不错，达到了79%，但 IE 系列基本已经爹不亲娘不爱了，IE 11 的支持度只有可怜的15%。Safari 9 支持度一般，只有 56%，但其下的 Webkit 内核支持度已经高达 82%，离整合进 Safari 10 应该也不远了，看今年的 WWDC 怎么说吧。</p>
-            <p>虽然各家进度不一，但大部分的特性都已经覆盖到了。详细的支持情况可以参考<a target="_blank" href="http://kangax.github.io/compat-table/es6/" title="ECMAScript 6 compatibility table">ECMAScript 6 compatibility table</a>。还可以用阮一峰老师开发的<a target="_blank" href="http://ruanyf.github.io/es-checker/" title="How Much of ECMAScript 6 Does Your Browser Support? - ES-Checker">ES-Checker</a>来查看当前浏览器的支持度。</p>
-            <p>在服务器端的话，Node.js 对 ES6 的支持度更高。可以使用命令<span class="code">node --v8-options | grep harmony</span>来查看当前环境所支持 ES6 的内容的列表。</p>
+            <p>主流浏览器都已经开始拥抱 ES6。值得注意的是，这次微软放大招了，IE11 和 Microsoft Edge 13 的支持进度竟然名列前茅，甚至超越了Firefox、Chrome 和 Safari，似乎是打了一场漂亮的翻身仗啊。目前Node.js平台对ES6的支持度是最好的，基本已经全部覆盖，可以使用命令<span class="code">node --v8-options | grep harmony</span>来查看当前环境所支持 ES6 的内容的列表，还可以用阮一峰老师开发的<a target="_blank" href="http://ruanyf.github.io/es-checker/" title="How Much of ECMAScript 6 Does Your Browser Support? - ES-Checker">ES-Checker</a>来查看当前环境的支持度。</p>
+            <p>虽然各家进度不一，但终究也只是时间的问题。详细的支持情况可以参考<a target="_blank" href="http://kangax.github.io/compat-table/es6/" title="ECMAScript 6 compatibility table">ECMAScript 6 compatibility table</a>。</p>
             
             <h2>过渡阶段的方案</h2>
-            <p>虽然 ES6 的支持情况非常乐观，目测要不了多久就能全面支持，但就目前而言，在生产环境下使用 ES6 还是比较困难的，兼容性问题会让开发者很头疼。幸好现在有<a target="_blank" href="https://babeljs.io/" title="Bable">Bable</a>和<a target="_blank" href="https://github.com/google/traceur-compiler" title="Traceur by Google">Traceur</a>这样的转换工具，可以把 ES6 的代码转换成 ES5，以此解决兼容性的问题。两者都支持运行在 Node 环境和浏览器中运行，不过比较推荐的是在构建阶段就编译好，然后直接发布 ES5 的代码</p>
+            <p>虽然 ES6 的支持情况非常乐观，目测要不了多久就能全面支持，但就目前而言，在生产环境下使用 ES6 还是比较困难的。好在有<a target="_blank" href="https://babeljs.io/" title="Bable">Bable</a>和<a target="_blank" href="https://github.com/google/traceur-compiler" title="Traceur by Google">Traceur</a>这样的转换工具，可以把 ES6 的代码转换成 ES5，以此让开发者们尝鲜ES6的语法。两者都支持运行在 Node.js 环境中编译好后发布，也可以在浏览器中实时编译，用于学习的话后者显然更方便，但对于生产环境，还是推荐在 Node.js 中编译好，然后直接发布 ES5 的代码，这样执行效率更高。</p>
                 
             
             <h2>展望一下 ES 7</h2>
