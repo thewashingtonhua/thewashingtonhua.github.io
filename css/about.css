@@ -1,5 +1,6 @@
 /* Setups */
 
+/*
 @font-face {
     font-family: 'SourceCodePro';
     src: url('../font/SourceCodePro/SourceCodePro-Regular.eot');
@@ -11,6 +12,7 @@
     font-weight: normal;
     font-style: normal;
 }
+*/
 
 /* ========== Article ========== */
 
@@ -19,11 +21,12 @@
 	background-color: #FFF;
 	border: 1px solid #D8D8D8;
 	border-radius: 3px;
+	font-family: "Segoe UI", Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
 }
 
 article h1 {
 	color: #262626;
-	font-size: 3.3rem;
+	font-size: 2.4rem;
 	font-weight: 100;
 	margin: 0 0 0.5em 0;
 	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
@@ -32,18 +35,22 @@ article h1 {
 article p {
 	color: #262626;
     font-size: 1.4rem;
-	font-family: Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
 	line-height: 1.8em;
 	font-weight: 100;
 	margin: 0.2em 0;
 }
 
-#copyright {
-	font-family: Roboto;
-	color: #999;
-	font-size: 1rem;
-	margin-top: 50px;
+article ul li{
+    list-style: circle;
+    color: #262626;
+    font-size: 1.4rem;
+	line-height: 1.8em;
 	font-weight: 100;
+}
+
+#copyright {
+	margin-top: 50px;
+    text-align: center;
 }
 
 #copyright a {
@@ -56,7 +63,8 @@ article p {
     article h1 {
         font-size: 2.6rem;
     }
-    article p {
+    article p,
+    article ul li{
         font-size: 1.2rem;
     }
 }
