@@ -109,12 +109,13 @@
 #es6daily01intro div.banner,
 #es6daily02letandconst div.banner,
 #es6daily03destructuring div.banner,
-#es6daily04string div.banner,
-#es6daily05regexp div.banner,
-#es6daily06value div.banner,
-#es6daily07array div.banner,
-#es6daily08function div.banner,
-#es6daily09object div.banner {
+#es6daily04babel div.banner,
+#es6daily05string div.banner,
+#es6daily06regexp div.banner,
+#es6daily07value div.banner,
+#es6daily08array div.banner,
+#es6daily09function div.banner,
+#es6daily10object div.banner {
 	background-image: url(../img/banner/es6daily.jpg);
 }
 

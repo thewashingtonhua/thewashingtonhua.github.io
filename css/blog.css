@@ -19,6 +19,7 @@
 	background-color: #FFF;
 	border: 1px solid #D8D8D8;
 	border-radius: 3px;
+    font-family: "Segoe UI", Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
 }
 
 article h1 {
@@ -26,13 +27,11 @@ article h1 {
 	font-size: 4rem;
 	font-weight: 100;
 	margin: 0;
-	font-family: Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
 }
 
 article h2 {
 	color: #262626;
 	font-size: 3rem;
-	font-family: Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
 	font-weight: 400;
 	margin-top: 2rem;
 	margin-bottom: 1rem;
@@ -44,7 +43,6 @@ article h3{
 	font-weight: 400;
 	margin-top: 2rem;
     margin-bottom: 1rem;
-	font-family: Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
 }
 
 article div.time{
@@ -52,12 +50,10 @@ article div.time{
 	font-size: 2rem;
 	font-weight: 100;
 	margin: 0.5em 0 0 0;
-	font-family: Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
 }
 
 article p {
 	color: #262626;
-	font-family: Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
     font-size: 1.4rem;
     font-weight: 100;
 	line-height: 2.4rem;
@@ -73,7 +69,7 @@ span.code {
 	font-family: SourceCodePro;
 }
 
-article p span.code {
+article span.code {
 	padding: 0.2em 0.5em;
 	margin: 0 0.5em;
 }
@@ -88,7 +84,6 @@ article a {
 	text-decoration: none;
     font-size: 1em;
 	font-weight: 400;
-	font-family: Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
 	padding: 0.1em 0.5em;
 	word-wrap: break-word;
 }
@@ -102,33 +97,22 @@ article a.reference{
 }
 
 article ul {
-	list-style: none;
-	padding-left: 30px;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-	margin: 0;
-    color: #262626;
-}
-
-article ul li {
-	font-size: 1.4rem;
-	font-family: Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
-	font-weight: 100;
-	line-height: 1.8em;
+	list-style: circle;
+	padding-left: 6rem;
+	margin: 1rem 0;
 }
 
 article ol {
-	padding-left: 30px;
-	margin: 0;
-	margin-left: 20px;
+	padding-left: 6rem;
+	margin: 1rem 0;
 }
 
+article ul li,
 article ol li {
-	font-size: 1.2em;
-	line-height: 1.5em;
-	font-family: Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
-	font-size: 1em;
+	font-size: 1.4rem;
 	font-weight: 100;
+	line-height: 1.8em;
+    color: #262626;
 }
 
 article div.tablewapper {
@@ -137,7 +121,6 @@ article div.tablewapper {
 }
 
 article table {
-	font-family: Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
 	overflow-x: scroll;
 }
 
@@ -150,6 +133,7 @@ article table tr:nth-child(even) {
 }
 
 article table td {
+    font-size: 1.2rem;
 	padding: 1em;
 	margin: 0;
 	word-wrap: normal;
@@ -202,12 +186,13 @@ img {
 #es6daily01intro .titleBanner,
 #es6daily02letandconst .titleBanner,
 #es6daily03destructuring .titleBanner,
-#es6daily04string .titleBanner,
-#es6daily05regexp .titleBanner,
-#es6daily06value .titleBanner,
-#es6daily07array .titleBanner,
-#es6daily08function .titleBanner,
-#es6daily09object .titleBanner {
+#es6daily04babel .titleBanner,
+#es6daily05string .titleBanner,
+#es6daily06regexp .titleBanner,
+#es6daily07value .titleBanner,
+#es6daily08array .titleBanner,
+#es6daily09function .titleBanner,
+#es6daily10object .titleBanner {
     background-image: url(../img/banner/es6daily.jpg);
 }
 
