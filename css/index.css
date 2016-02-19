@@ -42,6 +42,7 @@ html {
 
 body {
 	background-color: #E5E5E5;
+    -webkit-overflow-scrolling: touch;
 }
 
 /* ========== Sidebar ========== */
