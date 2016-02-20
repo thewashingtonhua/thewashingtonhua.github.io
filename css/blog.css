@@ -260,11 +260,14 @@ ul.line-number {
     padding: 6px 6px 12px 2px;
     text-align: right;
     color: #AAA;
+    margin: 0;
+    font-family: SourceCodePro;
 }
 
 ul.line-number li {
     font-size: 1.2rem;
     line-height: 1.3em;
+    color: #FFF;
 }
 
 strong {
