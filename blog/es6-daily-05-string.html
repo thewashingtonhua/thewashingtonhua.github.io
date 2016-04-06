@@ -32,7 +32,7 @@
 <pre><code class="javascript">"\u{20BB7}"  // "𠮷"</code></pre>
 
             <h2>codePointAt()</h2>
-            <p>JavaScript 中，1个字符固定为2个字节，对于需要4个字节存储的字符会被认为是2个字符，<span class="code">length</span>会判定为2，<span class="code">charAt()</span>无法读取整个字符，<span class="code">charCodeAt()</span>只能返回两个字节的值。</p>
+            <p>JavaScript 中，1个字符固定为2个字节，对于需要4个字节存储的字符会被认为是2个字符，<span class="code">length</span>会判定为2，<span class="code">charAt()</span>无法读取整个字符，<span class="code">charCodeAt()</span>只能分别返回前后各两个字节的值。</p>
             <p>ES6 提供了 <span class="code">codePointAt()</span>，能够正确处理4个字节存储的字符，返回一个字符的码点。但需要注意的是，这并没有改变 JavaScript 将2个字节视为1个字符的事实，只是自动识别出了这是个4字节的字符并返回了正确的码点而已，对于单个4字节的字符来说，<span class="code">charPointAt(0)</span>返回完整字符的十进制码点，<span class="code">charPointAt(1)</span>返回这个字符的后2个字节的十进制码点，效果等同于<span class="code">charCodeAt(1)</span>。</p>
             <p>为了处理这种“不合理”的索引，可以借助<span class="code">for...of</span>循环，它会正确识别32位的UTF-16字符。</p>
 
@@ -90,7 +90,7 @@ is32Bit("a") // false</code></pre>
     + "&lt;em&gt;" + basket.onSale + "&lt;/em&gt; are on sale!"
 );</code></pre>
 
-            <p>上面这种写法没什么问题，只是比较繁琐，但现在 ES6 带来了更方便的写法：</p>
+            <p>倒不是说上面这种写法有什么问题，只是比较繁琐。ES6 带来了更方便的写法：</p>
 
 <pre><code class="javascript">$("#result").append(`
     There are &lt;b&gt;${basket.count}&lt;/b&gt; items 
