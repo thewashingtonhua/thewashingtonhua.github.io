@@ -1,0 +1,16 @@
+<div ng-controller="ChoiceMakerCtrlLunch" id="lunch">
+	<h1 id="store-name">{{chosenStore.name}}</h1>
+	<p id="store-location">地址：{{chosenStore.location}}</p>
+	<table ng-if="chosenStore.foods.length > 0" cellspacing="0" id="foods">
+		<tr>
+			<th>菜品名</th>
+			<th>价格</th>
+		</tr>
+		<tr ng-repeat="food in chosenStore.foods">
+			<td>{{food.name}}</td>
+			<td>{{food.price}}</td>
+		</tr>
+	</table>
+	<a id="choose_btn" class="btn btn-reverse" href="javascript:void(0);">I Don't Like It</a>
+	<a id="choose_btn" class="btn" href="#/">Back</a>
+</div>

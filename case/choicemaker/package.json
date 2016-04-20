@@ -1,0 +1,20 @@
+{
+  "name": "choicemaker",
+  "version": "1.0.0",
+  "description": "An Web App that helps you make a choice",
+  "main": "index.html",
+  "dependencies": {
+    "angular": "^1.5.2",
+    "angular-route": "^1.5.2",
+    "gulp": "^3.9.1",
+    "gulp-util": "^3.0.7",
+    "gulp-webserver": "^0.9.1",
+    "jquery": "^2.2.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Washington Hua",
+  "license": "ISC"
+}
