@@ -123,6 +123,10 @@
 	background-image: url(../img/banner/elevator.jpg);
 }
 
+#jsonp div.banner {
+	background-image: url(../img/banner/jsonp.jpg);
+}
+
 /* Styles for mobile device */
 /* 1024+ is for PC and above, considering scrollbar */
 @media all and (max-width: 1010px) {}
