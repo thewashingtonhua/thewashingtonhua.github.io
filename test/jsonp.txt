@@ -1,1 +1,3 @@
-"JSONP works"
+dosomething({
+    "data":"JSONP Works"
+});
