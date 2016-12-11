@@ -31,10 +31,8 @@ function init() {
 	function goMobile() {
 		if (window.innerWidth > 1010) {
 			// PC Style
-			mf_sidebar.style.height = window.innerHeight+"px";
 		} else {
 			// Mobile Style
-			mf_sidebar.style.height = "44px";
 			if(window.innerWidth <= 360) {
 				if(card_waterfall[3] && card_waterfall[3].className && (card_waterfall[3].className == "card project" || card_waterfall[3].className == "card friend")) {
 					for (var i=3; i<card_waterfall.length - 1; i+=2) {
