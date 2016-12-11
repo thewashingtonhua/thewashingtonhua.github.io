@@ -34,7 +34,7 @@ function init() {
 			mf_sidebar.style.height = window.innerHeight+"px";
 		} else {
 			// Mobile Style
-			mf_sidebar.style.height = "48px";
+			mf_sidebar.style.height = "44px";
 			if(window.innerWidth <= 360) {
 				if(card_waterfall[3] && card_waterfall[3].className && (card_waterfall[3].className == "card project" || card_waterfall[3].className == "card friend")) {
 					for (var i=3; i<card_waterfall.length - 1; i+=2) {
@@ -182,12 +182,14 @@ function initNavigator() {
 
 	new_mf_sidebar.id = "mf_sidebar";
 	new_mf_profile.id = "mf_profile";
+	new_mf_profile.className = "clearfix";
 	new_mf_portrait.id = "mf_portrait";
 	new_mf_ghid.id = "mf_ghid";
 	new_mf_ghid.href = "https://github.com/tonghuashuo";
 	new_mf_ghid.target = "_blank";
 	new_mf_ghid.innerHTML = "@tonghuashuo";
 	new_mf_category.id = "mf_category";
+	new_mf_category.className = "clearfix";
 	blog_li.id = "blog";
 	project_li.id = "project";
 	lab_li.id = "lab";
@@ -216,18 +218,18 @@ function initNavigator() {
 	document.body.insertBefore(new_mf_sidebar, new_mf_content);
 
 	var url = window.location.href;
-//	console.log("url: " + url);
+	// console.log("url: " + url);
 	var base = url.indexOf("tonghuashuo.github.io");
 	var sub = url.substr(base).split("/");
 	var level = sub.length - 2;
-//    console.log("sub: " + sub);
-//	console.log("level: " + level);
+    // console.log("sub: " + sub);
+	// console.log("level: " + level);
 
 	var sub_str = "";
 	for(var i=0; i<level; i++) {
 		sub_str += "../";
 	}
-//    console.log("sub_str: " + sub_str);
+   // console.log("sub_str: " + sub_str);
 
 	blog_a.href = sub_str + "blog.html";
 	project_a.href = sub_str + "project.html";

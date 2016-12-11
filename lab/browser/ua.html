@@ -10,10 +10,9 @@
 	<title>UserAgent - THS Lab</title>
 	<link rel="stylesheet" href="../../css/index.css" />
 	<link rel="stylesheet" href="../../css/lab.css">
-
 </head>
 <body>
-    <div id="mf_content">
+    <div class="mf_content">
         <h1>UserAgent</h1>
         <hr/>
         <p>Browser: <span id="browser"></span></p>
@@ -313,8 +312,14 @@
 		    var isMeeGo = ua.indexOf("meego") > -1;
 		    var isSymbian = ua.indexOf("symbian") > -1;
 
-		    if (isMac)
+		    if (isMac) {
 		    	os = "Mac";
+		    	var macVersionStr = ua.match(/mac\sos\sx\s[0-9]{1,2}(\_[0-9]{1,2})+/);
+		    	if (macVersionStr && macVersionStr.length) {
+		    		var macVersion = macVersionStr[0].replace(/mac\sos\sx\s/, '').replace(/\_/g, '.');
+		    		os = os + " " + macVersion;
+		    	}
+		    }
 		    if (isUnix)
 		    	os = "Unix";
 		    if (isLinux && !isAndroid) {
@@ -344,7 +349,7 @@
 		    if (isAndroid) {
 		    	os = "Android";
 		    	var androidVersion = ua.match(/android\s\d+(.\d+)+/)[0].substr(8);
-		    	if(androidVersion)
+		    	if (androidVersion)
 		    		os = os + " " + androidVersion[0];
 		    }
 		    if (isIOS) {

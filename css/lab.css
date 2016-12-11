@@ -72,10 +72,3 @@
 #mf_content canvas {
 	display: block;
 }
-
-@media all and (max-width: 1010px) {
-    #mf_content {
-        padding-left: 2rem;
-        padding-right: 2rem;
-    }
-}
