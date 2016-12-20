@@ -1,14 +1,13 @@
 /* ========== Cards ========== */
 
 .card {
-	height: 300px;
-	overflow: hidden;
-	margin-bottom: 2rem;
-	margin-right: 1rem;
-	padding: 0px;
 	background-color: #FFF;
 	border: 1px solid #D8D8D8;
-	border-radius: 3px;
+	border-radius: 4px;
+}
+
+.card + .card {
+	margin-top: 15px;
 }
 
 .banner {
@@ -17,16 +16,21 @@
 	background-color: #EEE;
 	background-position: 50%;
 	background-size: cover;
-	border-radius: 3px 3px 0 0;
+	background-repeat: no-repeat;
+	border-radius: 4px 4px 0 0;
+	position: relative
 }
 
 .title {
-	float: left;
-	padding: 2rem 2rem 1rem 2rem;
+	position: absolute;
+	display: inline-block;
+	left: 0;
+	bottom: 0;
+	padding: 20px 16px;
 }
 
 .light-theme {
-	background-color: rgba(255, 255, 255, 0.1);
+	background-color: rgba(255, 255, 255, .1);
 }
 
 .dark-theme {
@@ -38,13 +42,11 @@
 	text-decoration: none;
 	color: #FFF;
 	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
-	font-size: 3.2rem;
-	line-height: 1.5em;
+	font-size: 36px;
+	line-height: 1;
 	margin: 0;
 	padding: 0;
-	-webkit-transition: color 0.2s;
-	-moz-transition: color 0.2s;
-	transition: color 0.2s;
+	transition: color 0.2s ease-out;
 }
 
 .title a:visited {
@@ -61,22 +63,23 @@
 
 .title p {
 	color: #FFF;
-    font-size: 2rem;
+    font-size: 20px;
 	font-family: Roboto;
-	margin: 0.2em 0 0 0;
+	line-height: 1;
+	margin: 10px 0 0 0;
 	padding: 0;
 }
 
 .description {
 	color: #262626;
-    font-size: 1.6rem;
+    font-size: 16px;
 	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";;
-	padding-top: 1em;
-	padding-left: 1em;
+	padding: 16px;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	-webkit-font-smoothing: antialiased;
+	border-radius: 0 0 4px 4px;
 }
 
 /* Banner Images */
@@ -127,64 +130,37 @@
 	background-image: url(../img/banner/jsonp.jpg);
 }
 
-/* Styles for mobile device */
-/* 1024+ is for PC and above, considering scrollbar */
-@media all and (max-width: 1010px) {}
-
 @media all and (max-width: 768px) {
-	.card {
-		height: 200px;
-		margin-bottom: 10px;
-		margin-right: 0;
-	}
 
 	.banner {
 		height: 160px;
 	}
 
-	.title {
-		float: left;
-		padding: 4px 10px;
-	}
-
 	.title a {
-		font-size: 2.4rem;
-		margin: 0 0 2px 0;
-		padding: 0 0 2px 0;
+		font-size: 26px;
 	}
 
 	.title p {
-		font-size: 1.6rem;
+		font-size: 16px;
+	}
+}
+
+@media all and (max-width: 480px) {
+	.title {
+		padding: 16px;
 	}
 
-	.description {
-		padding-top: 10px;
-		padding-left: 10px;
-		font-size: 1.2rem;
+	.title a {
+		font-size: 20px;
+	}
+
+	.title p {
+		font-size: 16px;
 	}
 }
 
 @media all and (max-width: 360px) {
-	.card {
-        height: 180px;
-		border-radius: 0;
-	}
-
-	.banner {
-        height: 140px;
-		border-radius: 0;
-	}
-
-	.title a {
-		font-size: 2rem;
-		margin: 0 0 2px 0;
-		padding: 0 0 2px 0;
-	}
-
-	.title p {
-		margin-top: 0.1em;
-		font-size: 1.3rem;
-	}
+	
 }
 
 /* Styles for 1080P device */

@@ -33,15 +33,12 @@
 
 * {
 	box-sizing: border-box;
+	font-family: "Segoe UI", Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
 }
 
 html, body {
 	padding: 0;
 	margin: 0;
-}
-
-html {
-    font-size: 12px;
 }
 
 body {
@@ -70,10 +67,11 @@ body {
 	min-height: 500px;
 	margin: 0;
 	background-color: #007EB8;
-    z-index: 1;
+    z-index: 1000;
 }
 
 #mf_portrait {
+	display: block;
 	width: 120px;
 	height: 120px;
 	background-color: #EEE;
@@ -84,6 +82,7 @@ body {
 	margin: 30px auto;
 	border: 2px solid #FFF;
 	box-shadow: 2px 2px 2px #666;
+	text-decoration: none;
 }
 
 #mf_portrait:hover {
@@ -172,7 +171,7 @@ body {
 /* ========== Content ========== */
 
 #mf_content {
-	padding: 20px 30px 200px 330px;
+	padding: 20px 15px 200px 315px;
 }
 
 #mf_content footer p {
@@ -194,7 +193,7 @@ body {
 
 /* Styles for mobile device */
 /* 1024+ is for PC and above, considering scrollbar */
-@media all and (max-width: 1010px) {
+@media all and (max-width: 1024px) {
 	#mf_sidebar {
 		height: 44px;
 		min-height: 44px;
@@ -244,6 +243,6 @@ body {
 	}
 
 	#mf_content {
-		padding: 58px 10px 20px 10px;
+		padding: 58px 15px 20px;
 	}
 }

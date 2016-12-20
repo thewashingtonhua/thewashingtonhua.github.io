@@ -46,3 +46,6 @@ Temporary Items
 .cs
 lab/browser/ua_record.txt
 case/choicemaker/node_modules/*
+
+#Project related
+node_modules
