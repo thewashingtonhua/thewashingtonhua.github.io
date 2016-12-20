@@ -15,62 +15,61 @@
 /* ========== Article ========== */
 
 #mf_content article {
-	padding: 40px 20px;
+	padding: 40px 10px;
 	background-color: #FFF;
 	border: 1px solid #D8D8D8;
-	border-radius: 3px;
-    font-family: "Segoe UI", Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
+	border-radius: 4px;
 }
 
 article h1 {
 	color: #262626;
-	font-size: 4rem;
+	font-size: 36px;
 	font-weight: 100;
+	line-height: 1;
 	margin: 0;
 }
 
 article h2 {
 	color: #262626;
-	font-size: 3rem;
-	font-weight: 400;
-	margin-top: 2rem;
-	margin-bottom: 1rem;
+	font-size: 32px;
+	font-weight: 100;
+	line-height: 1;
+	margin-top: 30px;
+	margin-bottom: 10px;
 }
 
 article h3{
 	color: #262626;
 	font-size: 2.4rem;
 	font-weight: 400;
+	line-height: 1;
 	margin-top: 2rem;
     margin-bottom: 1rem;
 }
 
-article div.time{
+article div.time {
 	color: #999;
-	font-size: 2rem;
+	font-size: 20px;
 	font-weight: 100;
+	line-height: 1;
 	margin: 0.5em 0 0 0;
 }
 
 article p {
 	color: #262626;
-    font-size: 1.4rem;
+    font-size: 16px;
     font-weight: 100;
-	line-height: 2.4rem;
-	margin-top: 0.3em;
-	margin-bottom: 0.3em;
+	line-height: 1.5;
+	margin-bottom: 1em;
 }
 
-span.code {
+article span.code {
     font-size: 0.8em;
     color: #FFF;
 	background-color: #262626;
 	border-radius: 2px;
-	font-family: SourceCodePro;
-}
-
-article span.code {
-	padding: 0.2em 0.5em;
+	font-family: 'SourceCodePro';
+	padding: 0.1em 0.5em;
 	margin: 0 0.5em;
 }
 
@@ -82,10 +81,12 @@ article h3 span.code {
 article a {
 	color: #007EB8;
 	text-decoration: none;
-    font-size: 1em;
-	font-weight: 400;
-	padding: 0.1em 0.5em;
+    font-size: 16px;
+	font-weight: 100;
 	word-wrap: break-word;
+}
+article p a {
+	padding: 0.1em 0.5em;
 }
 
 article a:hover {
@@ -98,20 +99,20 @@ article a.reference{
 
 article ul {
 	list-style: circle;
-	padding-left: 6rem;
-	margin: 1rem 0;
+	padding-left: 30px;
+	margin: 1em 0;
 }
 
 article ol {
-	padding-left: 6rem;
-	margin: 1rem 0;
+	padding-left: 30px;
+	margin: 1em 0;
 }
 
 article ul li,
 article ol li {
-	font-size: 1.4rem;
+	font-size: 16px;
 	font-weight: 100;
-	line-height: 1.8em;
+	line-height: 1.8;
     color: #262626;
 }
 
@@ -133,7 +134,7 @@ article table tr:nth-child(even) {
 }
 
 article table td {
-    font-size: 1.2rem;
+    font-size: 16px;
 	padding: 1em;
 	margin: 0;
 	word-wrap: normal;
@@ -149,7 +150,8 @@ article table td a {
 	background-color: #EEE;
 	background-size: cover;
 	background-position: 50%;
-	border-radius: 3px;
+	background-repeat: no-repeat;
+	border-radius: 4px;
 	padding: 0;
 }
 
@@ -234,32 +236,30 @@ img {
 
 pre {
     position: relative;
-/*	border-left: 4px solid #007EB8;*/
 	background-color: #F6F6F6;
-	margin-top: 1em;
 	margin-bottom: 1em;
     overflow: hidden;
 }
 
 code {
-	font-family: SourceCodePro, Consolas;
+	font-family: 'SourceCodePro', Consolas;
 	color: #262626;
     padding: 12px 24px;
-    font-size: 1.2rem;
-    line-height: 1.3em;
+    font-size: 14px;
+    line-height: 1.5;
 	overflow-x: auto;
     overflow-y: hidden;
 }
 
 code.has-line-number {
-    padding-left: 34px;
+    padding-left: 40px;
 }
 
 ul.line-number {
     position: absolute;
     top: 0;
     left: 0;
-    width: 24px;
+    width: 32px;
     background-color: #23241F;
     padding: 6px 6px 12px 2px;
     text-align: right;
@@ -269,8 +269,9 @@ ul.line-number {
 }
 
 ul.line-number li {
-    font-size: 1.2rem;
-    line-height: 1.3em;
+    font-size: 14px;
+    line-height: 1.5;
+    height: 22px;
     color: #FFF;
 }
 
@@ -281,107 +282,21 @@ strong {
 
 /* Styles for mobile device */
 /* 1024+ is for PC and above, considering scrollbar */
-@media all and (max-width: 1010px) {}
+@media all and (max-width: 1024px) {}
 
 @media all and (max-width: 768px) {
-    #mf_content article {
-        padding-left: 6px;
-        padding-right: 6px;
-        border-radius: 0;
-        border-left: none;
-        border-right: none;
-    }
     
 	.titleBanner {
 		height: 160px;
 	}
-
-	article h1 {
-		font-size: 3.2rem;
-	}
-    
-    article div.time {
-        margin-top: 0;
-        font-size: 2rem;
-    }
-
-	article h2 {
-		font-size: 2.4rem;
-        font-weight: 700;
-	}
-    
-    article h3 {
-        font-size: 2.2rem;
-        font-weight: 700;
-    }
-    
-    article p, 
-    article a,
-    article ul li,
-    article ol li {
-        font-size: 1.4rem;
-    }
-    
-    article p {
-        line-height: 2rem;
-    }
-
-    code {
-		font-size: 0.7em;
-    }
-    
-    ul.line-number li {
-        font-size: 0.7em;
-    }
 }
 
 @media all and (max-width: 360px) {
-	#mf_content article {
-        padding-left: 6px;
-        padding-right: 6px;
-        padding-top: 20px;
-    }
     
 	.titleBanner {
 		height: 120px;
         margin-top: 16px;
 	}
-
-	article h1 {
-		font-size: 2rem;
-	}
-    
-    article div.time {
-        margin-top: 0.5em;
-        font-size: 1.2rem;
-    }
-
-	article h2 {
-		font-size: 1.8em;
-	}
-    
-    article h3 {
-        font-size: 1.6rem;
-    }
-    
-    article p, 
-    article a,
-    article ul li,
-    article ol li {
-        font-size: 1.2rem;
-    }
-    
-    article p {
-        line-height: 1.8rem;
-    }
-
-    code {
-		font-size: 0.6em;
-    }
-    
-    ul.line-number li {
-        font-size: 0.6em;
-    }
 
 	#buttons a {
 		margin: 0 5px;
