@@ -1,4 +1,7 @@
-#Major Change Log
+#tonghuashuo.github.io
+Washington Hua's blog on Github Page. Focus on FE development and related CS skills.
+
+##Major Change Log
 
 ### 2015-04-03
 - Use JavaScript to load navigation Bar and Footer
