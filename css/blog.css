@@ -1,4 +1,4 @@
-/* Setups */
+blog.css/* Setups */
 
 @font-face {
     font-family: 'SourceCodePro';
@@ -26,25 +26,26 @@ article h1 {
 	font-size: 36px;
 	font-weight: 100;
 	line-height: 1;
-	margin: 0;
+	margin-top: 1.5em;
+	margin-bottom: .5em;
 }
 
 article h2 {
 	color: #262626;
-	font-size: 32px;
+	font-size: 26px;
 	font-weight: 100;
 	line-height: 1;
-	margin-top: 30px;
-	margin-bottom: 10px;
+	margin-top: 1.5em;
+	margin-bottom: .8em;
 }
 
 article h3{
 	color: #262626;
-	font-size: 2.4rem;
-	font-weight: 400;
+	font-size: 20px;
+	font-weight: 100;
 	line-height: 1;
-	margin-top: 2rem;
-    margin-bottom: 1rem;
+	margin-top: 1.5em;
+	margin-bottom: .5em;
 }
 
 article div.time {
@@ -60,7 +61,8 @@ article p {
     font-size: 16px;
     font-weight: 100;
 	line-height: 1.5;
-	margin-bottom: 1em;
+	margin-top: 0;
+	margin-bottom: .75em;
 }
 
 article span.code {
@@ -161,11 +163,11 @@ img {
 
 /* 1024 x 512 px*/
 
-#tiktokcolor .titleBanner {
+#tik-tok-color .titleBanner {
 	background-image: url(../img/banner/tiktokcolor.jpg);
 }
 
-#stackcalculator .titleBanner {
+#stack-calculator .titleBanner {
 	background-image: url(../img/banner/stackcalculator.jpg);
 }
 
@@ -173,28 +175,28 @@ img {
 	background-image: url(../img/banner/substring.jpg);
 }
 
-#latexwithsublimetext .titleBanner {
+#latex-with-sublimetext .titleBanner {
 	background-image: url(../img/banner/latexwithsublimetext.jpg);
 }
 
-#miuiiconcache .titleBanner {
+#miui-icon-cache .titleBanner {
 	background-image: url(../img/banner/miuiiconcache.jpg);
 }
 
-#css3mooncake .titleBanner {
+#css3-mooncake .titleBanner {
 	background-image: url(../img/banner/css3mooncake.jpg);
 }
 
-#es6daily01intro .titleBanner,
-#es6daily02letandconst .titleBanner,
-#es6daily03destructuring .titleBanner,
-#es6daily04babel .titleBanner,
-#es6daily05string .titleBanner,
-#es6daily06regexp .titleBanner,
-#es6daily07value .titleBanner,
-#es6daily08array .titleBanner,
-#es6daily09function .titleBanner,
-#es6daily10object .titleBanner {
+#es6-daily-01-intro .titleBanner,
+#es6-daily-02-let-and-const .titleBanner,
+#es6-daily-03-destructuring .titleBanner,
+#es6-daily-04-babel .titleBanner,
+#es6-daily-05-string .titleBanner,
+#es6-daily-06-regexp .titleBanner,
+#es6-daily-07-value .titleBanner,
+#es6-daily-08-array .titleBanner,
+#es6-daily-09-function .titleBanner,
+#es6-daily-10-object .titleBanner {
     background-image: url(../img/banner/es6daily.jpg);
 }
 
@@ -204,6 +206,10 @@ img {
 
 #jsonp .titleBanner {
 	background-image: url(../img/banner/jsonp.jpg);
+}
+
+#written-on-the-last-day-of-2016 .titleBanner {
+	/* background-image: url(../img/banner/jsonp.jpg); */
 }
 
 #buttons {
