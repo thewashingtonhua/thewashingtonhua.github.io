@@ -1,7 +1,6 @@
 /* ========== Article ========== */
 
 h1.title {
-	font-family: Roboto, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
 	font-weight: 100;
 	font-size: 32px;
 }
@@ -13,7 +12,6 @@ h1.title {
 	background-color: #FFF;
 	border: 1px solid #D8D8D8;
 	border-radius: 4px;
-	font-family: Roboto, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
 	margin-right: 20px;
 	margin-bottom: 20px;
 	transition: all .3s ease-out;
@@ -50,7 +48,6 @@ h1.title {
 }
 
 .card h3 {
-	font-family: Roboto, "Helvetica", "Sans-Serif", "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
     font-size: 24px;
 	font-weight: 100;
 	margin: 0;

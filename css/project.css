@@ -1,6 +1,6 @@
 /* Setups */
 
-@font-face {
+/* @font-face {
     font-family: 'SourceCodePro';
     src: url('../font/SourceCodePro/SourceCodePro-Regular.eot');
     src: url('../font/SourceCodePro/SourceCodePro-Regular.eot?#iefix') format('embedded-opentype'),
@@ -10,68 +10,46 @@
          url('../font/SourceCodePro/SourceCodePro-Regular.svg#SourceCodePro') format('svg');
     font-weight: normal;
     font-style: normal;
-}
+} */
 
 /* ========== Article ========== */
 
-#mf_content article {
-	padding: 20px;
+article {
+	padding: 0 15px 40px;
 	background-color: #FFF;
 	border: 1px solid #D8D8D8;
-	border-radius: 3px;
+	border-radius: 4px;
 }
 
 article h1 {
-	color: #262626;
-	font-size: 3.3rem;
-	font-weight: 100;
-	margin: 0 0 0.5em 0;
-	font-family: Roboto, "Helvetica", "Sans-Serif", "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
+	color: #666;
+	font-size: 36px;
+	font-weight: 300;
+	line-height: 1;
+	margin-top: 1em;
+	margin-bottom: .5em;
 }
 
-table {
-	font-family: Roboto, "Helvetica", "Sans-Serif", "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
-	overflow-x: scroll;
+article p {
+	color: #666;
+    font-size: 16px;
+    font-weight: 300;
+	line-height: 1.5;
+	margin-top: 0;
+	margin-bottom: .75em;
 }
 
-tr {
-    display: block;
-    border-bottom: 2px solid #FFF;
-}
-
-td {
-    display: table-cell;
-    font-size: 1.4rem;
-	line-height: 2em;
-    padding: 0.1em;
-}
-
-td:nth-child(odd) {
-    background-color: #DDD;
-	font-weight: 700;
-	text-align: right;
-	width: 6em;
-}
-
-td:nth-child(even) {
-    background-color: #EEE;
-    padding-left: 1em;
-}
-
-tr:nth-child(-n+2) td:nth-child(even) {
-	width: 12em;
-}
-
-tr:nth-child(n+3) td:nth-child(even) {
-	width: 31.2em;
+article p span {
+	font-weight: 600;
 }
 
 article a {
 	color: #007EB8;
 	text-decoration: none;
 	font-weight: 700;
-	font-family: Roboto, "Helvetica", "Sans-Serif", "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
-	padding: 0;
+	font-size: 16px;
+	font-weight: 300;
+	word-wrap: break-word;
 }
 
 .titleBanner{
@@ -84,55 +62,4 @@ article a {
 	background-position: 50%;
 	border-radius: 3px;
 	padding: 0;
-}
-
-/* Styles for mobile device */
-/* 1024+ is for PC and above, considering scrollbar */
-@media all and (max-width: 768px) {}
-
-@media all and (max-width: 768px) {
-	article h1 {
-		font-size: 3.3rem;
-	}
-
-	td {
-		font-size: 0.8em;
-        padding-left: 0.1em;
-	}
-
-    td:nth-child(odd) {
-        width: 7.2em;
-    }
-    
-    tr:nth-child(-n+2) td:nth-child(even) {
-        width: 12em;
-    }
-
-    tr:nth-child(n+3) td:nth-child(even) {
-        width: 32.5em;
-    }
-
-}
-
-@media all and (max-width: 360px) {
-	article h1 {
-		font-size: 2.4rem;
-	}
-
-	td {
-		font-size: 0.6em;
-	}
-    
-    td:nth-child(odd) {
-        width: 5.2em;
-    }
-    
-    tr:nth-child(-n+2) td:nth-child(even) {
-        width: 6em;
-    }
-
-    tr:nth-child(n+3) td:nth-child(even) {
-        width: 18.5em;
-    }
-
 }

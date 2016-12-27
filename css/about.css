@@ -1,51 +1,32 @@
-#mf_content article {
-	padding: 20px;
+article {
+	padding: 0 15px 40px;
 	background-color: #FFF;
 	border: 1px solid #D8D8D8;
-	border-radius: 3px;
-	font-family: "Segoe UI", Roboto, Helvetica, "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
+	border-radius: 4px;
 }
 
 article h1 {
-	color: #262626;
-	font-size: 2.4rem;
-	font-weight: 100;
-	margin: 0 0 0.5em 0;
+	color: #666;
+	font-size: 36px;
+	font-weight: 300;
+	line-height: 1;
+	margin-top: 1.5em;
+	margin-bottom: .5em;
 }
 
 article p {
-	color: #262626;
-    font-size: 1.4rem;
-	line-height: 1.8em;
-	font-weight: 100;
-	margin: 0.2em 0;
+	color: #666;
+    font-size: 16px;
+    font-weight: 300;
+	line-height: 1.5;
+	margin-top: 0;
+	margin-bottom: .75em;
 }
 
 article ul li{
     list-style: circle;
-    color: #262626;
-    font-size: 1.4rem;
-	line-height: 1.8em;
-	font-weight: 100;
-}
-
-#copyright {
-	margin-top: 50px;
-    text-align: center;
-}
-
-#copyright a {
-	color: #007EB8;
-	text-decoration: none;
-	font-weight: 100;
-}
-
-@media all and (max-width: 360px) {
-    article h1 {
-        font-size: 2.6rem;
-    }
-    article p,
-    article ul li{
-        font-size: 1.2rem;
-    }
+    color: #666;
+    font-size: 16px;
+	font-weight: 300;
+	line-height: 1.8;
 }
