@@ -87,6 +87,4 @@ function initNavigator() {
 	document.getElementById(channel).className = "active";
 }
 
-window.onload = function() {
-	initNavigator();
-};
+initNavigator();

@@ -3,23 +3,22 @@
 #mf_content p, 
 #mf_content li, 
 #mf_content a {
-	font-family: "Segoe UI", "Roboto", "Microsoft YaHei", "Helvetica Neue", Helvetica, Tahoma, Arial, sans-serif;
-	font-weight: 400;
+	font-weight: 300;
 	color: #666;
 }
 
 #mf_content h1 {
-    font-size: 3rem;
+    font-size: 36px;
 }
 
 #mf_content h2 {
     font-size: 2rem;
-	margin-top: 30px;
+	margin-top: 26px;
 	margin-bottom: 10px;
 }
 
 #mf_content p {
-    font-size: 1.6rem;
+    font-size: 16px;
 	margin-top: 0;
 	margin-bottom: 10px;
 }
@@ -33,21 +32,21 @@
 }
 
 #mf_content ul li {
-    font-size: 1.6rem;
+    font-size: 20px;
     line-height: 2em;
-	font-weight: 700;
+	font-weight: 300;
     margin-bottom: 0;
 }
 
 #mf_content ul li ul li {
-    font-size: 1.4rem;
+    font-size: 16px;
     line-height: 2em;
-	font-weight: 100;
+	font-weight: 300;
     margin-bottom: 0;
 }
 
 #mf_content ul ul li {
-	font-weight: 400;
+	font-weight: 300;
 }
 
 #mf_content li {
@@ -56,7 +55,7 @@
 }
 
 #mf_content a {
-    font-size: 1.6rem;
+    font-size: 16px;
 	text-decoration: none;
 }
 

@@ -41,8 +41,8 @@
 	display: block;
 	text-decoration: none;
 	color: #FFF;
-	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";
 	font-size: 36px;
+	font-weight: 300;
 	line-height: 1;
 	margin: 0;
 	padding: 0;
@@ -64,7 +64,7 @@
 .title p {
 	color: #FFF;
     font-size: 20px;
-	font-family: Roboto;
+    font-weight: 100;
 	line-height: 1;
 	margin: 10px 0 0 0;
 	padding: 0;
@@ -73,7 +73,6 @@
 .description {
 	color: #262626;
     font-size: 16px;
-	font-family: "Microsoft YaHei", "微软雅黑", "STHeiti", "SimSun", "宋体";;
 	padding: 16px;
 	white-space: nowrap;
 	overflow: hidden;
@@ -84,41 +83,41 @@
 
 /* Banner Images */
 /* 1024 x 512 px */
-#stackCalculator div.banner{
+#stack-calculator div.banner {
 	background-image: url(../img/banner/stackcalculator.jpg);
 }
 
-#tiktokCalculator div.banner{
+#tik-tok-color div.banner {
 	background-image: url(../img/banner/tiktokcolor.jpg);
 }
 
-#substring div.banner{
+#substring div.banner {
 	background-image: url(../img/banner/substring.jpg);
 }
 
-#latexwithsublimetext div.banner{
+#latex-with-sublimetext div.banner {
 	background-image: url(../img/banner/latexwithsublimetext.jpg);
 }
 
-#miuiiconcache div.banner {
+#miui-icon-cache div.banner {
 	background-image: url(../img/banner/miuiiconcache.jpg);
 }
 
-#css3mooncake div.banner {
+#css3-mooncake div.banner {
 	background-image: url(../img/banner/css3mooncake.jpg);
 }
 
 /* ES6 Daily Series */
-#es6daily01intro div.banner,
-#es6daily02letandconst div.banner,
-#es6daily03destructuring div.banner,
-#es6daily04babel div.banner,
-#es6daily05string div.banner,
-#es6daily06regexp div.banner,
-#es6daily07value div.banner,
-#es6daily08array div.banner,
-#es6daily09function div.banner,
-#es6daily10object div.banner {
+#es6-daily-01-intro div.banner,
+#es6-daily-02-let-and-const div.banner,
+#es6-daily-03-destructuring div.banner,
+#es6-daily-04-babel div.banner,
+#es6-daily-05-string div.banner,
+#es6-daily-06-regexp div.banner,
+#es6-daily-07-value div.banner,
+#es6-daily-08-array div.banner,
+#es6-daily-09-function div.banner,
+#es6-daily-10-object div.banner {
 	background-image: url(../img/banner/es6daily.jpg);
 }
 

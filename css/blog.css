@@ -14,37 +14,38 @@
 
 /* ========== Article ========== */
 
-#mf_content article {
-	padding: 40px 10px;
+article {
+	padding: 0 15px 40px;
 	background-color: #FFF;
 	border: 1px solid #D8D8D8;
 	border-radius: 4px;
 }
 
 article h1 {
-	color: #262626;
+	color: #666;
 	font-size: 36px;
-	font-weight: 100;
+	font-weight: 300;
 	line-height: 1;
-	margin: 0;
+	margin-top: 1.5em;
+	margin-bottom: .5em;
 }
 
 article h2 {
-	color: #262626;
-	font-size: 32px;
-	font-weight: 100;
+	color: #666;
+	font-size: 26px;
+	font-weight: 300;
 	line-height: 1;
-	margin-top: 30px;
-	margin-bottom: 10px;
+	margin-top: 1.5em;
+	margin-bottom: .8em;
 }
 
 article h3{
-	color: #262626;
-	font-size: 2.4rem;
-	font-weight: 400;
+	color: #666;
+	font-size: 20px;
+	font-weight: 300;
 	line-height: 1;
-	margin-top: 2rem;
-    margin-bottom: 1rem;
+	margin-top: 1.5em;
+	margin-bottom: .5em;
 }
 
 article div.time {
@@ -56,17 +57,19 @@ article div.time {
 }
 
 article p {
-	color: #262626;
+	color: #666;
     font-size: 16px;
-    font-weight: 100;
+    font-weight: 300;
 	line-height: 1.5;
-	margin-bottom: 1em;
+	margin-top: 0;
+	margin-bottom: .75em;
 }
 
 article span.code {
     font-size: 0.8em;
+    font-weight: 300;
     color: #FFF;
-	background-color: #262626;
+	background-color: #444;
 	border-radius: 2px;
 	font-family: 'SourceCodePro';
 	padding: 0.1em 0.5em;
@@ -82,9 +85,10 @@ article a {
 	color: #007EB8;
 	text-decoration: none;
     font-size: 16px;
-	font-weight: 100;
+	font-weight: 300;
 	word-wrap: break-word;
 }
+
 article p a {
 	padding: 0.1em 0.5em;
 }
@@ -113,7 +117,7 @@ article ol li {
 	font-size: 16px;
 	font-weight: 100;
 	line-height: 1.8;
-    color: #262626;
+    color: #666;
 }
 
 article div.tablewapper {
@@ -161,11 +165,11 @@ img {
 
 /* 1024 x 512 px*/
 
-#tiktokcolor .titleBanner {
+#tik-tok-color .titleBanner {
 	background-image: url(../img/banner/tiktokcolor.jpg);
 }
 
-#stackcalculator .titleBanner {
+#stack-calculator .titleBanner {
 	background-image: url(../img/banner/stackcalculator.jpg);
 }
 
@@ -173,28 +177,28 @@ img {
 	background-image: url(../img/banner/substring.jpg);
 }
 
-#latexwithsublimetext .titleBanner {
+#latex-with-sublimetext .titleBanner {
 	background-image: url(../img/banner/latexwithsublimetext.jpg);
 }
 
-#miuiiconcache .titleBanner {
+#miui-icon-cache .titleBanner {
 	background-image: url(../img/banner/miuiiconcache.jpg);
 }
 
-#css3mooncake .titleBanner {
+#css3-mooncake .titleBanner {
 	background-image: url(../img/banner/css3mooncake.jpg);
 }
 
-#es6daily01intro .titleBanner,
-#es6daily02letandconst .titleBanner,
-#es6daily03destructuring .titleBanner,
-#es6daily04babel .titleBanner,
-#es6daily05string .titleBanner,
-#es6daily06regexp .titleBanner,
-#es6daily07value .titleBanner,
-#es6daily08array .titleBanner,
-#es6daily09function .titleBanner,
-#es6daily10object .titleBanner {
+#es6-daily-01-intro .titleBanner,
+#es6-daily-02-let-and-const .titleBanner,
+#es6-daily-03-destructuring .titleBanner,
+#es6-daily-04-babel .titleBanner,
+#es6-daily-05-string .titleBanner,
+#es6-daily-06-regexp .titleBanner,
+#es6-daily-07-value .titleBanner,
+#es6-daily-08-array .titleBanner,
+#es6-daily-09-function .titleBanner,
+#es6-daily-10-object .titleBanner {
     background-image: url(../img/banner/es6daily.jpg);
 }
 
@@ -204,6 +208,10 @@ img {
 
 #jsonp .titleBanner {
 	background-image: url(../img/banner/jsonp.jpg);
+}
+
+#written-on-the-last-day-of-2016 .titleBanner {
+	/* background-image: url(../img/banner/jsonp.jpg); */
 }
 
 #buttons {
@@ -251,6 +259,12 @@ code {
     overflow-y: hidden;
 }
 
+code span {
+	font-family: 'SourceCodePro', Consolas;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
 code.has-line-number {
     padding-left: 40px;
 }
@@ -259,9 +273,9 @@ ul.line-number {
     position: absolute;
     top: 0;
     left: 0;
-    width: 32px;
+    width: 36px;
     background-color: #23241F;
-    padding: 6px 6px 12px 2px;
+    padding: 6px 6px 12px;
     text-align: right;
     color: #AAA;
     margin: 0;
@@ -271,8 +285,8 @@ ul.line-number {
 ul.line-number li {
     font-size: 14px;
     line-height: 1.5;
-    height: 22px;
     color: #FFF;
+    font-family: SourceCodePro;
 }
 
 strong {
