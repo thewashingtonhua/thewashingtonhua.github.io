@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<title>If You Feel Boried</title>
+	<title>我是惊喜</title>
 	<style>
 		* {
 			box-sizing: border-box;
@@ -26,15 +26,23 @@
 	<script>
 		var texts = [
 		    "Made You Look",
+		    "真听话，快坐下吧",
 		    "Fooled You",
-		    "你会发现有人比你更无聊",
-		    "嗯，真乖，好了回去吧"
+		    "才怪嘞",
+		    "骗你的",
+		    "Peek-a-Boo",
+		    "其实并没有",
+		    "哪有那么好的事",
+		    "Hi，我是惊喜"
 		];
 
-		var range = texts.length;
-		var index = Math.floor(Math.random() * range);
+		function update() {
+			var range = texts.length;
+			var index = Math.floor(Math.random() * range);
+			document.getElementById("title").innerHTML = texts[index];
+		}
 
-		document.getElementById("title").innerHTML = texts[index];
+		update();
 	</script>
 </body>
 </html>
