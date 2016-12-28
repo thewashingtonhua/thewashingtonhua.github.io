@@ -33,7 +33,7 @@
 
 * {
 	box-sizing: border-box;
-	font-family: "San Francisco", Roboto, "Segeo UI", "Helvetica Neue", Tahoma, Arial, sans-serif, "PingFang SC", "Hiragino Sans GB", "Source Han Sans", "Microsoft Yahei", "STHeiti", "SimSun";
+	font-family: Roboto, "Segeo UI", "Helvetica Neue", Tahoma, Arial, sans-serif, "PingFang SC", "Hiragino Sans GB", "Source Han Sans", "Microsoft Yahei", "STHeiti", "SimSun";
 }
 
 html, body {
