@@ -30,3 +30,8 @@ article ul li{
 	font-weight: 300;
 	line-height: 1.8;
 }
+
+article img {
+	max-width: 100%;
+	margin-bottom: 1em;
+}
