@@ -129,6 +129,10 @@
 	background-image: url(../img/banner/jsonp.jpg);
 }
 
+#written-on-the-last-day-of-2016 div.banner {
+	background-image: url(../img/banner/written-on-the-last-day-of-2016.jpg);
+}
+
 @media all and (max-width: 768px) {
 
 	.banner {
