@@ -1,6 +1,8 @@
 #tonghuashuo.github.io
 Washington Hua's blog. Focus on FE and related CS skills. 
+
 Recently been working on v2.0 - a brand new design for both UI and Code.
+
 
 ##Major Changes
 
