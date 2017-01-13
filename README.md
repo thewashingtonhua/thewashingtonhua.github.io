@@ -1,7 +1,8 @@
 #tonghuashuo.github.io
-Washington Hua's blog on Github Page. Focusing on FE and related CS skills. Recently been working on v2.0 - a brand new design for both UI and Code.
+Washington Hua's blog. Focus on FE and related CS skills. 
+Recently been working on v2.0 - a brand new design for both UI and Code.
 
-##Major Change Log
+##Major Changes
 
 ### 2017-01-13
 - Update link to Haozhe Xie from "trunk shell" to "Infinite Script". (Congratulations, Dr.X)
@@ -12,7 +13,7 @@ Washington Hua's blog on Github Page. Focusing on FE and related CS skills. Rece
 - Start "ES6 Daily" Series. (which soon became weekly, monthly, now even less...)
 
 ### 2015-07-18
-- Lab Service online. Providing common test for HTML5 and browser features.
+- Lab Service online. Providing common feature test for HTML5 and browsers.
 
 ### 2015-04-03
 - Use JavaScript to load navigation Bar and Footer
