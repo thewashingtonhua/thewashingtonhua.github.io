@@ -30,3 +30,6 @@ Recently been working on v2.0 - a brand new design for both UI and Code.
 - Uploaded 2 blogs.
 - Linked 2 projects.
 - Linked to lucode.net, trunk shell, lvzhonghou.com.
+
+### 2014-11-25
+- Project Initialized.
