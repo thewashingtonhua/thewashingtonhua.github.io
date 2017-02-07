@@ -133,6 +133,10 @@
 	background-image: url(../img/banner/written-on-the-last-day-of-2016.jpg);
 }
 
+#mysql-error-2002 div.banner {
+	background-image: url(../img/banner/mysqlerror2002.jpg);
+}
+
 @media all and (max-width: 768px) {
 
 	.banner {
