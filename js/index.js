@@ -1,6 +1,5 @@
 /*
  * Generate Navigations
- * support multi-language
  */
 function initNavigator() {
 	var new_mf_sidebar = document.createElement("div");
@@ -10,8 +9,8 @@ function initNavigator() {
 	var new_mf_category = document.createElement("ul");
 	var blog_li = document.createElement("li");
 	var blog_a = document.createElement("a");
-	var project_li = document.createElement("li");
-	var project_a = document.createElement("a");
+	// var project_li = document.createElement("li");
+	// var project_a = document.createElement("a");
 	var lab_li = document.createElement("li");
 	var lab_a = document.createElement("a");
 	var friend_li = document.createElement("li");
@@ -31,7 +30,7 @@ function initNavigator() {
 	new_mf_category.id = "mf_category";
 	new_mf_category.className = "clearfix";
 	blog_li.id = "blog";
-	project_li.id = "project";
+	// project_li.id = "project";
 	lab_li.id = "lab";
 	friend_li.id = "friend";
 	about_li.id = "about";
@@ -40,12 +39,12 @@ function initNavigator() {
 	new_mf_profile.appendChild(new_mf_ghid);
 
 	blog_li.appendChild(blog_a);
-	project_li.appendChild(project_a);
+	// project_li.appendChild(project_a);
 	lab_li.appendChild(lab_a);
 	friend_li.appendChild(friend_a);
 	about_li.appendChild(about_a);
 	new_mf_category.appendChild(blog_li);
-	new_mf_category.appendChild(project_li);
+	// new_mf_category.appendChild(project_li);
 	new_mf_category.appendChild(lab_li);
 	new_mf_category.appendChild(friend_li);
 	new_mf_category.appendChild(about_li);
@@ -68,13 +67,13 @@ function initNavigator() {
 	}
 
 	blog_a.href = sub_str + "blog.html";
-	project_a.href = sub_str + "project.html";
+	// project_a.href = sub_str + "project.html";
 	lab_a.href = sub_str + "lab.html";
 	friend_a.href = sub_str + "friend.html";
 	about_a.href = sub_str + "about.html";
 	
     blog_a.innerHTML = "博客";
-    project_a.innerHTML = "项目";
+    // project_a.innerHTML = "项目";
     lab_a.innerHTML = "实验室";
     friend_a.innerHTML = "朋友";
     about_a.innerHTML = "关于";
