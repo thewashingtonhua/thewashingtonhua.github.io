@@ -137,6 +137,18 @@
 	background-image: url(../img/banner/mysqlerror2002.jpg);
 }
 
+#a-pit-in-date-tostring div.banner {
+	background-image: url(../img/banner/date-tostring.jpg);
+}
+
+#multi-origin-cors-with-php div.banner {
+	background-image: url(../img/banner/cors.jpg);
+}
+
+#unable-to-trigger-click-on-ios div.banner {
+	background-image: url(../img/banner/ios-click.jpg);
+}
+
 @media all and (max-width: 768px) {
 
 	.banner {
@@ -167,7 +179,7 @@
 }
 
 @media all and (max-width: 360px) {
-	
+
 }
 
 /* Styles for 1080P device */

@@ -106,6 +106,11 @@ article img {
 	margin-bottom: 1em;
 }
 
+article img.img-block {
+	display: block;
+	margin-bottom: 4px;
+}
+
 article ul {
 	list-style: circle;
 	padding-left: 30px;
@@ -142,6 +147,7 @@ article table tr:nth-child(even) {
 	background-color: #DDD;
 }
 
+article table th,
 article table td {
     font-size: 16px;
 	padding: 1em;
@@ -149,6 +155,7 @@ article table td {
 	word-wrap: normal;
 }
 
+article table th a,
 article table td a {
 	padding: 0;
 }
@@ -221,6 +228,18 @@ img {
 
 #mysql-error-2002 .titleBanner {
 	background-image: url(../img/banner/mysqlerror2002.jpg);
+}
+
+#a-pit-in-date-tostring .titleBanner {
+	background-image: url(../img/banner/date-tostring.jpg);
+}
+
+#multi-origin-cors-with-php .titleBanner {
+	background-image: url(../img/banner/cors.jpg);
+}
+
+#unable-to-trigger-click-on-ios .titleBanner {
+  background-image: url(../img/banner/ios-click.jpg);
 }
 
 #buttons {
@@ -308,14 +327,14 @@ strong {
 @media all and (max-width: 1024px) {}
 
 @media all and (max-width: 768px) {
-    
+
 	.titleBanner {
 		height: 160px;
 	}
 }
 
 @media all and (max-width: 360px) {
-    
+
 	.titleBanner {
 		height: 120px;
         margin-top: 16px;
@@ -326,5 +345,5 @@ strong {
 		padding: 6px 12px;
 		font-size: 0.8em;
 	}
-    
+
 }
