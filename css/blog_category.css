@@ -149,6 +149,10 @@
 	background-image: url(../img/banner/ios-click.jpg);
 }
 
+#leetcode-01-two-sum div.banner {
+	background-image: url(../img/banner/leetcode.jpg);
+}
+
 @media all and (max-width: 768px) {
 
 	.banner {

@@ -49,7 +49,10 @@
             <p>光有一个 babel-cli 什么也做不了，我们还要为 Babel 安装语法插件。官方提供了几套预设的插件集合，分别适用于 ES2015、React 和 ES7 的一些实验性特性。只是为了学习 ES6 的语法的话，选 ES2015 就好了。</p>
 <pre><code class="bash">npm install --save-dev babel-preset-es2015
 npm install --save-dev babel-preset-react</code></pre>
-                <p>在项目根目录下创建一个<span class="code">.babelrc</span>文件，注意这是个配置文件，以点号开头，没有后缀。Windows 系统是不允许直接创建这样格式的文件的，需要借助代码编辑器来新建文件。创建好后写入以下内容来启用预设：</p>
+            <blockquote>2017-04-05 补充<br>
+            由于现在 ES 的发布周期确定为一年一个大版本，每次都要换预设太麻烦，Babel 官方推出了 env 预设（之前叫 latest，现在已经 deprecated 了），把从 ES2015 开始到当年的所有转码工具全部打包到一起，后续只需要升级这个包就好了。开发者还可以在<span class="code">.babelrc</span>中设置要支持的环境范围，以减少转码生成的代码量。</blockquote>
+
+            <p>在项目根目录下创建一个<span class="code">.babelrc</span>文件，注意这是个配置文件，以点号开头，没有后缀。Windows 系统是不允许直接创建这样格式的文件的，需要借助代码编辑器来新建文件。创建好后写入以下内容来启用预设：</p>
 <pre><code class="javascript">{
     "presets": ["es2015"]
 }</code></pre>
@@ -69,7 +72,9 @@ npm install --save-dev babel-preset-react</code></pre>
             <p>官方还有一个更推荐的方法，在<span class="code">package.json</span>文件中的<span class="code">scripts</span>属性中添加一项<span class="code">"build": "babel src -d build"</span>，之后只要在项目根目录执行<span class="code">npm run build</span>，Babel 就会自动将<span class="code">src</span>目录下的 js 文件自动转码并放入<span class="code">build</span>目录下。</p>
            
             <h3>Windows 的悲哀</h3>
-            <p>Windows 用户很快就会会发现<span class="code">babel</span>命令根本用不了，系统不识别这个命令。检查一下环境变量你就会发现，根本没有相关的路径在里面。如果你执行过全局安装的话，会在 Node.js 的安装目录下的 node_global 目录下看到一个 babel.cmd 文件，把这个路径添加到环境变量中，就能用了。如果细看一下文件的内容，你就会发现奥秘所在。</p>
+            <blockquote>2017-04-05 补充<br>
+            这一段可以跳过，发文当时认知不正确才有的这一段，除非读者遇到类似问题否则不建议在这里浪费时间。</blockquote>
+            <p>Windows 用户很快就会发现<span class="code">babel</span>命令根本用不了，系统不识别这个命令。检查一下环境变量你就会发现，根本没有相关的路径在里面。如果你执行过全局安装的话，会在 Node.js 的安装目录下的 node_global 目录下看到一个 babel.cmd 文件，把这个路径添加到环境变量中，就能用了。如果细看一下文件的内容，你就会发现奥秘所在。</p>
 <pre><code class="bash">@IF EXIST "%~dp0\node.exe" (
     "%~dp0\node.exe"  "%~dp0\node_modules\babel-cli\bin\babel.js" %*
 ) ELSE (
@@ -81,16 +86,18 @@ npm install --save-dev babel-preset-react</code></pre>
 <pre><code class="bash">node .\node_modules\babel-cli\bin\babel.js %*</code></pre>
             <p>当然，用这个方法的前提是你需要配置好 Node.js 的环境，并且用 npm 安装好了 babel-cli，否则会报错说文件不存在。（不过既然你都走到这一步了，相信这两样你肯定都已经装好了吧。）</p>
             <p>之后的用法就和 Mac 和 Linux 下的一样了，看前面就好，不赘述了。</p>
+            <blockquote>时隔一年回过头来再看自己写的东西，发现当初的理解不是很透彻。本地安装无法使用命令行的问题其实跟系统无关，只有全局安装的包（如果有命令行工具的话）才会被识别，因为全局安装目录在安装 Node 时候已经添加进环境变量了，本地安装由于项目根目录不属于环境变量中，因此无法直接通过命令访问，需要手动执行<span class="code">node_modules/package_name/bin/index.js</span>来运行命令行工具（一般都是这么个套路，具体要看包的package.json里main字段的描述），当然每次都要这么写太费劲，进阶一点可以在项目根目录的package.json中写一个script来调用这个。<br>
+            回想起来当初之所以没意识到这个问题，一方面是因为当时还在用 Windows，没接触过 Mac，对 Linux 的命令行机制理解也太浅，误以为后两者可以直接用就 Windows 不可以。另一方面当时也是刚开始接触 npm，对模块的寻路机制并不了解，导致自以为发现了个值得分享的点，其实还是自己太无知。</blockquote>
             
             <h3>babel-node</h3>
             <p>babel-node 是随 babel-cli 一起安装的另一款命令行工具，是一个模拟 Node.js 环境的 REPL（Read-Evel-Print Loop，一种循环执行“读取-执行-输出”的程序）。执行<span class="code">babel-node</span>会进入一个类似 Node.js 的环境，在这里你可以直接运行 ES6 的代码。你也可以用形如<span class="code">babel-node es6.js</span>的命令来直接运行用 ES6 编写的文件，babel-node 会在运行代码之前先将其编译成 ES5 的等效代码，然后执行。</p>
             <p>甚至可以改写<span class="code">package.json</span>文件，用 babel-node 替代 node 命令来直接运行。</p>
 <pre><code class="javascript">{
     "scripts": {
-        "script.js": "babel-node script.js"    // 需替换成实际文件名
+        "script": "babel-node script.js"    // 需替换成实际文件名
     }
 }</code></pre>
-            <p>此时执行<span class="code">npm run script.js</span>就等同于执行<span class="code">babel-node script.js</span></p>
+            <p>此时执行<span class="code">npm run script</span>就等同于执行<span class="code">babel-node script.js</span></p>
             
             <h3>babel-doctor</h3>
             <p>看名字就知道，这个工具大概是排错用的。没错，如果在命令行中执行<span class="code">babel</span>命令有问题的，可以用<span class="code">babel-doctor</span>命令检查一下环境配置是否正确。主要检查以下几项内容：</p>
