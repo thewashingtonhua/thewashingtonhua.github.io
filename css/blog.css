@@ -119,9 +119,19 @@ article ul {
 	margin: 1em 0;
 }
 
+article ul ul,
+article ol ul {
+	margin: .5em 0;
+}
+
 article ol {
 	padding-left: 30px;
 	margin: 1em 0;
+}
+
+article ol ol,
+article ul ol {
+	margin: .5em 0;
 }
 
 article ul li,
@@ -257,6 +267,10 @@ img {
 
 #leetcode-01-two-sum .titleBanner {
 	background-image: url(../img/banner/leetcode.jpg);
+}
+
+#webpack-dev-server-invalid-host-header .titleBanner {
+	background-image: url(../img/banner/webpack-dev-server.jpg);
 }
 
 #buttons {

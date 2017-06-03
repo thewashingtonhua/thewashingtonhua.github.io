@@ -153,6 +153,10 @@
 	background-image: url(../img/banner/leetcode.jpg);
 }
 
+#webpack-dev-server-invalid-host-header div.banner {
+	background-image: url(../img/banner/webpack-dev-server.jpg);
+}
+
 @media all and (max-width: 768px) {
 
 	.banner {
