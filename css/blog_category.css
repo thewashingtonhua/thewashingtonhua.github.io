@@ -117,7 +117,8 @@
 #es6-daily-07-value div.banner,
 #es6-daily-08-array div.banner,
 #es6-daily-09-function div.banner,
-#es6-daily-10-object div.banner {
+#es6-daily-10-object div.banner,
+#es6-daily-11-symbol div.banner {
 	background-image: url(../img/banner/es6daily.jpg);
 }
 
