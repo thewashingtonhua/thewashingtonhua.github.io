@@ -11,7 +11,7 @@
   <link rel="shortcut icon" href="../img/favicon.ico" />
   <link rel="stylesheet" href="../css/index.css" />
   <link rel="stylesheet" href="../css/blog.css" />
-  
+
   <!-- code highlight -->
   <link rel="stylesheet" href="../lib/hljs/monokai-sublime.css">
 
@@ -36,7 +36,7 @@
       <h1>每天一点ES6(10)：对象的扩展</h1>
       <div class="time"><time datetime="2017-04-05">Apr 5th 2017<time></div>
       <div class="titleBanner"></div>
-      
+
       <h2>迟来的更新</h2>
       <p>想来这个系列上一次更新还是去年年底的时候……真心对不起日更的标题，这个Flag立大了……虽然时至今日ES6已经不再新鲜，不过自己挖的坑说什么也得填完，这一篇咱继续对象的扩展。</p>
       <p>ES5 给对象加入了大量实用的方法，用于创建、枚举、封闭一个对象，ES6 在此基础上进一步完善。</p>
@@ -177,7 +177,7 @@ const opt = Object.assign({}, opt1, opt2); // {x:3, y:2}</code></pre>
 var obj = { p: 'a' };
 
 Object.getOwnPropertyDescriptor(obj, 'p')
-// Object { 
+// Object {
 //   value: "a",
 //   writable: true,
 //   enumerable: true,
@@ -191,8 +191,8 @@ const obj = {
 };
 
 Object.getOwnPropertyDescriptors(obj)
-// { 
-//   foo: { 
+// {
+//   foo: {
 //     value: 123,
 //     writable: true,
 //     enumerable: true,
@@ -216,7 +216,7 @@ Object.getOwnPropertyDescriptors(obj)
 const target = {};
 Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
 Object.getOwnPropertyDescriptor(target, 'foo')
-// { 
+// {
 //   get: undefined,
 //   set: [Function: foo],
 //   enumerable: true,
@@ -289,18 +289,18 @@ const clone = (obj) => Object.create(
 
       <h2>该系列的其他文章</h2>
       <p>上一篇：<a href="es6-daily-09-function.html">每天一点ES6(9)：函数的扩展</a></p>
-      <p>下一篇：<a href="javascript:;">每天一点ES6(11)：Symbol（待更）</a></p>
-      
+      <p>下一篇：<a href="es6-daily-11-symbol.html">每天一点ES6(11)：Symbol</a></p>
+
     </article>
 
   </div>
 
   <script src="../js/index.js"></script>
-  
+
   <!-- code highlight -->
   <script src="../lib/hljs/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
-  
+
   <!-- line number -->
   <script src="../lib/jquery-3.0.0-beta1.min.js"></script>
   <script src="../js/line-number.js"></script>
