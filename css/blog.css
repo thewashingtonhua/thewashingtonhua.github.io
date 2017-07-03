@@ -234,7 +234,8 @@ img {
 #es6-daily-08-array .titleBanner,
 #es6-daily-09-function .titleBanner,
 #es6-daily-10-object .titleBanner,
-#es6-daily-11-symbol .titleBanner {
+#es6-daily-11-symbol .titleBanner,
+#es6-daily-12-set-and-map .titleBanner {
   background-image: url(../img/banner/es6daily.jpg);
 }
 
