@@ -275,6 +275,10 @@ img {
 	background-image: url(../img/banner/webpack-dev-server.jpg);
 }
 
+#electron-install-guide .titleBanner {
+	background-image: url(../img/banner/electron.jpg);
+}
+
 #buttons {
 	text-align: center;
   -webkit-box-sizing: border-box;

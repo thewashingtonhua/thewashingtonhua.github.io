@@ -159,6 +159,10 @@
 	background-image: url(../img/banner/webpack-dev-server.jpg);
 }
 
+#electron-install-guide div.banner {
+	background-image: url(../img/banner/electron.jpg);
+}
+
 @media all and (max-width: 768px) {
 
 	.banner {
