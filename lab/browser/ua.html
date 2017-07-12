@@ -151,7 +151,11 @@
         browserVersion = ua.match(/browser\/\d+(.\d+)+/)[0].substr(8);
         if (ua.indexOf("mobile") > -1) {
           browserVersion += " (mobile)";
-          var uVersion = ua.match(/u\d\/\d+(.\d+)+/)[0].substr(1).replace('/', ' ');
+          var match = ua.match(/u\d\/\d+(.\d+)+/);
+          var uVersion = '';
+          if (match) {
+            uVersion = match[0].substr(1).replace('/', ' ');
+          }
           browser = "UC Browser " + browserVersion + " / U" + uVersion;
         } else {
           if (ua.indexOf("chrome") > -1) {
