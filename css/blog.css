@@ -201,27 +201,27 @@ img {
 /* 1024 x 512 px*/
 
 #tik-tok-color .titleBanner {
-	background-image: url(../img/banner/tiktokcolor.jpg);
+	background-image: url('../img/banner/tiktokcolor.jpg');
 }
 
 #stack-calculator .titleBanner {
-	background-image: url(../img/banner/stackcalculator.jpg);
+	background-image: url('../img/banner/stackcalculator.jpg');
 }
 
 #substring .titleBanner {
-	background-image: url(../img/banner/substring.jpg);
+	background-image: url('../img/banner/substring.jpg');
 }
 
 #latex-with-sublimetext .titleBanner {
-	background-image: url(../img/banner/latexwithsublimetext.jpg);
+	background-image: url('../img/banner/latexwithsublimetext.jpg');
 }
 
 #miui-icon-cache .titleBanner {
-	background-image: url(../img/banner/miuiiconcache.jpg);
+	background-image: url('../img/banner/miuiiconcache.jpg');
 }
 
 #css3-mooncake .titleBanner {
-	background-image: url(../img/banner/css3mooncake.jpg);
+	background-image: url('../img/banner/css3mooncake.jpg');
 }
 
 #es6-daily-01-intro .titleBanner,
@@ -236,47 +236,51 @@ img {
 #es6-daily-10-object .titleBanner,
 #es6-daily-11-symbol .titleBanner,
 #es6-daily-12-set-and-map .titleBanner {
-  background-image: url(../img/banner/es6daily.jpg);
+  background-image: url('../img/banner/es6daily.jpg');
 }
 
 #elevator .titleBanner {
-	background-image: url(../img/banner/elevator.jpg);
+	background-image: url('../img/banner/elevator.jpg');
 }
 
 #jsonp .titleBanner {
-	background-image: url(../img/banner/jsonp.jpg);
+	background-image: url('../img/banner/jsonp.jpg');
 }
 
 #written-on-the-last-day-of-2016 .titleBanner {
-	background-image: url(../img/banner/written-on-the-last-day-of-2016.jpg);
+	background-image: url('../img/banner/written-on-the-last-day-of-2016.jpg');
 }
 
 #mysql-error-2002 .titleBanner {
-	background-image: url(../img/banner/mysqlerror2002.jpg);
+	background-image: url('../img/banner/mysqlerror2002.jpg');
 }
 
 #a-pit-in-date-tostring .titleBanner {
-	background-image: url(../img/banner/date-tostring.jpg);
+	background-image: url('../img/banner/date-tostring.jpg');
 }
 
 #multi-origin-cors-with-php .titleBanner {
-	background-image: url(../img/banner/cors.jpg);
+	background-image: url('../img/banner/cors.jpg');
 }
 
 #unable-to-trigger-click-on-ios .titleBanner {
-	background-image: url(../img/banner/ios-click.jpg);
+	background-image: url('../img/banner/ios-click.jpg');
 }
 
 #leetcode-01-two-sum .titleBanner {
-	background-image: url(../img/banner/leetcode.jpg);
+	background-image: url('../img/banner/leetcode.jpg');
 }
 
 #webpack-dev-server-invalid-host-header .titleBanner {
-	background-image: url(../img/banner/webpack-dev-server.jpg);
+	background-image: url('../img/banner/webpack-dev-server.jpg');
 }
 
 #electron-install-guide .titleBanner {
-	background-image: url(../img/banner/electron.jpg);
+	background-image: url('../img/banner/electron.jpg');
+}
+
+#ecmascript-2017-is-here .titleBanner {
+	background-image: url('../img/banner/es2017.jpg');
 }
 
 #buttons {
