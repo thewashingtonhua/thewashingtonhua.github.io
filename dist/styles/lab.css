@@ -1,0 +1,45 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0; }
+
+h1, h2, h3, h4, h5, h5, p {
+  margin: 0; }
+
+h1, h2, h3, h4, h5, h5, p, a {
+  font-weight: 400; }
+
+ul, ol {
+  margin: 0;
+  padding: 0; }
+
+ul {
+  list-style: none; }
+
+a {
+  text-decoration: none; }
+
+#mf-content {
+  padding-top: 1px; }
+  #mf-content h1, #mf-content h2, #mf-content p, #mf-content li, #mf-content a, #mf-content label {
+    color: rgba(255, 255, 255, 0.7);
+    font-family: "Source Code Pro", Consolas, Arial, "sans-serif"; }
+  #mf-content h1 {
+    font-size: 36px; }
+  #mf-content a {
+    font-size: 16px;
+    text-decoration: none; }
+    #mf-content a:hover {
+      text-decoration: underline; }
+    #mf-content a.back {
+      display: block;
+      font-size: 20px;
+      margin-top: 20px;
+      margin-bottom: 20px; }
+  #mf-content canvas {
+    display: block; }
+
+/*# sourceMappingURL=lab.css.map */

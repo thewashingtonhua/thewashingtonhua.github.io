@@ -1,0 +1,58 @@
+/* Setups */
+/* @font-face {
+    font-family: 'SourceCodePro';
+    src: url('../font/SourceCodePro/SourceCodePro-Regular.eot');
+    src: url('../font/SourceCodePro/SourceCodePro-Regular.eot?#iefix') format('embedded-opentype'),
+         url('../font/SourceCodePro/SourceCodePro-Regular.woff2') format('woff2'),
+         url('../font/SourceCodePro/SourceCodePro-Regular.woff') format('woff'),
+         url('../font/SourceCodePro/SourceCodePro-Regular.ttf') format('truetype'),
+         url('../font/SourceCodePro/SourceCodePro-Regular.svg#SourceCodePro') format('svg');
+    font-weight: normal;
+    font-style: normal;
+} */
+/* ========== Article ========== */
+article {
+  padding: 0 15px 40px;
+  background-color: #FFF;
+  border: 1px solid #D8D8D8;
+  border-radius: 4px; }
+
+article h1 {
+  color: #666;
+  font-size: 36px;
+  font-weight: 300;
+  line-height: 1;
+  margin-top: 1em;
+  margin-bottom: .5em; }
+
+article p {
+  color: #666;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.5;
+  margin-top: 0;
+  margin-bottom: .75em; }
+
+article p span {
+  font-weight: 600; }
+
+article a {
+  color: #007EB8;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  font-weight: 300;
+  word-wrap: break-word; }
+
+.titleBanner {
+  height: 300px;
+  margin-top: 20px;
+  margin-right: 0;
+  margin-bottom: 40px;
+  background-color: #EEE;
+  background-size: cover;
+  background-position: 50%;
+  border-radius: 3px;
+  padding: 0; }
+
+/*# sourceMappingURL=project.css.map */

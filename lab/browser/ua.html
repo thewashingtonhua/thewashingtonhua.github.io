@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="renderer" content="webkit">
@@ -7,26 +7,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
   <meta name="description" content="童话说，一个关于Web前端的原创技术博客，不定期发布Web前端及其相关技术的博文">
   <meta name="keywords" content="tonghuashuo,github,前端,html,html5,css,css3,javascript,js,jquery,安卓,android,java,童话,童话说,华心童">
-  <title>UserAgent - THS Lab</title>
-  <link rel="shortcut icon" href="../../img/favicon.ico" />
-  <link rel="stylesheet" href="../../css/index.css" />
-  <link rel="stylesheet" href="../../css/lab.css">
+  <title>UserAgent - 实验室 | 童话说</title>
+  <link rel="shortcut icon" href="/img/favicon.ico" />
+  <link rel="stylesheet" href="/dist/styles/index.css" />
+  <link rel="stylesheet" href="/dist/styles/lab.css">
 </head>
 <body>
-  <div id="mf_content">
+  <div id="mf-content">
+
+    <a href="/lab.html" class="back">&laquo; Back</a>
+
     <h1>UserAgent</h1>
-    <hr/>
-    <p>Browser: <span id="browser"></span></p>
-    <p>OS: <span id="os"></span></p>
     <br/>
-    <p>UA: <span id="ua"></span></p>
-    <p>Platform: <span id="platform"></span></p>
+
+    <p>Browser: <span id="browser">Detecting ...</span></p>
+    <p>OS: <span id="os"></span>Detecting ...</p>
+    <br/>
+
+    <p>UA: <span id="ua">Detecting ...</span></p>
+    <p>Platform: <span id="platform">Detecting ...</span></p>
+    <br/>
+
     <p id="error"></p>
-    <hr/>
-    <a href="../../lab.html" class="back">&laquo; Back</a>
   </div>
 
-  <script src="../../js/index.js"></script>
+  <script src="/lib/jquery.min.js"></script>
+  <script src="/dist/scripts/index.js"></script>
   <script>
     window.onload = function() {
       if (navigator.userAgent && navigator.platform) {
@@ -48,49 +54,49 @@
       var browser = "Unknown";
       var browserVersion = "";
 
-      if (ua.indexOf("edge") > -1) {							// Edge / 12+
+      if (ua.indexOf("edge") > -1) {               // Edge / 12+
         browserVersion = ua.match(/edge\/\d+(.\d+)+/)[0].substr(5);
         browser = "Microsoft Edge " + browserVersion;
-      } else if (ua.indexOf("msie") > -1) {					// IE <= 10
+      } else if (ua.indexOf("msie") > -1) {        // IE <= 10
         browserVersion = ua.match(/msie\s\d+/)[0].substr(5);
         browser = "IE " + browserVersion;
       } else if (ua.indexOf("trident") > -1) {     // IE 11  only have "Trident"
         browser = "IE 11";                         // IE 8,9,10   have both "MSIE" & "Trident"
                                                    // IE 6,7 only have "MSIE"
 
-      } else if (ua.indexOf("firefox") > -1) {					// Firefox
+      } else if (ua.indexOf("firefox") > -1) {     // Firefox
         browserVersion = ua.match(/firefox\/\d+(.\d+)+/)[0].substr(8);
         if (ua.indexOf("mobile") > -1)
           browserVersion += " (mobile)";
         browser = "Firefox " + browserVersion;
 
-      } else if (ua.indexOf("opera") > -1) {					// Opera 9.8-
+      } else if (ua.indexOf("opera") > -1) {        // Opera 9.8-
         browserVersion = ua.match(/opera\/\d+(.\d+)+/)[0].substr(6);
-        if (Number(browserVersion)>=9.8) {					// Opera 10+
+        if (Number(browserVersion)>=9.8) {          // Opera 10+
           browserVersion = ua.match(/version\/\d+(.\d+)+/)[0].substr(8);
         }
-        if (ua.indexOf("mini") > -1) {						// Opera mini
+        if (ua.indexOf("mini") > -1) {              // Opera mini
           browserVersion = "mini " + ua.match(/mini\/\d+(.\d+)+/)[0].substr(5);
         }
         browser = "Opera " + browserVersion;
-      } else if (ua.indexOf("opr") > -1) {					// Opera with webkit/blink
+      } else if (ua.indexOf("opr") > -1) {          // Opera with webkit/blink
         browserVersion = ua.match(/opr\/\d+.\d+.\d+.\d+/)[0].substr(4);
-        if (ua.indexOf("dev") > -1) {						// Opera dev edition
+        if (ua.indexOf("dev") > -1) {               // Opera dev edition
           browserVersion += " (edition developer)";
-        } else if (ua.indexOf("beta") > -1) {				// Opera beta edition
+        } else if (ua.indexOf("beta") > -1) {       // Opera beta edition
           browserVersion += " (edition beta)";
         }
         if (ua.indexOf("mobile") > -1)
-          browserVersion += " (mobile)";					// Opera Mobile
+          browserVersion += " (mobile)";            // Opera Mobile
         browser = "Opera " + browserVersion;
 
-      } else if (ua.indexOf("chrome") > -1) {					// Chrome
+      } else if (ua.indexOf("chrome") > -1) {       // Chrome
         browserVersion = ua.match(/chrome\/\d+.\d+.\d+.\d+/)[0].substr(7);
         if (ua.indexOf("mobile") > -1)
-          browserVersion += " (mobile)";					// Chrome Mobile
+          browserVersion += " (mobile)";            // Chrome Mobile
         browser = "Chrome " + browserVersion;
 
-      } else if (ua.indexOf("safari") > -1) {					// Safari
+      } else if (ua.indexOf("safari") > -1) {       // Safari
         if ((ua.indexOf("blackberry") > -1) || (ua.indexOf("bb10") > -1) || (ua.indexOf("playbook") > -1)) {
           var webkitVersion = ua.match(/webkit\/\d+(.\d+)+/)[0].substr(7);
           browser = "BlackBerry built-in / Webkit " + webkitVersion;

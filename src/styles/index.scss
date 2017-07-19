@@ -1,0 +1,122 @@
+@charset 'utf-8';
+@import '_common';
+
+body {
+  background-color: $theme-color-dark-primary;
+  -webkit-overflow-scrolling: touch;
+}
+
+#mf-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $header-height;
+  background-color: $theme-color-dark-secondary;
+  z-index: 10;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.5);
+
+  .mf-header-wrapper {
+    width: calc(100% - 30px);
+    max-width: $theme-max-width;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+
+    .logo {
+      display: block;
+      flex-basis: 1;
+      height: $header-height - 8px;
+
+      span {
+        display: block;
+        font-size: 28px;
+        height: $header-height;
+        line-height: $header-height;
+        color: $theme-color-main;
+        transition: color .3s ease-out;
+
+        @media (max-width: 480px) {
+          font-size: 20px;
+        }
+
+        &:hover {
+          color: lighten($theme-color-main, 10%)
+        }
+      }
+    }
+
+    .catalogs {
+      flex-basis: 1;
+      display: flex;
+      align-content: center;
+      margin-left: 15px;
+
+      li {
+        display: block;
+        height: 100%;
+
+        a {
+          display: block;
+          color: #FFF;
+          padding: 0 1em;
+          height: 100%;
+          font-size: 14px;
+          line-height: $header-height;
+          color: $theme-color-main;
+          @include ellipsis;
+          transition: background-color .3s ease-out;
+
+          @media (max-width: 480px) {
+            padding: 0 .5em;
+          }
+
+          &:hover {
+            background-color: lighten($theme-color-dark-secondary, 10%)
+          }
+        }
+
+        &.active {
+          a {
+            background-color: $theme-color-main;
+            color: $theme-color-dark-secondary;
+
+            &:hover {
+              background-color: lighten($theme-color-main, 10%)
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+#mf-content {
+  width: calc(100% - 30px);
+  max-width: $theme-max-width;
+  margin: 60px auto 50px;
+}
+
+.bottom-line {
+  color: $theme-color-text-secondary;
+  text-align: center;
+  position: relative;
+
+  &::before, &::after {
+    position: absolute;
+    content: '';
+    width: calc(50% - 3em);
+    height: 1px;
+    background-color: $theme-color-text-secondary;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+
+  &::before {
+    left: 0;
+  }
+  &::after {
+    right: 0;
+  }
+}

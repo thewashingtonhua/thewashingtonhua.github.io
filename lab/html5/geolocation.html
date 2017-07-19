@@ -1,60 +1,68 @@
 <!doctype html>
-<html>
+<html lang="zh-CN">
 <head>
-	<meta charset="UTF-8">
-	<meta name="renderer" content="webkit">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-	<meta name="description" content="童话说，一个关于Web前端的原创技术博客，不定期发布Web前端及其相关技术的博文">
-	<meta name="keywords" content="tonghuashuo,github,前端,html,html5,css,css3,javascript,js,jquery,安卓,android,java,童话,童话说,华心童">
-	<title>Geolocation - THS Lab</title>
-	<link rel="shortcut icon" href="../../img/favicon.ico" />
-	<link rel="stylesheet" href="../../css/index.css" />
-	<link rel="stylesheet" href="../../css/lab.css">
+  <meta charset="UTF-8">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <meta name="description" content="童话说，一个关于Web前端的原创技术博客，不定期发布Web前端及其相关技术的博文">
+  <meta name="keywords" content="tonghuashuo,github,前端,html,html5,css,css3,javascript,js,jquery,安卓,android,java,童话,童话说,华心童">
+  <title>Geolocation - 实验室 | 童话说</title>
+  <link rel="shortcut icon" href="/img/favicon.ico" />
+  <link rel="stylesheet" href="/dist/styles/index.css" />
+  <link rel="stylesheet" href="/dist/styles/lab.css">
 </head>
 <body>
-    <div id="mf_content">
-        <h1>Geolocation</h1>
-        <hr/>
-        <p>Latitude: <span id="latitude"></span></p>
-        <p>Longtitude: <span id="longitude"></span></p>
-        <p>Altitude: <span id="altitude"></span></p>
-        <p>Accuracy: <span id="accuracy"></span></p>
-        <p>Heading: <span id="heading"></span></p>
-        <p id="error"></p>
-        <hr/>
-        <a href="../../lab.html" class="back">&laquo; Back</a>
-    </div>
+  <div id="mf-content">
 
-	<script src="../../js/index.js"></script>
-	<script>
-	// Geolocation
-	if(navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(
-			function (position) {
-				var coords = position.coords;
-				// 经纬度数值为正数表示东经、北纬，负数表示西经南纬，遵循直角坐标系
-				document.getElementById("latitude").innerHTML = coords.latitude;
-				document.getElementById("longitude").innerHTML = coords.longitude;
-				document.getElementById("altitude").innerHTML = coords.altitude;
-				document.getElementById("accuracy").innerHTML = coords.accuracy;
-				document.getElementById("heading").innerHTML = coords.heading;
-			}, 
-			function (error) {
-				var errorType = {
-					1: "位置服务被拒绝",
-					2: "获取不到位置信息",
-					3: "获取信息超时"
-				};
-				document.getElementById("error").innerHTML = "[Error] " + errorType[error.code] + "：无法获取你当前的地理位置";
-			},
-			{
-				enableHighAcuracy: true
-			}
-		);
-	} else {
-		document.getElementById("error").innerHTML = "Geolocation is not supported on this browser."
-	}
-	</script>
+    <a href="/lab.html" class="back">&laquo; Back</a>
+
+    <h1>Geolocation</h1>
+    <br/>
+
+    <p>Latitude: <span id="latitude"></span></p>
+    <p>Longtitude: <span id="longitude"></span></p>
+    <p>Altitude: <span id="altitude"></span></p>
+    <p>Accuracy: <span id="accuracy"></span></p>
+    <p>Heading: <span id="heading"></span></p>
+    <br/>
+
+    <p id="error"></p>
+    <br/>
+
+  </div>
+
+  <script src="/lib/jquery.min.js"></script>
+  <script src="/dist/scripts/index.js"></script>
+  <script>
+  // Geolocation
+  var errorDOM = document.getElementById("error");
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      function (position) {
+        var coords = position.coords;
+        // 经纬度数值为正数表示东经、北纬，负数表示西经南纬，遵循直角坐标系
+        document.getElementById("latitude").innerHTML  = coords.latitude;
+        document.getElementById("longitude").innerHTML = coords.longitude;
+        document.getElementById("altitude").innerHTML  = coords.altitude;
+        document.getElementById("accuracy").innerHTML  = coords.accuracy;
+        document.getElementById("heading").innerHTML   = coords.heading;
+      },
+      function (error) {
+        var errorType = {
+          1: "位置服务被拒绝",
+          2: "获取不到位置信息",
+          3: "获取信息超时"
+        };
+        errorDOM.innerHTML = "[Error] " + errorType[error.code] + "，无法获取你当前的地理位置";
+      },
+      {
+        enableHighAcuracy: true
+      }
+    );
+  } else {
+    errorDOM.innerHTML = "[Error] Geolocation is not supported on this browser."
+  }
+  </script>
 </body>
 </html>

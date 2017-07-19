@@ -7,22 +7,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
   <meta name="description" content="童话说，一个关于Web前端的个人技术博客，不定期发布Web前端及其相关技术的博文">
   <meta name="keywords" content="tonghuashuo,github,前端,html,css,javascript,android,童话,童话说,华心童,electron,atom,install,postinstall,github,issue">
-  <title>Electron 安装出坑指南 - 博客|童话说</title>
-  <link rel="shortcut icon" href="../img/favicon.ico" />
-  <link rel="stylesheet" href="../css/index.css" />
-  <link rel="stylesheet" href="../css/blog.css" />
-
-  <!-- code highlight -->
-  <link rel="stylesheet" href="../lib/hljs/monokai-sublime.css">
+  <title>Electron 安装出坑指南 - 博客 | 童话说</title>
+  <link rel="shortcut icon" href="/img/favicon.ico" />
+  <link rel="stylesheet" href="/dist/styles/index.css" />
+  <link rel="stylesheet" href="/dist/styles/blog.css" />
 
 </head>
 <body>
 
-  <div id="mf_content">
+  <div id="mf-content">
     <article id="electron-install-guide">
       <h1>Electron 安装出坑指南</h1>
-      <div class="time"><time datetime="2017-07-06">Jul 6th 2017<time></div>
-      <div class="titleBanner"></div>
+      <p class="publish-date"><time datetime="2017-07-06">Jul 6th 2017</time></p>
+      <div class="banner">
+        <img src="/img/blog/electron.jpg" alt="electron">
+      </div>
 
       <h2>Electron</h2>
       <p>JS 越来越浪了，区区浏览器已经管不了这孩子了，一个没看住，就已经浪到原生客户端的地盘上去了，一边是开着 React Native 去找 iOS 和 Android 搞事情，一边又开着 Electron 想去单挑 WPF 和 Mac，甚至还准备响应“一带一路”帮帮好基友 Linux。</p>
@@ -36,7 +35,7 @@ npm i --save electron  // Project Dependency</code></pre>
 
       <h2>入坑</h2>
       <p>大部分开发者都会遇到这样一个问题：安装 Electron，npm 命令结束，开始执行本地安装脚本，一堆输出之后卡在 <span class="code">node install.js</span>不动，过了好一会儿然后提示抛出错误。</p>
-      <img src="../img/illustration/electron-install-guide/error-screenshot.png" alt="Error Screenshot">
+      <img class="img-block"src="../img/illustration/electron-install-guide/error-screenshot.png" alt="Error Screenshot">
       <p>该问题在 Github 上有对应的 Issue：<a target="_blank" href="https://github.com/electron/electron/issues/8339">Failed at the electron@1.4.13 postinstall script 'node install.js' #8339</a>，目前有手动解决的办法，但官方还没有给出任何的解决办法。（然而居然就这样 Close 了）</p>
       <p>一般的也就是卡在这里了，然后说好的学习 Electron 的计划就这么中断了，从入门到放弃，就这么轻松。不过既然是 JS 的问题，那么我们完全可以先去看下源码，说不定就能找到原因了呢。</p>
 
@@ -48,11 +47,11 @@ npm i --save electron  // Project Dependency</code></pre>
       <p>当执行到<span class="code">node install.js</span>的时候（会卡在这里不动，所以放心不会错过的），按下<span class="code">Ctrl + C</span>结束掉进程。别担心，到这里为止我们需要的内容已经都拿到了，剩下的我们手动来解决。</p>
       <p>进入你项目根目录下的<span class="code">./node_modules/electron</span>目录，你就能看到前面报错的那个<span class="code">install.js</span>文件，找个文本编辑器打开看下，其实没几行代码，就做两件事：下载 Electron 的发行包（一个zip压缩包），然后解压。既然是这里面报的错，那么我就来看看代码，到底怎么回事。</p>
       <p>报错信息提示问题在第 22 行：<span class="code">throw err</span>，我们先来看一下。</p>
-      <img src="../img/illustration/electron-install-guide/code-screenshot-01.png" alt="22行">
+      <img class="img-block"src="../img/illustration/electron-install-guide/code-screenshot-01.png" alt="22行">
       <p>22 行的作用似乎是检测到已安装的版本后，直接结束进程。不清楚为什么会判断我已经安装过，但是可以肯定的是，为了验证方法的可行性，我特地把之前安装的内容彻底卸载之后重新安装的，所以这个肯定不对，于是乎再来搜一下<span class="code">throw err</span>，发现在第 46 行定义了一个<span class="code">onerror</span>函数（每个人的报错信息似乎都有些不太一样，可能和具体版本有关，Github Issue 上有看到直接提示第 46 行的），而该函数只有在第 36 行定义的<span class="code">extractFile</span>函数中用到，既然如此，那应该就是在第二步解压文件的时候出了问题。</p>
-      <img src="../img/illustration/electron-install-guide/code-screenshot-02.png" alt="46行">
+      <img class="img-block"src="../img/illustration/electron-install-guide/code-screenshot-02.png" alt="46行">
       <p>既然如此，我们就手动去解压这个文件。不过在此之前，我们还得先去下载发型包，下载发型包的过程也是在<span class="code">install.js</span>中执行的，所以之前结束进程的时候这个过程也就没跑完。（如果当时不结束进程，而是耐心地等，当看到报错信息时，发型包实际上就已经下载好在<span class="code">~/.electron</span>目录下了，可以直接拿来用。不过下载过程没有进度，不知道什么时候能完，不如自己手动去下）</p>
-      <img src="../img/illustration/electron-install-guide/code-screenshot-03.png" alt="download">
+      <img class="img-block"src="../img/illustration/electron-install-guide/code-screenshot-03.png" alt="download">
       <p>发型包很好找，直接到 Github 上搜“electron/electron”，到 Release 面板下，下载对应平台的最新版本即可（没有特殊需求的话就下不带后缀的版本就好了），迅雷、IDM或者浏览器自带下载工具都可以，由于文件存放在 Amazon S3 的服务器，可能需要科学地使用互联网，下载速度就看人品了。</p>
       <p>下载完成后解压到项目根目录下的<span class="code">./node_modules/electron</span>目录，重命名为dist。</p>
       <p>在项目根目录下的<span class="code">./node_modules/electron</span>目录中新建一个<span class="code">path.txt</span>文件，写入内容“dist/Electron.app/Contents/MacOS/Electron”（这里以 macOS 为例，Windows 和 Linux 平台的内容略有差异，具体内容可以从前面的 install.js 文件最末尾看到）</p>
@@ -72,20 +71,12 @@ npm i --save electron  // Project Dependency</code></pre>
         <li>原本在项目根目录下的操作，全部转移到 Node.js 的全局模块所在位置，如果你没有修改过的话，默认是<span class="code">/usr/local/lib/node_modules/electron</span>（不同平台具体位置可能会有差异）。</li>
       </ul>
 
-
-
     </article>
 
   </div>
 
-  <script src="../js/index.js"></script>
-
-  <!-- code highlight -->
-  <script src="../lib/hljs/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-
-  <!-- line number -->
-  <script src="../lib/jquery-3.0.0-beta1.min.js"></script>
-  <script src="../js/line-number.js"></script>
+  <script src="/lib/jquery.min.js"></script>
+  <script src="/dist/scripts/index.js"></script>
+  <script src="/dist/scripts/line-number.js"></script>
 </body>
 </html>

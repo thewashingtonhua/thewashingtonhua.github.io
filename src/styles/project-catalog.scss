@@ -1,0 +1,94 @@
+@charset 'utf-8';
+@import '_common';
+
+h1.title {
+  font-weight: 100;
+  font-size: 32px;
+  color: $theme-color-text-secondary;
+  padding-left: 10px;
+  margin-bottom: 20px;
+
+  @media (max-width: 480px) {
+    padding-left: 0;
+  }
+}
+
+.projects {
+  @include clearfix;
+}
+
+.project {
+  display: block;
+  float: left;
+  width: calc((100% - 10px) / 2);
+  padding: 10px;
+  transition: background-color .3s ease-out;
+  margin-bottom: 15px;
+  margin-right: 10px;
+
+  @media (max-width: 480px) {
+    padding: 0;
+  }
+
+  &:nth-child(even) {
+    margin-right: 0;
+  }
+
+  &:hover {
+    background-color: $theme-color-main;
+
+    @media (max-width: 480px) {
+      background-color: transparent;
+    }
+
+    .intro {
+      h2 {
+        color: $theme-color-dark-primary;
+        @media (max-width: 480px) {
+          color: $theme-color-main;
+        }
+      }
+      p {
+        color: $theme-color-dark-primary;
+        @media (max-width: 480px) {
+          color: $theme-color-text-secondary;
+        }
+      }
+    }
+  }
+
+  .cover {
+    width: 100%;
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .intro {
+    padding: 10px 0;
+
+    h2 {
+      font-size: 26px;
+      color: $theme-color-main;
+      transition: color .3s ease-out;
+      @include ellipsis;
+
+      @media (max-width: 480px) {
+        font-size: 24px;
+      }
+    }
+
+    p {
+      color: $theme-color-text-secondary;
+      transition: color .3s ease-out;
+      font-size: 14px;
+      @include ellipsis;
+
+      @media (max-width: 480px) {
+        font-size: 12px;
+      }
+    }
+  }
+}
