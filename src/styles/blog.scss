@@ -47,11 +47,9 @@ article {
     margin-top: 1.5em;
     margin-bottom: .5em;
 
-    span {
-      .code {
-        padding: .1em .3em;
-        margin: 0 .3em;
-      }
+    span.code {
+      padding: .1em .3em;
+      margin: 0 .3em;
     }
   }
 
@@ -67,19 +65,24 @@ article {
     }
   }
 
-  span {
-    &.code {
-      display: inline-block;
-      font-size: 0.8em;
-      font-weight: 400;
-      color: $theme-color-main;
-      background-color: $theme-color-dark-primary;
-      border-radius: 2px;
-      font-family: $theme-font-code;
-      padding: 0 0.5em;
-      line-height: 1.75;
-      margin: 0 0.5em;
+  h1, h2, h3, h4, h5, h5, p, a, li, span, code, time, img, th, td {
+    &::selection {
+      background-color: $theme-color-main;
+      color: $theme-color-dark-secondary;
     }
+  }
+
+  span.code {
+    display: inline-block;
+    font-size: 0.8em;
+    font-weight: 400;
+    color: $theme-color-main;
+    background-color: $theme-color-dark-primary;
+    border-radius: 2px;
+    font-family: $theme-font-code;
+    padding: 0 0.5em;
+    line-height: 1.75;
+    margin: 0 0.5em;
   }
 
   pre {
@@ -122,11 +125,11 @@ article {
     font-weight: 400;
     word-wrap: break-word;
 
-    :hover {
+    &:hover {
       text-decoration: underline;
     }
 
-    .reference{
+    &.reference{
       font-weight: 700;
     }
   }
@@ -162,12 +165,17 @@ article {
   }
 
   div.table-wrapper {
-    overflow-x: scroll;
+    overflow-x: auto;
     width: 100%;
+    margin-bottom: 15px;
 
-    table tr {
-      th, td {
-        white-space: nowrap;
+    table {
+      margin-bottom: 0;
+
+      tr {
+        th, td {
+          white-space: nowrap;
+        }
       }
     }
   }
@@ -223,7 +231,6 @@ article {
     display: block;
     color: $theme-color-dark-secondary;
     background-color: $theme-color-main;
-    border-radius: 4px;
     padding: 10px 20px;
     margin: 0 10px;
     white-space: nowrap;

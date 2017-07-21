@@ -15,14 +15,85 @@
 <body>
   <div id="mf-content">
 
-    <h1 class="title">商业项目(0)</h1>
-    <div class="projects"></div>
-
-    <h1 class="title">业余搞鬼(4)</h1>
+    <h1 class="title">商业项目(<span class="proj-count-business">0</span>)</h1>
     <div class="projects">
-      <a class="project" id="elevator" target="_blank" href="/case/elevator/elevator.html">
+
+      <!-- <a class="project business" id="xinyue" href="/project/business/xinyue.html">
         <div class="cover">
-          <img src="/img/project/elevator.jpg" alt="Elevator">
+           <img src="/img/project/thumb/xinyue.jpg" alt="xinyue">
+        </div>
+        <div class="intro">
+          <h2>新阅</h2>
+          <p>在线视频协作平台</p>
+        </div>
+      </a> -->
+
+      <!-- <a class="project business" id="influence" href="/project/business/influence.html">
+        <div class="cover">
+           <img src="/img/project/thumb/influence.jpg" alt="Influence">
+        </div>
+        <div class="intro">
+          <h2>影响力</h2>
+          <p>红人数字交易平台 Dashboard</p>
+        </div>
+      </a> -->
+
+      <a class="project business" id="xincafe" href="/project/business/xincafe.html">
+        <div class="cover">
+          <img src="/img/project/thumb/xincafe.jpg" alt="XinCafe">
+        </div>
+        <div class="intro">
+          <h2>新咖啡</h2>
+          <p>XinCafe 订单系统</p>
+        </div>
+      </a>
+
+      <a class="project business" id="fbl" href="/project/business/fbl.html">
+        <div class="cover">
+          <img src="/img/project/thumb/fbl.jpg" alt="FBL">
+        </div>
+        <div class="intro">
+          <h2>FBL App</h2>
+          <p>FBL 会员服务 App</p>
+        </div>
+      </a>
+
+      <a class="project business" id="avis" href="/project/business/avis.html">
+        <div class="cover">
+          <img src="/img/project/thumb/avis.jpg" alt="avis">
+        </div>
+        <div class="intro">
+          <h2>野马跑跑跑 H5 游戏</h2>
+          <p>安飞士 2016 年双十一活动</p>
+        </div>
+      </a>
+
+      <a class="project business" id="jetli" href="/project/business/jetli.html">
+        <div class="cover">
+          <img src="/img/project/thumb/jetli.jpg" alt="jetli">
+        </div>
+        <div class="intro">
+          <h2>街力</h2>
+          <p>李连杰创办的功夫垂直内容平台</p>
+        </div>
+      </a>
+
+      <a class="project business" id="xshowroom" href="/project/business/xshowroom.html">
+        <div class="cover">
+          <img src="/img/project/thumb/xshowroom.jpg" alt="xshowroom">
+        </div>
+        <div class="intro">
+          <h2>Xshowroom 买手圈</h2>
+          <p>国内时尚业首个专业买手服务平台</p>
+        </div>
+      </a>
+    </div>
+
+    <h1 class="title">业余搞鬼(<span class="proj-count-exercise">0</span>)</h1>
+    <div class="projects">
+      <a class="project exercise" id="elevator" href="/project/exercise/elevator.html">
+        <div class="cover">
+          <img src="/img/project/thumb/elevator.jpg" alt="Elevator">
         </div>
         <div class="intro">
           <h2>Elevator</h2>
@@ -30,9 +101,9 @@
         </div>
       </a>
 
-      <a class="project" id="css3mooncake" target="_blank" href="/case/css3mooncake/css3-mooncake.html">
+      <a class="project exercise" id="css3mooncake" href="/project/exercise/css3-mooncake.html">
         <div class="cover">
-          <img src="/img/project/css3mooncake.jpg" alt="CSS3 Mooncake">
+          <img src="/img/project/thumb/css3mooncake.jpg" alt="CSS3 Mooncake">
         </div>
         <div class="intro">
           <h2>CSS3 Mooncake</h2>
@@ -40,9 +111,9 @@
         </div>
       </a>
 
-      <a class="project" id="stackcalculator" target="_blank" href="/case/stackcalculator/stack-calculator.html">
+      <a class="project exercise" id="stackcalculator" href="/project/exercise/stack-calculator.html">
         <div class="cover">
-          <img src="/img/project/stackcalculator.jpg" alt="Stack Calculator">
+          <img src="/img/project/thumb/stackcalculator.jpg" alt="Stack Calculator">
         </div>
         <div class="intro">
           <h2>Stack Calculator</h2>
@@ -50,9 +121,9 @@
         </div>
       </a>
 
-      <a class="project" id="tiktokcolor" target="_blank" href="/case/tiktokcolor/tik-tok-color.html">
+      <a class="project exercise" id="tiktokcolor" href="/project/exercise/tik-tok-color.html">
         <div class="cover">
-          <img src="/img/project/tiktokcolor.jpg" alt="Tik Tok Color">
+          <img src="/img/project/thumb/tiktokcolor.jpg" alt="Tik Tok Color">
         </div>
         <div class="intro">
           <h2>TikTok Color</h2>
@@ -65,5 +136,11 @@
 
   <script src="/lib/jquery.min.js"></script>
   <script src="/dist/scripts/index.js"></script>
+  <script>
+    var businessProjects = document.querySelectorAll('.project.business')
+    var exerciseProjects = document.querySelectorAll('.project.exercise')
+    if (businessProjects.length) document.querySelector('.proj-count-business').innerHTML = businessProjects.length
+    if (exerciseProjects.length) document.querySelector('.proj-count-exercise').innerHTML = exerciseProjects.length
+  </script>
 </body>
 </html>

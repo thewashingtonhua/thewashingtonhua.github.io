@@ -44,5 +44,9 @@ article {
   article img {
     max-width: 100%;
     margin-bottom: 1em; }
+  article a {
+    color: #A4D100; }
+    article a:hover {
+      text-decoration: underline; }
 
 /*# sourceMappingURL=about.css.map */

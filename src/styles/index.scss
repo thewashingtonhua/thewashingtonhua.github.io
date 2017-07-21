@@ -18,11 +18,15 @@ body {
 
   .mf-header-wrapper {
     width: calc(100% - 30px);
-    max-width: $theme-max-width;
+    max-width: $theme-max-width-lg;
     height: 100%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: 1280px) {
+      max-width: $theme-max-width-md;
+    }
 
     .logo {
       display: block;
@@ -94,8 +98,12 @@ body {
 
 #mf-content {
   width: calc(100% - 30px);
-  max-width: $theme-max-width;
+  max-width: $theme-max-width-lg;
   margin: 60px auto 50px;
+
+  @media (max-width: 1280px) {
+    max-width: $theme-max-width-md;
+  }
 }
 
 .bottom-line {

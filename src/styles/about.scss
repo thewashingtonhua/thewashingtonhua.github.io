@@ -35,4 +35,12 @@ article {
     max-width: 100%;
     margin-bottom: 1em;
   }
+
+  a {
+    color: $theme-color-main;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }

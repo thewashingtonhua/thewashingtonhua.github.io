@@ -19,10 +19,11 @@
 
       <h1>我</h1>
       <img src="/img/brain.png" alt="Code in my left brain. Color in my right brain.">
-      <p>前端攻城狮一枚，大前端信徒，致力于为更美好的 Web 贡献自己的力量。</p>
-      <p>摄影爱好者，半拉设计师，Adobe 死忠，谷粉，乌克丽丽毁灭者。</p>
-      <p>欢迎在 Github 上关注我（@tonghuashuo）</p>
-      <p>或者给我来信（ideal19920402@gmail.com）</p>
+      <p>前端攻城狮一枚<span id="experience"></span></p>
+      <p>大前端信徒，致力于为更美好的 Web 贡献自己的力量</p>
+      <p>摄影爱好者，半拉设计师，Adobe 死忠，谷粉，乌克丽丽毁灭者</p>
+      <p>欢迎来 Github 上关注我：<a target="_blank" href="http://github.com/tonghuashuo">@tonghuashuo</a></p>
+      <p>或给我来信：<a target="_blank" href="mailto:ideal19920402@gmail.com">ideal19920402@gmail.com</a></p>
 
       <h1>为什么写博客</h1>
       <ul>
@@ -39,5 +40,39 @@
 
   <script src="/lib/jquery.min.js"></script>
   <script src="/dist/scripts/index.js"></script>
+  <script>
+    var timeDOM = document.getElementById('experience')
+
+    var start = new Date(2016, 2, 1, 10, 0, 0)
+    var now = new Date()
+    var passed = now - start
+
+    var daysPerMonth = 365 / 12
+
+    function update () {
+      now = new Date()
+      passed = now - start
+
+      var passedDays = passed / 1000 / 60 / 60 / 24
+      var year = Math.floor(passedDays / 365)
+      var month = Math.floor(passedDays / daysPerMonth % 12)
+      var day = Math.floor(passedDays % daysPerMonth)
+      var hour = Math.floor(passed / 1000 / 60 / 60 % 24)
+      var minute = Math.floor(passed / 1000 / 60 % 60)
+      var second = Math.floor(passed / 1000 % 60)
+
+      timeDOM.innerHTML = '（工作经验：' +
+                      year   + ' 年 '   +
+                      month  + ' 个月 ' +
+                      day    + ' 天 '   +
+                      hour   + ' 小时 ' +
+                      minute + ' 分钟 ' +
+                      second + ' 秒）'
+    }
+
+    setInterval(function () {
+      update()
+    }, 1000)
+  </script>
 </body>
 </html>

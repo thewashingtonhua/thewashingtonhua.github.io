@@ -56,7 +56,7 @@ article {
     line-height: 1;
     margin-top: 1.5em;
     margin-bottom: .5em; }
-    article h3 span .code {
+    article h3 span.code {
       padding: .1em .3em;
       margin: 0 .3em; }
   article p {
@@ -67,6 +67,12 @@ article {
     margin-bottom: .75em; }
     article p a {
       padding: .1em .5em; }
+  article h1::-moz-selection, article h2::-moz-selection, article h3::-moz-selection, article h4::-moz-selection, article h5::-moz-selection, article h5::-moz-selection, article p::-moz-selection, article a::-moz-selection, article li::-moz-selection, article span::-moz-selection, article code::-moz-selection, article time::-moz-selection, article img::-moz-selection, article th::-moz-selection, article td::-moz-selection {
+    background-color: #A4D100;
+    color: #323232; }
+  article h1::selection, article h2::selection, article h3::selection, article h4::selection, article h5::selection, article h5::selection, article p::selection, article a::selection, article li::selection, article span::selection, article code::selection, article time::selection, article img::selection, article th::selection, article td::selection {
+    background-color: #A4D100;
+    color: #323232; }
   article span.code {
     display: inline-block;
     font-size: 0.8em;
@@ -109,9 +115,9 @@ article {
     color: #A4D100;
     font-weight: 400;
     word-wrap: break-word; }
-    article a :hover {
+    article a:hover {
       text-decoration: underline; }
-    article a .reference {
+    article a.reference {
       font-weight: 700; }
   article > img {
     max-width: 100%;
@@ -132,10 +138,13 @@ article {
       line-height: 1.8;
       color: rgba(255, 255, 255, 0.7); }
   article div.table-wrapper {
-    overflow-x: scroll;
-    width: 100%; }
-    article div.table-wrapper table tr th, article div.table-wrapper table tr td {
-      white-space: nowrap; }
+    overflow-x: auto;
+    width: 100%;
+    margin-bottom: 15px; }
+    article div.table-wrapper table {
+      margin-bottom: 0; }
+      article div.table-wrapper table tr th, article div.table-wrapper table tr td {
+        white-space: nowrap; }
   article table {
     margin-bottom: 15px;
     min-width: 100%; }
@@ -174,7 +183,6 @@ article {
     display: block;
     color: #323232;
     background-color: #A4D100;
-    border-radius: 4px;
     padding: 10px 20px;
     margin: 0 10px;
     white-space: nowrap;

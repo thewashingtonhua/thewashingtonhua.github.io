@@ -38,7 +38,7 @@ body {
           box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.5); }
   #mf-header .mf-header-wrapper {
     width: calc(100% - 30px);
-    max-width: 670px;
+    max-width: 960px;
     height: 100%;
     margin: 0 auto;
     display: -webkit-box;
@@ -47,6 +47,9 @@ body {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between; }
+    @media (max-width: 1280px) {
+      #mf-header .mf-header-wrapper {
+        max-width: 670px; } }
     #mf-header .mf-header-wrapper .logo {
       display: block;
       -ms-flex-preferred-size: 1;
@@ -103,8 +106,11 @@ body {
 
 #mf-content {
   width: calc(100% - 30px);
-  max-width: 670px;
+  max-width: 960px;
   margin: 60px auto 50px; }
+  @media (max-width: 1280px) {
+    #mf-content {
+      max-width: 670px; } }
 
 .bottom-line {
   color: rgba(255, 255, 255, 0.7);
