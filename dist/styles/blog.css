@@ -133,7 +133,6 @@ article {
     article ul ul, article ul ol, article ol ul, article ol ol {
       margin: .5em 0; }
     article ul li, article ol li {
-      font-size: 16px;
       font-weight: 100;
       line-height: 1.8;
       color: rgba(255, 255, 255, 0.7); }
@@ -163,12 +162,17 @@ article {
         padding: 0; }
   article blockquote {
     margin: 0;
-    border-left: 4px solid #4b4b4b;
+    margin-bottom: .75em;
+    border-left: 4px solid #A4D100;
     background-color: #181818;
     padding: 15px;
     font-size: 14px;
     line-height: 1.5;
     color: rgba(255, 255, 255, 0.7); }
+    article blockquote p {
+      margin-bottom: 0; }
+      article blockquote p + p {
+        margin-top: .75em; }
 
 .buttons {
   text-align: center;
