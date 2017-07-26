@@ -24,10 +24,9 @@ a {
 
 .blog {
   display: block;
-  margin-bottom: 30px;
   -webkit-transition: background-color .3s ease-out;
   transition: background-color .3s ease-out;
-  padding: 10px; }
+  padding: 10px 10px 30px; }
   @media (max-width: 480px) {
     .blog {
       padding: 0 0 30px;
