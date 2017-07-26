@@ -43,17 +43,14 @@ h1.title {
 .friend {
   display: block;
   float: left;
-  width: calc((100% - 10px) / 2);
-  padding: 10px;
+  width: 50%;
+  padding: 10px 10px 30px;
   -webkit-transition: background-color .3s ease-out;
-  transition: background-color .3s ease-out;
-  margin-bottom: 15px;
-  margin-right: 10px; }
+  transition: background-color .3s ease-out; }
   @media (max-width: 480px) {
     .friend {
-      padding: 0; } }
-  .friend:nth-child(even) {
-    margin-right: 0; }
+      padding: 0 0 30px;
+      width: 100%; } }
   .friend:hover {
     background-color: #A4D100; }
     @media (max-width: 480px) {

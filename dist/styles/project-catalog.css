@@ -32,26 +32,27 @@ h1.title {
     h1.title {
       padding-left: 0; } }
 
-.projects::after {
-  clear: both;
-  content: '.';
-  display: block;
-  width: 0;
-  height: 0;
-  visibility: hidden; }
+.projects {
+  margin-bottom: 40px; }
+  .projects::after {
+    clear: both;
+    content: '.';
+    display: block;
+    width: 0;
+    height: 0;
+    visibility: hidden; }
 
 .project {
   display: block;
   float: left;
-  width: calc((100% - 10px) / 2);
-  padding: 10px;
+  width: 50%;
+  padding: 10px 10px 30px;
   -webkit-transition: background-color .3s ease-out;
-  transition: background-color .3s ease-out;
-  margin-bottom: 15px;
-  margin-right: 10px; }
+  transition: background-color .3s ease-out; }
   @media (max-width: 480px) {
     .project {
-      padding: 0; } }
+      padding: 0 0 30px;
+      width: 100%; } }
   .project:nth-child(even) {
     margin-right: 0; }
   .project:hover {

@@ -36,7 +36,8 @@ article {
     margin-top: 0;
     margin-bottom: .75em; }
   article ul {
-    padding-left: 20px; }
+    padding-left: 20px;
+    margin-bottom: .75em; }
     article ul li {
       list-style: circle;
       color: rgba(255, 255, 255, 0.7);

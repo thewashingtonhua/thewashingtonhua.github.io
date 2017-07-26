@@ -9,7 +9,7 @@
   <meta name="keywords" content="tonghuashuo,github,前端,html,css,javascript,android,童话,童话说,华心童,每天,ES6,ECMAScript,Babel">
   <title>每天一点ES6：Babel - 博客 | 童话说</title>
   <link rel="shortcut icon" href="/img/favicon.ico" />
-  <link rel="stylesheet" href="/dist/styles/index.css" />
+  <link rel="stylesheet" href="/dist/styles/vendor.css" />
   <link rel="stylesheet" href="/dist/styles/blog.css" />
 </head>
 <body>
@@ -18,6 +18,14 @@
     <article id="es6-daily-04-babel">
       <h1>每天一点ES6(4)：Babel</h1>
       <p class="publish-date"><time datetime="2016-02-19">Feb 19th 2016</time></p>
+      <ul class="tags">
+        <li class="tag">ecmascript</li>
+        <li class="tag">2015</li>
+        <li class="tag">es6</li>
+        <li class="tag">javascript</li>
+        <li class="tag">babel</li>
+        <li class="tag">npm</li>
+      </ul>
       <div class="banner">
         <img src="/img/blog/es6daily.jpg" alt="ES6">
       </div>
@@ -134,9 +142,7 @@ npm install -g babel-cli</code></pre>
       <h2>在线试用 Babel</h2>
       <p>有时候我们并不需要在项目中操作什么，纯粹就想看看 Babel 到底做了什么。为此 Babel 官方提供了一套在线的<a href="https://babeljs.io/repl/" target="_blank">REPL (Read-Eval-Print-Loop)</a>，可以方便的试用 Babel。</p>
 
-      <h2></h2>
-
-      <h2>路由查询命令的近亲——Traceur</h2>
+      <h2>路由查询命令的近亲 —— Traceur</h2>
       <p>除了 Babel 之外，还有一款不错的 ES6 转码器叫做<a href="https://github.com/google/traceur-compiler" target="_blank">Traceur</a>，是由科技巨头 Google 开发的，支持度虽然差 Babel 一大截，但使用非常简单，可以作为备用方案。Traceur 同样支持浏览器、在线 REPL、命令行、Node.js 四种环境下的使用。</p>
       <p>学过计算机网络的同学，或多或少都应该听说过 Linux 下的 <span class="code">tracerouter</span> 命令，和 Windows 下的 <span class="code">tracert</span>命令。这两个命令都是用来追踪数据包从起点到终点所经过的路由的。而 Traceur 的名字，和它们实在是太像了，科技圈的命名方式真是一道风景。</p>
 
@@ -150,7 +156,7 @@ npm install -g babel-cli</code></pre>
   </div>
 
   <script src="/lib/jquery.min.js"></script>
-  <script src="/dist/scripts/index.js"></script>
+  <script src="/dist/scripts/vendor.js"></script>
   <script src="/dist/scripts/line-number.js"></script>
 </body>
 </html>

@@ -9,7 +9,7 @@
   <meta name="keywords" content="tonghuashuo,github,前端,html,css,javascript,android,童话,童话说,华心童,每天,一点,ES6,ECMAScript,array">
   <title>每天一点ES6(8)：数组的扩展 - 博客 | 童话说</title>
   <link rel="shortcut icon" href="/img/favicon.ico" />
-  <link rel="stylesheet" href="/dist/styles/index.css" />
+  <link rel="stylesheet" href="/dist/styles/vendor.css" />
   <link rel="stylesheet" href="/dist/styles/blog.css" />
 
 </head>
@@ -19,6 +19,13 @@
     <article id="es6-daily-08-array">
       <h1>每天一点ES6(8)：数组的扩展</h1>
       <p class="publish-date"><time datetime="2016-07-26">Jul 26th 2016</time></p>
+      <ul class="tags">
+        <li class="tag">ecmascript</li>
+        <li class="tag">2015</li>
+        <li class="tag">es6</li>
+        <li class="tag">javascript</li>
+        <li class="tag">array</li>
+      </ul>
       <div class="banner">
         <img src="/img/blog/es6daily.jpg" alt="ES6">
       </div>
@@ -162,7 +169,7 @@ for (let [index, elem] of ['a', 'b'].entries()) {
       <p>指的是数组中不含任何值的位置（undefined也是有效值，不算空位），ES5 中的数组方法在处理空位时的行为非常不一致，ES6 统一将空位视为<span class="code">undefined</span>，更加标准化。当然最理想的方案还是尽可能的避免空位的产生。</p>
 
       <h2>该系列的其他文章</h2>
-      <p>上一篇：<a href="es6-daily-07-value.html">每天一点ES6(7)：数值的扩展</a></p>
+      <p>上一篇：<a href="es6-daily-07-number.html">每天一点ES6(7)：数值的扩展</a></p>
       <p>下一篇：<a href="es6-daily-09-function.html">每天一点ES6(9)：函数的扩展</a></p>
 
     </article>
@@ -170,7 +177,7 @@ for (let [index, elem] of ['a', 'b'].entries()) {
   </div>
 
   <script src="/lib/jquery.min.js"></script>
-  <script src="/dist/scripts/index.js"></script>
+  <script src="/dist/scripts/vendor.js"></script>
   <script src="/dist/scripts/line-number.js"></script>
 </body>
 </html>

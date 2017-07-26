@@ -28,16 +28,35 @@ a {
   -webkit-transition: background-color .3s ease-out;
   transition: background-color .3s ease-out;
   padding: 10px; }
+  @media (max-width: 480px) {
+    .blog {
+      padding: 0 0 30px;
+      width: 100%; } }
   .blog:hover {
     background-color: #A4D100; }
+    @media (max-width: 480px) {
+      .blog:hover {
+        background-color: transparent; } }
     .blog:hover .info p {
       color: #181818; }
+      @media (max-width: 480px) {
+        .blog:hover .info p {
+          color: rgba(255, 255, 255, 0.7); } }
       .blog:hover .info p.title {
         color: #181818; }
+        @media (max-width: 480px) {
+          .blog:hover .info p.title {
+            color: #A4D100; } }
   .blog .banner {
-    overflow: hidden; }
+    overflow: hidden;
+    position: relative; }
     .blog .banner img {
-      width: 100%; }
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%); }
   .blog .info {
     padding: 10px 0; }
     .blog .info p {
@@ -45,15 +64,37 @@ a {
       line-height: 1.3;
       word-wrap: break-word;
       -webkit-transition: color .3s ease-out;
-      transition: color .3s ease-out; }
+      transition: color .3s ease-out;
+      margin-bottom: 8px; }
       .blog .info p.title {
         color: #A4D100;
         font-size: 26px;
         margin-bottom: 4px; }
       .blog .info p.create-date {
-        font-size: 14px;
-        margin-bottom: 8px; }
+        font-size: 14px; }
       .blog .info p.description {
         font-size: 14px; }
+    .blog .info .tags {
+      margin-bottom: 8px; }
+      .blog .info .tags .tag {
+        display: inline-block;
+        background-color: #A4D100;
+        color: #181818;
+        padding: 4px 10px 4px 20px;
+        line-height: 1;
+        font-size: 14px;
+        position: relative;
+        border-radius: 9px 2px 2px 9px;
+        font-weight: 400;
+        margin-bottom: 4px; }
+        .blog .info .tags .tag::before {
+          content: '';
+          position: absolute;
+          top: 8px;
+          left: 8px;
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background-color: #181818; }
 
 /*# sourceMappingURL=blog-catalog.css.map */

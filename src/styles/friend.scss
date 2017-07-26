@@ -20,18 +20,13 @@ h1.title {
 .friend {
   display: block;
   float: left;
-  width: calc((100% - 10px) / 2);
-  padding: 10px;
+  width: 50%;
+  padding: 10px 10px 30px;
   transition: background-color .3s ease-out;
-  margin-bottom: 15px;
-  margin-right: 10px;
 
   @media (max-width: 480px) {
-    padding: 0;
-  }
-
-  &:nth-child(even) {
-    margin-right: 0;
+    padding: 0 0 30px;
+    width: 100%;
   }
 
   &:hover {

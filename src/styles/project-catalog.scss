@@ -15,19 +15,21 @@ h1.title {
 
 .projects {
   @include clearfix;
+  margin-bottom: 40px;
 }
 
 .project {
   display: block;
   float: left;
-  width: calc((100% - 10px) / 2);
-  padding: 10px;
+  width: 50%;
+  padding: 10px 10px 30px;
   transition: background-color .3s ease-out;
-  margin-bottom: 15px;
-  margin-right: 10px;
+  // margin-bottom: 15px;
+  // margin-right: 10px;
 
   @media (max-width: 480px) {
-    padding: 0;
+    padding: 0 0 30px;
+    width: 100%
   }
 
   &:nth-child(even) {
@@ -51,7 +53,7 @@ h1.title {
       p {
         color: $theme-color-dark-primary;
         @media (max-width: 480px) {
-          color: $theme-color-text-secondary;
+          color: $theme-color-text-secondary;;
         }
       }
     }
