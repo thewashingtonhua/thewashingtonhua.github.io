@@ -7,12 +7,14 @@
   "author": "Washington Hua <ideal19920402@gmail.com>",
   "license": "ISC",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0",
-    "build": "webpack -d --display-error-details",
-    "watch": "webpack -wd --display-error-details",
-    "start": "webpack-dev-server --hot"
+    "dev": "gulp",
+    "start": "npm run dev",
+    "build": "gulp build",
+    "test": "echo \"Error: no test specified\" && exit 0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "lodash": "^4.17.4"
+  },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.25.0",
@@ -36,10 +38,13 @@
     "postcss-nested": "^2.0.4",
     "postcss-scss": "^1.0.2",
     "run-sequence": "^2.0.0",
-    "standard": "^10.0.2"
+    "standard": "^10.0.2",
+    "through-gulp": "^0.5.0"
   },
   "standard": {
     "parser": "babel-eslint",
-    "globals": [ "$" ]
+    "globals": [
+      "$"
+    ]
   }
 }

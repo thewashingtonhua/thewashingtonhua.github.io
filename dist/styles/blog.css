@@ -22,6 +22,12 @@ ul {
 a {
   text-decoration: none; }
 
+.back-to-parent {
+  padding: 10px 0;
+  margin-bottom: 20px; }
+  .back-to-parent a {
+    color: rgba(255, 255, 255, 0.7); }
+
 article {
   padding: 40px 15px;
   background-color: #323232; }
@@ -36,7 +42,7 @@ article {
     font-size: 20px;
     font-weight: 100;
     line-height: 1;
-    margin: .5em 0 0 0; }
+    margin: .5em 0 20px 0; }
   article .tags {
     padding-left: 0;
     margin-top: 8px;

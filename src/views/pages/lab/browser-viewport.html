@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <meta name="description" content="童话说，一个关于Web前端的原创技术博客，不定期发布Web前端及其相关技术的博文">
+  <meta name="keywords" content="tonghuashuo,github,前端,html,html5,css,css3,javascript,js,jquery,安卓,android,java,童话,童话说,华心童">
+  <title>Viewport - 实验室 | 童话说</title>
+  <link rel="shortcut icon" href="/img/favicon.ico" />
+  <link rel="stylesheet" href="/dist/styles/vendor.css" />
+  <link rel="stylesheet" href="/dist/styles/lab.css">
+</head>
+<body>
+  <div id="mf-content">
+
+    <a href="/lab.html" class="back">&laquo; Back</a>
+
+    <h1>Viewport</h1>
+    <br />
+
+    <h2>Web Content (no tool/dev)</h2>
+    <ul>
+      <li>Viewport Width:&nbsp;&nbsp;<span id="vp_w"></span> </li>
+      <li>Viewport Height:&nbsp;<span id="vp_h"></span> </li>
+    </ul>
+    <br />
+
+    <h2>Web Content (no tool/dev/scroll)</h2>
+    <ul>
+      <li>Client Width:&nbsp;&nbsp;<span id="c_w"></span> </li>
+      <li>Client Height:&nbsp;<span id="c_h"></span> </li>
+    </ul>
+    <br />
+
+    <h2>Physical Device</h2>
+    <ul>
+      <li>Screen Width:&nbsp;&nbsp;<span id="scr_w"></span> </li>
+      <li>Screen Height:&nbsp;<span id="scr_h"></span> </li>
+      <li>Screen AvailWidth:&nbsp;&nbsp;<span id="scr_aw"></span> </li>
+      <li>Screen AvailHeight:&nbsp;<span id="scr_ah"></span> (no taskbar)</li>
+      <li>Screen DPI: <span id="scr_dpi"></span> (IE/Edge Only)</li>
+    </ul>
+    <br />
+  </div>
+
+  <script src="/lib/jquery.min.js"></script>
+  <script src="/dist/scripts/vendor.js"></script>
+  <script>
+
+    var span_vp_w    = document.getElementById("vp_w");
+    var span_vp_h    = document.getElementById("vp_h");
+    var span_c_w     = document.getElementById("c_w");
+    var span_c_h     = document.getElementById("c_h");
+    var span_scr_w   = document.getElementById("scr_w");
+    var span_scr_h   = document.getElementById("scr_h");
+    var span_scr_aw  = document.getElementById("scr_aw");
+    var span_scr_ah  = document.getElementById("scr_ah");
+    var span_scr_dpi = document.getElementById("scr_dpi");
+
+    function init() {
+      var vp_w    = window.innerWidth;
+      var vp_h    = window.innerHeight;
+      var c_w     = document.documentElement.clientWidth;
+      var c_h     = document.documentElement.clientHeight;
+      var scr_w   = screen.width;
+      var scr_h   = screen.height;
+      var scr_aw  = screen.availWidth;
+      var scr_ah  = screen.availHeight;
+      var scr_dpi = screen.deviceXDPI;
+
+      span_vp_w.innerHTML    = vp_w    + " px";
+      span_vp_h.innerHTML    = vp_h    + " px";
+      span_c_w.innerHTML     = c_w     + " px";
+      span_c_h.innerHTML     = c_h     + " px";
+      span_scr_w.innerHTML   = scr_w   + " px";
+      span_scr_h.innerHTML   = scr_h   + " px";
+      span_scr_aw.innerHTML  = scr_aw  + " px";
+      span_scr_ah.innerHTML  = scr_ah  + " px";
+      span_scr_dpi.innerHTML = scr_dpi ? (scr_dpi + " px") : 'N/A';
+    };
+
+    init();
+    window.onresize = init;
+  </script>
+</body>
+</html>
