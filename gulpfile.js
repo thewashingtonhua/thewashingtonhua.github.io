@@ -78,7 +78,11 @@ gulp.task('build-base', () => {
 })
 
 gulp.task('build-blog', () => {
-  return gulp.src(src.blog)
+  return gulp.src(
+    [
+      src.blog,
+      '!src/views/pages/blog/introduction-to-ths-v2.html'
+    ])
     .pipe(thsConcat(concatConfig.blog))
     .pipe(gulp.dest(dest.blog))
 })
@@ -137,7 +141,9 @@ gulp.task('clean-base', () => {
 
 gulp.task('clean-blog', () => {
   return del(
-    [dest.blog + '/*.html'],
+    [
+      dest.blog + '/*.html'
+    ],
     { dryRun: false }
   ).then(paths => {
     console.log('Deleted HTML files under:\n', paths.join('\n'))
