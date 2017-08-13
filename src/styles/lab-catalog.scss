@@ -1,0 +1,55 @@
+@charset 'utf-8';
+@import '_common';
+
+#mf-content {
+
+  h1 {
+    color: $theme-color-text-secondary;
+    margin-bottom: 20px;
+    font-family: $theme-font-code;
+  }
+
+  .category {
+    @include clearfix;
+    margin-bottom: 20px;
+    width: 100%;
+
+    .item {
+      display: block;
+      float: left;
+      width: calc((100% - 20px) / 3);
+      padding: 50px 10px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      background-color: $theme-color-dark-secondary;
+      color: $theme-color-main;
+      text-align: center;
+      font-family: $theme-font-code;
+      transition: color .3s ease-out, background-color .3s ease-out;
+      @include ellipsis;
+
+      @media (max-width: 480px) {
+        width: calc((100% - 10px) / 2);
+      }
+
+      &:hover {
+        color: $theme-color-dark-secondary;
+        background-color: $theme-color-main;
+      }
+
+      &:nth-child(3n+3) {
+        margin-right: 0;
+
+        @media (max-width: 480px) {
+          margin-right: 10px;
+        }
+      }
+
+      &:nth-child(even) {
+        @media (max-width: 480px) {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}

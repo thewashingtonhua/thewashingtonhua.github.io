@@ -1,63 +1,68 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-	<meta charset="UTF-8">
-	<meta name="renderer" content="webkit">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-	<meta name="description" content="童话说，一个关于Web前端的个人技术博客，不定期发布Web前端及其相关技术的博文">
-	<meta name="keywords" content="tonghuashuo,github,前端,html,css,javascript,android,童话,童话说,华心童,css3,每天,ES6,ECMAScript,概述">
-	<title>每天一点ES6(1)：概述 - 博客|童话说</title>
-	<link rel="shortcut icon" href="../img/favicon.ico" />
-	<link rel="stylesheet" href="../css/index.css" />
-	<link rel="stylesheet" href="../css/blog.css" />
+  <meta charset="UTF-8">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <meta name="description" content="童话说，一个关于Web前端的个人技术博客，不定期发布Web前端及其相关技术的博文">
+<meta name="keywords" content="tonghuashuo,github,前端,html,css,javascript,android,童话,童话说,华心童,washington,hua,ecmascript,2015,es6,javascript" />
+<title>每天一点ES6(1)：概述 - 博客 | 童话说</title>
+<link rel="stylesheet" href="/dist/styles/vendor.css" />
+<link rel="stylesheet" href="/dist/styles/blog.css" />
 </head>
 <body>
 
-	<div id="mf_content">
-		<article id="es6-daily-01-intro">
-			<h1>每天一点ES6(1)：概述</h1>
-			<div class="time"><time datetime="2016-01-24">Jan 24th 2016<time></div>
-			<div class="titleBanner"></div>
-			
-            <p>本系列是对阮一峰老师的开源著作<a href="http://es6.ruanyifeng.com" title="《ES6 标准入门》" target="_blank">《ES6 标准入门》</a>的学习笔记，通过博客的方式强迫自己将学到的东西解释给别人听，进而加深认识，同时也算为推广ES6贡献一点绵薄之力吧。</p>
-            
-            <h2>ES6是啥？</h2>
-            <p><a target="_blank" href="http://www.ecma-international.org/ecma-262/6.0/index.html" title="ECMAScript 6 标准原文">ECMAScript 6</a>（简称ES6）是JavaScript的最新标准，发布于2015年6月。这项标准的制定者<a href="http://baike.baidu.com/link?url=eDLqrXRuzTuLgmsHYAtAhdcq19UoR-sf0ouQF4-WTH5TypVRJd12ES7WTvY0gYJLfcFA-IY1cuqf6bDAyxdaPK" target="_blank">ECMA</a>计划以后每年发布一次标准，使用年份作为标准的版本，因此 ES6 也叫 ES2015。明年预计会发布小幅修订的ES2016（至于是叫 ES7 还是 ES6.1，就要到时候看各位大大们的兴致了）。</p>
-            <p>这次 ES6 之所以受到业界的重视，不仅仅是因为主版本号加一了，更重要的是，ES6 打算将 JavaScript 应用到复杂的大型应用程序的开发中，使之成为一门企业级开发语言。JavaScript 曾经一度被认为是一种玩具语言，只能在网页开发中小有作为，难成大器，但随着 HTML5、PhoneGap、Node.js、React Native 等各种技术的出现，现在的 JavaScript 已经成为了本世纪最重要的编程语言之一，前端开发更是因此从一个可有可无的角色一跃成为了招聘和培训的大热门。</p>
-            <p>有 ES6，那自然就有 ES1、2、3、4、5。关于它的历史……说来话长，但是挺有意思的，想了解的可以去看阮一峰老师的原著，我这儿就不罗嗦了。目前浏览器普遍兼容的最新标准是 ES5，在这之前一个比较重要的版本是 ES3，市面上绝大部分的教材都是以 ES3 为基础，涉及 ES5 的部分只说差别，专门讲 ES6 的教程并不多，除了官方文档外一共有3本书：</p>
-            <ul>
-                <li><a target="_blank" href="http://www.amazon.cn/Learning-ECMAScript-6-Prusty-Narayan/dp/B012O8SE6C/ref=sr_1_3?s=books&ie=UTF8&qid=1453638579&sr=1-3&keywords=ecmascript+6" title="《Learning ECMAScript 6》">《Learning ECMAScript 6》</a>by Narayan Prusty，Kindle上电子书¥208.59一本，平装的要¥451一本）</li>
-                <li><a target="_blank" href="https://github.com/nzakas/understandinges6/tree/master/manuscript" title="《Understanding ES6》">《Understading ES6》</a>by Nicholas C. Zakas，在Github上开源的，纸质书要卖¥100多</li>
-                <li><a target="_blank" href="http://es6.ruanyifeng.com" title="《ES6 标准入门》">《ES6 标准入门》</a>by 阮一峰，有Gitbook版可免费看，也可以花¥57.4购买纸质书支持一下作者</li>
-            </ul>
-            <p>相比之下，还是阮一峰老师的这本最实用，中文的，免费的，在业内评价也很高。（为了表达对阮一峰老师的感谢与崇敬之情，整个系列我会不断安利这本书。推荐在线看，在线的已经更新到第二版了，纸质书还是第一版的，内容不及现在这么全）</p>
-            <blockquote>
-                2017-04-17：纸质版在 15 年底出了第二版，不过还是推荐在线看，因为一直有在更新，包括ES6之后的内容（ES2016、2017、2018 ……）也会不断的补充进来，估计要不了多久阮大大的这个系列就可以改名《ES标准入门》了，哈哈。
-            </blockquote>
-            
-            <h2>ES6 的支持度</h2>
-            <p>主流浏览器都已经开始拥抱 ES6。值得注意的是，这次微软放大招了，IE11 和 Microsoft Edge 13 的支持进度竟然名列前茅（以该博客发布时为参考），甚至超越了Firefox、Chrome 和 Safari，似乎是打了一场漂亮的翻身仗啊。目前 Node.js 平台对 ES6 的支持度是最好的，基本已经全部覆盖，可以使用命令<span class="code">node --v8-options | grep harmony</span>来查看当前环境所支持 ES6 的内容的列表，还可以用阮一峰老师开发的<a target="_blank" href="http://ruanyf.github.io/es-checker/" title="How Much of ECMAScript 6 Does Your Browser Support? - ES-Checker">ES-Checker</a>来查看当前环境的支持度。</p>
-            <p>虽然各家进度不一，但终究也只是时间的问题。详细的支持情况可以参考<a target="_blank" href="http://kangax.github.io/compat-table/es6/" title="ECMAScript 6 compatibility table">ECMAScript 6 compatibility table</a>。</p>
-            
-            <h2>过渡阶段的方案</h2>
-            <p>虽然 ES6 的支持情况非常乐观，目测要不了多久就能全面支持，但就目前而言，在生产环境下使用 ES6 还是比较困难的。好在有<a target="_blank" href="https://babeljs.io/" title="Bable">Bable</a>和<a target="_blank" href="https://github.com/google/traceur-compiler" title="Traceur by Google">Traceur</a>这样的转换工具，可以把 ES6 的代码转换成 ES5，以此让开发者们尝鲜ES6的语法。两者都支持运行在 Node.js 环境中编译好后发布，也可以在浏览器中实时编译，用于学习的话后者显然更方便，但对于生产环境，还是推荐在 Node.js 中编译好，然后直接发布 ES5 的代码，这样执行效率更高。</p>
-                
-            
-            <h2>展望一下 ES 7</h2>
-            <p>2013年3月，ES6的草案封闭，不再接受新功能，新的功能将被加入ES7。关于 ES7 的最新动态，可以关注<a target="_blank" href="https://tc39.github.io/ecma262/" title="Draft ECMA-262 ECMAScript 2016 Language Specification">ES7 标准的草案</a></p>
-            
-            <h2>关于该系列</h2>
-            <p>从标题“每天一点ES6”可以看出，理论上这是一个日更的系列，我也会尽力做到日更，但毕竟我也不是闲着没别的事有大把的时间可以写博客，因此如果没有日更……你~能~拿~我~怎~么~样？</p>
-            
-            <h2>该系列的其他文章</h2>
-            <p>下一篇：<a href="es6-daily-02-let-and-const.html">每天一点ES6(2)：let和const</a></p>
-            
+  <div id="mf-content">
+    <p class="back-to-parent"><a href="/blog.html">&laquo; 回到博客列表</a></p>
+    <article id="es6-daily-01-intro">
+      <h1>每天一点ES6(1)：概述</h1>
+      <p class="publish-date"><time datetime="2016-01-24">Jan 24th 2016<time></p>
+      <ul class="tags">
+        <li class="tag">ecmascript</li>
+<li class="tag">2015</li>
+<li class="tag">es6</li>
+<li class="tag">javascript</li>
+      </ul>
+      <div class="banner">
+        <img src="/img/blog/es6daily.jpg" alt="es6-daily-01-intro">
+      </div>
+  
+<p>本系列是对阮一峰老师的开源著作<a href="http://es6.ruanyifeng.com" title="《ES6 标准入门》" target="_blank">《ES6 标准入门》</a>的学习笔记，通过博客的方式强迫自己将学到的东西解释给别人听，进而加深认识，同时也算为推广ES6贡献一点绵薄之力吧。</p>
 
-		</article>
+<h2>ES6是啥？</h2>
+<p><a target="_blank" href="http://www.ecma-international.org/ecma-262/6.0/index.html" title="ECMAScript 6 标准原文">ECMAScript 6</a>（简称ES6）是JavaScript的最新标准，发布于2015年6月。这项标准的制定者<a href="http://baike.baidu.com/link?url=eDLqrXRuzTuLgmsHYAtAhdcq19UoR-sf0ouQF4-WTH5TypVRJd12ES7WTvY0gYJLfcFA-IY1cuqf6bDAyxdaPK" target="_blank">ECMA</a>计划以后每年发布一次标准，使用年份作为标准的版本，因此 ES6 也叫 ES2015。明年预计会发布小幅修订的ES2016（至于是叫 ES7 还是 ES6.1，就要到时候看各位大大们的兴致了）。</p>
+<p>这次 ES6 之所以受到业界的重视，不仅仅是因为主版本号加一了，更重要的是，ES6 打算将 JavaScript 应用到复杂的大型应用程序的开发中，使之成为一门企业级开发语言。JavaScript 曾经一度被认为是一种玩具语言，只能在网页开发中小有作为，难成大器，但随着 HTML5、PhoneGap、Node.js、React Native 等各种技术的出现，现在的 JavaScript 已经成为了本世纪最重要的编程语言之一，前端开发更是因此从一个可有可无的角色一跃成为了招聘和培训的大热门。</p>
+<p>有 ES6，那自然就有 ES1、2、3、4、5。关于它的历史……说来话长，但是挺有意思的，想了解的可以去看阮一峰老师的原著，我这儿就不罗嗦了。目前浏览器普遍兼容的最新标准是 ES5，在这之前一个比较重要的版本是 ES3，市面上绝大部分的教材都是以 ES3 为基础，涉及 ES5 的部分只说差别，专门讲 ES6 的教程并不多，除了官方文档外一共有3本书：</p>
+<ul>
+  <li><a target="_blank" href="http://www.amazon.cn/Learning-ECMAScript-6-Prusty-Narayan/dp/B012O8SE6C/ref=sr_1_3?s=books&ie=UTF8&qid=1453638579&sr=1-3&keywords=ecmascript+6" title="《Learning ECMAScript 6》">《Learning ECMAScript 6》</a>by Narayan Prusty，Kindle上电子书¥208.59一本，平装的要¥451一本）</li>
+  <li><a target="_blank" href="https://github.com/nzakas/understandinges6/tree/master/manuscript" title="《Understanding ES6》">《Understading ES6》</a>by Nicholas C. Zakas，在Github上开源的，纸质书要卖¥100多</li>
+  <li><a target="_blank" href="http://es6.ruanyifeng.com" title="《ES6 标准入门》">《ES6 标准入门》</a>by 阮一峰，有Gitbook版可免费看，也可以花¥57.4购买纸质书支持一下作者</li>
+</ul>
+<p>相比之下，还是阮一峰老师的这本最实用，中文的，免费的，在业内评价也很高。（为了表达对阮一峰老师的感谢与崇敬之情，整个系列我会不断安利这本书。推荐在线看，在线的已经更新到第二版了，纸质书还是第一版的，内容不及现在这么全）</p>
+<blockquote>
+  2017-04-17：纸质版在 15 年底出了第二版，不过还是推荐在线看，因为一直有在更新，包括ES6之后的内容（ES2016、2017、2018 ……）也会不断的补充进来，估计要不了多久阮大大的这个系列就可以改名《ES标准入门》了，哈哈。
+</blockquote>
 
-	</div>
+<h2>ES6 的支持度</h2>
+<p>主流浏览器都已经开始拥抱 ES6。值得注意的是，这次微软放大招了，IE11 和 Microsoft Edge 13 的支持进度竟然名列前茅（以该博客发布时为参考），甚至超越了Firefox、Chrome 和 Safari，似乎是打了一场漂亮的翻身仗啊。目前 Node.js 平台对 ES6 的支持度是最好的，基本已经全部覆盖，可以使用命令<span class="code">node --v8-options | grep harmony</span>来查看当前环境所支持 ES6 的内容的列表，还可以用阮一峰老师开发的<a target="_blank" href="http://ruanyf.github.io/es-checker/" title="How Much of ECMAScript 6 Does Your Browser Support? - ES-Checker">ES-Checker</a>来查看当前环境的支持度。</p>
+<p>虽然各家进度不一，但终究也只是时间的问题。详细的支持情况可以参考<a target="_blank" href="http://kangax.github.io/compat-table/es6/" title="ECMAScript 6 compatibility table">ECMAScript 6 compatibility table</a>。</p>
 
-	<script src="../js/index.js"></script>
+<h2>过渡阶段的方案</h2>
+<p>虽然 ES6 的支持情况非常乐观，目测要不了多久就能全面支持，但就目前而言，在生产环境下使用 ES6 还是比较困难的。好在有<a target="_blank" href="https://babeljs.io/" title="Bable">Bable</a>和<a target="_blank" href="https://github.com/google/traceur-compiler" title="Traceur by Google">Traceur</a>这样的转换工具，可以把 ES6 的代码转换成 ES5，以此让开发者们尝鲜ES6的语法。两者都支持运行在 Node.js 环境中编译好后发布，也可以在浏览器中实时编译，用于学习的话后者显然更方便，但对于生产环境，还是推荐在 Node.js 中编译好，然后直接发布 ES5 的代码，这样执行效率更高。</p>
+
+
+<h2>展望一下 ES 7</h2>
+<p>2013年3月，ES6的草案封闭，不再接受新功能，新的功能将被加入ES7。关于 ES7 的最新动态，可以关注<a target="_blank" href="https://tc39.github.io/ecma262/" title="Draft ECMA-262 ECMAScript 2016 Language Specification">ES7 标准的草案</a></p>
+
+<h2>关于该系列</h2>
+<p>从标题“每天一点ES6”可以看出，理论上这是一个日更的系列，我也会尽力做到日更，但毕竟我也不是闲着没别的事有大把的时间可以写博客，因此如果没有日更……你~能~拿~我~怎~么~样？</p>
+
+<h2>该系列的其他文章</h2>
+<p>下一篇：<a href="es6-daily-02-let-and-const.html">每天一点ES6(2)：let和const</a></p>
+</article></div>
+<script src="/lib/jquery.min.js"></script>
+<script src="/dist/scripts/vendor.js"></script>
+<script src="/dist/scripts/line-number.js"></script>
 </body>
 </html>

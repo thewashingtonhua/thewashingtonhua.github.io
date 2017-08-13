@@ -1,0 +1,35 @@
+@charset 'utf-8';
+@import '_common';
+
+#mf-content {
+  padding-top: 1px;
+
+  h1, h2, p, li, a, label {
+    color: $theme-color-text-secondary;
+    font-family: $theme-font-code;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  a {
+    font-size: 16px;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &.back {
+      display: block;
+      font-size: 20px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  }
+
+  canvas {
+    display: block;
+  }
+}

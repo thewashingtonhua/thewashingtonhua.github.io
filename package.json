@@ -1,46 +1,50 @@
 {
-	"name": "tonghuashuo.github.io",
-	"version": "2.0.0",
-	"description": "Washington Hua's blog on github page. Focus on Front-end Development and related CS skills.",
-	"main": "index.html",
-	"repository": "https://github.com/tonghuashuo/tonghuashuo.github.io.git",
-	"author": "Washington Hua <ideal19920402@gmail.com>",
-	"license": "ISC",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 0",
-		"build": "webpack -d --display-error-details",
-		"watch": "webpack -wd --display-error-details",
-		"start": "webpack-dev-server --hot"
-	},
-	"dependencies": {
-		"babel-cli": "^6.18.0",
-		"babel-core": "^6.20.0",
-		"babel-loader": "^6.2.9",
-		"babel-plugin-transform-class-properties": "^6.19.0",
-		"babel-plugin-transform-export-extensions": "^6.8.0",
-		"babel-plugin-transform-object-rest-spread": "^6.20.2",
-		"babel-polyfill": "^6.20.0",
-		"babel-preset-latest": "^6.16.0",
-		"babel-preset-react": "^6.16.0",
-		"babel-preset-stage-0": "^6.16.0",
-		"clean-webpack-plugin": "^0.1.14",
-		"css-loader": "^0.26.1",
-		"extract-text-webpack-plugin": "^1.0.1",
-		"file-loader": "^0.9.0",
-		"gulp": "^3.9.1",
-		"gulp-server": "^0.1.0",
-		"gulp-util": "^3.0.7",
-		"html-webpack-plugin": "^2.24.1",
-		"jquery": "^3.1.1",
-		"json-loader": "^0.5.4",
-		"node-sass": "^3.13.0",
-		"react": "^15.4.1",
-		"react-dom": "^15.4.1",
-		"sass-loader": "^4.0.2",
-		"style-loader": "^0.13.1",
-		"url-loader": "^0.5.7",
-		"webpack": "^1.14.0",
-		"webpack-dev-server": "^1.16.2"
-	},
-	"devDependencies": {}
+  "name": "tonghuashuo.github.io",
+  "version": "2.0.0",
+  "description": "Washington Hua's blog on github page. Focus on Front-end Development and related CS skills.",
+  "main": "index.html",
+  "repository": "https://github.com/tonghuashuo/tonghuashuo.github.io.git",
+  "author": "Washington Hua <ideal19920402@gmail.com>",
+  "license": "ISC",
+  "scripts": {
+    "dev": "gulp",
+    "start": "npm run dev",
+    "build": "gulp build",
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.2",
+    "babel-core": "^6.25.0",
+    "babel-eslint": "^7.2.3",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "cssnano": "^3.10.0",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-minify": "^1.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^7.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-standard": "^10.0.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-webserver": "^0.9.1",
+    "node-sass": "^3.13.0",
+    "postcss-nested": "^2.0.4",
+    "postcss-scss": "^1.0.2",
+    "run-sequence": "^2.0.0",
+    "standard": "^10.0.2",
+    "through-gulp": "^0.5.0"
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "globals": [
+      "$"
+    ]
+  }
 }

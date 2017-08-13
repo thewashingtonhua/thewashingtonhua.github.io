@@ -1,0 +1,99 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0; }
+
+h1, h2, h3, h4, h5, h5, p {
+  margin: 0; }
+
+h1, h2, h3, h4, h5, h5, p, a {
+  font-weight: 400; }
+
+ul, ol {
+  margin: 0;
+  padding: 0; }
+
+ul {
+  list-style: none; }
+
+a {
+  text-decoration: none; }
+
+h1.title {
+  font-weight: 100;
+  font-size: 32px;
+  color: rgba(255, 255, 255, 0.7);
+  padding-left: 10px;
+  margin-bottom: 20px; }
+  @media (max-width: 480px) {
+    h1.title {
+      padding-left: 0; } }
+
+.friends::after {
+  clear: both;
+  content: '.';
+  display: block;
+  width: 0;
+  height: 0;
+  visibility: hidden; }
+
+.friend {
+  display: block;
+  float: left;
+  width: 50%;
+  padding: 10px 10px 30px;
+  -webkit-transition: background-color .3s ease-out;
+  transition: background-color .3s ease-out; }
+  @media (max-width: 480px) {
+    .friend {
+      padding: 0 0 30px;
+      width: 100%; } }
+  .friend:hover {
+    background-color: #A4D100; }
+    @media (max-width: 480px) {
+      .friend:hover {
+        background-color: transparent; } }
+    .friend:hover .intro h2 {
+      color: #181818; }
+      @media (max-width: 480px) {
+        .friend:hover .intro h2 {
+          color: #A4D100; } }
+    .friend:hover .intro ul li {
+      color: #181818; }
+      @media (max-width: 480px) {
+        .friend:hover .intro ul li {
+          color: rgba(255, 255, 255, 0.7); } }
+  .friend .cover {
+    width: 100%; }
+    .friend .cover img {
+      display: block;
+      width: 100%; }
+  .friend .intro {
+    padding: 10px 0; }
+    .friend .intro h2 {
+      font-size: 26px;
+      color: #A4D100;
+      -webkit-transition: color .3s ease-out;
+      transition: color .3s ease-out;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis; }
+      @media (max-width: 480px) {
+        .friend .intro h2 {
+          font-size: 24px; } }
+    .friend .intro ul li {
+      color: rgba(255, 255, 255, 0.7);
+      -webkit-transition: color .3s ease-out;
+      transition: color .3s ease-out;
+      font-size: 14px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis; }
+      @media (max-width: 480px) {
+        .friend .intro ul li {
+          font-size: 12px; } }
+
+/*# sourceMappingURL=friend.css.map */
