@@ -1,56 +1,16 @@
-<!doctype html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-  <meta name="description" content="童话说，一个关于Web前端的个人技术博客，不定期发布Web前端及其相关技术的博文">
-  <meta name="keywords" content="tonghuashuo,github,前端,html,css,javascript,android,童话,童话说,华心童,miui,cache,icon,缓存,图标">
-  <title>MIUI图标缓存问题 - 博客 | 童话说</title>
-  <link rel="shortcut icon" href="/img/favicon.ico" />
-  <link rel="stylesheet" href="/dist/styles/vendor.css" />
-  <link rel="stylesheet" href="/dist/styles/blog.css" />
-</head>
-<body>
+<h2>问题描述</h2>
+<p>为Android应用替换图标是一件非常容易的事，只需要替换ic_launcher.png即可，但在MIUI中，你经常会遇到安装完之后实际显示的还是默认图标，你自定义的图标并没有显示出来。检查代码发现完全没有问题，卸了重装也没用，重命名资源文件也没用。</p>
 
-  <div id="mf-content">
-    <p class='back-to-parent'><a href="/blog.html">&laquo; 回到博客列表</a></p>
-    <article id="miui-icon-cache">
-      <h1>MIUI图标缓存问题</h1>
-      <p class="publish-date"><time datetime="2015-04-18">Apr 18th 2015</time></p>
-      <ul class="tags">
-        <li class="tag">android</li>
-        <li class="tag">miui</li>
-        <li class="tag">icon</li>
-        <li class="tag">cache</li>
-      </ul>
-      <div class="banner">
-        <img src="/img/blog/miuiiconcache.jpg" alt="MIUI">
-      </div>
+<h2>影响范围</h2>
+<p>就目前所知，该问题是由MIUI6引入的，在早先的版本中尚未发现该问题。该问题产生的影响主要体现在产品大版本更新时，尽管主程序已经更新，但用户所看到的应用图标仍然是老版本的，直到问题解决。同时也给广大应用开发者带来一定的麻烦。</p>
 
-      <h2>问题描述</h2>
-      <p>为Android应用替换图标是一件非常容易的事，只需要替换ic_launcher.png即可，但在MIUI中，你经常会遇到安装完之后实际显示的还是默认图标，你自定义的图标并没有显示出来。检查代码发现完全没有问题，卸了重装也没用，重命名资源文件也没用。</p>
+<h2>病症所在</h2>
+<p>出现这种问题，是因为MIUI有一个应用图标的缓存，这个缓存里的图片即便在应用卸载了之后也不会消失。这就是为什么重复安装或是更换图标都无法解决问题的根本原因。</p>
 
-      <h2>影响范围</h2>
-      <p>就目前所知，该问题是由MIUI6引入的，在早先的版本中尚未发现该问题。该问题产生的影响主要体现在产品大版本更新时，尽管主程序已经更新，但用户所看到的应用图标仍然是老版本的，直到问题解决。同时也给广大应用开发者带来一定的麻烦。</p>
+<h2>解决办法</h2>
+<p>其实要想解决这个问题很简单，只需要进入“主题风格”随便更换一套主题，再换回原来的主题即可。切换主题会刷新应用图标缓存，使新图标被应用，问题因而得以解决。（有人通过重启手机同样解决了问题，大家可以试下）</p>
 
-      <h2>病症所在</h2>
-      <p>出现这种问题，是因为MIUI有一个应用图标的缓存，这个缓存里的图片即便在应用卸载了之后也不会消失。这就是为什么重复安装或是更换图标都无法解决问题的根本原因。</p>
-
-      <h2>解决办法</h2>
-      <p>其实要想解决这个问题很简单，只需要进入“主题风格”随便更换一套主题，再换回原来的主题即可。切换主题会刷新应用图标缓存，使新图标被应用，问题因而得以解决。（有人通过重启手机同样解决了问题，大家可以试下）</p>
-
-      <h2>偏方</h2>
-      <p>网上有一些偏方，号称能解决问题，但实测发现，并没有什么卵用。这里也曝光一下，给大家做个参考</p>
-      <p>偏方1：如果你已经获得了root权限，那么进入/data/system/customized_icons目录，找到你原来的旧图标，删除即可。该方法从原理上讲确实属于对症下药，但似乎MIUI的图标缓存并不在这里，实际测试发现这个方法并不解决问题。</p>
-      <p>偏方2：把当前的工程换一个包名，重新安装即可。换了包名等于是一个新的应用。旧的缓存图标就失效了，听上去确实没错，但实际测试表明这个方法也没用。</p>
-    </article>
-
-  </div>
-
-  <script src="/lib/jquery.min.js"></script>
-  <script src="/dist/scripts/vendor.js"></script>
-  <script src="/dist/scripts/line-number.js"></script>
-</body>
-</html>
+<h2>偏方</h2>
+<p>网上有一些偏方，号称能解决问题，但实测发现，并没有什么卵用。这里也曝光一下，给大家做个参考</p>
+<p>偏方1：如果你已经获得了root权限，那么进入/data/system/customized_icons目录，找到你原来的旧图标，删除即可。该方法从原理上讲确实属于对症下药，但似乎MIUI的图标缓存并不在这里，实际测试发现这个方法并不解决问题。</p>
+<p>偏方2：把当前的工程换一个包名，重新安装即可。换了包名等于是一个新的应用。旧的缓存图标就失效了，听上去确实没错，但实际测试表明这个方法也没用。</p>

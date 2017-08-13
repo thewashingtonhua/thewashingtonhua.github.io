@@ -70,7 +70,7 @@ function thsConcatBaseIndex (file, options) {
   const latestCommercialProjectsElem = latestCommercialProjects.map(p => `
     <a class="project commercial" id="${p.id}" href="${p.url}">
       <div class="cover">
-        <img src="${p.cover}" alt="${p.id}">
+        <img src="${p.thumb}" alt="${p.id}">
       </div>
       <div class="intro">
         <h2>${p.title}</h2>
@@ -86,7 +86,7 @@ function thsConcatBaseIndex (file, options) {
   const latestExerciseProjectsElem = latestExerciseProjects.map(p => `
     <a class="project exercise" id="${p.id}" href="${p.url}">
       <div class="cover">
-        <img src="${p.cover}" alt="${p.id}">
+        <img src="${p.thumb}" alt="${p.id}">
       </div>
       <div class="intro">
         <h2>${p.title}</h2>
@@ -126,8 +126,9 @@ function thsConcatBaseBlog (file, options) {
   const blogs = catalog.blogs
   const blogsElem = blogs.map(blog => {
     const tags = blog.tags.map(tag => `<li class="tag">${tag}</li>`)
+    const series = blog.series ? ` data-series="${blog.series}"` : ''
     return `
-      <a class="blog" href="${blog.url}" id="${blog.id}">
+      <a class="blog" href="${blog.url}" id="${blog.id}"${series}>
         <div class="banner fix-ratio ratio-16-9">
           <img src="${blog.cover}" alt="${blog.id}">
         </div>
@@ -173,7 +174,7 @@ function thsConcatBaseProject (file, options) {
   const commercialProjectsElem = commercialProjects.map(p => `
     <a class="project commercial" id="${p.id}" href="${p.url}">
       <div class="cover">
-        <img src="${p.cover}" alt="${p.id}">
+        <img src="${p.thumb}" alt="${p.id}">
       </div>
       <div class="intro">
         <h2>${p.title}</h2>
@@ -189,7 +190,7 @@ function thsConcatBaseProject (file, options) {
   const exerciseProjectsElem = exerciseProjects.map(p => `
     <a class="project exercise" id="${p.id}" href="${p.url}">
       <div class="cover">
-        <img src="${p.cover}" alt="${p.id}">
+        <img src="${p.thumb}" alt="${p.id}">
       </div>
       <div class="intro">
         <h2>${p.title}</h2>
@@ -255,6 +256,50 @@ function thsConcatBaseLab (file, options) {
   return newFile
 }
 
+function thsConcatBlog (file, options) {
+  const filename = getFilename(file, false)
+  const config = options.items[filename]
+  const title = config.title + options.commonTitle
+  const keywords = (options.commonKeywords.concat(config.keywords))
+  const styles = (options.commonStyles.concat(config.styles)).map(style => createStyle(style.type, style.value))
+  const scripts = (options.commonScripts.concat(config.scripts)).map(script => createScript(script.type, script.value))
+
+  const tags = config.tags.map(tag => `<li class="tag">${tag}</li>`)
+  const blogHeader = `
+  <div id="mf-content">
+    <p class="back-to-parent"><a href="/blog.html">&laquo; 回到博客列表</a></p>
+    <article id="${config.id}">
+      <h1>${config.title}</h1>
+      <p class="publish-date"><time datetime="${config.publishDateNum}">${config.publishDateStr}<time></p>
+      <ul class="tags">
+        ${tags.join('\n')}
+      </ul>
+      <div class="banner">
+        <img src="${config.cover}" alt="${config.id}">
+      </div>
+  `
+  const blogFooter = `</article></div>`
+
+  let content = file.contents.toString('utf-8')
+
+  const output = [
+    headerOpen,
+    `<meta name="keywords" content="${keywords.join(',')}" />`,
+    `<title>${title}</title>`,
+    styles.join('\n'),
+    headerClose,
+    blogHeader,
+    content,
+    blogFooter,
+    scripts.join('\n'),
+    footer
+  ].join('\n')
+  console.log(`[ths-concat] concatinated file: ${file.path}`)
+  const newFile = file.clone()
+  newFile.contents = Buffer.from(output)
+  return newFile
+}
+
 function thsConcatContent (file, options) {
   const filename = getFilename(file, false)
   const config = options.items[filename]
@@ -294,6 +339,8 @@ function thsConcat (file, options) {
       default:
         return thsConcatContent(file, options)
     }
+  } else if (options.id === 'blog') {
+    return thsConcatBlog(file, options)
   } else {
     return thsConcatContent(file, options)
   }

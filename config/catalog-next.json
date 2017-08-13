@@ -1,0 +1,26 @@
+{
+  "category": "commercial",
+  "id": "xinyue",
+  "template": "src/views/pages/project/xinyue.html",
+  "url": "/project/xinyue.html",
+  "cover": "/img/project/xinyue/xinyue.jpg",
+  "thumb": "/img/project/thumb/xinyue.jpg",
+  "title": "新阅",
+  "description": "在线视频协作平台",
+  "keywords": [],
+  "styles": [],
+  "scripts": []
+},
+{
+  "category": "commercial",
+  "id": "influence",
+  "template": "src/views/pages/project/influence.html",
+  "url": "/project/influence.html",
+  "cover": "/img/project/influence/influence.jpg",
+  "thumb": "/img/project/thumb/influence.jpg",
+  "title": "影响力",
+  "description": "红人数字交易平台",
+  "keywords": [],
+  "styles": [],
+  "scripts": []
+},

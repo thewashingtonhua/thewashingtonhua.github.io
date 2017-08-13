@@ -57,7 +57,11 @@ article {
       position: relative;
       border-radius: 9px 2px 2px 9px;
       font-weight: 400;
-      margin-bottom: 4px; }
+      margin-bottom: 4px;
+      -webkit-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none; }
       article .tags .tag::before {
         content: '';
         position: absolute;

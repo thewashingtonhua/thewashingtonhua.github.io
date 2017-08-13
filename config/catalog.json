@@ -4,7 +4,7 @@
       "id": "introduction-to-ths-v2",
       "template": "src/views/pages/blog/introduction-to-ths-v2.html",
       "url": "/blog/introduction-to-ths-v2.html",
-      "title": "童话说 V2.0 更新小结",
+      "title": "童话说 V2.0 改版小结",
       "cover": "/img/blog/introduction-to-ths-v2.jpg",
       "publishDateNum": "2017-08-12",
       "publishDateStr": "Ang 12th 2017",
@@ -17,7 +17,14 @@
         "scss",
         "gulp"
       ],
-      "keywords": [],
+      "keywords": [
+        "blog",
+        "2.0",
+        "update",
+        "es2015",
+        "scss",
+        "gulp"
+      ],
       "styles": [],
       "scripts": []
     },
@@ -35,7 +42,11 @@
         "2017",
         "javascript"
       ],
-      "keywords": [],
+      "keywords": [
+        "ecmascript",
+        "2017",
+        "javascript"
+      ],
       "styles": [],
       "scripts": []
     },
@@ -51,7 +62,9 @@
       "tags": [
         "electron"
       ],
-      "keywords": [],
+      "keywords": [
+        "electron"
+      ],
       "styles": [],
       "scripts": []
     },
@@ -73,7 +86,14 @@
         "map"
       ],
       "series": "es6-daily",
-      "keywords": [],
+      "keywords": [
+        "ecmascript",
+        "2015",
+        "es6",
+        "javascript",
+        "set",
+        "map"
+      ],
       "styles": [],
       "scripts": []
     },
@@ -94,7 +114,13 @@
         "symbol"
       ],
       "series": "es6-daily",
-      "keywords": [],
+      "keywords": [
+        "ecmascript",
+        "2015",
+        "es6",
+        "javascript",
+        "symbol"
+      ],
       "styles": [],
       "scripts": []
     },
@@ -114,7 +140,13 @@
         "invalid",
         "host"
       ],
-      "keywords": [],
+      "keywords": [
+        "webpack",
+        "dev",
+        "server",
+        "invalid",
+        "host"
+      ],
       "styles": [],
       "scripts": []
     },
@@ -123,7 +155,7 @@
       "template": "src/views/pages/blog/leetcode-01-two-sum.html",
       "url": "/blog/leetcode-01-two-sum.html",
       "title": "Leetcode 第一刷：Two Sum",
-      "cover": "/img/blog/es6daily.jpg",
+      "cover": "/img/blog/leetcode.jpg",
       "publishDateNum": "2017-04-11",
       "publishDateStr": "Apr 11st 2017",
       "description": "都闪开，我要开始装逼了",
@@ -132,7 +164,11 @@
         "two",
         "sum"
       ],
-      "keywords": [],
+      "keywords": [
+        "leetcode",
+        "two",
+        "sum"
+      ],
       "styles": [],
       "scripts": []
     },
@@ -153,8 +189,19 @@
         "object"
       ],
       "series": "es6-daily",
-      "keywords": [],
-      "styles": [],
+      "keywords": [
+        "ecmascript",
+        "2015",
+        "es6",
+        "javascript",
+        "object"
+      ],
+      "styles": [
+        {
+          "type": "style",
+          "value": ".true { color: green; } .false { color: red; } td:nth-of-type(n+2) { text-align: center; }"
+        }
+      ],
       "scripts": []
     },
     {
@@ -170,7 +217,10 @@
         "ios",
         "click"
       ],
-      "keywords": [],
+      "keywords": [
+        "ios",
+        "click"
+      ],
       "styles": [],
       "scripts": []
     },
@@ -187,7 +237,10 @@
         "php",
         "cors"
       ],
-      "keywords": [],
+      "keywords": [
+        "php",
+        "cors"
+      ],
       "styles": [],
       "scripts": []
     },
@@ -205,8 +258,17 @@
         "date",
         "tostring"
       ],
-      "keywords": [],
-      "styles": [],
+      "keywords": [
+        "javascript",
+        "date",
+        "tostring"
+      ],
+      "styles": [
+        {
+          "type": "style",
+          "value": "th, td { text-align: center; }"
+        }
+      ],
       "scripts": []
     },
     {
@@ -214,7 +276,7 @@
       "template": "src/views/pages/blog/mysql-error-2002.html",
       "url": "/blog/mysql-error-2002.html",
       "title": "解决 macOS 下 MySQL 2002 错误",
-      "cover": "/img/blog/mysqlerror2002.jpg",
+      "cover": "/img/blog/mysql-error-2002.jpg",
       "publishDateNum": "2017-02-07",
       "publishDateStr": "Feb 7th 2017",
       "description": "MySQL 真是个磨人的小妖精",
@@ -222,7 +284,10 @@
         "mac",
         "mysql"
       ],
-      "keywords": [],
+      "keywords": [
+        "mac",
+        "mysql"
+      ],
       "styles": [],
       "scripts": []
     },
@@ -240,7 +305,11 @@
         "2016",
         "2017"
       ],
-      "keywords": [],
+      "keywords": [
+        "summary",
+        "2016",
+        "2017"
+      ],
       "styles": [],
       "scripts": []
     },
@@ -261,7 +330,13 @@
         "function"
       ],
       "series": "es6-daily",
-      "keywords": [],
+      "keywords": [
+        "ecmascript",
+        "2015",
+        "es6",
+        "javascript",
+        "function"
+      ],
       "styles": [],
       "scripts": []
     },
@@ -278,7 +353,10 @@
         "javascript",
         "jsonp"
       ],
-      "keywords": [],
+      "keywords": [
+        "javascript",
+        "jsonp"
+      ],
       "styles": [],
       "scripts": []
     },
@@ -299,7 +377,13 @@
         "array"
       ],
       "series": "es6-daily",
-      "keywords": [],
+      "keywords": [
+        "ecmascript",
+        "2015",
+        "es6",
+        "javascript",
+        "array"
+      ],
       "styles": [],
       "scripts": []
     },
@@ -320,8 +404,19 @@
         "number"
       ],
       "series": "es6-daily",
-      "keywords": [],
-      "styles": [],
+      "keywords": [
+        "ecmascript",
+        "2015",
+        "es6",
+        "javascript",
+        "number"
+      ],
+      "styles": [
+        {
+          "type": "style",
+          "value": "th, td { text-align: center; }"
+        }
+      ],
       "scripts": []
     },
     {
@@ -344,7 +439,16 @@
         "regexp"
       ],
       "series": "es6-daily",
-      "keywords": [],
+      "keywords": [
+        "ecmascript",
+        "2015",
+        "es6",
+        "javascript",
+        "set",
+        "regular",
+        "expression",
+        "regexp"
+      ],
       "styles": [],
       "scripts": []
     },
@@ -367,7 +471,13 @@
       "series": "es6-daily",
       "keywords": [],
       "styles": [],
-      "scripts": []
+      "scripts": [
+        "ecmascript",
+        "2015",
+        "es6",
+        "javascript",
+        "string"
+      ]
     },
     {
       "id": "es6-daily-04-babel",
@@ -387,7 +497,14 @@
         "npm"
       ],
       "series": "es6-daily",
-      "keywords": [],
+      "keywords": [
+        "ecmascript",
+        "2015",
+        "es6",
+        "javascript",
+        "babel",
+        "npm"
+      ],
       "styles": [],
       "scripts": []
     },
@@ -405,7 +522,11 @@
         "algorithm",
         "project"
       ],
-      "keywords": [],
+      "keywords": [
+        "elevator",
+        "algorithm",
+        "project"
+      ],
       "styles": [],
       "scripts": []
     },
@@ -426,7 +547,13 @@
         "destructuring"
       ],
       "series": "es6-daily",
-      "keywords": [],
+      "keywords": [
+        "ecmascript",
+        "2015",
+        "es6",
+        "javascript",
+        "destructuring"
+      ],
       "styles": [],
       "scripts": []
     },
@@ -448,7 +575,14 @@
         "const"
       ],
       "series": "es6-daily",
-      "keywords": [],
+      "keywords": [
+        "ecmascript",
+        "2015",
+        "es6",
+        "javascript",
+        "let",
+        "const"
+      ],
       "styles": [],
       "scripts": []
     },
@@ -468,7 +602,12 @@
         "javascript"
       ],
       "series": "es6-daily",
-      "keywords": [],
+      "keywords": [
+        "ecmascript",
+        "2015",
+        "es6",
+        "javascript"
+      ],
       "styles": [],
       "scripts": []
     },
@@ -477,7 +616,7 @@
       "template": "src/views/pages/blog/css3-mooncake.html",
       "url": "/blog/css3-mooncake.html",
       "title": "纯CSS3绘制月饼",
-      "cover": "/img/blog/css3mooncake.jpg",
+      "cover": "/img/blog/css3-mooncake.jpg",
       "publishDateNum": "2015-09-27",
       "publishDateStr": "Sep 27th 2015",
       "description": "中秋佳节，用CSS3来画个月饼吧",
@@ -486,7 +625,11 @@
         "mooncake",
         "project"
       ],
-      "keywords": [],
+      "keywords": [
+        "css",
+        "mooncake",
+        "project"
+      ],
       "styles": [],
       "scripts": []
     },
@@ -495,7 +638,7 @@
       "template": "src/views/pages/blog/miui-icon-cache.html",
       "url": "/blog/miui-icon-cache.html",
       "title": "MIUI 图标缓存问题",
-      "cover": "/img/blog/miuiiconcache.jpg",
+      "cover": "/img/blog/miui-icon-cache.jpg",
       "publishDateNum": "2015-04-18",
       "publishDateStr": "Apr 18th 2015",
       "description": "离奇失踪的图标",
@@ -505,16 +648,21 @@
         "icon",
         "cache"
       ],
-      "keywords": [],
+      "keywords": [
+        "android",
+        "miui",
+        "icon",
+        "cache"
+      ],
       "styles": [],
       "scripts": []
     },
     {
-      "id": "latex-with-sublimetext",
-      "template": "src/views/pages/blog/latex-with-sublimetext.html",
-      "url": "/blog/latex-with-sublimetext.html",
+      "id": "latex-with-sublime-text",
+      "template": "src/views/pages/blog/latex-with-sublime-text.html",
+      "url": "/blog/latex-with-sublime-text.html",
       "title": "使用Sublime Text编写LaTeX",
-      "cover": "/img/blog/latexwithsublimetext.jpg",
+      "cover": "/img/blog/latex-with-sublime-text.jpg",
       "publishDateNum": "2015-04-01",
       "publishDateStr": "Apr 1st 2015",
       "description": "用你最熟悉的工具来写LaTeX吧",
@@ -522,8 +670,16 @@
         "sublime",
         "latex"
       ],
-      "keywords": [],
-      "styles": [],
+      "keywords": [
+        "sublime",
+        "latex"
+      ],
+      "styles": [
+        {
+          "type": "style",
+          "value": "th, td { text-align: left; }"
+        }
+      ],
       "scripts": []
     },
     {
@@ -541,7 +697,12 @@
         "substring",
         "slice"
       ],
-      "keywords": [],
+      "keywords": [
+        "javascript",
+        "substr",
+        "substring",
+        "slice"
+      ],
       "styles": [],
       "scripts": []
     },
@@ -550,7 +711,7 @@
       "template": "src/views/pages/blog/stack-calculator.html",
       "url": "/blog/stack-calculator.html",
       "title": "栈计算器",
-      "cover": "/img/blog/stackcalculator.jpg",
+      "cover": "/img/blog/stack-calculator.jpg",
       "publishDateNum": "2015-02-10",
       "publishDateStr": "Feb 10th 2015",
       "description": "通过“栈”实现的方程式计算器",
@@ -560,7 +721,12 @@
         "algorithm",
         "project"
       ],
-      "keywords": [],
+      "keywords": [
+        "stack",
+        "calculator",
+        "algorithm",
+        "project"
+      ],
       "styles": [],
       "scripts": []
     },
@@ -569,7 +735,7 @@
       "template": "src/views/pages/blog/tik-tok-color.html",
       "url": "/blog/tik-tok-color.html",
       "title": "时间是什么颜色的",
-      "cover": "/img/blog/tiktokcolor.jpg",
+      "cover": "/img/blog/tik-tok-color.jpg",
       "publishDateNum": "2015-02-10",
       "publishDateStr": "Feb 10th 2015",
       "description": "如果时间有颜色……",
@@ -578,7 +744,11 @@
         "time",
         "project"
       ],
-      "keywords": [],
+      "keywords": [
+        "color",
+        "time",
+        "project"
+      ],
       "styles": [],
       "scripts": []
     }
@@ -586,36 +756,10 @@
   "projects": [
     {
       "category": "commercial",
-      "id": "xinyue",
-      "template": "src/views/pages/project/xinyue.html",
-      "url": "/project/xinyue.html",
-      "cover": "/img/project/xinyue.jpg",
-      "thumb": "/img/project/thumb/xinyue.jpg",
-      "title": "新阅",
-      "description": "在线视频协作平台",
-      "keywords": [],
-      "styles": [],
-      "scripts": []
-    },
-    {
-      "category": "commercial",
-      "id": "influence",
-      "template": "src/views/pages/project/influence.html",
-      "url": "/project/influence.html",
-      "cover": "/img/project/influence.jpg",
-      "thumb": "/img/project/thumb/influence.jpg",
-      "title": "影响力",
-      "description": "红人数字交易平台",
-      "keywords": [],
-      "styles": [],
-      "scripts": []
-    },
-    {
-      "category": "commercial",
       "id": "xincafe",
       "template": "src/views/pages/project/xincafe.html",
       "url": "/project/xincafe.html",
-      "cover": "/img/project/xincafe.jpg",
+      "cover": "/img/project/xincafe/xincafe.jpg",
       "thumb": "/img/project/thumb/xincafe.jpg",
       "title": "新咖啡",
       "description": "XinCafe 订单系统",
@@ -628,7 +772,7 @@
       "id": "fbc",
       "template": "src/views/pages/project/fbc.html",
       "url": "/project/fbc.html",
-      "cover": "/img/project/fbc.jpg",
+      "cover": "/img/project/fbc/fbc.jpg",
       "thumb": "/img/project/thumb/fbc.jpg",
       "title": "FBC App",
       "description": "FBC 会员服务 App",
@@ -641,7 +785,7 @@
       "id": "avis",
       "template": "src/views/pages/project/avis.html",
       "url": "/project/avis.html",
-      "cover": "/img/project/avis.jpg",
+      "cover": "/img/project/avis/avis.jpg",
       "thumb": "/img/project/thumb/avis.jpg",
       "title": "野马跑跑跑 H5 游戏",
       "description": "安飞士 2016 年双十一活动",
@@ -654,7 +798,7 @@
       "id": "jetli",
       "template": "src/views/pages/project/jetli.html",
       "url": "/project/jetli.html",
-      "cover": "/img/project/jetli.jpg",
+      "cover": "/img/project/jetli/jetli.jpg",
       "thumb": "/img/project/thumb/jetli.jpg",
       "title": "街力",
       "description": "李连杰创办的功夫垂直内容平台",
@@ -667,7 +811,7 @@
       "id": "xshowroom",
       "template": "src/views/pages/project/xshowroom.html",
       "url": "/project/xshowroom.html",
-      "cover": "/img/project/xshowroom.jpg",
+      "cover": "/img/project/xshowroom/xshowroom.jpg",
       "thumb": "/img/project/thumb/xshowroom.jpg",
       "title": "Xshowroom 买手圈",
       "description": "国内时尚业首个专业买手服务平台",
@@ -680,7 +824,7 @@
       "id": "elevator",
       "template": "src/views/pages/project/elevator.html",
       "url": "/project/elevator.html",
-      "cover": "/img/project/elevator.jpg",
+      "cover": "/img/project/elevator/elevator.jpg",
       "thumb": "/img/project/thumb/elevator.jpg",
       "title": "Elevator",
       "description": "单列SCAN调度算法",
@@ -693,7 +837,7 @@
       "id": "css3-mooncake",
       "template": "src/views/pages/project/css3-mooncake.html",
       "url": "/project/css3-mooncake.html",
-      "cover": "/img/project/css3-mooncake.jpg",
+      "cover": "/img/project/css3-mooncake/css3-mooncake.jpg",
       "thumb": "/img/project/thumb/css3-mooncake.jpg",
       "title": "CSS3 Mooncake",
       "description": "纯CSS3绘制月饼",
@@ -706,7 +850,7 @@
       "id": "stack-calculator",
       "template": "src/views/pages/project/stack-calculator.html",
       "url": "/project/stack-calculator.html",
-      "cover": "/img/project/stack-calculator.jpg",
+      "cover": "/img/project/stack-calculator/stack-calculator.jpg",
       "thumb": "/img/project/thumb/stack-calculator.jpg",
       "title": "Stack Calculator",
       "description": "栈计算器",
@@ -719,7 +863,7 @@
       "id": "tik-tok-color",
       "template": "src/views/pages/project/tik-tok-color.html",
       "url": "/project/tik-tok-color.html",
-      "cover": "/img/project/tik-tok-color.jpg",
+      "cover": "/img/project/tik-tok-color/tik-tok-color.jpg",
       "thumb": "/img/project/thumb/tik-tok-color.jpg",
       "title": "TikTok Color",
       "description": "时间是什么颜色的",
@@ -737,7 +881,12 @@
       "title": "User Agent",
       "keywords": [],
       "styles": [],
-      "scripts": []
+      "scripts": [
+        {
+          "type": "outter",
+          "value": "/dist/scripts/lab/browser-ua.js"
+        }
+      ]
     },
     {
       "category": "browser",
@@ -747,7 +896,12 @@
       "title": "Viewport",
       "keywords": [],
       "styles": [],
-      "scripts": []
+      "scripts": [
+        {
+          "type": "outter",
+          "value": "/dist/scripts/lab/browser-viewport.js"
+        }
+      ]
     },
     {
       "category": "html5",
@@ -757,7 +911,12 @@
       "title": "Canvas",
       "keywords": [],
       "styles": [],
-      "scripts": []
+      "scripts": [
+        {
+          "type": "outter",
+          "value": "/dist/scripts/lab/html5-canvas.js"
+        }
+      ]
     },
     {
       "category": "html5",
@@ -767,7 +926,12 @@
       "title": "Geolocation",
       "keywords": [],
       "styles": [],
-      "scripts": []
+      "scripts": [
+        {
+          "type": "outter",
+          "value": "/dist/scripts/lab/html5-geolocation.js"
+        }
+      ]
     },
     {
       "category": "html5",
@@ -776,7 +940,12 @@
       "url": "/lab/html5-input.html",
       "title": "Input Type",
       "keywords": [],
-      "styles": [],
+      "styles": [
+        {
+          "type": "style",
+          "value": "label { display: block; margin-bottom: .5em; font-size: 16px; } input { width: 100%; height: 50px; line-height: 50px; border: 1px solid #999; margin-bottom: 15px; font-size: 16px; } input[type=\"text\"], input[type=\"password\"], input[type=\"tel\"], input[type=\"email\"], input[type=\"date\"], input[type=\"datetime\"], input[type=\"number\"], input[type=\"url\"], input[type=\"search\"] { padding-left: 1em; }"
+        }
+      ],
       "scripts": []
     },
     {
@@ -787,7 +956,12 @@
       "title": "Connection",
       "keywords": [],
       "styles": [],
-      "scripts": []
+      "scripts": [
+        {
+          "type": "outter",
+          "value": "/dist/scripts/lab/html5-connection.js"
+        }
+      ]
     },
     {
       "category": "html5",
@@ -796,8 +970,18 @@
       "url": "/lab/html5-online.html",
       "title": "Online",
       "keywords": [],
-      "styles": [],
-      "scripts": []
+      "styles": [
+        {
+          "type": "style",
+          "value": ".online { color: green; } .offline { color: red; }"
+        }
+      ],
+      "scripts": [
+        {
+          "type": "outter",
+          "value": "/dist/scripts/lab/html5-online.js"
+        }
+      ]
     }
   ]
 }

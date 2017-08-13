@@ -1,20 +1,27 @@
 const vendor = require('./vendor.config')
+const catalog = require('../catalog.json')
+
+const projects = catalog.projects
+const items = {}
+
+for (const project of projects) {
+  items[project.id] = project
+}
 
 module.exports = {
   id: 'project',
-  items: {
-    'tik-tok-color': {
-      template: 'src/views/pages/project/tik-tok-color.html',
-      title: 'Tik Tok Color',
-      keywords: [],
-      styles: [],
-      scripts: []
-    }
-  },
+  items,
   commonTitle: ' - 项目 | 童话说',
   commonKeywords: vendor.commonKeywords.concat([]),
   commonStyles: vendor.commonStyles.concat([
-    '/dist/styles/project.css'
+    {
+      type: 'link',
+      value: '/dist/styles/icons.css'
+    },
+    {
+      type: 'link',
+      value: '/dist/styles/project.css'
+    }
   ]),
   commonScripts: vendor.commonScripts.concat([])
 }

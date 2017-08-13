@@ -46,6 +46,7 @@ article {
       border-radius: 9px 2px 2px 9px;
       font-weight: 400;
       margin-bottom: 4px;
+      user-select: none;
 
       $dot-size: 6px;
       &::before {

@@ -46,6 +46,11 @@ a {
         @media (max-width: 480px) {
           .blog:hover .info p.title {
             color: #A4D100; } }
+    .blog:hover .info .tags .tag {
+      background-color: #181818;
+      color: #A4D100; }
+      .blog:hover .info .tags .tag::before {
+        background-color: #A4D100; }
   .blog .banner {
     overflow: hidden;
     position: relative; }
@@ -85,7 +90,13 @@ a {
         position: relative;
         border-radius: 9px 2px 2px 9px;
         font-weight: 400;
-        margin-bottom: 4px; }
+        margin-bottom: 4px;
+        -webkit-transition: all .3s ease-out;
+        transition: all .3s ease-out;
+        -webkit-user-select: none;
+           -moz-user-select: none;
+            -ms-user-select: none;
+                user-select: none; }
         .blog .info .tags .tag::before {
           content: '';
           position: absolute;
@@ -94,6 +105,8 @@ a {
           width: 6px;
           height: 6px;
           border-radius: 50%;
-          background-color: #181818; }
+          background-color: #181818;
+          -webkit-transition: all .3s ease-out;
+          transition: all .3s ease-out; }
 
 /*# sourceMappingURL=blog-catalog.css.map */

@@ -18,16 +18,29 @@
       background-color: transparent;
     }
 
-    .info p {
-      color: $theme-color-dark-primary;
-      @media (max-width: 480px) {
-        color: $theme-color-text-secondary;
-      }
-
-      &.title {
+    .info {
+      p {
         color: $theme-color-dark-primary;
         @media (max-width: 480px) {
+          color: $theme-color-text-secondary;
+        }
+
+        &.title {
+          color: $theme-color-dark-primary;
+          @media (max-width: 480px) {
+            color: $theme-color-main;
+          }
+        }
+      }
+
+      .tags {
+        .tag {
+          background-color: $theme-color-dark-primary;
           color: $theme-color-main;
+
+          &::before {
+            background-color: $theme-color-main;
+          }
         }
       }
     }
@@ -83,6 +96,8 @@
         border-radius: 9px 2px 2px 9px;
         font-weight: 400;
         margin-bottom: 4px;
+        transition: all .3s ease-out;
+        user-select: none;
 
         $dot-size: 6px;
         &::before {
@@ -94,6 +109,7 @@
           height: $dot-size;
           border-radius: 50%;
           background-color: $theme-color-dark-primary;
+          transition: all .3s ease-out;
         }
       }
     }

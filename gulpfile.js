@@ -84,7 +84,12 @@ gulp.task('build-blog', () => {
 })
 
 gulp.task('build-project', () => {
-  return gulp.src(src.project)
+  return gulp.src(
+    [
+      src.project,
+      '!src/views/pages/project/influence.html',
+      '!src/views/pages/project/xinyue.html'
+    ])
     .pipe(thsConcat(concatConfig.project))
     .pipe(gulp.dest(dest.project))
 })
@@ -190,10 +195,4 @@ gulp.task('dev', () => {
 
 gulp.task('default', () => {
   runSequence('dev')
-})
-
-gulp.task('test', () => {
-  gulp.src('src/views/index/*.html')
-    .pipe(thsConcat(concatConfig.base))
-    .pipe(gulp.dest('src/views/output'))
 })
