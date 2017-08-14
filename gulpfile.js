@@ -78,11 +78,7 @@ gulp.task('build-base', () => {
 })
 
 gulp.task('build-blog', () => {
-  return gulp.src(
-    [
-      src.blog,
-      '!src/views/pages/blog/introduction-to-ths-v2.html'
-    ])
+  return gulp.src(src.blog)
     .pipe(thsConcat(concatConfig.blog))
     .pipe(gulp.dest(dest.blog))
 })
