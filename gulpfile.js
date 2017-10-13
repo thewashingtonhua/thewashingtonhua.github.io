@@ -18,7 +18,7 @@ const standard = require('gulp-standard')
 // const uglify = require('gulp-uglify')
 
 const thsConcat = require('./src/util/ths-concat')
-const concatConfig = require('./concat.config.js')
+const concatConfig = require('./config/concat.config.js')
 
 const src = {
   script: 'src/scripts/**/*.js',
@@ -78,11 +78,7 @@ gulp.task('build-base', () => {
 })
 
 gulp.task('build-blog', () => {
-  return gulp.src(
-    [
-      src.blog,
-      '!src/views/pages/blog/introduction-to-ths-v2.html'
-    ])
+  return gulp.src(src.blog)
     .pipe(thsConcat(concatConfig.blog))
     .pipe(gulp.dest(dest.blog))
 })
