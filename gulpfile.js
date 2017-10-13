@@ -18,7 +18,7 @@ const standard = require('gulp-standard')
 // const uglify = require('gulp-uglify')
 
 const thsConcat = require('./src/util/ths-concat')
-const concatConfig = require('./concat.config.js')
+const concatConfig = require('./config/concat.config.js')
 
 const src = {
   script: 'src/scripts/**/*.js',
