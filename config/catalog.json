@@ -1,6 +1,32 @@
 {
   "blogs": [
     {
+      "id": "guide-for-vue-with-typescript",
+      "template": "src/views/pages/blog/guide-for-vue-with-typescript.html",
+      "url": "/blog/guide-for-vue-with-typescript.html",
+      "title": "用 TypeScript 开发 Vue 项目踩坑纪实",
+      "cover": "/img/blog/guide-for-vue-with-typescript.jpg",
+      "publishDateNum": "2017-10-26",
+      "publishDateStr": "Oct 26th 2017",
+      "description": "坑这种东西，多踩踩就平了",
+      "tags": [
+        "typescript",
+        "vue",
+        "webpack",
+        "vscode",
+        "vetur"
+      ],
+      "keywords": [
+        "typescript",
+        "vue",
+        "webpack",
+        "vscode",
+        "vetur"
+      ],
+      "styles": [],
+      "scripts": []
+    },
+    {
       "id": "introduction-to-ths-v2",
       "template": "src/views/pages/blog/introduction-to-ths-v2.html",
       "url": "/blog/introduction-to-ths-v2.html",
