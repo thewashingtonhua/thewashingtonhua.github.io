@@ -1,6 +1,30 @@
 {
   "blogs": [
     {
+      "id": "nodejs-9-release",
+      "template": "src/views/pages/blog/nodejs-9-release.html",
+      "url": "/blog/nodejs-9-release.html",
+      "title": "Node.js 9.0.0 发布",
+      "cover": "/img/blog/nodejs-9-release.jpg",
+      "publishDateNum": "2017-11-01",
+      "publishDateStr": "Nov 1st 2017",
+      "description": "一转眼，又半年过去了",
+      "tags": [
+        "nodejs"
+      ],
+      "keywords": [
+        "node",
+        "nodejs",
+        "release",
+        "v8",
+        "async",
+        "hook",
+        "n-api"
+      ],
+      "styles": [],
+      "scripts": []
+    },
+    {
       "id": "guide-for-vue-with-typescript",
       "template": "src/views/pages/blog/guide-for-vue-with-typescript.html",
       "url": "/blog/guide-for-vue-with-typescript.html",
@@ -19,6 +43,7 @@
       "keywords": [
         "typescript",
         "vue",
+        "vue.js",
         "webpack",
         "vscode",
         "vetur"
