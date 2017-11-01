@@ -303,6 +303,9 @@ function thsConcatBlog (file, options) {
 function thsConcatContent (file, options) {
   const filename = getFilename(file, false)
   const config = options.items[filename]
+
+  if (!config) return null
+
   const content = file.contents.toString('utf-8')
   const title = config.title + options.commonTitle
   const keywords = (options.commonKeywords.concat(config.keywords))
@@ -354,7 +357,9 @@ module.exports = function (options = {}) {
 
     const newFile = thsConcat(file, options)
 
-    this.push(newFile)
+    if (newFile) {
+      this.push(newFile)
+    }
     callback()
   }, function (callback) {
     callback()

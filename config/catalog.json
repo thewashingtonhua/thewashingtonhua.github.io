@@ -807,12 +807,25 @@
   "projects": [
     {
       "category": "commercial",
+      "id": "xinyue",
+      "template": "src/views/pages/project/xinyue.html",
+      "url": "/project/xinyue.html",
+      "cover": "/img/project/xinyue/xinyue.jpg",
+      "thumb": "/img/project/thumb/xinyue.jpg",
+      "title": "新阅",
+      "description": "在线视频协作平台",
+      "keywords": [],
+      "styles": [],
+      "scripts": []
+    },
+    {
+      "category": "commercial",
       "id": "xincafe",
       "template": "src/views/pages/project/xincafe.html",
       "url": "/project/xincafe.html",
       "cover": "/img/project/xincafe/xincafe.jpg",
       "thumb": "/img/project/thumb/xincafe.jpg",
-      "title": "新咖啡",
+      "title": "XinCafe",
       "description": "XinCafe 订单系统",
       "keywords": [],
       "styles": [],
@@ -825,8 +838,8 @@
       "url": "/project/fbc.html",
       "cover": "/img/project/fbc/fbc.jpg",
       "thumb": "/img/project/thumb/fbc.jpg",
-      "title": "FBC App",
-      "description": "FBC 会员服务 App",
+      "title": "FBC",
+      "description": "FBC 会员服务 Web App",
       "keywords": [],
       "styles": [],
       "scripts": []

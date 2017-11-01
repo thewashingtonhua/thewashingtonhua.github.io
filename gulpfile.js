@@ -84,12 +84,7 @@ gulp.task('build-blog', () => {
 })
 
 gulp.task('build-project', () => {
-  return gulp.src(
-    [
-      src.project,
-      '!src/views/pages/project/influence.html',
-      '!src/views/pages/project/xinyue.html'
-    ])
+  return gulp.src(src.project)
     .pipe(thsConcat(concatConfig.project))
     .pipe(gulp.dest(dest.project))
 })

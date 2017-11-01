@@ -5,19 +5,6 @@
   "projects": [
     {
       "category": "commercial",
-      "id": "xinyue",
-      "template": "src/views/pages/project/xinyue.html",
-      "url": "/project/xinyue.html",
-      "cover": "/img/project/xinyue/xinyue.jpg",
-      "thumb": "/img/project/thumb/xinyue.jpg",
-      "title": "新阅",
-      "description": "在线视频协作平台",
-      "keywords": [],
-      "styles": [],
-      "scripts": []
-    },
-    {
-      "category": "commercial",
       "id": "influence",
       "template": "src/views/pages/project/influence.html",
       "url": "/project/influence.html",
