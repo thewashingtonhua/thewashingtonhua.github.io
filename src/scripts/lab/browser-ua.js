@@ -17,15 +17,18 @@ function getBrowser () {
   let browser = 'Unknown'
   let browserVersion = ''
 
-  if (ua.indexOf('edge') > -1) {               // Edge / 12+
+  if (ua.indexOf('edge') > -1) {                // Edge / 12+
     browserVersion = ua.match(/edge\/\d+(.\d+)+/)[0].substr(5)
     browser = 'Microsoft Edge ' + browserVersion
-  } else if (ua.indexOf('msie') > -1) {        // IE <= 10
+  } else if (ua.indexOf('edgios') > -1) {       // Edge for iOS
+    const edgeVersion = ua.match(/edgios\/\d+(.\d+)+/)[0].substr(7)
+    browser = 'Edge for iOS ' + edgeVersion
+  } else if (ua.indexOf('msie') > -1) {         // IE <= 10
     browserVersion = ua.match(/msie\s\d+/)[0].substr(5)
     browser = 'IE ' + browserVersion
-  } else if (ua.indexOf('trident') > -1) {     // IE 11  only have 'Trident', IE 8,9,10   have both 'MSIE' & 'Trident', IE 6,7 only have 'MSIE'
+  } else if (ua.indexOf('trident') > -1) {      // IE 11  only have 'Trident', IE 8,9,10   have both 'MSIE' & 'Trident', IE 6,7 only have 'MSIE'
     browser = 'IE 11'
-  } else if (ua.indexOf('firefox') > -1) {     // Firefox
+  } else if (ua.indexOf('firefox') > -1) {      // Firefox
     browserVersion = ua.match(/firefox\/\d+(.\d+)+/)[0].substr(8)
     if (ua.indexOf('mobile') > -1) {
       browserVersion += ' (mobile)'
@@ -33,7 +36,7 @@ function getBrowser () {
     browser = 'Firefox ' + browserVersion
   } else if (ua.indexOf('opera') > -1) {        // Opera 9.8-
     browserVersion = ua.match(/opera\/\d+(.\d+)+/)[0].substr(6)
-    if (Number(browserVersion) >= 9.8) {          // Opera 10+
+    if (Number(browserVersion) >= 9.8) {        // Opera 10+
       browserVersion = ua.match(/version\/\d+(.\d+)+/)[0].substr(8)
     }
     if (ua.indexOf('mini') > -1) {              // Opera mini
@@ -41,20 +44,20 @@ function getBrowser () {
     }
     browser = 'Opera ' + browserVersion
   } else if (ua.indexOf('opr') > -1) {          // Opera with webkit/blink
-    browserVersion = ua.match(/opr\/\d+.\d+.\d+.\d+/)[0].substr(4)
+    browserVersion = ua.match(/opr\/\d+(.\d+)+/)[0].substr(4)
     if (ua.indexOf('dev') > -1) {               // Opera dev edition
       browserVersion += ' (edition developer)'
     } else if (ua.indexOf('beta') > -1) {       // Opera beta edition
       browserVersion += ' (edition beta)'
     }
     if (ua.indexOf('mobile') > -1) {
-      browserVersion += ' (mobile)'            // Opera Mobile
+      browserVersion += ' (mobile)'             // Opera Mobile
     }
     browser = 'Opera ' + browserVersion
   } else if (ua.indexOf('chrome') > -1) {       // Chrome
-    browserVersion = ua.match(/chrome\/\d+.\d+.\d+.\d+/)[0].substr(7)
+    browserVersion = ua.match(/chrome\/\d+(.\d+)+/)[0].substr(7)
     if (ua.indexOf('mobile') > -1) {
-      browserVersion += ' (mobile)'            // Chrome Mobile
+      browserVersion += ' (mobile)'             // Chrome Mobile
     }
     browser = 'Chrome ' + browserVersion
   } else if (ua.indexOf('safari') > -1) {       // Safari
@@ -330,7 +333,7 @@ function getOS () {
       os = 'Android'
       const androidVersion = ua.match(/android\s\d+(.\d+)+/)[0].substr(8)
       if (androidVersion) {
-        os = os + ' ' + androidVersion[0]
+        os = os + ' ' + androidVersion
       }
       return os
     }
@@ -342,7 +345,7 @@ function getOS () {
         const reg = /cpu\siphone\sos\s\d+(_\d+)+/
         const str = ua.match(reg)
         if (str[0].length) {
-          iosVersion = str[0].substr(6).replace(/_/g, '.')
+          iosVersion = str[0].substr(14).replace(/_/g, '.')
         }
         os = 'iOS ' + iosVersion + ' / iPhone'
       } else if (isIPad) {

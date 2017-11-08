@@ -21,6 +21,10 @@ function getBrowser() {
     // Edge / 12+
     browserVersion = ua.match(/edge\/\d+(.\d+)+/)[0].substr(5);
     browser = 'Microsoft Edge ' + browserVersion;
+  } else if (ua.indexOf('edgios') > -1) {
+    // Edge for iOS
+    var edgeVersion = ua.match(/edgios\/\d+(.\d+)+/)[0].substr(7);
+    browser = 'Edge for iOS ' + edgeVersion;
   } else if (ua.indexOf('msie') > -1) {
     // IE <= 10
     browserVersion = ua.match(/msie\s\d+/)[0].substr(5);
@@ -49,7 +53,7 @@ function getBrowser() {
     browser = 'Opera ' + browserVersion;
   } else if (ua.indexOf('opr') > -1) {
     // Opera with webkit/blink
-    browserVersion = ua.match(/opr\/\d+.\d+.\d+.\d+/)[0].substr(4);
+    browserVersion = ua.match(/opr\/\d+(.\d+)+/)[0].substr(4);
     if (ua.indexOf('dev') > -1) {
       // Opera dev edition
       browserVersion += ' (edition developer)';
@@ -63,7 +67,7 @@ function getBrowser() {
     browser = 'Opera ' + browserVersion;
   } else if (ua.indexOf('chrome') > -1) {
     // Chrome
-    browserVersion = ua.match(/chrome\/\d+.\d+.\d+.\d+/)[0].substr(7);
+    browserVersion = ua.match(/chrome\/\d+(.\d+)+/)[0].substr(7);
     if (ua.indexOf('mobile') > -1) {
       browserVersion += ' (mobile)'; // Chrome Mobile
     }
@@ -342,7 +346,7 @@ function getOS() {
       os = 'Android';
       var androidVersion = ua.match(/android\s\d+(.\d+)+/)[0].substr(8);
       if (androidVersion) {
-        os = os + ' ' + androidVersion[0];
+        os = os + ' ' + androidVersion;
       }
       return os;
     }
@@ -354,7 +358,7 @@ function getOS() {
         var reg = /cpu\siphone\sos\s\d+(_\d+)+/;
         var str = ua.match(reg);
         if (str[0].length) {
-          iosVersion = str[0].substr(6).replace(/_/g, '.');
+          iosVersion = str[0].substr(14).replace(/_/g, '.');
         }
         os = 'iOS ' + iosVersion + ' / iPhone';
       } else if (isIPad) {
