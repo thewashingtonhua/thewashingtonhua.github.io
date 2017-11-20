@@ -44,7 +44,7 @@ const initNavigator = () => {
             <a href="${getBase()}/blog.html">博客</a>
           </li>
           <li id="project">
-            <a href="${getBase()}/project.html">项目</a>
+            <a href="${getBase()}/project.html">案例</a>
           </li>
           <li id="lab">
             <a href="${getBase()}/lab.html">实验室</a>
@@ -53,7 +53,7 @@ const initNavigator = () => {
             <a href="${getBase()}/friend.html">朋友</a>
           </li>
           <li id="about">
-            <a href="${getBase()}/about.html">关于</a>
+            <a href="${getBase()}/about.html">我</a>
           </li>
         </ul>
       </div>
