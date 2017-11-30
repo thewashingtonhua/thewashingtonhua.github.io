@@ -3,46 +3,34 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<title>我是惊喜</title>
+	<title>扫码有奖</title>
 	<style>
 		* {
 			box-sizing: border-box;
 			font-family: Roboto, "Segeo UI", "Helvetica Neue", Tahoma, Arial, sans-serif, "PingFang SC", "Hiragino Sans GB", "Source Han Sans", "Microsoft Yahei", "STHeiti", "SimSun";
 		}
+		html, body {
+			margin: 0;
+			padding: 0;
+		}
+		main {
+			width: 100vw;
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
 		#title {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			width: 100%;
 			text-align: center;
-			font-weight: 400;
+			font-weight: 700;
+			font-size: 300px;
+			margin: 0;
 		}
 	</style>
 </head>
 <body>
-	<h1 id="title"></h1>
-
-	<script>
-		var texts = [
-		    "Made You Look",
-		    "真听话，快坐下吧",
-		    "Fooled You",
-		    "才怪嘞",
-		    "骗你的",
-		    "Peek-a-Boo",
-		    "其实并没有",
-		    "哪有那么好的事",
-		    "Hi，我是惊喜"
-		];
-
-		function update() {
-			var range = texts.length;
-			var index = Math.floor(Math.random() * range);
-			document.getElementById("title").innerHTML = texts[index];
-		}
-
-		update();
-	</script>
+	<main>
+		<h1 id="title">奖</h1>
+	</main>
 </body>
 </html>
