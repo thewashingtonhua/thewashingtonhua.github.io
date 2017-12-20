@@ -170,6 +170,7 @@ gulp.task('watch', () => {
   gulp.watch(src.blog, ['build-blog'])
   gulp.watch(src.project, ['build-project'])
   gulp.watch(src.lab, ['build-lab'])
+  gulp.watch('config/**/*', ['build-base', 'build-blog', 'build-project', 'build-lab'])
 })
 
 gulp.task('webserver', () => {
