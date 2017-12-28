@@ -2,12 +2,17 @@ const through = require('through-gulp')
 const path = require('path')
 const fs = require('fs')
 const catalog = require('../../../config/catalog.json')
+const moment = require('moment')
 
 const base = path.resolve(__dirname, '../../../')
 
 const headerOpen = fs.readFileSync(path.resolve(base, 'src/views/common/header-open.html'), {encoding: 'utf-8'})
 const headerClose = fs.readFileSync(path.resolve(base, 'src/views/common/header-close.html'), {encoding: 'utf-8'})
 const footer = fs.readFileSync(path.resolve(base, 'src/views/common/footer.html'), {encoding: 'utf-8'})
+
+function getTime () {
+  return moment.unix(Date.now() / 1000).format('HH:mm:ss')
+}
 
 function createStyle (type, value) {
   switch (type) {
@@ -23,7 +28,7 @@ function createStyle (type, value) {
 function createScript (type, value, option = {}) {
   switch (type) {
     case 'outter':
-      return `<script ${option.defer ? 'defer ' : ''}${option.async ? 'async ' : ''}src="${value}"></script>`
+      return `<script${option.defer ? ' defer' : ''}${option.async ? ' async' : ''} src="${value}"></script>`
     case 'inner':
       return `<script>${value}</script>`
     default:
@@ -32,7 +37,7 @@ function createScript (type, value, option = {}) {
 }
 
 function getFilename (file, suffix = true) {
-  const {base: fileBase, path: filePath} = file
+  const { base: fileBase, path: filePath } = file
   const filenameWithSuffix = filePath.substr(fileBase.length)
   if (suffix) {
     return filenameWithSuffix
@@ -111,7 +116,7 @@ function thsConcatBaseIndex (file, options) {
     footer
   ].join('\n')
   // console.log(output)
-  console.log(`[ths-concat] concatinated file: ${file.path}`)
+  console.log(`[${getTime()}] [ths-concat] base: ${getFilename(file)}`)
   const newFile = file.clone()
   newFile.contents = Buffer.from(output)
   return newFile
@@ -158,7 +163,7 @@ function thsConcatBaseBlog (file, options) {
     scripts.join('\n'),
     footer
   ].join('\n')
-  console.log(`[ths-concat] concatinated file: ${file.path}`)
+  console.log(`[${getTime()}] [ths-concat] base: ${getFilename(file)}`)
   const newFile = file.clone()
   newFile.contents = Buffer.from(output)
   return newFile
@@ -215,7 +220,7 @@ function thsConcatBaseProject (file, options) {
     scripts.join('\n'),
     footer
   ].join('\n')
-  console.log(`[ths-concat] concatinated file: ${file.path}`)
+  console.log(`[${getTime()}] [ths-concat] base: ${getFilename(file)}`)
   const newFile = file.clone()
   newFile.contents = Buffer.from(output)
   return newFile
@@ -250,7 +255,7 @@ function thsConcatBaseLab (file, options) {
     scripts.join('\n'),
     footer
   ].join('\n')
-  console.log(`[ths-concat] concatinated file: ${file.path}`)
+  console.log(`[${getTime()}] [ths-concat] base: ${getFilename(file)}`)
   const newFile = file.clone()
   newFile.contents = Buffer.from(output)
   return newFile
@@ -259,6 +264,8 @@ function thsConcatBaseLab (file, options) {
 function thsConcatBlog (file, options) {
   const filename = getFilename(file, false)
   const config = options.items[filename]
+  if (!config) return file
+
   const title = config.title + options.commonTitle
   const keywords = (options.commonKeywords.concat(config.keywords))
   const styles = (options.commonStyles.concat(config.styles)).map(style => createStyle(style.type, style.value))
@@ -294,13 +301,13 @@ function thsConcatBlog (file, options) {
     scripts.join('\n'),
     footer
   ].join('\n')
-  console.log(`[ths-concat] concatinated file: ${file.path}`)
+  console.log(`[${getTime()}] [ths-concat] blog: ${getFilename(file)}`)
   const newFile = file.clone()
   newFile.contents = Buffer.from(output)
   return newFile
 }
 
-function thsConcatContent (file, options) {
+function thsConcatCommon (file, options) {
   const filename = getFilename(file, false)
   const config = options.items[filename]
 
@@ -321,7 +328,7 @@ function thsConcatContent (file, options) {
     scripts.join('\n'),
     footer
   ].join('\n')
-  console.log(`[ths-concat] concatinated file: ${file.path}`)
+  console.log(`[${getTime()}] [ths-concat] common: ${getFilename(file)}`)
   const newFile = file.clone()
   newFile.contents = Buffer.from(output)
   return newFile
@@ -340,12 +347,12 @@ function thsConcat (file, options) {
       case 'lab':
         return thsConcatBaseLab(file, options)
       default:
-        return thsConcatContent(file, options)
+        return thsConcatCommon(file, options)
     }
   } else if (options.id === 'blog') {
     return thsConcatBlog(file, options)
   } else {
-    return thsConcatContent(file, options)
+    return thsConcatCommon(file, options)
   }
 }
 

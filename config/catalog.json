@@ -1,6 +1,29 @@
 {
   "blogs": [
     {
+      "id": "summary-2017",
+      "template": "src/views/pages/blog/summary-2017.html",
+      "url": "/blog/summary-2017.html",
+      "title": "一个非著名前端开发者的 2017",
+      "cover": "/img/blog/summary-2017.jpg",
+      "publishDateNum": "2017-12-29",
+      "publishDateStr": "Dec 29th 2017",
+      "description": "哎 ~ 又一年过去了",
+      "tags": [
+        "summary",
+        "2017",
+        "2018"
+      ],
+      "series": "es6-daily",
+      "keywords": [
+        "summary",
+        "2017",
+        "2018"
+      ],
+      "styles": [],
+      "scripts": []
+    },
+    {
       "id": "es6-daily-13-proxy-and-reflect",
       "template": "src/views/pages/blog/es6-daily-13-proxy-and-reflect.html",
       "url": "/blog/es6-daily-13-proxy-and-reflect.html",

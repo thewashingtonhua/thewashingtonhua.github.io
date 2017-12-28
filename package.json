@@ -34,6 +34,7 @@
     "gulp-standard": "^10.0.0",
     "gulp-uglify": "^3.0.0",
     "gulp-webserver": "^0.9.1",
+    "moment": "^2.20.1",
     "node-sass": "^3.13.0",
     "postcss-nested": "^2.0.4",
     "postcss-scss": "^1.0.2",
