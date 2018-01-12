@@ -1,5 +1,5 @@
 <h2>let</h2>
-<p>ES6 新增了<span class="code">let</span>命令，用于声明变量，和<span class="code">var</span>类似，区别在于用<span class="code">let</span>声明的变量只在<span class="code">let</span>所在的代码块内有效，不存在声明提前。因此当用<span class="code">let</span>声明变量时，必须像在 Java/C++ 中那样，先声明后使用。</p>
+<p>ES6 新增了<span class="code">let</span>命令，用于声明变量，和<span class="code">var</span>类似，区别在于用<span class="code">let</span>声明的变量只在<span class="code">let</span>所在的代码块内有效，不存在声明提前。因此当用<span class="code">let</span>声明变量时，必须像在 Java/C++ 中那样，先声明后使用。（其实即便是在 ES6 之前，从编程习惯上讲，也建议大家先声明后使用，避免自己给自己挖坑）</p>
 <pre><code>{
   var a=1;
   let b=2;
@@ -10,7 +10,7 @@ console.log(b);    // ReferenceError
 console.log(c);    // undefined
 console.log(d);    // ReferenceError
 var c = 3;
-var d = 4;</code></pre>
+let d = 4;</code></pre>
 <p>下面的代码是关于 JavaScript 中“闭包”的经典案例。可以看到，使用<span class="code">var</span>时，由于变量声明提前，变量<span class="code">i</span>实际上是一个全局变量，是共享的，因此无论数组的第几号索引，访问的都是<span class="code">i</span>的最后的值 10。而使用<span class="code">let</span>时，采用的是块级作用域，不存在声明提前，每一轮循环的<span class="code">j</span>都是独立的新变量，只在本轮有效，因此各索引输出的值都不一样。因此对于循环计数，使用<span class="code">let</span>更加严谨。</p>
 <pre><code>var a = [];
 for (var i = 0; i < 10; i++) {
@@ -39,7 +39,7 @@ if (true) {
 }
 console.log(n);    // 5</code></pre>
 
-<p>对于函数也是一样。下面的代码在ES5中运行，会得到“I am inside!”，因为声明提升的存在，函数声明语句会被提前到 if 判断之前（函数声明是一体的，不存在可分离的初始化，因此是整个<span class="code">function(){}</span>语句提前），即便不进入 if 也照样会执行。但在ES6中，由于支持块级作用域，内部声明的函数在其作用域外是不存在的，因此会执行外部定义的<span class="code">f()</span>，得到“I am outside!”。</p>
+<p>对于函数也是一样。下面的代码在ES5中运行，会得到“I am inside!”，因为声明提升的存在，第二个函数声明语句会被提前到 if 判断之前（函数声明是一体的，不存在可分离的初始化，因此是整个<span class="code">function(){}</span>语句提前），即便不进入 if 也照样会执行。但在ES6中，由于支持块级作用域，内部声明的函数在其作用域外是不存在的，第二个函数申明语句不会被提前，因此 if 条件不满足，内部代码不执行，执行外部定义的<span class="code">f()</span>，得到“I am outside!”。</p>
 <pre><code>function f() { console.log('I am outside!'); }
 (function () {
   if(false) {
