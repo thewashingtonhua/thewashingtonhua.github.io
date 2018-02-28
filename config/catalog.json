@@ -1,6 +1,39 @@
 {
   "blogs": [
     {
+      "id": "es6-daily-14-iterator",
+      "template": "src/views/pages/blog/es6-daily-14-iterator.html",
+      "url": "/blog/es6-daily-14-iterator.html",
+      "title": "每天一点ES6(14)：Iterator",
+      "cover": "/img/blog/es6daily.jpg",
+      "publishDateNum": "2018-02-28",
+      "publishDateStr": "Feb 28th 2018",
+      "description": "遍历也能搞出花来，怎么遍历你说了算",
+      "tags": [
+        "ecmascript",
+        "2015",
+        "es6",
+        "javascript",
+        "iterator",
+        "generator",
+        "for",
+        "of"
+      ],
+      "series": "es6-daily",
+      "keywords": [
+        "ecmascript",
+        "2015",
+        "es6",
+        "javascript",
+        "iterator",
+        "generator",
+        "for",
+        "of"
+      ],
+      "styles": [],
+      "scripts": []
+    },
+    {
       "id": "summary-2017",
       "template": "src/views/pages/blog/summary-2017.html",
       "url": "/blog/summary-2017.html",
