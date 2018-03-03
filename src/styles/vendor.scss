@@ -12,7 +12,7 @@ body {
   left: 0;
   width: 100%;
   height: $header-height;
-  background-color: $theme-color-dark-secondary;
+  background-color: $theme-color-dark-primary;
   z-index: 10;
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.5);
 
@@ -63,12 +63,13 @@ body {
 
         a {
           display: block;
-          color: #FFF;
           padding: 0 1em;
           height: 100%;
           font-size: 14px;
           line-height: $header-height;
           color: $theme-color-main;
+          // color: rgba(255, 255, 255, 0.7);
+          border-bottom: 2px solid transparent;
           @include ellipsis;
           transition: background-color .3s ease-out;
 
@@ -83,8 +84,10 @@ body {
 
         &.active {
           a {
-            background-color: $theme-color-main;
-            color: $theme-color-dark-secondary;
+            // background-color: $theme-color-main;
+            border-bottom: 2px solid $theme-color-main;
+            // color: $theme-color-dark-secondary;
+            color: $theme-color-main;
 
             &:hover {
               background-color: lighten($theme-color-main, 10%)
