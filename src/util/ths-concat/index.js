@@ -86,20 +86,20 @@ function thsConcatBaseIndex (file, options) {
   content = content.replace(/\{\{latestCommercialProjectsElem\}\}/, latestCommercialProjectsElem.join('\n'))
 
   // Get latest exercise project
-  const exerciseProjects = catalog.projects.filter(p => p.category === 'exercise')
-  const latestExerciseProjects = [exerciseProjects[0], exerciseProjects[1]]
-  const latestExerciseProjectsElem = latestExerciseProjects.map(p => `
-    <a class="project exercise" id="${p.id}" href="${p.url}">
-      <div class="cover">
-        <img src="${p.thumb}" alt="${p.id}">
-      </div>
-      <div class="intro">
-        <h2>${p.title}</h2>
-        <p>${p.description}</p>
-      </div>
-    </a>`
-  )
-  content = content.replace(/\{\{latestExerciseProjectsElem\}\}/, latestExerciseProjectsElem.join('\n'))
+  // const exerciseProjects = catalog.projects.filter(p => p.category === 'exercise')
+  // const latestExerciseProjects = [exerciseProjects[0], exerciseProjects[1]]
+  // const latestExerciseProjectsElem = latestExerciseProjects.map(p => `
+  //   <a class="project exercise" id="${p.id}" href="${p.url}">
+  //     <div class="cover">
+  //       <img src="${p.thumb}" alt="${p.id}">
+  //     </div>
+  //     <div class="intro">
+  //       <h2>${p.title}</h2>
+  //       <p>${p.description}</p>
+  //     </div>
+  //   </a>`
+  // )
+  // content = content.replace(/\{\{latestExerciseProjectsElem\}\}/, latestExerciseProjectsElem.join('\n'))
 
   const title = config.title + options.commonTitle
   const keywords = (options.commonKeywords.concat(config.keywords))
@@ -115,7 +115,6 @@ function thsConcatBaseIndex (file, options) {
     scripts.join('\n'),
     footer
   ].join('\n')
-  // console.log(output)
   console.log(`[${getTime()}] [ths-concat] base: ${getFilename(file)}`)
   const newFile = file.clone()
   newFile.contents = Buffer.from(output)
@@ -191,20 +190,20 @@ function thsConcatBaseProject (file, options) {
   content = content.replace(/\{\{commercialProjectsElem\}\}/, commercialProjectsElem.join('\n'))
 
   // Get exercise projects
-  const exerciseProjects = catalog.projects.filter(p => p.category === 'exercise')
-  const exerciseProjectsElem = exerciseProjects.map(p => `
-    <a class="project exercise" id="${p.id}" href="${p.url}">
-      <div class="cover">
-        <img src="${p.thumb}" alt="${p.id}">
-      </div>
-      <div class="intro">
-        <h2>${p.title}</h2>
-        <p>${p.description}</p>
-      </div>
-    </a>`
-  )
-  content = content.replace(/\{\{exerciseProjectsCount\}\}/, exerciseProjects.length)
-  content = content.replace(/\{\{exerciseProjectsElem\}\}/, exerciseProjectsElem.join('\n'))
+  // const exerciseProjects = catalog.projects.filter(p => p.category === 'exercise')
+  // const exerciseProjectsElem = exerciseProjects.map(p => `
+  //   <a class="project exercise" id="${p.id}" href="${p.url}">
+  //     <div class="cover">
+  //       <img src="${p.thumb}" alt="${p.id}">
+  //     </div>
+  //     <div class="intro">
+  //       <h2>${p.title}</h2>
+  //       <p>${p.description}</p>
+  //     </div>
+  //   </a>`
+  // )
+  // content = content.replace(/\{\{exerciseProjectsCount\}\}/, exerciseProjects.length)
+  // content = content.replace(/\{\{exerciseProjectsElem\}\}/, exerciseProjectsElem.join('\n'))
 
   const title = config.title + options.commonTitle
   const keywords = (options.commonKeywords.concat(config.keywords))
