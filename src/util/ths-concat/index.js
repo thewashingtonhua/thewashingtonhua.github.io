@@ -306,6 +306,42 @@ function thsConcatBlog (file, options) {
   return newFile
 }
 
+function thsConcatProject (file, options) {
+  const filename = getFilename(file, false)
+  const config = options.items[filename]
+
+  if (!config) return null
+
+  const title = config.title + options.commonTitle
+  const keywords = (options.commonKeywords.concat(config.keywords))
+  const styles = (options.commonStyles.concat(config.styles)).map(style => createStyle(style.type, style.value))
+  const scripts = (options.commonScripts.concat(config.scripts)).map(script => createScript(script.type, script.value))
+
+  const header = `
+    <div id="mf-content">
+      <p class="back-to-parent"><a href="/project.html">&laquo; 回到项目列表</a></p>
+  `
+  const content = file.contents.toString('utf-8')
+  const contentFooter = `</div>`
+
+  const output = [
+    headerOpen,
+    `<meta name="keywords" content="${keywords.join(',')}" />`,
+    `<title>${title}</title>`,
+    styles.join('\n'),
+    headerClose,
+    header,
+    content,
+    contentFooter,
+    scripts.join('\n'),
+    footer
+  ].join('\n')
+  console.log(`[${getTime()}] [ths-concat] common: ${getFilename(file)}`)
+  const newFile = file.clone()
+  newFile.contents = Buffer.from(output)
+  return newFile
+}
+
 function thsConcatCommon (file, options) {
   const filename = getFilename(file, false)
   const config = options.items[filename]
@@ -350,6 +386,8 @@ function thsConcat (file, options) {
     }
   } else if (options.id === 'blog') {
     return thsConcatBlog(file, options)
+  } else if (options.id === 'project') {
+    return thsConcatProject(file, options)
   } else {
     return thsConcatCommon(file, options)
   }

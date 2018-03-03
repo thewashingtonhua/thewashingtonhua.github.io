@@ -892,6 +892,58 @@
   "projects": [
     {
       "category": "commercial",
+      "id": "inex",
+      "template": "src/views/pages/project/inex.html",
+      "url": "/project/inex.html",
+      "cover": "/img/project/inex/inex.jpg",
+      "thumb": "/img/project/thumb/inex.jpg",
+      "title": "Influence Exchange",
+      "description": "影力所 - 一个基于红人的垂直领域交易所",
+      "keywords": [],
+      "styles": [],
+      "scripts": []
+    },
+    {
+      "category": "commercial",
+      "id": "inc",
+      "template": "src/views/pages/project/inc.html",
+      "url": "/project/inc.html",
+      "cover": "/img/project/inc/inc.jpg",
+      "thumb": "/img/project/thumb/inc.jpg",
+      "title": "Influence Chain",
+      "description": "影链 - 链接影响力和价值",
+      "keywords": [],
+      "styles": [],
+      "scripts": []
+    },
+    {
+      "category": "commercial",
+      "id": "crt",
+      "template": "src/views/pages/project/crt.html",
+      "url": "/project/crt.html",
+      "cover": "/img/project/crt/crt.jpg",
+      "thumb": "/img/project/thumb/crt.jpg",
+      "title": "CentRocket",
+      "description": "量化投资引擎",
+      "keywords": [],
+      "styles": [],
+      "scripts": []
+    },
+    {
+      "category": "commercial",
+      "id": "dc",
+      "template": "src/views/pages/project/dc.html",
+      "url": "/project/dc.html",
+      "cover": "/img/project/dc/dc.jpg",
+      "thumb": "/img/project/thumb/dc.jpg",
+      "title": "Drift Club",
+      "description": "二手豪车租赁平台",
+      "keywords": [],
+      "styles": [],
+      "scripts": []
+    },
+    {
+      "category": "commercial",
       "id": "xinyue",
       "template": "src/views/pages/project/xinyue.html",
       "url": "/project/xinyue.html",

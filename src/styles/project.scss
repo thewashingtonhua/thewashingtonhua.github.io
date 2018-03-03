@@ -1,6 +1,15 @@
 @charset 'utf-8';
 @import '_common';
 
+.back-to-parent {
+  padding: 10px 0;
+  margin-bottom: 20px;
+
+  a {
+    color: $theme-color-text-secondary;
+  }
+}
+
 article {
   padding: 40px 0;
 

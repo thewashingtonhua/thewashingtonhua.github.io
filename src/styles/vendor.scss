@@ -90,7 +90,8 @@ body {
             color: $theme-color-main;
 
             &:hover {
-              background-color: lighten($theme-color-main, 10%)
+              background-color: lighten($theme-color-main, 10%);
+              color: $theme-color-dark-primary;
             }
           }
         }
