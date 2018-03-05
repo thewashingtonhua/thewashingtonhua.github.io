@@ -1,0 +1,6 @@
+{
+  "standard.validate": [
+    "javascript",
+    "javascriptreact"
+  ]
+}

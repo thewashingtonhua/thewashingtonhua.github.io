@@ -1,6 +1,33 @@
 {
   "blogs": [
     {
+      "id": "es6-daily-15-promise",
+      "template": "src/views/pages/blog/es6-daily-15-promise.html",
+      "url": "/blog/es6-daily-15-promise.html",
+      "title": "每天一点ES6(15)：Promise",
+      "cover": "/img/blog/es6daily.jpg",
+      "publishDateNum": "2018-03-04",
+      "publishDateStr": "Feb 4th 2018",
+      "description": "对你的承诺，永远不变",
+      "tags": [
+        "ecmascript",
+        "2015",
+        "es6",
+        "javascript",
+        "promise"
+      ],
+      "series": "es6-daily",
+      "keywords": [
+        "ecmascript",
+        "2015",
+        "es6",
+        "javascript",
+        "promise"
+      ],
+      "styles": [],
+      "scripts": []
+    },
+    {
       "id": "es6-daily-14-iterator",
       "template": "src/views/pages/blog/es6-daily-14-iterator.html",
       "url": "/blog/es6-daily-14-iterator.html",
