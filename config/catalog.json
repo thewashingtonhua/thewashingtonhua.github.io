@@ -1,13 +1,40 @@
 {
   "blogs": [
     {
+      "id": "es6-daily-16-generator",
+      "template": "src/views/pages/blog/es6-daily-16-generator.html",
+      "url": "/blog/es6-daily-16-generator.html",
+      "title": "每天一点ES6(16)：Generator",
+      "cover": "/img/blog/es6daily.jpg",
+      "publishDateNum": "2018-06-14",
+      "publishDateStr": "Jun 14th 2018",
+      "description": "一起来摩擦摩擦发电吧",
+      "tags": [
+        "ecmascript",
+        "2015",
+        "es6",
+        "javascript",
+        "generator"
+      ],
+      "series": "es6-daily",
+      "keywords": [
+        "ecmascript",
+        "2015",
+        "es6",
+        "javascript",
+        "generator"
+      ],
+      "styles": [],
+      "scripts": []
+    },
+    {
       "id": "es6-daily-15-promise",
       "template": "src/views/pages/blog/es6-daily-15-promise.html",
       "url": "/blog/es6-daily-15-promise.html",
       "title": "每天一点ES6(15)：Promise",
       "cover": "/img/blog/es6daily.jpg",
       "publishDateNum": "2018-03-04",
-      "publishDateStr": "Feb 4th 2018",
+      "publishDateStr": "Mar 4th 2018",
       "description": "对你的承诺，永远不变",
       "tags": [
         "ecmascript",
@@ -91,7 +118,7 @@
       "cover": "/img/blog/es6daily.jpg",
       "publishDateNum": "2017-12-20",
       "publishDateStr": "Dec 20th 2017",
-      "description": "JavaScript 元编程！就问你怕不怕",
+      "description": "对不起，有代理真就是可以为所欲为",
       "tags": [
         "ecmascript",
         "2015",
@@ -917,19 +944,6 @@
     }
   ],
   "projects": [
-    {
-      "category": "commercial",
-      "id": "inex",
-      "template": "src/views/pages/project/inex.html",
-      "url": "/project/inex.html",
-      "cover": "/img/project/inex/inex.jpg",
-      "thumb": "/img/project/thumb/inex.jpg",
-      "title": "Influence Exchange",
-      "description": "影力所 - 一个基于红人的垂直领域交易所",
-      "keywords": [],
-      "styles": [],
-      "scripts": []
-    },
     {
       "category": "commercial",
       "id": "inc",

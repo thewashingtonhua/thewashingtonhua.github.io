@@ -37,7 +37,7 @@ const initNavigator = () => {
     <header id="mf-header">
       <div class="mf-header-wrapper">
         <a href="${getBase()}" class="logo">
-          <span>THS</span>
+          <span>童话说</span>
         </a>
         <ul class="catalogs">
           <li id="blog">
@@ -47,7 +47,7 @@ const initNavigator = () => {
             <a href="${getBase()}/project.html">项目</a>
           </li>
           <li id="lab">
-            <a href="${getBase()}/lab.html">工具箱</a>
+            <a href="${getBase()}/lab.html">实验室</a>
           </li>
           <li id="friend">
             <a href="${getBase()}/friend.html">朋友</a>
