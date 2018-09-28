@@ -93,6 +93,16 @@ article {
     article h3 span.code {
       padding: .1em .3em;
       margin: 0 .3em; }
+  article h4 {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1;
+    margin-top: 1.5em;
+    margin-bottom: .5em; }
+    article h4 span.code {
+      padding: .1em .3em;
+      margin: 0 .3em; }
   article p {
     color: rgba(255, 255, 255, 0.7);
     font-weight: 300;

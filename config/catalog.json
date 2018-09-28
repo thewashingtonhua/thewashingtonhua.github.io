@@ -1,6 +1,39 @@
 {
   "blogs": [
     {
+      "id": "tradingview-charting-library-simple-guide",
+      "template": "src/views/pages/blog/tradingview-charting-library-simple-guide.html",
+      "url": "/blog/tradingview-charting-library-simple-guide.html",
+      "title": "TradingView + WebSocket 实时推送 K 线脱坑指南",
+      "cover": "/img/blog/tradingview.jpg",
+      "publishDateNum": "2018-09-22",
+      "publishDateStr": "Sep 22nd 2018",
+      "description": "来，今儿咱把话说清楚了，K 线到底该怎么画",
+      "tags": [
+        "tradingview",
+        "chart",
+        "library",
+        "guide",
+        "websocket",
+        "webworker",
+        "ohlc",
+        "kchart"
+      ],
+      "series": "",
+      "keywords": [
+        "tradingview",
+        "chart",
+        "library",
+        "guide",
+        "websocket",
+        "webworker",
+        "ohlc",
+        "kchart"
+      ],
+      "styles": [],
+      "scripts": []
+    },
+    {
       "id": "es6-daily-16-generator",
       "template": "src/views/pages/blog/es6-daily-16-generator.html",
       "url": "/blog/es6-daily-16-generator.html",
@@ -944,6 +977,19 @@
     }
   ],
   "projects": [
+    {
+      "category": "commercial",
+      "id": "inex",
+      "template": "src/views/pages/project/inex.html",
+      "url": "/project/inex.html",
+      "cover": "/img/project/inex/inex.jpg",
+      "thumb": "/img/project/thumb/inex.jpg",
+      "title": "INEX 影力所",
+      "description": "影力所 - 一个基于影响力的数字资产交易所",
+      "keywords": [],
+      "styles": [],
+      "scripts": []
+    },
     {
       "category": "commercial",
       "id": "inc",

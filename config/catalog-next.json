@@ -3,19 +3,6 @@
   "projects": [
     {
       "category": "commercial",
-      "id": "inex",
-      "template": "src/views/pages/project/inex.html",
-      "url": "/project/inex.html",
-      "cover": "/img/project/inex/inex.jpg",
-      "thumb": "/img/project/thumb/inex.jpg",
-      "title": "Influence Exchange",
-      "description": "影力所 - 一个基于红人的垂直领域交易所",
-      "keywords": [],
-      "styles": [],
-      "scripts": []
-    },
-    {
-      "category": "commercial",
       "id": "influence",
       "template": "src/views/pages/project/influence.html",
       "url": "/project/influence.html",

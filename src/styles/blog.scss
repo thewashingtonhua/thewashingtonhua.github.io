@@ -94,6 +94,20 @@ article {
     }
   }
 
+  h4 {
+    color: $theme-color-text-secondary;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1;
+    margin-top: 1.5em;
+    margin-bottom: .5em;
+
+    span.code {
+      padding: .1em .3em;
+      margin: 0 .3em;
+    }
+  }
+
   p {
     color: $theme-color-text-secondary;
     font-weight: 300;

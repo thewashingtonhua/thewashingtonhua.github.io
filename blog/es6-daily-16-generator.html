@@ -266,7 +266,7 @@ obj.b // 2
 obj.c // 3</code></pre>
 
 <p>或者更好一点，绑定函数的原型为上下文，这样<span class='code'>this</span>直接指向实例本身。</p>
-<pre><code class='javascript'>function* F() {
+<pre><code class='javascript'>function* F () {
   this.a = 1;
   yield this.b = 2;
   yield this.c = 3;
@@ -291,7 +291,7 @@ function F () {
   return gen.call(gen.prototype);
 }
 
-var f = new F();
+var f = new F ();
 
 f.next();  // Object {value: 2, done: false}
 f.next();  // Object {value: 3, done: false}
