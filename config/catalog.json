@@ -1,6 +1,37 @@
 {
   "blogs": [
     {
+      "id": "es6-daily-17-async-await",
+      "template": "src/views/pages/blog/es6-daily-17-async-await.html",
+      "url": "/blog/es6-daily-17-async-await.html",
+      "title": "每天一点ES6(17)：Async / Await",
+      "cover": "/img/blog/es6daily.jpg",
+      "publishDateNum": "2018-10-06",
+      "publishDateStr": "Oct 6th 2018",
+      "description": "异步？先等等！",
+      "tags": [
+        "ecmascript",
+        "2015",
+        "es6",
+        "javascript",
+        "async",
+        "await",
+        "generator"
+      ],
+      "series": "es6-daily",
+      "keywords": [
+        "ecmascript",
+        "2015",
+        "es6",
+        "javascript",
+        "async",
+        "await",
+        "generator"
+      ],
+      "styles": [],
+      "scripts": []
+    },
+    {
       "id": "tradingview-charting-library-simple-guide",
       "template": "src/views/pages/blog/tradingview-charting-library-simple-guide.html",
       "url": "/blog/tradingview-charting-library-simple-guide.html",

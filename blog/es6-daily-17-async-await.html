@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="baidu-site-verification" content="E4QIL3aZQa" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+  <meta name="description" content="童话说，一个关于Web前端的个人技术博客，不定期发布Web前端及其相关技术的博文" />
+<meta name="keywords" content="tonghuashuo,github,前端,html,css,javascript,android,童话,童话说,华心童,washington,hua,ecmascript,2015,es6,javascript,async,await,generator" />
+<title>每天一点ES6(17)：Async / Await - 博客 | 童话说</title>
+<link rel="stylesheet" href="/dist/styles/vendor.css" />
+<link rel="stylesheet" href="/dist/styles/blog.css" />
+</head>
+<body>
+
+  <div id="mf-content">
+    <p class="back-to-parent"><a href="/blog.html">&laquo; 回到博客列表</a></p>
+    <article id="es6-daily-17-async-await">
+      <h1>每天一点ES6(17)：Async / Await</h1>
+      <p class="publish-date"><time datetime="2018-10-06">Oct 6th 2018<time></p>
+      <ul class="tags">
+        <li class="tag">ecmascript</li>
+<li class="tag">2015</li>
+<li class="tag">es6</li>
+<li class="tag">javascript</li>
+<li class="tag">async</li>
+<li class="tag">await</li>
+<li class="tag">generator</li>
+      </ul>
+      <div class="banner">
+        <img src="/img/blog/es6daily.jpg" alt="es6-daily-17-async-await">
+      </div>
+  
+<h2>又一个异步解决方案</h2>
+<p>ES2015 在异步方面可谓是做足了贡献。之前我们已经介绍过了 Promise，一种可以让我们把异步操作写成链式调用的语法；就在上一篇，我们又介绍了 Generator，一种可以把异步操作同步化的语法。所以这个“异步/等待”又是什么新玩法？</p>
+
+<h2>只是个语法糖</h2>
+<p>时至今日，大家对<span class='code'>async</span>/<span class='code'>await</span>应该已经很熟悉了，算是 ES2015 以来被知道最多的特性之一。即便日常工作中没有用到，也都有所耳闻。</p>
+<p>和 Generator 一样，<span class='code'>async</span>/<span class='code'>await</span>也是一种可以把异步操作同步化的语法。确切的说，它并不是什么全新的东西，不过是 Generator 的语法糖：</p>
+<ul>
+  <li>把<span class='code'>*</span>替换成<span class='code'>async</span></li>
+  <li>把<span class='code'>yield</span>替换成<span class='code'>await</span></li>
+</ul>
+<p>结束。</p>
+
+<h2>不只是个语法糖</h2>
+<p>当然，能够单独作为一篇出来讲的，肯定不会只是语法糖这么简单，虽然语法看上去就这么简单。</p>
+<p>我们知道，执行 Generator 函数的结果是得到一个遍历器实例，需要手动调用<span class='code'>next()</span>才能执行。async 函数内置了执行器，调用 async 函数就和调用普通函数一样，没有区别。</p>
+<p>从语义上将，相比<span class='code'>*</span>和<span class='code'>yield</span>，<span class='code'>async</span>/<span class='code'>await</span>更加的直观，<span class='code'>async</span>表示函数里有异步操作，但是，函数本身是同步的。<span class='code'>await</span>表示等待右边紧跟的操作完成，再进入后续的流程，最终得到一个同步的执行流程。</p>
+<p>async 函数返回一个 Promise 对象，可以直接用<span class='code'>then()</span>指定下一步的操作，相比 Generator 返回一个 Iterator 对象更方便。</p>
+<p>换个角度，async 函数也可以看作是把多个异步操作包装秤一个 Promise，<span class='code'>await</span>就相当于内部的<span class='code'>then()</span>，用于控制异步操作同步执行。和 <span class='code'>Promise.all()</span>也很类似，只不过内部的多个异步流程是按顺序执行的。</p>
+
+<h2>所以，要怎么用呢？</h2>
+<pre><code class='javascript'>
+const asyncFunc = async () => {
+  console.log('called')
+  const result = await Promise.resolve('async')
+  console.log(result)
+}
+
+asyncFunc()
+  .then(res => console.log('then'))
+  .catch(err => console.log(err))
+console.log('sync')
+
+// called
+// sync
+// async</code></pre>
+<ul>
+  <li>在函数定义的最前面添加<span class='code'>async</span>表示这是个 async 函数。</li>
+  <li><span class='code'>awiat</span>只能在<span class='code'>async</span>函数内部使用。</li>
+  <li>async 函数本身是同步的，所以 "called" 会先打出来；直到遇到第一个<span class='code'>await</span>，函数先返回，后面的流程全都视为异步。所以 "async" 会在 "sync" 之后打出。</li>
+  <li><span class='code'>await</span>后面通常接一个异步操作，待执行完成后返回结果，再往下执行。当然<span class='code'>await</span>后面也可以接一些原始类型，此时这就相当于是一个同步操作。但这并不影响 async 函数会在这之前先返回。</li>
+  <li>async 函数的调用和普通函数一样。</li>
+  <li>async 函数总是返回一个 Promise，如果函数内<span class='code'>return</span>语句返回的不是 Promise，则会被包装秤一个立即 resolve 的 Promise对象。</li>
+  <li>async 函数在遇到第一个<span class='code'>awiat</span>时会先返回一次，交还程序的控制权给到父级，函数内的后续流程会继续异步执行，直到完成或出错，才正式返回一个 Promise。</li>
+</ul>
+
+<h2>async 函数的错误处理</h2>
+<p>async 函数的错误处理机制其实和 Promise 差不多，只不过一些细节上需要留意一下。</p>
+<p>async 函数里如果出现有 Promise 被 reject 的情况，无论代码中是否有<span class='code'>return</span>，函数会立即返回一个被 reject 的 Promise，后续代码不会执行。如果希望异步操作出错不影响后续的逻辑，可以把异步操作嵌套在<span class='code'>try...catch</span>里，如果异步操作本身就是 Promise，也可以用 Promise 的<span class='code'>catch()</span>来处理。</p>
+
+<h2>实现一个自动执行器</h2>
+<p>我们已经知道 async 就是一个 Generator 加上自动执行器，Generator 我们已经知道了，自动执行又是怎么做到的呢？</p>
+<pre><code class='javascript'>// 通过参数传入一个 Generator
+function spawn (genF) {
+  return new Promise(function (resolve, reject) {
+    // 获得 Generator 实例
+    const gen = genF()
+
+    // 内部函数，用于递归执行
+    function step (nextF) {
+      let next
+      try {
+        // 尝试获取 Generator 实例的下一状态
+        next = nextF()
+      } catch(e) {
+        return reject(e)
+      }
+      // 出口
+      if (next.done) {
+        return resolve(next.value)
+      }
+      // 如果还有后续，那么继续
+      Promise.resolve(next.value).then(function(v) {
+        step(function() { return gen.next(v) })
+      }, function(e) {
+        step(function() { return gen.throw(e) })
+      })
+    }
+
+    // 开始执行
+    step(function() { return gen.next(undefined) })
+  })
+}</code></pre>
+
+<h2>小结</h2>
+<p>一句话概括：async 函数 === 自动执行器(Generator)。</p>
+<p>这个系列名为 ES6，也就是 ES2015，但 async/await 真正加入标准是在 ES2017，晚了 2 年。不过因为是语法糖的关系，主流环境早在这之前就已经给出了 Polyfill，Node.js 从 7.x 开始也已经正式支持了<span class='code'>async</span>/<span class='code'>await</span>，所以日常可以放心大胆直接用了。</p>
+
+<h2>该系列的其他文章</h2>
+<p>上一篇：<a href="es6-daily-16-generator.html">每天一点ES6(16)：Generator</a></p>
+<p>下一篇：<a href="javascript:;">每天一点ES6(18)：Class</a></p>
+</article></div>
+<script src="/lib/jquery.min.js"></script>
+<script src="/dist/scripts/vendor.js"></script>
+<script src="/dist/scripts/line-number.js"></script>
+</body>
+</html>
