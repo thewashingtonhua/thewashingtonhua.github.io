@@ -31,7 +31,7 @@
         <img src="/img/blog/es6daily.jpg" alt="es6-daily-12-set-and-map">
       </div>
   
-<h2>Set</h2>
+<h2>Set，一个独一无二的数组</h2>
 <p>Set 是 ES6 中新增的一种数据类型，可以理解为一种特殊的数组，重点区别在于 Set 的成员值都是唯一的，绝对不会重复。</p>
 
 <pre><code class="javascript">const s = new Set();
@@ -104,10 +104,10 @@ const w2 = new WeakSet(a2); // Uncaught TypeError
 // a1 的成员是数组，数组属于对象，因此两个成员被放入 WeakSet
 // a2 的成员是数字，数字不属于对象，因此报错</code></pre>
 
-<h2>Map</h2>
-<p>Map 是对 Object 的改进，同样是键值对的结构，Object 中的键只能是字符串，如果试图把一个 DOM 节点用作键，Object 会自动将其转成字符串"[object HTMLDivElement]"，这样一来很容易就会导致命名冲突。Map 支持任何类型的键，</p>
+<h2>Map，一个独一无二无所不能的对象</h2>
+<p>Map 是对 Object 的改进，同样是键值对的结构，Object 中的键只能是字符串，如果试图把一个 DOM 节点用作键，Object 会自动将其转成字符串"[object HTMLDivElement]"，这样一来很容易就会导致命名冲突。Map 支持任何类型的键，换句话说，Object 是“键-值”的映射，Map 是“值-值”的映射</p>
 
-<h2>Map 的操作</h2>
+<h3>Map 的操作</h3>
 <ul>
   <li><span class="code">set(k, v)</span>：设置新的属性/覆盖原有属性，返回修改后的 Map（即支持链式调用）</li>
   <li><span class="code">get(k)</span>：从 Map 中获取指定键对应的值</li>
@@ -117,7 +117,7 @@ const w2 = new WeakSet(a2); // Uncaught TypeError
   <li><span class="code">size</span>：返回 Map 中属性的数量。</li>
 </ul>
 <p>Map 支持传入一个二维数组进行初始化，二维数组中的每个元素都是一个"[k, v]"结构的数组。事实上任何实现了 Iterator 接口的数据结构都可以用于生成 Map，包括 Set 和 Map。</p>
-<p>由于 Map 中的键可以是任意类型，尤其需要注意对象/数组类型，必须是同一个对象/数组才会被认为是同一个键，值相等的不同实例会被认为是两个属性（引用的内存地址不同）</p>
+<p>由于 Map 中的键可以是任意类型，尤其需要注意对象/数组类型，必须是对同一个对象/数组的引用才会被认为是同一个键，值相等的不同引用会被认为是两个属性（引用的内存地址不同），这会导致两个键看上去一模一样，但实际上却是两个不同的键。</p>
 <pre><code class="javascript">const map = new Map();
 
 map.set(['a'], 1);
