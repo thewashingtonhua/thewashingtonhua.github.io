@@ -168,6 +168,10 @@ for (let [index, elem] of ['a', 'b'].entries()) {
 <h2>数组的空位</h2>
 <p>指的是数组中不含任何值的位置（undefined也是有效值，不算空位），ES5 中的数组方法在处理空位时的行为非常不一致，ES6 统一将空位视为<span class="code">undefined</span>，更加标准化。当然最理想的方案还是尽可能的避免空位的产生。</p>
 
+<h2>flat()、flatMap()</h2>
+<p><span class='code'>flat</span>用于将一个多维数组拉平到更低的维度，默认向下拉平一层，可以传入一个正整数表示需要降维多少层。<span class='code'>flat</span>最多只能把数组拉平到一位数组，如果传入的参数比数组维度更高，也不会又额外的作用，传入 Infinity 可以拉平一切数组（数组中的对象不会被展开，还是对象）</p>
+<p><span class='code'>flatMap</span>相当于先对数组执行<span class='code'>map()</span>，在对新数组执行一层<span class='code'>flat()</span>，注意只有拉平一层，没得选。<span class='code'>flatMap</span>可以接受两个参数，第一个参数和<span class='code'>map</span>一样是个遍历函数，第二个参数是一个可选的<span class='code'>this</span>，用来绑定遍历函数中的<span class='code'>this</span>。</p>
+
 <h2>该系列的其他文章</h2>
 <p>上一篇：<a href="es6-daily-07-number.html">每天一点ES6(7)：数值的扩展</a></p>
 <p>下一篇：<a href="es6-daily-09-function.html">每天一点ES6(9)：函数的扩展</a></p>
