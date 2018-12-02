@@ -129,20 +129,23 @@ function thsConcatBaseBlog (file, options) {
   // Get blogs
   const blogs = catalog.blogs
   const blogsElem = blogs.map(blog => {
-    const tags = blog.tags.map(tag => `<li class="tag">${tag}</li>`)
+    // const tags = blog.tags.map(tag => `<li class="tag">${tag}</li>`)
+    const tags = blog.tags.join(', ')
     const series = blog.series ? ` data-series="${blog.series}"` : ''
     return `
       <a class="blog" href="${blog.url}" id="${blog.id}"${series}>
-        <div class="banner fix-ratio ratio-16-9">
+        <div class="banner">
           <img src="${blog.cover}" alt="${blog.id}">
         </div>
         <div class="info">
-          <p class="title">${blog.title}</p>
-          <p class="create-date"><time datetime="${blog.publishDateNum}">${blog.publishDateStr}</time></p>
-          <p class="description">${blog.description}</p>
-          <ul class="tags">
-            ${tags.join('\n')}
-          </ul>
+          <h2 class="title">${blog.title}</h2>
+          <p class="desc">${blog.description}</p>
+          <footer class="blog__footer">
+            <p class="date">
+              <time datetime="${blog.publishDateNum}">${blog.publishDateStr}</time>
+            </p>
+            <p class="tags">${tags}</p>
+          </footer>
         </div>
       </a>`
   })

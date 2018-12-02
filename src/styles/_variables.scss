@@ -1,15 +1,14 @@
 @charset "utf-8";
 
-$theme-font: 'Roboto', 'PingFang SC', 'Hiragino Sans GB', "Segeo UI", 'Lantinghei SC', 'Microsoft YaHei', 'STHeiti', 'Simsun', Tahoma, Arial, 'sans-serif';
+$theme-font: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Open Sans', 'Droid Sans', 'Microsoft YaHei', 'WenQuanYi Micro Hei', 'Helvetica Neue', Tahoma, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 $theme-font-code: 'Source Code Pro', Consolas, Arial, 'sans-serif';
 
 $theme-color-dark-primary: #181818;
 $theme-color-dark-secondary: #323232;
 $theme-color-main: #A4D100; // 164, 209, 0 (Neon Green)
-// $theme-color-main: #007EB8;
 
-$theme-color-text-primary: #FFF;
-$theme-color-text-secondary: rgba(255, 255, 255, .7);
+$theme-color-text-primary: rgba(255, 255, 255, .84);
+$theme-color-text-secondary: rgba(255, 255, 255, .54);
 $theme-color-text-disabled: rgba(255, 255, 255, .3);
 
 $theme-color-table-primary: #1F1F1F;
@@ -20,4 +19,8 @@ $nav-bar-height: 56px;
 $icon-size: 24px;
 
 $theme-max-width-lg: 960px;
-$theme-max-width-md: 670px;
+$theme-max-width-md: 768px;
+
+$break-point-desktop-small: 1280px;
+$break-point-tablet: 768px;
+$break-point-mobile: 480px;

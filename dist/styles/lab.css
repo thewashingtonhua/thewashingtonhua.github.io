@@ -25,7 +25,7 @@ a {
 #mf-content {
   padding-top: 1px; }
   #mf-content h1, #mf-content h2, #mf-content p, #mf-content li, #mf-content a, #mf-content label {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.54);
     font-family: "Source Code Pro", Consolas, Arial, "sans-serif"; }
   #mf-content h1 {
     font-size: 36px; }

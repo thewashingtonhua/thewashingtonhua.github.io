@@ -31,7 +31,7 @@ article {
     margin-top: 1em;
     margin-bottom: .5em; }
   article p {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.54);
     line-height: 1.5;
     margin-top: 0;
     margin-bottom: .75em; }
@@ -40,7 +40,7 @@ article {
     margin-bottom: .75em; }
     article ul li {
       list-style: circle;
-      color: rgba(255, 255, 255, 0.7);
+      color: rgba(255, 255, 255, 0.54);
       line-height: 1.8; }
   article img {
     max-width: 100%;

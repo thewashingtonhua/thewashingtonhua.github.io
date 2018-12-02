@@ -23,7 +23,7 @@ a {
   text-decoration: none; }
 
 body {
-  background-color: #181818;
+  background-color: #000;
   -webkit-overflow-scrolling: touch; }
 
 #mf-header {
@@ -49,7 +49,7 @@ body {
             justify-content: space-between; }
     @media (max-width: 1280px) {
       #mf-header .mf-header-wrapper {
-        max-width: 670px; } }
+        max-width: 768px; } }
     #mf-header .mf-header-wrapper .logo {
       display: block;
       -ms-flex-preferred-size: 1;
@@ -86,7 +86,7 @@ body {
           height: 100%;
           font-size: 14px;
           line-height: 44px;
-          color: #A4D100;
+          color: rgba(255, 255, 255, 0.54);
           border-bottom: 2px solid transparent;
           white-space: nowrap;
           overflow: hidden;
@@ -97,38 +97,44 @@ body {
             #mf-header .mf-header-wrapper .catalogs li a {
               padding: 0 .5em; } }
           #mf-header .mf-header-wrapper .catalogs li a:hover {
-            background-color: #4c4c4c; }
+            color: rgba(255, 255, 255, 0.54); }
         #mf-header .mf-header-wrapper .catalogs li.active a {
-          border-bottom: 2px solid #A4D100;
-          color: #A4D100; }
+          color: rgba(255, 255, 255, 0.84); }
           #mf-header .mf-header-wrapper .catalogs li.active a:hover {
-            background-color: #c9ff05;
-            color: #181818; }
+            color: rgba(255, 255, 255, 0.84); }
 
 #mf-content {
-  width: calc(100% - 30px);
+  width: 100%;
   max-width: 960px;
-  margin: 84px auto 50px; }
+  margin: 44px auto 30px; }
   @media (max-width: 1280px) {
     #mf-content {
-      max-width: 670px; } }
+      max-width: 768px; } }
+  @media (max-width: 768px) {
+    #mf-content {
+      max-width: 100%; } }
 
 .bottom-line {
-  color: rgba(255, 255, 255, 0.7);
-  text-align: center;
+  width: 100%;
+  height: 30px;
   position: relative; }
   .bottom-line::before, .bottom-line::after {
     position: absolute;
-    content: '';
-    width: calc(50% - 3em);
-    height: 1px;
-    background-color: rgba(255, 255, 255, 0.7);
     top: 50%;
-    -webkit-transform: translate(0, -50%);
-            transform: translate(0, -50%); }
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%); }
   .bottom-line::before {
-    left: 0; }
+    content: '';
+    height: 1px;
+    width: calc(100% - 30px);
+    background-color: rgba(255, 255, 255, 0.54); }
   .bottom-line::after {
-    right: 0; }
+    content: 'End';
+    display: inline-block;
+    padding: 0 0.5em;
+    color: rgba(255, 255, 255, 0.54);
+    background-color: #000; }
 
 /*# sourceMappingURL=vendor.css.map */

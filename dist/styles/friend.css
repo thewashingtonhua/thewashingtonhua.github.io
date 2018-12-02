@@ -25,7 +25,7 @@ a {
 h1.title {
   font-weight: 100;
   font-size: 32px;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.54);
   padding-left: 10px;
   margin-bottom: 20px; }
   @media (max-width: 480px) {
@@ -65,7 +65,7 @@ h1.title {
       color: #181818; }
       @media (max-width: 480px) {
         .friend:hover .intro ul li {
-          color: rgba(255, 255, 255, 0.7); } }
+          color: rgba(255, 255, 255, 0.54); } }
   .friend .cover {
     width: 100%; }
     .friend .cover img {
@@ -85,7 +85,7 @@ h1.title {
         .friend .intro h2 {
           font-size: 24px; } }
     .friend .intro ul li {
-      color: rgba(255, 255, 255, 0.7);
+      color: rgba(255, 255, 255, 0.54);
       -webkit-transition: color .3s ease-out;
       transition: color .3s ease-out;
       font-size: 14px;
