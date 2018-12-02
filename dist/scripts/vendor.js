@@ -57,9 +57,11 @@ var setChannel = function setChannel() {
 var handleHamberger = function handleHamberger() {
   var hambergerBtn = $('#mf-header .hamberger');
   var navMenu = $('#mf-header .nav-menu');
+  var body = $('body');
   hambergerBtn.on('click', function () {
     $(this).toggleClass('open');
     navMenu.toggleClass('open');
+    body.toggleClass('scroll-lock');
   });
 };
 

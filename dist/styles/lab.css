@@ -1,6 +1,7 @@
 * {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box; }
+          box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Open Sans", "Droid Sans", "Microsoft YaHei", "WenQuanYi Micro Hei", "Helvetica Neue", Tahoma, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; }
 
 html, body {
   margin: 0;
@@ -26,7 +27,7 @@ a {
   padding-top: 1px; }
   #mf-content h1, #mf-content h2, #mf-content p, #mf-content li, #mf-content a, #mf-content label {
     color: rgba(255, 255, 255, 0.54);
-    font-family: "Source Code Pro", Consolas, Arial, "sans-serif"; }
+    font-family: "Fira Code", "Source Code Pro", Menlo, Monaco, Consolas, "Liberation Mono", Simsun, "Courier New", monospace; }
   #mf-content h1 {
     font-size: 36px; }
   #mf-content a {

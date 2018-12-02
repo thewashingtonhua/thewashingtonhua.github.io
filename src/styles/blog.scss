@@ -2,7 +2,7 @@
 @import '_common';
 
 .back-to-parent {
-  padding: 15px 15px;
+  padding: 20px 15px;
 
   a {
     color: $theme-color-text-secondary;
@@ -10,7 +10,7 @@
 }
 
 article {
-  padding: 20px 15px;
+  padding: 10px 15px 20px;
 
   h1 {
     color: $theme-color-text-primary;
@@ -18,6 +18,7 @@ article {
     font-weight: 700;
     line-height: 1.3;
     margin-bottom: .5em;
+    transition: font-size 0.3s ease-out;
 
     @media (max-width: $break-point-desktop-small) {
       font-size: 32px;
@@ -48,6 +49,7 @@ article {
       padding-right: 1em;
       margin-right: 1em;
       margin-bottom: 0;
+      transition: font-size 0.3s ease-out, margin-bottom 0.3s ease-out;
 
       @media (max-width: $break-point-mobile) {
         margin-bottom: 4px;
@@ -76,6 +78,7 @@ article {
       font-weight: 100;
       line-height: 1;
       margin-bottom: 0;
+      transition: font-size 0.3s ease-out;
 
       @media (max-width: $break-point-mobile) {
         font-size: 14px;
@@ -94,21 +97,36 @@ article {
   }
 
   h2 {
-    color: $theme-color-text-secondary;
+    color: $theme-color-text-title;
     font-size: 26px;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1;
     margin-top: 1.5em;
     margin-bottom: .8em;
+    transition: font-size 0.3s ease-out;
+
+    @media (max-width: $break-point-mobile) {
+      font-size: 24px;
+    }
+
+    span.code {
+      padding: .1em .3em;
+      margin: 0 .3em;
+    }
   }
 
   h3 {
-    color: $theme-color-text-secondary;
+    color: $theme-color-text-title;
     font-size: 20px;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1;
     margin-top: 1.5em;
     margin-bottom: .5em;
+    transition: font-size 0.3s ease-out;
+
+    @media (max-width: $break-point-mobile) {
+      font-size: 18px;
+    }
 
     span.code {
       padding: .1em .3em;
@@ -117,12 +135,17 @@ article {
   }
 
   h4 {
-    color: $theme-color-text-secondary;
+    color: $theme-color-text-title;
     font-size: 18px;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1;
     margin-top: 1.5em;
     margin-bottom: .5em;
+    transition: font-size 0.3s ease-out;
+
+    @media (max-width: $break-point-mobile) {
+      font-size: 16px;
+    }
 
     span.code {
       padding: .1em .3em;
@@ -136,6 +159,11 @@ article {
     line-height: 1.75;
     margin-top: 0;
     margin-bottom: .75em;
+    transition: font-size 0.3s ease-out;
+
+    @media (max-width: $break-point-mobile) {
+      font-size: 14px;
+    }
 
     a {
       padding: .1em .5em;
@@ -144,8 +172,8 @@ article {
 
   h1, h2, h3, h4, h5, h5, p, a, li, span, code, time, img, th, td {
     &::selection {
-      background-color: $theme-color-main;
-      color: $theme-color-dark-secondary;
+      background-color: $theme-color-text-primary;
+      color: $theme-color-bg;
     }
   }
 
@@ -153,7 +181,8 @@ article {
     display: inline-block;
     font-size: 0.8em;
     font-weight: 400;
-    color: $theme-color-main;
+    // color: $theme-color-main;
+    color: $theme-color-text-primary;
     background-color: $theme-color-dark-primary;
     border-radius: 2px;
     font-family: $theme-font-code;
@@ -166,7 +195,7 @@ article {
     position: relative;
     font-family: $theme-font-code;
     background-color: $theme-color-dark-primary;
-    color: $theme-color-main;
+    color: $theme-color-text-secondary;
     font-size: 14px;
     line-height: 1.5;
     padding: 12px 12px 12px 48px;
@@ -191,14 +220,14 @@ article {
       li {
         font-size: 14px;
         line-height: 1.5;
-        color: $theme-color-main;
+        color: $theme-color-text-primary;
         font-family: $theme-font-code;
       }
     }
   }
 
   a {
-    color: $theme-color-main;
+    color: $theme-color-text-primary;
     font-weight: 400;
     word-wrap: break-word;
 
@@ -237,6 +266,11 @@ article {
       font-weight: 100;
       line-height: 1.8;
       color: $theme-color-text-secondary;
+      transition: font-size 0.3s ease-out;
+
+      @media (max-width: $break-point-mobile) {
+        font-size: 14px;
+      }
     }
   }
 
@@ -279,6 +313,11 @@ article {
       padding: 1em;
       word-wrap: normal;
       color: $theme-color-text-secondary;
+      transition: font-size 0.3s ease-out;
+
+      @media (max-width: $break-point-mobile) {
+        font-size: 14px;
+      }
 
       a {
         padding: 0;
@@ -289,12 +328,17 @@ article {
   blockquote {
     margin: 0;
     margin-bottom: .75em;
-    border-left: 4px solid $theme-color-main;
+    border-left: 4px solid $theme-color-text-primary;
     background-color: $theme-color-dark-primary;
     padding: 15px;
     font-size: 14px;
     line-height: 1.5;
     color: $theme-color-text-secondary;
+    transition: font-size 0.3s ease-out;
+
+    @media (max-width: $break-point-mobile) {
+      font-size: 12px;
+    }
 
     p {
       margin-bottom: 0;
@@ -314,15 +358,18 @@ article {
 
   a {
     display: block;
-    color: $theme-color-dark-secondary;
-    background-color: $theme-color-main;
+    color: $theme-color-text-primary;
+    border: 1px solid $theme-color-text-primary;
     padding: 10px 20px;
     margin: 0 10px;
+    border-radius: 6px;
     white-space: nowrap;
-    transition: background-color .3s ease-out;
+    transition: color .3s ease-out, background-color .3s ease-out;
 
     &:hover, &:active {
-      background-color: lighten($theme-color-main, 10%);
+      color: $theme-color-bg;
+      background-color: $theme-color-text-primary;
+      text-decoration: none;
     }
   }
 }

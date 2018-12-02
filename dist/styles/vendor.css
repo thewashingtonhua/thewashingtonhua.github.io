@@ -1,6 +1,7 @@
 * {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box; }
+          box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Open Sans", "Droid Sans", "Microsoft YaHei", "WenQuanYi Micro Hei", "Helvetica Neue", Tahoma, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; }
 
 html, body {
   margin: 0;
@@ -26,6 +27,9 @@ body {
   background-color: #000;
   -webkit-overflow-scrolling: touch; }
 
+.scroll-lock {
+  overflow: hidden; }
+
 #mf-header {
   position: fixed;
   top: 0;
@@ -37,7 +41,7 @@ body {
   -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.5);
           box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.5); }
   #mf-header .mf-header-wrapper {
-    width: calc(100% - 30px);
+    width: 100%;
     max-width: 960px;
     height: 100%;
     margin: 0 auto;
@@ -49,7 +53,11 @@ body {
             justify-content: space-between;
     -webkit-box-align: center;
         -ms-flex-align: center;
-            align-items: center; }
+            align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    -webkit-transition: max-width 0.3s ease-out;
+    transition: max-width 0.3s ease-out; }
     @media (max-width: 1280px) {
       #mf-header .mf-header-wrapper {
         max-width: 768px; } }
@@ -156,12 +164,14 @@ body {
                 align-items: center; }
         #mf-header .mf-header-wrapper .nav-menu .menus .menu {
           display: block; }
+          #mf-header .mf-header-wrapper .nav-menu .menus .menu:not(:first-child) {
+            margin-top: 15px; }
           #mf-header .mf-header-wrapper .nav-menu .menus .menu a {
             display: block;
             padding: 0 50px;
-            height: 50px;
+            height: 40px;
+            line-height: 40px;
             font-size: 16px;
-            line-height: 50px;
             color: rgba(255, 255, 255, 0.54);
             border-bottom: 2px solid transparent;
             white-space: nowrap;
@@ -169,9 +179,6 @@ body {
             text-overflow: ellipsis;
             -webkit-transition: background-color .3s ease-out;
             transition: background-color .3s ease-out; }
-            @media (max-width: 480px) {
-              #mf-header .mf-header-wrapper .nav-menu .menus .menu a {
-                padding: 0 .5em; } }
             #mf-header .mf-header-wrapper .nav-menu .menus .menu a:hover {
               color: rgba(255, 255, 255, 0.54); }
           #mf-header .mf-header-wrapper .nav-menu .menus .menu.active {
@@ -185,7 +192,9 @@ body {
 #mf-content {
   width: 100%;
   max-width: 960px;
-  margin: 44px auto 30px; }
+  margin: 44px auto 30px;
+  -webkit-transition: max-width 0.3s ease-out;
+  transition: max-width 0.3s ease-out; }
   @media (max-width: 1280px) {
     #mf-content {
       max-width: 768px; } }

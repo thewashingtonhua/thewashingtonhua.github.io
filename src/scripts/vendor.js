@@ -86,9 +86,11 @@ const setChannel = () => {
 const handleHamberger = () => {
   const hambergerBtn = $('#mf-header .hamberger')
   const navMenu = $('#mf-header .nav-menu')
+  const body = $('body')
   hambergerBtn.on('click', function () {
     $(this).toggleClass('open')
     navMenu.toggleClass('open')
+    body.toggleClass('scroll-lock')
   })
 }
 

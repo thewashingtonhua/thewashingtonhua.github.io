@@ -7,6 +7,10 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
+.scroll-lock {
+  overflow: hidden;
+}
+
 #mf-header {
   position: fixed;
   top: 0;
@@ -19,13 +23,16 @@ body {
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.5);
 
   .mf-header-wrapper {
-    width: calc(100% - 30px);
+    width: 100%;
     max-width: $theme-max-width-lg;
     height: 100%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    transition: max-width 0.3s ease-out;
 
     @media (max-width: 1280px) {
       max-width: $theme-max-width-md;
@@ -123,20 +130,20 @@ body {
         .menu {
           display: block;
 
+          &:not(:first-child) {
+            margin-top: 15px;
+          }
+
           a {
             display: block;
             padding: 0 50px;
-            height: 50px;
+            height: 40px;
+            line-height: 40px;
             font-size: 16px;
-            line-height: 50px;
             color: $theme-color-text-secondary;
             border-bottom: 2px solid transparent;
             @include ellipsis;
             transition: background-color .3s ease-out;
-
-            @media (max-width: 480px) {
-              padding: 0 .5em;
-            }
 
             &:hover {
               color: lighten($theme-color-text-secondary, 50%);
@@ -165,6 +172,7 @@ body {
   width: 100%;
   max-width: $theme-max-width-lg;
   margin: $header-height auto 30px;
+  transition: max-width 0.3s ease-out;
 
   @media (max-width: $break-point-desktop-small) {
     max-width: $theme-max-width-md;
