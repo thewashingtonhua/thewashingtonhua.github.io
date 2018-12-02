@@ -168,10 +168,14 @@ body {
   }
 }
 
+#mf-header-placeholder {
+  height: $header-height;
+}
+
 #mf-content {
   width: 100%;
   max-width: $theme-max-width-lg;
-  margin: $header-height auto 30px;
+  margin: 0 auto 30px;
   transition: max-width 0.3s ease-out;
 
   @media (max-width: $break-point-desktop-small) {

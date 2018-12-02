@@ -55,15 +55,21 @@ function thsConcatBaseIndex (file, options) {
 
   // Get latest blog
   const latestBlog = catalog.blogs[0]
+  const tags = latestBlog.tags.join(', ')
   const latestBlogElem = `
   <a class="blog" href="${latestBlog.url}" id="${latestBlog.id}">
-    <div class="banner fix-ratio ratio-16-9">
+    <div class="banner">
       <img src="${latestBlog.cover}" alt="${latestBlog.id}">
     </div>
     <div class="info">
-      <p class="title">${latestBlog.title}</p>
-      <p class="create-date"><time datetime="${latestBlog.publishDateNum}">${latestBlog.publishDateStr}</time></p>
-      <p class="description">${latestBlog.description}</p>
+      <h2 class="title">${latestBlog.title}</h2>
+      <p class="desc">${latestBlog.description}</p>
+      <footer class="blog__footer">
+        <p class="date">
+          <time datetime="${latestBlog.publishDateNum}">${latestBlog.publishDateStr}</time>
+        </p>
+        <p class="tags">Tags: ${tags}</p>
+      </footer>
     </div>
   </a>`
   content = content.replace(/\{\{latestBlogElem\}\}/, latestBlogElem)
@@ -84,22 +90,6 @@ function thsConcatBaseIndex (file, options) {
     </a>`
   )
   content = content.replace(/\{\{latestCommercialProjectsElem\}\}/, latestCommercialProjectsElem.join('\n'))
-
-  // Get latest exercise project
-  // const exerciseProjects = catalog.projects.filter(p => p.category === 'exercise')
-  // const latestExerciseProjects = [exerciseProjects[0], exerciseProjects[1]]
-  // const latestExerciseProjectsElem = latestExerciseProjects.map(p => `
-  //   <a class="project exercise" id="${p.id}" href="${p.url}">
-  //     <div class="cover">
-  //       <img src="${p.thumb}" alt="${p.id}">
-  //     </div>
-  //     <div class="intro">
-  //       <h2>${p.title}</h2>
-  //       <p>${p.description}</p>
-  //     </div>
-  //   </a>`
-  // )
-  // content = content.replace(/\{\{latestExerciseProjectsElem\}\}/, latestExerciseProjectsElem.join('\n'))
 
   const title = config.title + options.commonTitle
   const keywords = (options.commonKeywords.concat(config.keywords))

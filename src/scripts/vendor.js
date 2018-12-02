@@ -63,6 +63,7 @@ const initNavigator = () => {
         </nav>
       </div>
     </header>
+    <section id='mf-header-placeholder'></section>
   `
   const dom = $(tmpl)
   $('body').prepend(dom)

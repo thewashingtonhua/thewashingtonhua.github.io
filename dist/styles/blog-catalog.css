@@ -24,8 +24,10 @@ a {
   text-decoration: none; }
 
 .blog-list {
-  padding-top: 50px; }
-  @media (max-width: 480px) {
+  padding-top: 50px;
+  -webkit-transition: padding-top .3s ease-out;
+  transition: padding-top .3s ease-out; }
+  @media (max-width: 768px) {
     .blog-list {
       padding-top: 0; } }
   .blog-list .blog {

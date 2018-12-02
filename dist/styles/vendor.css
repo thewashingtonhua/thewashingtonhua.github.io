@@ -189,10 +189,13 @@ body {
               #mf-header .mf-header-wrapper .nav-menu .menus .menu.active a:hover {
                 color: rgba(255, 255, 255, 0.84); }
 
+#mf-header-placeholder {
+  height: 44px; }
+
 #mf-content {
   width: 100%;
   max-width: 960px;
-  margin: 44px auto 30px;
+  margin: 0 auto 30px;
   -webkit-transition: max-width 0.3s ease-out;
   transition: max-width 0.3s ease-out; }
   @media (max-width: 1280px) {

@@ -2,7 +2,14 @@
 @import '_common';
 
 #mf-content {
-  padding-top: 1px;
+  article {
+    padding: 0 15px;
+  }
+
+  .back {
+    padding: 20px 0;
+    color: $theme-color-text-secondary;
+  }
 
   h1, h2, p, li, a, label {
     color: $theme-color-text-secondary;
@@ -10,7 +17,28 @@
   }
 
   h1 {
-    font-size: 36px;
+    font-size: 32px;
+    color: $theme-color-text-primary;
+    line-height: 1.5;
+    margin-bottom: .5em;
+  }
+
+  h2 {
+    font-size: 28px;
+    color: $theme-color-text-primary;
+    line-height: 1.5;
+    margin-top: 1em;
+  }
+
+  p {
+    color: $theme-color-text-secondary;
+    line-height: 1.5;
+  }
+
+  ul {
+    li {
+      line-height: 1.5;
+    }
   }
 
   a {
@@ -24,12 +52,16 @@
     &.back {
       display: block;
       font-size: 20px;
-      margin-top: 20px;
-      margin-bottom: 20px;
+      padding: 20px 0;
+      color: $theme-color-text-secondary;
     }
   }
 
   canvas {
     display: block;
+  }
+
+  #error {
+    color: red;
   }
 }

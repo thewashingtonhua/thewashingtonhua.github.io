@@ -23,24 +23,51 @@ ul {
 a {
   text-decoration: none; }
 
-#mf-content {
-  padding-top: 1px; }
-  #mf-content h1, #mf-content h2, #mf-content p, #mf-content li, #mf-content a, #mf-content label {
-    color: rgba(255, 255, 255, 0.54);
-    font-family: "Fira Code", "Source Code Pro", Menlo, Monaco, Consolas, "Liberation Mono", Simsun, "Courier New", monospace; }
-  #mf-content h1 {
-    font-size: 36px; }
-  #mf-content a {
-    font-size: 16px;
-    text-decoration: none; }
-    #mf-content a:hover {
-      text-decoration: underline; }
-    #mf-content a.back {
-      display: block;
-      font-size: 20px;
-      margin-top: 20px;
-      margin-bottom: 20px; }
-  #mf-content canvas {
-    display: block; }
+#mf-content article {
+  padding: 0 15px; }
+
+#mf-content .back {
+  padding: 20px 0;
+  color: rgba(255, 255, 255, 0.54); }
+
+#mf-content h1, #mf-content h2, #mf-content p, #mf-content li, #mf-content a, #mf-content label {
+  color: rgba(255, 255, 255, 0.54);
+  font-family: "Fira Code", "Source Code Pro", Menlo, Monaco, Consolas, "Liberation Mono", Simsun, "Courier New", monospace; }
+
+#mf-content h1 {
+  font-size: 32px;
+  color: rgba(255, 255, 255, 0.84);
+  line-height: 1.5;
+  margin-bottom: .5em; }
+
+#mf-content h2 {
+  font-size: 28px;
+  color: rgba(255, 255, 255, 0.84);
+  line-height: 1.5;
+  margin-top: 1em; }
+
+#mf-content p {
+  color: rgba(255, 255, 255, 0.54);
+  line-height: 1.5; }
+
+#mf-content ul li {
+  line-height: 1.5; }
+
+#mf-content a {
+  font-size: 16px;
+  text-decoration: none; }
+  #mf-content a:hover {
+    text-decoration: underline; }
+  #mf-content a.back {
+    display: block;
+    font-size: 20px;
+    padding: 20px 0;
+    color: rgba(255, 255, 255, 0.54); }
+
+#mf-content canvas {
+  display: block; }
+
+#mf-content #error {
+  color: red; }
 
 /*# sourceMappingURL=lab.css.map */

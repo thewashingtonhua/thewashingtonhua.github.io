@@ -24,13 +24,26 @@ a {
   text-decoration: none; }
 
 #mf-content h1 {
-  color: rgba(255, 255, 255, 0.54);
+  color: rgba(255, 255, 255, 0.84);
   margin-bottom: 20px;
-  font-family: "Fira Code", "Source Code Pro", Menlo, Monaco, Consolas, "Liberation Mono", Simsun, "Courier New", monospace; }
+  font-size: 32px;
+  font-family: "Fira Code", "Source Code Pro", Menlo, Monaco, Consolas, "Liberation Mono", Simsun, "Courier New", monospace;
+  padding: 0 15px;
+  -webkit-transition: margin-top .3s ease-out, font-size .3s ease-out;
+  transition: margin-top .3s ease-out, font-size .3s ease-out; }
+  @media (max-width: 768px) {
+    #mf-content h1 {
+      font-size: 28px; } }
+  #mf-content h1:first-of-type {
+    margin-top: 50px; }
+    @media (max-width: 768px) {
+      #mf-content h1:first-of-type {
+        margin-top: 20px; } }
 
 #mf-content .category {
   margin-bottom: 20px;
-  width: 100%; }
+  width: 100%;
+  padding: 0 15px; }
   #mf-content .category::after {
     clear: both;
     content: '.';
@@ -45,14 +58,12 @@ a {
     padding: 50px 10px;
     margin-right: 10px;
     margin-bottom: 10px;
-    background-color: #323232;
-    background-color: #181818;
-    border: 1px solid #A4D100;
-    color: #A4D100;
+    border: 1px solid rgba(255, 255, 255, 0.54);
+    color: rgba(255, 255, 255, 0.54);
     text-align: center;
     font-family: "Fira Code", "Source Code Pro", Menlo, Monaco, Consolas, "Liberation Mono", Simsun, "Courier New", monospace;
-    -webkit-transition: color .3s ease-out, background-color .3s ease-out;
-    transition: color .3s ease-out, background-color .3s ease-out;
+    -webkit-transition: color .3s ease-out, border-color .3s ease-out;
+    transition: color .3s ease-out, border-color .3s ease-out;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis; }
@@ -60,8 +71,8 @@ a {
       #mf-content .category .item {
         width: calc((100% - 10px) / 2); } }
     #mf-content .category .item:hover {
-      color: #323232;
-      background-color: #A4D100; }
+      color: rgba(255, 255, 255, 0.84);
+      border-color: rgba(255, 255, 255, 0.84); }
     #mf-content .category .item:nth-child(3n+3) {
       margin-right: 0; }
       @media (max-width: 480px) {

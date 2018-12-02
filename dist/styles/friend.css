@@ -26,12 +26,16 @@ a {
 h1.title {
   font-weight: 100;
   font-size: 32px;
-  color: rgba(255, 255, 255, 0.54);
-  padding-left: 10px;
-  margin-bottom: 20px; }
-  @media (max-width: 480px) {
+  color: rgba(255, 255, 255, 0.84);
+  padding: 0 15px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  -webkit-transition: margin-top .3s ease-out, font-size .3s ease-out;
+  transition: margin-top .3s ease-out, font-size .3s ease-out; }
+  @media (max-width: 768px) {
     h1.title {
-      padding-left: 0; } }
+      margin-top: 20px;
+      font-size: 28px; } }
 
 .friends::after {
   clear: both;
@@ -45,28 +49,12 @@ h1.title {
   display: block;
   float: left;
   width: 50%;
-  padding: 10px 10px 30px;
+  padding: 10px 15px 30px;
   -webkit-transition: background-color .3s ease-out;
   transition: background-color .3s ease-out; }
   @media (max-width: 480px) {
     .friend {
-      padding: 0 0 30px;
       width: 100%; } }
-  .friend:hover {
-    background-color: #A4D100; }
-    @media (max-width: 480px) {
-      .friend:hover {
-        background-color: transparent; } }
-    .friend:hover .intro h2 {
-      color: #181818; }
-      @media (max-width: 480px) {
-        .friend:hover .intro h2 {
-          color: #A4D100; } }
-    .friend:hover .intro ul li {
-      color: #181818; }
-      @media (max-width: 480px) {
-        .friend:hover .intro ul li {
-          color: rgba(255, 255, 255, 0.54); } }
   .friend .cover {
     width: 100%; }
     .friend .cover img {
@@ -76,7 +64,8 @@ h1.title {
     padding: 10px 0; }
     .friend .intro h2 {
       font-size: 26px;
-      color: #A4D100;
+      color: rgba(255, 255, 255, 0.84);
+      line-height: 1.5;
       -webkit-transition: color .3s ease-out;
       transition: color .3s ease-out;
       white-space: nowrap;
@@ -90,6 +79,7 @@ h1.title {
       -webkit-transition: color .3s ease-out;
       transition: color .3s ease-out;
       font-size: 14px;
+      line-height: 1.5;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis; }

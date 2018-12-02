@@ -960,19 +960,6 @@
     },
     {
       "category": "commercial",
-      "id": "jetli",
-      "template": "src/views/pages/project/jetli.html",
-      "url": "/project/jetli.html",
-      "cover": "/img/project/jetli/jetli.jpg",
-      "thumb": "/img/project/thumb/jetli.jpg",
-      "title": "街力",
-      "description": "李连杰创办的功夫垂直内容平台",
-      "keywords": [],
-      "styles": [],
-      "scripts": []
-    },
-    {
-      "category": "commercial",
       "id": "xshowroom",
       "template": "src/views/pages/project/xshowroom.html",
       "url": "/project/xshowroom.html",
@@ -1056,7 +1043,7 @@
       "styles": [
         {
           "type": "style",
-          "value": "label { display: block; margin-bottom: .5em; font-size: 16px; } input { width: 100%; height: 50px; line-height: 50px; border: 1px solid #999; margin-bottom: 15px; font-size: 16px; } input[type=\"text\"], input[type=\"password\"], input[type=\"tel\"], input[type=\"email\"], input[type=\"date\"], input[type=\"datetime\"], input[type=\"number\"], input[type=\"url\"], input[type=\"search\"] { padding-left: 1em; }"
+          "value": "label { display: block; margin-bottom: .5em; font-size: 16px; } input { width: 100%; height: 50px; line-height: 50px; border: 1px solid #999; background-color: transparent; margin-bottom: 15px; font-size: 16px; } input[type=\"text\"], input[type=\"password\"], input[type=\"tel\"], input[type=\"email\"], input[type=\"date\"], input[type=\"datetime\"], input[type=\"number\"], input[type=\"url\"], input[type=\"search\"] { padding-left: 1em; }"
         }
       ],
       "scripts": []

@@ -3,8 +3,9 @@
 
 .blog-list {
   padding-top: 50px;
+  transition: padding-top .3s ease-out;
 
-  @media (max-width: $break-point-mobile) {
+  @media (max-width: $break-point-tablet) {
     padding-top: 0;
   }
 

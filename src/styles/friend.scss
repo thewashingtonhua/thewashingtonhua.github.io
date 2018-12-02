@@ -4,12 +4,15 @@
 h1.title {
   font-weight: 100;
   font-size: 32px;
-  color: $theme-color-text-secondary;
-  padding-left: 10px;
+  color: $theme-color-text-primary;
+  padding: 0 15px;
+  margin-top: 50px;
   margin-bottom: 20px;
+  transition: margin-top .3s ease-out, font-size .3s ease-out;
 
-  @media (max-width: 480px) {
-    padding-left: 0;
+  @media (max-width: $break-point-tablet) {
+    margin-top: 20px;
+    font-size: 28px;
   }
 }
 
@@ -21,35 +24,11 @@ h1.title {
   display: block;
   float: left;
   width: 50%;
-  padding: 10px 10px 30px;
+  padding: 10px 15px 30px;
   transition: background-color .3s ease-out;
 
   @media (max-width: 480px) {
-    padding: 0 0 30px;
     width: 100%;
-  }
-
-  &:hover {
-    background-color: $theme-color-main;
-
-    @media (max-width: 480px) {
-      background-color: transparent;
-    }
-
-    .intro {
-      h2 {
-        color: $theme-color-dark-primary;
-        @media (max-width: 480px) {
-          color: $theme-color-main;
-        }
-      }
-      ul li {
-        color: $theme-color-dark-primary;
-        @media (max-width: 480px) {
-          color: $theme-color-text-secondary;
-        }
-      }
-    }
   }
 
   .cover {
@@ -66,7 +45,8 @@ h1.title {
 
     h2 {
       font-size: 26px;
-      color: $theme-color-main;
+      color: $theme-color-text-primary;
+      line-height: 1.5;
       transition: color .3s ease-out;
       @include ellipsis;
 
@@ -79,6 +59,7 @@ h1.title {
       color: $theme-color-text-secondary;
       transition: color .3s ease-out;
       font-size: 14px;
+      line-height: 1.5;
       @include ellipsis;
 
       @media (max-width: 480px) {

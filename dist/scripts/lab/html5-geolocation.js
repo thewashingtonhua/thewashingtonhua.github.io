@@ -11,11 +11,11 @@ if (navigator.geolocation) {
     document.getElementById('heading').innerHTML = coords.heading;
   }, function (error) {
     var errorType = {
-      1: '位置服务被拒绝',
-      2: '获取不到位置信息',
-      3: '获取信息超时'
+      1: 'service denied',
+      2: 'cannot access geolocation info',
+      3: 'timeout'
     };
-    errorDOM.innerHTML = '[Error] ' + errorType[error.code] + '，无法获取你当前的地理位置';
+    errorDOM.innerHTML = '[Error] ' + errorType[error.code];
   }, {
     enableHighAcuracy: true
   });
