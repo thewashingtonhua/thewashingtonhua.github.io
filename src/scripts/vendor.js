@@ -1,8 +1,6 @@
 const getBase = () => {
-  const protocol = window.location.protocol
-  const host = window.location.host
-  const base = `${protocol}//${host}`
-  return base
+  const { protocol, host } = window.location
+  return `${protocol}//${host}`
 }
 
 const getPath = () => {
@@ -39,23 +37,30 @@ const initNavigator = () => {
         <a href="${getBase()}" class="logo">
           <span>童话说</span>
         </a>
-        <ul class="catalogs">
-          <li id="blog">
-            <a href="${getBase()}/blog.html">博客</a>
-          </li>
-          <li id="project">
-            <a href="${getBase()}/project.html">项目</a>
-          </li>
-          <li id="lab">
-            <a href="${getBase()}/lab.html">实验室</a>
-          </li>
-          <li id="friend">
-            <a href="${getBase()}/friend.html">朋友</a>
-          </li>
-          <li id="about">
-            <a href="${getBase()}/about.html">我</a>
-          </li>
-        </ul>
+        <div class='hamberger'>
+          <div class='bar'></div>
+          <div class='bar'></div>
+          <div class='bar'></div>
+        </div>
+        <nav class='nav-menu'>
+          <ul class="menus">
+            <li class='menu' data-channel='blog'>
+              <a href="${getBase()}/blog.html">博客</a>
+            </li>
+            <li class='menu' data-channel='project'>
+              <a href="${getBase()}/project.html">项目</a>
+            </li>
+            <li class='menu' data-channel='lab'>
+              <a href="${getBase()}/lab.html">实验室</a>
+            </li>
+            <li class='menu' data-channel='friend'>
+              <a href="${getBase()}/friend.html">朋友</a>
+            </li>
+            <li class='menu' data-channel='about'>
+              <a href="${getBase()}/about.html">我</a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </header>
   `
@@ -64,6 +69,7 @@ const initNavigator = () => {
 
   setTimeout(() => {
     setChannel()
+    handleHamberger()
   }, 0)
 }
 
@@ -72,9 +78,18 @@ const setChannel = () => {
   let channel = path.split('/')[1]
   if (channel) {
     channel = channel.replace(/.html$/, '')
-    const elem = $(`#${channel}`)
+    const elem = $(`#mf-header .nav-menu .menu[data-channel='${channel}']`)
     elem.length && elem.addClass('active')
   }
+}
+
+const handleHamberger = () => {
+  const hambergerBtn = $('#mf-header .hamberger')
+  const navMenu = $('#mf-header .nav-menu')
+  hambergerBtn.on('click', function () {
+    $(this).toggleClass('open')
+    navMenu.toggleClass('open')
+  })
 }
 
 const resizeHandler = () => {

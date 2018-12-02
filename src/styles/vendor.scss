@@ -3,7 +3,7 @@
 
 body {
   // background-color: $theme-color-dark-primary;
-  background-color: #000;
+  background-color: $theme-color-bg;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -13,7 +13,8 @@ body {
   left: 0;
   width: 100%;
   height: $header-height;
-  background-color: $theme-color-dark-primary;
+  // background-color: $theme-color-dark-primary;
+  background-color: $theme-color-bg;
   z-index: 10;
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.5);
 
@@ -24,6 +25,7 @@ body {
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     @media (max-width: 1280px) {
       max-width: $theme-max-width-md;
@@ -31,15 +33,14 @@ body {
 
     .logo {
       display: block;
-      flex-basis: 1;
-      height: $header-height - 8px;
+      height: $header-height;
 
       span {
         display: block;
-        font-size: 22px;
+        font-size: 20px;
         height: $header-height;
         line-height: $header-height;
-        color: $theme-color-main;
+        color: $theme-color-text-primary;
         transition: color .3s ease-out;
 
         @media (max-width: 480px) {
@@ -52,42 +53,106 @@ body {
       }
     }
 
-    .catalogs {
-      flex-basis: 1;
+    .hamberger {
+      width: 22px;
+      height: 16px;
       display: flex;
-      align-content: center;
-      margin-left: 15px;
+      flex-direction: column;
+      justify-content: space-between;
+      border-top: 2px solid $theme-color-text-primary;
+      border-bottom: 2px solid $theme-color-text-primary;
+      position: relative;
+      transition: border-color 0.3s ease-out;
+      cursor: pointer;
 
-      li {
-        display: block;
-        height: 100%;
+      &.open {
+        border-top-color: transparent;
+        border-bottom-color: transparent;
 
-        a {
-          display: block;
-          padding: 0 1em;
-          height: 100%;
-          font-size: 14px;
-          line-height: $header-height;
-          color: $theme-color-text-secondary;
-          border-bottom: 2px solid transparent;
-          @include ellipsis;
-          transition: background-color .3s ease-out;
-
-          @media (max-width: 480px) {
-            padding: 0 .5em;
-          }
-
-          &:hover {
-            color: lighten($theme-color-text-secondary, 50%);
-          }
+        &::before {
+          transform: translate(-50%, -50%) rotate(-45deg);
         }
 
-        &.active {
+        &::after {
+          transform: translate(-50%, -50%) rotate(45deg);
+        }
+      }
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transform-origin: 50% 50%;
+        width: 100%;
+        height: 2px;
+        background-color: $theme-color-text-primary;
+        transition: transform 0.3s ease-out;
+      }
+    }
+
+    .nav-menu {
+      position: fixed;
+      top: $header-height;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: $theme-color-bg;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 10;
+      transition: opacity 0.3s ease-out;
+
+      &.open {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .menus {
+        flex-basis: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .menu {
+          display: block;
+
           a {
-            color: $theme-color-text-primary;
+            display: block;
+            padding: 0 50px;
+            height: 50px;
+            font-size: 16px;
+            line-height: 50px;
+            color: $theme-color-text-secondary;
+            border-bottom: 2px solid transparent;
+            @include ellipsis;
+            transition: background-color .3s ease-out;
+
+            @media (max-width: 480px) {
+              padding: 0 .5em;
+            }
 
             &:hover {
-              color: lighten($theme-color-text-primary, 50%);
+              color: lighten($theme-color-text-secondary, 50%);
+            }
+          }
+
+          &.active {
+            border-top: 1px solid $theme-color-text-primary;
+            border-bottom: 1px solid $theme-color-text-primary;
+
+            a {
+              color: $theme-color-text-primary;
+
+              &:hover {
+                color: lighten($theme-color-text-primary, 50%);
+              }
             }
           }
         }

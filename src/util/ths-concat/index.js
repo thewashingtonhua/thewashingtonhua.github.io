@@ -144,7 +144,7 @@ function thsConcatBaseBlog (file, options) {
             <p class="date">
               <time datetime="${blog.publishDateNum}">${blog.publishDateStr}</time>
             </p>
-            <p class="tags">${tags}</p>
+            <p class="tags">Tags: ${tags}</p>
           </footer>
         </div>
       </a>`
@@ -273,16 +273,18 @@ function thsConcatBlog (file, options) {
   const styles = (options.commonStyles.concat(config.styles)).map(style => createStyle(style.type, style.value))
   const scripts = (options.commonScripts.concat(config.scripts)).map(script => createScript(script.type, script.value))
 
-  const tags = config.tags.map(tag => `<li class="tag">${tag}</li>`)
+  const tags = config.tags.join(', ')
   const blogHeader = `
   <div id="mf-content">
     <p class="back-to-parent"><a href="/blog.html">&laquo; 回到博客列表</a></p>
     <article id="${config.id}">
       <h1>${config.title}</h1>
-      <p class="publish-date"><time datetime="${config.publishDateNum}">${config.publishDateStr}<time></p>
-      <ul class="tags">
-        ${tags.join('\n')}
-      </ul>
+      <div class="metas">
+        <p class="publish-date">
+          <time datetime="${config.publishDateNum}">${config.publishDateStr}<time>
+        </p>
+        <p class="tags">Tags: ${tags}</p>
+      </div>
       <div class="banner">
         <img src="${config.cover}" alt="${config.id}">
       </div>

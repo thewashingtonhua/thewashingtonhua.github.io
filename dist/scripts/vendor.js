@@ -1,8 +1,9 @@
 var getBase = function getBase() {
-  var protocol = window.location.protocol;
-  var host = window.location.host;
-  var base = protocol + '//' + host;
-  return base;
+  var _window$location = window.location,
+      protocol = _window$location.protocol,
+      host = _window$location.host;
+
+  return protocol + '//' + host;
 };
 
 var getPath = function getPath() {
@@ -33,12 +34,13 @@ var fixRatioAll = function fixRatioAll() {
 };
 
 var initNavigator = function initNavigator() {
-  var tmpl = '\n    <header id="mf-header">\n      <div class="mf-header-wrapper">\n        <a href="' + getBase() + '" class="logo">\n          <span>\u7AE5\u8BDD\u8BF4</span>\n        </a>\n        <ul class="catalogs">\n          <li id="blog">\n            <a href="' + getBase() + '/blog.html">\u535A\u5BA2</a>\n          </li>\n          <li id="project">\n            <a href="' + getBase() + '/project.html">\u9879\u76EE</a>\n          </li>\n          <li id="lab">\n            <a href="' + getBase() + '/lab.html">\u5B9E\u9A8C\u5BA4</a>\n          </li>\n          <li id="friend">\n            <a href="' + getBase() + '/friend.html">\u670B\u53CB</a>\n          </li>\n          <li id="about">\n            <a href="' + getBase() + '/about.html">\u6211</a>\n          </li>\n        </ul>\n      </div>\n    </header>\n  ';
+  var tmpl = '\n    <header id="mf-header">\n      <div class="mf-header-wrapper">\n        <a href="' + getBase() + '" class="logo">\n          <span>\u7AE5\u8BDD\u8BF4</span>\n        </a>\n        <div class=\'hamberger\'>\n          <div class=\'bar\'></div>\n          <div class=\'bar\'></div>\n          <div class=\'bar\'></div>\n        </div>\n        <nav class=\'nav-menu\'>\n          <ul class="menus">\n            <li class=\'menu\' data-channel=\'blog\'>\n              <a href="' + getBase() + '/blog.html">\u535A\u5BA2</a>\n            </li>\n            <li class=\'menu\' data-channel=\'project\'>\n              <a href="' + getBase() + '/project.html">\u9879\u76EE</a>\n            </li>\n            <li class=\'menu\' data-channel=\'lab\'>\n              <a href="' + getBase() + '/lab.html">\u5B9E\u9A8C\u5BA4</a>\n            </li>\n            <li class=\'menu\' data-channel=\'friend\'>\n              <a href="' + getBase() + '/friend.html">\u670B\u53CB</a>\n            </li>\n            <li class=\'menu\' data-channel=\'about\'>\n              <a href="' + getBase() + '/about.html">\u6211</a>\n            </li>\n          </ul>\n        </nav>\n      </div>\n    </header>\n  ';
   var dom = $(tmpl);
   $('body').prepend(dom);
 
   setTimeout(function () {
     setChannel();
+    handleHamberger();
   }, 0);
 };
 
@@ -47,9 +49,18 @@ var setChannel = function setChannel() {
   var channel = path.split('/')[1];
   if (channel) {
     channel = channel.replace(/.html$/, '');
-    var elem = $('#' + channel);
+    var elem = $('#mf-header .nav-menu .menu[data-channel=\'' + channel + '\']');
     elem.length && elem.addClass('active');
   }
+};
+
+var handleHamberger = function handleHamberger() {
+  var hambergerBtn = $('#mf-header .hamberger');
+  var navMenu = $('#mf-header .nav-menu');
+  hambergerBtn.on('click', function () {
+    $(this).toggleClass('open');
+    navMenu.toggleClass('open');
+  });
 };
 
 var resizeHandler = function resizeHandler() {
