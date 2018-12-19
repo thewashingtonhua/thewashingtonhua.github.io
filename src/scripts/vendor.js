@@ -35,6 +35,7 @@ const initNavigator = () => {
     <header id="mf-header">
       <div class="mf-header-wrapper">
         <a href="${getBase()}" class="logo">
+          <img src='/img/logo.png' alt=''/>
           <span>童话说</span>
         </a>
         <div class='hamberger'>

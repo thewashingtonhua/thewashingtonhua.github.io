@@ -328,7 +328,7 @@ article {
   blockquote {
     margin: 0;
     margin-bottom: .75em;
-    border-left: 4px solid $theme-color-text-primary;
+    border-left: 4px solid rgba(255, 255, 255, 0.2);
     background-color: $theme-color-dark-primary;
     padding: 15px;
     font-size: 14px;

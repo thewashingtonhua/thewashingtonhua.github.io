@@ -23,6 +23,7 @@
   <meta name='theme-color' content='#000' />
 
   <meta name='format-detection' content='telephone=no' />
+  <link rel='shortcut icon' href='/img/favicon-20181219.ico' />
 
 <meta name="keywords" content="tonghuashuo,github,前端,html,css,javascript,android,童话,童话说,华心童,washington,hua,ecmascript,2015,es6,javascript,module,import,export" />
 <title>每天一点ES6(19)：Module - 博客 | 童话说</title>
@@ -66,16 +67,58 @@
 <p>ESM 的核心是两个命令，<span class='code'>export</span>用于导出，<span class='code'>import</span>用于导入，非常直观。（从英文的角度，include 表示“包含”，被包含的代码块会被简单复制到引用之处；require 表示“需要”，import 表示“引进”，后两者虽然从英文语法上没有强调是“整体”还是“局部”，但和“包含”还有明显区别的）</p>
 <p>ESM 中，一个模块就是一个独立的文件，文件中定义的变量，除非用<span class='code'>export</span>命令导出，在外部是无法访问的。</p>
 <img src='/img/illustration/es6-daily/module-export.svg' alt=''>
-<p><span class='code'>export</span>规定的是对外的接口，且必须和文件内的变量一一对应，不能直接导出一个直接量</p>
+<p><span class='code'>export</span>规定的是对外的接口，且必须和文件内的变量一一对应，不能直接导出一个直接量。换句话说，导出内容的本体必须是一个具名的变量、函数、类，导出时可以直接使用这个名字，也可以指定别名。</p>
 <img src='/img/illustration/es6-daily/module-export-interface.svg' alt=''>
+<p><span class='code'>export</span>导出的是一个接口，与之对应的值是动态绑定关系，通过这个接口可以取到模块内部实时的值。如果所导出的内容在未来发生变化，外部引用也会相应更新。</p>
+<img src='/img/illustration/es6-daily/module-export-dynamic.svg' alt=''>
 
-<h2>未完待续</h2>
+<h2>import</h2>
+<p><span class='code'>import</span>用于导入一个模块</p>
+<img src='/img/illustration/es6-daily/module-import.svg' alt=''>
+<p>导入同样支持指定别名。导入的内容都是只读的，不能直接重新赋值，但如果导入的是一个对象/数组，可以重新设置其中的属性/元素。但建议最好还是保持导入内容的只读性。</p>
+<p><span class='code'>from</span>后面是模块的路径，支持绝对路径、相对路径，<span class='code'>*.js</span>后缀可以省略（配合 Webpack 等工具还能支持更多类型的模块）</p>
+<p><span class='code'>import</span>自带提升效果，会提升到整个模块的头部，多个<span class='code'>import</span>会按顺序加载，习惯上最好手动把所有的<span class='code'>import</span>写在模块的顶部。由于<span class='code'>import</span>是在编译阶段执行的，因此<span class='code'>import</span>中不能使用表达式和变量等运行时才能确定取值的语法结构。</p>
+<p>对于一些特定的模块（例如 lodash），可能会有<span class='code'>import 'lodash'</span>这样的用法，这种用法会执行所加载的模块，但不输入任何值。</p>
+<p><span class='code'>import</span>是单例的。重复同一条<span class='code'>import</span>语句并不会导致多次导入，只会执行一次。分多条语句导入同一模块的不同的接口，和在同一条语句中一次性导入所有需要的接口是等价的。不会多次执行。但最好还是不要这样，大部分规范都会限制同一模块只导入一次，在一条语句中导入所需内容。</p>
+<p>通过 Babel 转码，我们可以在 ESM 的模块中混用 CommonJS 的模块，但由于<span class='code'>import</span>和<span class='code'>require</span>执行时机的差别，最好把<span class='code'>import</span>放在最顶部。</p>
 
-<!-- <h2>小结</h2>
-<p></p> -->
+<h2>模块的整体加载</h2>
+<p>如果想一次性加载一个模块里所有导出的接口，除了手动列举所有的接口外，还可以使用如下语法：</p>
+<img src='/img/illustration/es6-daily/module-import-whole.svg' alt=''>
+
+<h2>export default</h2>
+<p>开发者在引入一个模块时，不可能总是清楚的知道模块里有哪些导出，因此 ESM 提供了一个“默认导出”的特性。默认导出本身可以有自己的变量名，但用户在引入模块的默认导出时不必非得使用这个名字，可以为其指定任意名字（不需要<span class='code'>as</span>，也不需要花括号）。</p>
+<img src='/img/illustration/es6-daily/module-export-default.svg' alt=''>
+<p>一个模块只能有一个默认导出，不允许重复。</p>
+<p>一个模块可以同时包含默认导出和普通导出，导入时也可以在同一条语句中导入，比如我们在使用 React 时经常会看到这样的写法：</p>
+<img src='/img/illustration/es6-daily/module-import-hybrid.svg' alt=''>
+<p>默认导出本质上就是输出一个名叫<span class='code'>default</span>的变量，然后允许在导入时任意起名，因此默认导出也可以写作：</p>
+<img src='/img/illustration/es6-daily/module-export-default-2.svg' alt=''>
+<p>默认导出后面不允许跟变量申明语句（即不是用<span class='code'>var</span>、<span class='code'>let</span>、<span class='code'>const</span>声明的），可以是一个已声明的变量，或是常规的函数声明、类定义，特别的，由于默认导出已经有变量名<span class='code'>default</span>了，因此它还可以是一个直接量。</p>
+
+<h2>export 与 import 的复合写法</h2>
+<p>有一些特殊的场景，我们需要先导入再导出同一个模块，这时候我们可以把<span class='code'>export</span>和<span class='code'>import</span>语句写在一起。</p>
+<img src='/img/illustration/es6-daily/module-export-import-combined.svg' alt=''>
+<p>特别的，<span class='code'>export * form 'some-module'</span>会导出被导入模块的所有普通导出，但会忽略被导入模块的<span class='code'>default</span>，即默认导出。如果新的模块需要默认导出，得手动指定。</p>
+
+<h2>模块的继承</h2>
+<p>模块也能继承。模块的继承其实就是整体导入一个或几个模块，增加点自己的内容，最后一并导出。有点像是把一个或几个模块打包重新导出成一个的意思。</p>
+<img src='/img/illustration/es6-daily/module-extend.svg' alt=''>
+
+
+<h2>跨模块常量</h2>
+<p>跨模块共享常量是模块化开发中最常用的手段之一，JavaScript 中通过<span class='code'>const</span>定义的常量只能在当前模块中使用，但是导出之后，就可以被其它模块导入，进而实现共享。</p>
+
+<h2>Dynamic Import (Stage-3)</h2>
+<p>前面说到 ESM 是牺牲了动态加载换来了静态分析的可能性，但动态加载的需求又确实存在，难道就没有两全其美的解决方案吗？Dynamic Import 就是来弥补这个缺陷的。</p>
+<img src='/img/illustration/es6-daily/module-dynamic-import.svg' alt=''>
+<p><soan class='code'>import()</soan>根据传入的参数按需加载模块，并在加载完成时返回一个 Promise 对象，后续就可以在<span class='code'>then()</span>里访问获取到的模块。</p>
+
+<h2>小结</h2>
+<p>可能是 ES6 中对未来影响最大的一项改变 —— 这个形容我觉得一点都不过分，原生模块化的加入使得 JavaScript 具备了开发大型系统的能力，可以应对日益复杂的交互需求。</p>
 
 <h2>该系列的其他文章</h2>
-<p>上一篇：<a href="es6-daily-18-class.html">每天一点ES6(18)：Class</a></p>
+<p>上一篇：<a href="./es6-daily-18-class.html">每天一点ES6(18)：Class</a></p>
 <p>下一篇：<a href="javascript:;">每天一点ES6(20)：装饰器</a></p>
 </article></div>
 <script src="/lib/jquery.min.js"></script>
