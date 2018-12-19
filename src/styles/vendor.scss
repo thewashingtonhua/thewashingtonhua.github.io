@@ -41,6 +41,13 @@ body {
     .logo {
       display: block;
       height: $header-height;
+      display: flex;
+      align-items: center;
+
+      img {
+        height: 32px;
+        margin-right: 15px;
+      }
 
       span {
         display: block;
@@ -48,10 +55,12 @@ body {
         height: $header-height;
         line-height: $header-height;
         color: $theme-color-text-primary;
-        transition: color .3s ease-out;
+        transition:
+          color .3s ease-out,
+          font-size .3s ease-out;
 
         @media (max-width: 480px) {
-          font-size: 20px;
+          font-size: 16px;
         }
 
         &:hover {

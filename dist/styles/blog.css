@@ -266,7 +266,7 @@ article {
   article blockquote {
     margin: 0;
     margin-bottom: .75em;
-    border-left: 4px solid rgba(255, 255, 255, 0.84);
+    border-left: 4px solid rgba(255, 255, 255, 0.2);
     background-color: #181818;
     padding: 15px;
     font-size: 14px;
