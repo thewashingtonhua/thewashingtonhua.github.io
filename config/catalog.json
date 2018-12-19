@@ -1,6 +1,32 @@
 {
   "blogs": [
     {
+      "id": "es6-daily-19-module",
+      "template": "src/views/pages/blog/es6-daily-19-module.html",
+      "url": "/blog/es6-daily-19-module.html",
+      "title": "每天一点ES6(19)：Module",
+      "cover": "/img/blog/es6daily.jpg",
+      "publishDateNum": "2018-12-19",
+      "publishDateStr": "Dec 19th 2018",
+      "description": "可能是 ES6 中对未来影响最大的一项改变",
+      "tags": [
+        "es6",
+        "module"
+      ],
+      "series": "es6-daily",
+      "keywords": [
+        "ecmascript",
+        "2015",
+        "es6",
+        "javascript",
+        "module",
+        "import",
+        "export"
+      ],
+      "styles": [],
+      "scripts": []
+    },
+    {
       "id": "es6-daily-18-class",
       "template": "src/views/pages/blog/es6-daily-18-class.html",
       "url": "/blog/es6-daily-18-class.html",
@@ -19,9 +45,7 @@
         "2015",
         "es6",
         "javascript",
-        "async",
-        "await",
-        "generator"
+        "class"
       ],
       "styles": [],
       "scripts": []

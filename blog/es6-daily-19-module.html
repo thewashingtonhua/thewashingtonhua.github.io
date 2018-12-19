@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="baidu-site-verification" content="E4QIL3aZQa" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, userscalable=no, shrink-to-fit=no, viewport-fit=cover" />
+  <meta name='author' content='Washington Hua' />
+  <meta name='keywords' content='童话说,前端,JavaScript,JS,博客,技术,互联网' />
+
+  <meta name='theme-color' content='#000'>
+
+  <meta name='force-rendering' content='webkit'/>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge,chrome=1' />
+
+  <meta name='apple-mobile-web-app-capable' content='yes' />
+  <meta name='apple-touch-fullscreen' content='yes' />
+  <meta name='mobile-web-app-capable' content='yes' />
+  <meta name='x5-fullscreen' content='true' />
+
+  <meta name='apple-mobile-web-app-status-bar-style' content='#000' />
+  <meta name='theme-color' content='#000' />
+
+  <meta name='format-detection' content='telephone=no' />
+
+<meta name="keywords" content="tonghuashuo,github,前端,html,css,javascript,android,童话,童话说,华心童,washington,hua,ecmascript,2015,es6,javascript,module,import,export" />
+<title>每天一点ES6(19)：Module - 博客 | 童话说</title>
+<link rel="stylesheet" href="/dist/styles/vendor.css" />
+<link rel="stylesheet" href="/dist/styles/blog.css" />
+</head>
+<body>
+
+  <div id="mf-content">
+    <p class="back-to-parent"><a href="/blog.html">&laquo; 回到博客列表</a></p>
+    <article id="es6-daily-19-module">
+      <h1>每天一点ES6(19)：Module</h1>
+      <div class="metas">
+        <p class="publish-date">
+          <time datetime="2018-12-19">Dec 19th 2018<time>
+        </p>
+        <p class="tags">Tags: es6, module</p>
+      </div>
+      <div class="banner">
+        <img src="/img/blog/es6daily.jpg" alt="es6-daily-19-module">
+      </div>
+  
+<h2>模块化</h2>
+<p>但凡有一定资历的开发者，对“模块化”的概念应该都非常熟悉了。C、PHP 有<span class='code'>include</span>、Java、Python 有<span class='code'>import</span>，Ruby 有<span class='code'>require</span>，连 CSS 都有<span class='code'>@import</span>。然而 JavaScript 却一直都没有语言层面的模块化方案 —— 直到 ES6。</p>
+
+<h2>简史</h2>
+<p>不过这个问题也不怪 JavaScript 的发明者，毕竟时代不同，当初的需求很简单，就只是一个简单的脚本语言。</p>
+<p>随着 Web 的发展，JavaScript 被开发出更多的可能性，前端项目的复杂度与日俱增，语言特性的缺失成为了发展的瓶颈，于是便有了 ES6 大刀阔斧的变革。</p>
+<p>在 ES6 之前，社区也曾出现过 CommonJS、AMD、CMD、UMD 等各种模块化方案。ES6 为我们带来了语言层面上的解决方案，我们称之为 ESM（ECMAScript Module），并且很快取代之前的所有方案，一统了江湖。</p>
+<blockquote>由于一些历史原因，CommonJS 在未来很长一段时间还会继续存在，但 Node.js 的开发团队计划未来迁移到 ESM，为此正在研发一套平滑的迁移方案。对于普通开发者，只需要知道：万物终将基于 ESM。</blockquote>
+
+<h2>静态加载</h2>
+<p>熟悉 Node 的朋友应该都清楚，CommonJS 的模块本质就是一个对象，当我们<span class='code'>reuqire</span>一个模块的时候，会引入整个模块，也就是把整个对象给搬了过来，然后访问对象上的属性。这种模块加载方式我们称之为“动态加载”，因为只有在运行时才能得到这个对象。动态加载的好处是灵活方便，可以根据条件判断选择性地加载模块；坏处是要么不加载，要加载就是整个模块，没办法只加载用到部分（因此没法做 Tree-Shaking），而且没法在编译阶段做“静态优化”（实现 Tree-Shaking 的另一个阻碍）。</p>
+<p>ESM 采用静态加载的方式，牺牲一部分灵活性（Dynamic Import 提案弥补了这一缺陷，现已进入 Stage-3，主流环境都已经支持，可以期待在 ES2019 中见到它），换取“静态优化”的可能性，大家熟悉的 Tree-Shaking、类型检测等功能都要归功于此。</p>
+
+<h2>严格模式</h2>
+<p>ESM 自动采用严格模式，无论是否在模块顶部加上<span class='code'>"use strict";</span></p>
+<p>严格模式本身属于 ES5 的内容，ES6 并没有对其做修改，只是强制启用。换个角度理解，未来其实也就没有严格模式一说了，所有 JavaScript 代码都必须遵守严格模式的规则。</p>
+
+<h2>export</h2>
+<p>ESM 的核心是两个命令，<span class='code'>export</span>用于导出，<span class='code'>import</span>用于导入，非常直观。（从英文的角度，include 表示“包含”，被包含的代码块会被简单复制到引用之处；require 表示“需要”，import 表示“引进”，后两者虽然从英文语法上没有强调是“整体”还是“局部”，但和“包含”还有明显区别的）</p>
+<p>ESM 中，一个模块就是一个独立的文件，文件中定义的变量，除非用<span class='code'>export</span>命令导出，在外部是无法访问的。</p>
+<img src='/img/illustration/es6-daily/module-export.svg' alt=''>
+<p><span class='code'>export</span>规定的是对外的接口，且必须和文件内的变量一一对应，不能直接导出一个直接量</p>
+<img src='/img/illustration/es6-daily/module-export-interface.svg' alt=''>
+
+<h2>未完待续</h2>
+
+<!-- <h2>小结</h2>
+<p></p> -->
+
+<h2>该系列的其他文章</h2>
+<p>上一篇：<a href="es6-daily-18-class.html">每天一点ES6(18)：Class</a></p>
+<p>下一篇：<a href="javascript:;">每天一点ES6(20)：装饰器</a></p>
+</article></div>
+<script src="/lib/jquery.min.js"></script>
+<script src="/dist/scripts/vendor.js"></script>
+<script src="/dist/scripts/line-number.js"></script>
+</body>
+</html>

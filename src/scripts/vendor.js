@@ -48,7 +48,7 @@ const initNavigator = () => {
               <a href="${getBase()}/blog.html">博客</a>
             </li>
             <li class='menu' data-channel='project'>
-              <a href="${getBase()}/project.html">项目</a>
+              <a href="${getBase()}/project.html">代表作</a>
             </li>
             <li class='menu' data-channel='lab'>
               <a href="${getBase()}/lab.html">实验室</a>
