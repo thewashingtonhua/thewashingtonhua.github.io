@@ -1,6 +1,27 @@
 {
   "blogs": [
     {
+      "id": "summary-2018",
+      "template": "src/views/pages/blog/summary-2018.html",
+      "url": "/blog/summary-2018.html",
+      "title": "一个非著名前端开发者的 2018",
+      "cover": "/img/blog/summary-2018.jpg",
+      "publishDateNum": "2018-12-20",
+      "publishDateStr": "Dec 20th 2018",
+      "description": "这资本寒冬是属燕子的吧，每年都得来一次",
+      "tags": [
+        "summary"
+      ],
+      "series": "",
+      "keywords": [
+        "summary",
+        "2018",
+        "2019"
+      ],
+      "styles": [],
+      "scripts": []
+    },
+    {
       "id": "es6-daily-19-module",
       "template": "src/views/pages/blog/es6-daily-19-module.html",
       "url": "/blog/es6-daily-19-module.html",
@@ -193,7 +214,7 @@
       "tags": [
         "summary"
       ],
-      "series": "es6-daily",
+      "series": "",
       "keywords": [
         "summary",
         "2017",
