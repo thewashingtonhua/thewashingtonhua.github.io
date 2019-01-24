@@ -1,0 +1,16 @@
+{
+  "extends": [
+    "standard"
+  ],
+  "plugins": [
+    "prettier",
+    "react"
+  ],
+  "parser": "babel-eslint",
+  "rules": {
+  },
+  "env": {
+    "node": true,
+    "browser": true
+  }
+}
