@@ -1,16 +1,123 @@
 {
-  "extends": [
-    "standard"
-  ],
-  "plugins": [
-    "prettier",
-    "react"
-  ],
   "parser": "babel-eslint",
-  "rules": {
-  },
   "env": {
     "node": true,
     "browser": true
+  },
+  "extends": [
+    "standard",
+    "standard-jsx"
+  ],
+  "plugins": [
+    "react"
+  ],
+  "settings": {
+    "react": {
+      "version": "16.7.0"
+    }
+  },
+  "rules": {
+    "comma-dangle": [
+      "warn",
+      {
+        "arrays": "never",
+        "objects": "never",
+        "imports": "never",
+        "exports": "never",
+        "functions": "never"
+      }
+    ],
+    "indent": [
+      "warn",
+      2,
+      {
+        "SwitchCase": 1,
+        "VariableDeclarator": 1,
+        "outerIIFEBody": 1,
+        "MemberExpression": 1,
+        "FunctionDeclaration": {
+          "parameters": 1,
+          "body": 1
+        },
+        "FunctionExpression": {
+          "parameters": 1,
+          "body": 1
+        },
+        "CallExpression": {
+          "arguments": 1
+        },
+        "ArrayExpression": 1,
+        "ObjectExpression": 1,
+        "ImportDeclaration": 1,
+        "flatTernaryExpressions": false,
+        "ignoreComments": false
+      }
+    ],
+    "no-multi-spaces": "off",
+    "no-unreachable": "warn",
+    "no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "args": "none",
+        "ignoreRestSiblings": true
+      }
+    ],
+    "no-useless-escape": [
+      "warn"
+    ],
+    "object-curly-spacing": [
+      "warn",
+      "always"
+    ],
+    "node/no-deprecated-api": "warn",
+    "spaced-comment": [
+      "warn",
+      "always",
+      {
+        "line": {
+          "markers": [
+            "*package",
+            "!",
+            "/",
+            ",",
+            "="
+          ]
+        },
+        "block": {
+          "balanced": true,
+          "markers": [
+            "*package",
+            "!",
+            ",",
+            ":",
+            "::",
+            "flow-include"
+          ],
+          "exceptions": [
+            "*"
+          ]
+        }
+      }
+    ],
+    "react/jsx-tag-spacing": [
+      "warn",
+      {
+        "beforeSelfClosing": "always"
+      }
+    ],
+    "react/self-closing-comp": "warn",
+    "standard/array-bracket-even-spacing": [
+      "warn",
+      "either"
+    ],
+    "standard/computed-property-even-spacing": [
+      "warn",
+      "even"
+    ],
+    "standard/object-curly-even-spacing": [
+      "warn",
+      "either"
+    ]
   }
 }

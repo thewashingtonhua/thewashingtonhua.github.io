@@ -5,6 +5,7 @@
   "version": "3.0.0",
   "author": "Washington Hua <ideal19920402@gmail.com>",
   "dependencies": {
+    "@babel/polyfill": "^7.2.5",
     "gatsby": "^2.0.76",
     "gatsby-image": "^2.0.20",
     "gatsby-plugin-catch-links": "^2.0.0",
@@ -14,15 +15,14 @@
     "gatsby-plugin-offline": "^2.0.16",
     "gatsby-plugin-react-helmet": "^3.0.2",
     "gatsby-plugin-sass": "^2.0.7",
+    "gatsby-plugin-sharp": "^2.0.14",
     "gatsby-remark-embed-snippet": "^3.0.0",
     "gatsby-remark-images": "^2.0.0",
     "gatsby-remark-prismjs": "^3.0.2",
-    "gatsby-plugin-sharp": "^2.0.14",
     "gatsby-source-filesystem": "^2.0.8",
     "gatsby-transformer-remark": "^2.0.0",
     "gatsby-transformer-sharp": "^2.1.8",
     "normalize.css": "^8.0.0",
-    "prettier": "^1.7.4",
     "prismjs": "^1.15.0",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
@@ -34,30 +34,32 @@
     "eslint": "^4.8.0",
     "eslint-config-react": "^1.1.7",
     "eslint-config-standard": "^12.0.0",
+    "eslint-config-standard-jsx": "^6.0.2",
     "eslint-plugin-babel": "^4.1.2",
-    "eslint-plugin-flowtype": "^2.39.1",
     "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-prettier": "^2.3.1",
     "eslint-plugin-react": "^7.4.0",
-    "node-sass": "^4.11.0",
-    "prettier": "^1.15.2"
+    "node-sass": "^4.11.0"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "tonghuashuo"
   ],
   "license": "MIT",
   "scripts": {
+    "dev": "gatsby develop",
     "build": "gatsby build",
-    "develop": "gatsby develop",
-    "start": "npm run develop",
-    "format": "prettier --write \"src/**/*.js\"",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+    "serve": "gatsby serve"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/tonghuashuo/tonghuashuo.github.io"
   },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  "standard": {
+    "parser": "babel-eslint",
+    "globals": [
+      "import",
+      "window",
+      "self"
+    ]
   }
 }
