@@ -1,0 +1,28 @@
+<div id="mf-content">
+  <article>
+    <a href="/lab.html" class="back">&laquo; Back</a>
+
+    <h1>Viewport</h1>
+
+    <h2>Web Content (no tool/dev)</h2>
+    <ul>
+      <li>Viewport Width:&nbsp;&nbsp;<span id="vp-w"></span> </li>
+      <li>Viewport Height:&nbsp;<span id="vp-h"></span> </li>
+    </ul>
+
+    <h2>Web Content (no tool/dev/scroll)</h2>
+    <ul>
+      <li>Client Width:&nbsp;&nbsp;<span id="c-w"></span> </li>
+      <li>Client Height:&nbsp;<span id="c-h"></span> </li>
+    </ul>
+
+    <h2>Physical Device</h2>
+    <ul>
+      <li>Screen Width:&nbsp;&nbsp;<span id="scr-w"></span> </li>
+      <li>Screen Height:&nbsp;<span id="scr-h"></span> </li>
+      <li>Screen AvailWidth:&nbsp;&nbsp;<span id="scr-aw"></span> </li>
+      <li>Screen AvailHeight:&nbsp;<span id="scr-ah"></span> (no taskbar)</li>
+      <li>Screen DPI: <span id="scr-dpi"></span> (IE/Edge Only)</li>
+    </ul>
+  </article>
+</div>

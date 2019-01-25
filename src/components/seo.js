@@ -8,8 +8,8 @@ function SEO({ description, lang, meta, keywords, title }) {
     <StaticQuery
       query={detailsQuery}
       render={data => {
-        const metaDescription =
-          description || data.site.siteMetadata.description
+        const metaDescription = description || data.site.siteMetadata.description
+
         return (
           <Helmet
             htmlAttributes={{
@@ -50,6 +50,26 @@ function SEO({ description, lang, meta, keywords, title }) {
                 name: `twitter:description`,
                 content: metaDescription,
               },
+              {
+                name: `viewport`,
+                content: `width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, userscalable=no, shrink-to-fit=no, viewport-fit=cover`
+              },
+              {
+                name: `X-UA-Compatible`,
+                content: `ie=edge,chrome=1`
+              },
+              {
+                name: `render`,
+                content: `webkit`
+              },
+              {
+                name: `force-rendering`,
+                content: `webkit`
+              },
+              {
+                name: `format-detection`,
+                content: `telephone=no`
+              }
             ]
               .concat(
                 keywords.length > 0
@@ -68,7 +88,7 @@ function SEO({ description, lang, meta, keywords, title }) {
 }
 
 SEO.defaultProps = {
-  lang: `en`,
+  lang: `zh`,
   meta: [],
   keywords: [],
 }

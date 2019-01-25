@@ -6,6 +6,20 @@
   "author": "Washington Hua <ideal19920402@gmail.com>",
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
+    "prop-types": "^15.6.2",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-helmet": "^5.2.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.12.1",
+    "eslint-config-react": "^1.1.7",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-config-standard-jsx": "^6.0.2",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0",
     "gatsby": "^2.0.76",
     "gatsby-image": "^2.0.20",
     "gatsby-plugin-catch-links": "^2.0.0",
@@ -17,28 +31,14 @@
     "gatsby-plugin-sass": "^2.0.7",
     "gatsby-plugin-sharp": "^2.0.14",
     "gatsby-remark-embed-snippet": "^3.0.0",
-    "gatsby-remark-images": "^2.0.0",
+    "gatsby-remark-images": "^3.0.1",
     "gatsby-remark-prismjs": "^3.0.2",
     "gatsby-source-filesystem": "^2.0.8",
     "gatsby-transformer-remark": "^2.0.0",
     "gatsby-transformer-sharp": "^2.1.8",
-    "normalize.css": "^8.0.0",
-    "prismjs": "^1.15.0",
-    "prop-types": "^15.6.2",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
-    "react-helmet": "^5.2.0"
-  },
-  "devDependencies": {
-    "babel-eslint": "^8.0.1",
-    "eslint": "^4.8.0",
-    "eslint-config-react": "^1.1.7",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-config-standard-jsx": "^6.0.2",
-    "eslint-plugin-babel": "^4.1.2",
-    "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-react": "^7.4.0",
-    "node-sass": "^4.11.0"
+    "node-sass": "^4.11.0",
+    "normalize-scss": "^7.0.1",
+    "prismjs": "^1.15.0"
   },
   "keywords": [
     "gatsby",
@@ -48,6 +48,7 @@
   "scripts": {
     "dev": "gatsby develop",
     "build": "gatsby build",
+    "postbuild": "mv public docs",
     "serve": "gatsby serve"
   },
   "repository": {
