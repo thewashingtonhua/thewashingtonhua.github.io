@@ -4,6 +4,7 @@ description: '这回总没人质疑 JS 不是面向对象了吧？'
 date: '2018-12-17'
 tags: ['ecmascript', '2015', 'es6', 'javascript', 'class']
 cover: '../images/blog/es6daily.jpg'
+series: 'es6daily'
 ---
 
 # 过去

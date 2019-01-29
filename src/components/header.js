@@ -21,6 +21,11 @@ class Header extends PureComponent {
     this.setState({ navMenuOpen: !this.state.navMenuOpen })
   }
 
+  close = e => {
+    e && e.stopPropagation()
+    this.setState({ navMenuOpen: false })
+  }
+
   isMenuActive = ({ isPartiallyCurrent }) => {
     return isPartiallyCurrent
       ? { className: 'menu active' }
@@ -39,9 +44,9 @@ class Header extends PureComponent {
               <span>童话说</span>
             </Link>
             <div className={'hamberger' + (navMenuOpen ? ' open' : '')} onClick={this.toggle}>
-              <div className='bar'></div>
-              <div className='bar'></div>
-              <div className='bar'></div>
+              <div className='bar' />
+              <div className='bar' />
+              <div className='bar' />
             </div>
             <nav className={'nav-menu' + (navMenuOpen ? ' open' : '')}>
               <div className='menus'>
@@ -50,6 +55,7 @@ class Header extends PureComponent {
                     key={n.to}
                     to={n.to}
                     getProps={this.isMenuActive}
+                    onClick={this.close}
                   >{n.text}</Link>
                 ))}
               </div>

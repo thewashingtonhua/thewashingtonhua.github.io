@@ -1,16 +1,44 @@
-<div id="mf-content">
-  <article>
+import React, { PureComponent } from 'react'
+import { Link, graphql } from 'gatsby'
+import Layout from '../../components/layout'
+import SEO from '../../components/seo'
+import './lab.scss'
 
-    <a href="/lab.html" class="back">&laquo; Back</a>
+export default class BrowserUA extends PureComponent {
+  render () {
+    return (
+      <Layout>
+        <SEO
+          title='User Agent | 实验室'
+          keywords={this.props.data.site.siteMetadata.keywords}
+        />
+        <div className='mf-content lab-item'>
+          <article>
 
-    <h1>UserAgent</h1>
+            <Link to='/lab' className='back'>&laquo; Back</Link>
 
-    <p>Browser: <span id="browser">Detecting ...</span></p>
-    <p>OS: <span id="os">Detecting ...</span></p>
+            <h1>UserAgent</h1>
 
-    <p>UA: <span id="ua">Detecting ...</span></p>
-    <p>Platform: <span id="platform">Detecting ...</span></p>
+            <p>Browser: <span id='browser'>Detecting ...</span></p>
+            <p>OS: <span id='os'>Detecting ...</span></p>
 
-    <p id="error"></p>
-  </article>
-</div>
+            <p>UA: <span id='ua'>Detecting ...</span></p>
+            <p>Platform: <span id='platform'>Detecting ...</span></p>
+
+            <p id='error'></p>
+          </article>
+        </div>
+      </Layout>
+    )
+  }
+}
+
+export const query = graphql`
+query {
+  site {
+    siteMetadata {
+      title,
+      keywords
+    }
+  }
+}`

@@ -1,0 +1,155 @@
+@charset "utf-8";
+
+@import './_common.scss';
+
+$prism-color-dark: #282c34;
+$prism-color-white: #fff;
+$prism-color-char: #d8dee9;
+$prism-color-comment: #b2b2b2;
+$prism-color-keyword: #c5a5c5;
+$prism-color-lineHighlight: #353b45; // $prism-color-dark + extra lightness
+$prism-color-primitive: #5a9bcf;
+$prism-color-string: #8dc891;
+$prism-color-variable: #d7deea;
+$prism-color-boolean: #ff8b50;
+$prism-color-punctuation: #88c6be;
+$prism-color-tag: #fc929e;
+$prism-color-function: #79b6f2;
+$prism-color-className: #fac863;
+$prism-color-method: #6699cc;
+$prism-color-operator: #fc929e;
+
+.gatsby-code-text {
+  font-size: 0.8em;
+  font-family: $theme-font-code;
+  color: $theme-color-text-primary;
+  background-color: $theme-color-dark-primary;
+  padding: 0 0.5em;
+  margin: 0 0.5em;
+  line-height: 1.75;
+  border-radius: 2px;
+}
+
+.gatsby-highlight {
+  background: $prism-color-dark;
+  color: $prism-color-white;
+  border-radius: 10;
+  overflow: auto;
+  tab-size: 1.5em;
+  -webkit-overflow-scrolling: touch;
+
+  span {
+    font-family: $theme-font-code;
+  }
+
+  > code[class*="gatsby-code-"],
+  > pre[class*="gatsby-code-"],
+  > pre.prism-code {
+    height: auto !important;
+    margin: 1rem;
+    font-size: 14px;
+    line-height: 20px;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  + .gatsby-highlight {
+    margin-top: 20;
+  }
+
+  .token {
+    &.attr-name {
+      color: $prism-color-keyword;
+    }
+
+    &.comment,
+    &.block-comment,
+    &.prolog,
+    &.doctype,
+    &.cdata {
+      color: $prism-color-comment;
+    }
+
+    &.property,
+    &.number,
+    &.function-name,
+    &.constant,
+    &.symbol,
+    &.deleted {
+      color: $prism-color-primitive;
+    }
+
+    &.boolean {
+      color: $prism-color-boolean;
+    }
+
+    &.tag {
+      color: $prism-color-tag;
+    }
+
+    &.string {
+      color: $prism-color-string;
+    }
+
+    &.punctuation {
+      color: $prism-color-punctuation;
+    }
+
+    &.selector,
+    &.char,
+    &.builtin,
+    &.inserted {
+      color: $prism-color-char;
+    }
+
+    &.function {
+      color: $prism-color-function;
+    }
+
+    &.operator,
+    &.entity,
+    &.url,
+    &.variable {
+      color: $prism-color-variable;
+    }
+
+    &.attr-value {
+      color: $prism-color-string;
+    }
+
+    &.keyword {
+      color: $prism-color-keyword;
+    }
+
+    &.atrule,
+    &.class-name {
+      color: $prism-color-className;
+    }
+
+    &.important {
+      font-weight: 400;
+    }
+
+    &.bold {
+      font-weight: 700;
+    }
+    &.italic {
+      font-style: italic;
+    }
+
+    &.entity {
+      cursor: help;
+    }
+  }
+
+  .namespace {
+    opacity: 0.7;
+  }
+}
+
+.gatsby-highlight-code-line {
+  background-color: $prism-color-lineHighlight;
+  display: block;
+  margin: -0.125rem calc(-1rem - 15px);
+  padding: 0.125rem calc(1rem + 15px);
+}

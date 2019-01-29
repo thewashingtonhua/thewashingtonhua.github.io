@@ -1,3 +1,120 @@
 @charset "utf-8";
 
 @import '../styles/_common.scss';
+
+.project-detail {
+  .back-to-parent {
+    padding: 50px 15px 20px;
+
+    a {
+      color: $theme-color-text-secondary;
+    }
+  }
+
+  article {
+    padding: 10px 15px 20px;
+
+    h1, h2, h3, h4, h5 {
+      color: $theme-color-text-primary;
+      font-weight: 700;
+      line-height: 1.5;
+      transition: font-size 0.3s ease-out;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-top: 1em;
+      margin-bottom: 0.5em;
+
+      @media (max-width: $break-point-mobile) {
+        font-size: 28px;
+      }
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-top: 1.5em;
+      margin-bottom: .8em;
+
+      @media (max-width: $break-point-mobile) {
+        font-size: 24px;
+      }
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-top: 1.5em;
+      margin-bottom: .5em;
+
+      @media (max-width: $break-point-mobile) {
+        font-size: 20px;
+      }
+    }
+
+    h4 {
+      font-size: 20px;
+      margin-top: 1.5em;
+      margin-bottom: .5em;
+
+      @media (max-width: $break-point-mobile) {
+        font-size: 18px;
+      }
+    }
+
+    h5 {
+      font-size: 18px;
+      margin-top: 1.5em;
+      margin-bottom: .5em;
+
+      @media (max-width: $break-point-mobile) {
+        font-size: 16px;
+      }
+    }
+
+    p {
+      color: $theme-color-text-secondary;
+      line-height: 1.75;
+      margin-top: 0;
+      margin-bottom: 1em;
+      transition: font-size 0.3s ease-out;
+
+      @media (max-width: $break-point-mobile) {
+        font-size: 14px;
+      }
+    }
+
+    a {
+      color: $theme-color-text-primary;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 16px;
+      font-weight: 300;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    section {
+      position: relative;
+    }
+
+    > img,
+    section img {
+      max-width: 100%;
+      margin-bottom: 15px;
+
+      &.img-block {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    h1, h2, h3, h4, h5, h5, p, a, li, span, img, th, td {
+      &::selection {
+        background-color: $theme-color-text-primary;
+        color: $theme-color-dark-secondary;
+      }
+    }
+  }
+}

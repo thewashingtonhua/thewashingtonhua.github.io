@@ -2,8 +2,9 @@
 title: '每天一点ES6(19)：Module'
 description: '可能是 ES6 中对未来影响最大的一项改变'
 date: '2018-12-19'
-tags: ['ecmascript', '2015', 'es6', 'javascript', 'module']
+tags: ['ecmascript', '2015', 'es6', 'javascript', 'module', 'import', 'export']
 cover: '../images/blog/es6daily.jpg'
+series: 'es6daily'
 ---
 
 # 模块化

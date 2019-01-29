@@ -4,6 +4,7 @@ description: '每一个数字都不能放过'
 date: '2016-04-12'
 tags: ['ecmascript', '2015', 'es6', 'javascript', 'number']
 cover: '../images/blog/es6daily.jpg'
+series: 'es6daily'
 ---
 
 # 二进制和八进制表示法

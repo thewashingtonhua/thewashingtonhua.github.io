@@ -4,6 +4,7 @@ description: '不变的字符串现在更加多变了'
 date: '2016-04-05'
 tags: ['ecmascript', '2015', 'es6', 'javascript', 'string']
 cover: '../images/blog/es6daily.jpg'
+series: 'es6daily'
 ---
 
 # 继续打脸

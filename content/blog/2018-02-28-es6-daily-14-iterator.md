@@ -4,6 +4,7 @@ description: '遍历也能搞出花来，怎么遍历你说了算'
 date: '2018-02-28'
 tags: ['ecmascript', '2015', 'es6', 'javascript', 'iterator', 'generator']
 cover: '../images/blog/es6daily.jpg'
+series: 'es6daily'
 ---
 
 # 写在前面

@@ -1,13 +1,41 @@
-<div id="mf-content">
+import React, { PureComponent } from 'react'
+import { Link, graphql } from 'gatsby'
+import Layout from '../../components/layout'
+import SEO from '../../components/seo'
+import './lab.scss'
 
-  <article>
-    <a href="/lab.html" class="back">&laquo; Back</a>
+export default class HTML5Connection extends PureComponent {
+  render () {
+    return (
+      <Layout>
+        <SEO
+          title='Connection | 实验室'
+          keywords={this.props.data.site.siteMetadata.keywords}
+        />
+        <div className='mf-content lab-item'>
 
-    <h1>Connection</h1>
+          <article>
+            <Link to='/lab' className='back'>&laquo; Back</Link>
 
-    <p>Type: <span id="type"></span></p>
+            <h1>Connection</h1>
 
-    <p id="error"></p>
-  </article>
+            <p>Type: <span id='type'></span></p>
 
-</div>
+            <p id='error'></p>
+          </article>
+
+        </div>
+      </Layout>
+    )
+  }
+}
+
+export const query = graphql`
+query {
+  site {
+    siteMetadata {
+      title,
+      keywords
+    }
+  }
+}`

@@ -1,26 +1,39 @@
 import React from 'react'
-import { graphql } from 'gatsby'
-
+import { Link, graphql } from 'gatsby'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import 'normalize-scss/sass/normalize/_import-now.scss'
-import './index.scss'
+import './project-detail.scss'
 
-export default ({ data }) => (
-  <Layout>
-    <SEO
-      title='博客'
-      keywords={data.site.siteMetadata.keywords}
-    />
-  </Layout>
-)
+export default ({ data }) => {
+  const post = data.markdownRemark
+
+  return (
+    <Layout>
+      <SEO
+        title={`${post.frontmatter.title} | 代表作`}
+        keywords={data.site.siteMetadata.keywords}
+      />
+      <div className='mf-content project-detail'>
+        <p className='back-to-parent'><Link to='/project'>&laquo; 回到项目列表</Link></p>
+        <article className='content' dangerouslySetInnerHTML={{ __html: post.html }} />
+      </div>
+    </Layout>
+  )
+}
 
 export const query = graphql`
-query {
+query($slug: String!) {
   site {
     siteMetadata {
       title,
       keywords
+    }
+  }
+  markdownRemark(fields: { slug: { eq: $slug } }) {
+    html
+    frontmatter {
+      title
     }
   }
 }`

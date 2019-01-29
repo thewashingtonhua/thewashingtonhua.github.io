@@ -3,7 +3,7 @@ title: 'substr() 和 substring() 的区别'
 description: '两个函数，傻傻分不清楚'
 date: '2015-05-15'
 tags: ['javascript', 'substr', 'substring', 'slice']
-cover: '../images/blog/substr-and-substring.jpg'
+cover: '../images/blog/substring.jpg'
 ---
 
 JavaScript 中有两个非常常用但又非常容易混淆的函数： `substr()` 和 `substring()` ，两者都是 String 类型的方法，作用都是返回目标字符串的一个子串。

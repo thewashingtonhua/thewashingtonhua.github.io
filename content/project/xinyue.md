@@ -1,3 +1,11 @@
+---
+title: '新阅'
+description: '在线视频协作平台'
+cover: '../images/project/thumb/xinyue.jpg'
+from: '2017-08-01'
+to: '2017-10-01'
+---
+
 # 新阅
 
 ## 简介
@@ -13,24 +21,6 @@
 ## 周期
 
 2017 年 8 月 - 2017 年 10 月
-
-## 技术栈
-<div class="stacks">
-  <div class="stack fix-ratio ratio-1-1 icon icon-html5" title="HTML5"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-css3" title="CSS3"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-javascript" title="JavaScript"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-es" title="ECMAScript 2015+"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-react" title="React"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-redux" title="Redux"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-sass" title="SASS"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-flow" title="Flow"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-jest" title="Jest"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-webpack" title="Webpack"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-gulp" title="Gulp"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-yarn" title="Yarn"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-eslint" title="ESLint"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-standard" title="standard.js"></div>
-</div>
 
 ## 相关链接
 

@@ -4,6 +4,7 @@ description: '别拿语法糖不当干粮'
 date: '2016-07-26'
 tags: ['ecmascript', '2015', 'es6', 'javascript', 'array']
 cover: '../images/blog/es6daily.jpg'
+series: 'es6daily'
 ---
 
 # 久违了的更新

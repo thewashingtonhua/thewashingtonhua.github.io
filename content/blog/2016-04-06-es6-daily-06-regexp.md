@@ -4,6 +4,7 @@ description: '四字节 Unicode 的春天'
 date: '2016-04-06'
 tags: ['ecmascript', '2015', 'es6', 'javascript', 'regular', 'expression', 'regexp']
 cover: '../images/blog/es6daily.jpg'
+series: 'es6daily'
 ---
 
 # 终于这回不打脸了

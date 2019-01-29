@@ -4,6 +4,7 @@ description: '一起来摩擦摩擦发电吧'
 date: '2018-06-14'
 tags: ['ecmascript', '2015', 'es6', 'javascript', 'promise']
 cover: '../images/blog/es6daily.jpg'
+series: 'es6daily'
 ---
 
 # 什么是 Generator ？

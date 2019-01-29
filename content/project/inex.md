@@ -1,3 +1,12 @@
+---
+title: 'INEX 影力所'
+description: '影力所 - 一个基于影响力的数字资产交易所'
+cover: '../images/project/thumb/inex.jpg'
+from: '2018-01-01'
+to: ''
+---
+
+
 # INEX 影力所
 
 ## 简介
@@ -9,21 +18,6 @@
 ## 周期
 
 2018 年 1 月 - 至今
-
-## 技术栈
-<div class="stacks">
-  <div class="stack fix-ratio ratio-1-1 icon icon-html5" title="HTML5"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-css3" title="CSS3"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-javascript" title="JavaScript"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-es" title="ECMAScript 2015+"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-sass" title="SASS"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-react" title="React"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-react-router" title="React Router"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-redux" title="Redux"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-webpack" title="webpack"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-yarn" title="Yarn"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-eslint" title="ESLint"></div>
-</div>
 
 ## 相关链接
 

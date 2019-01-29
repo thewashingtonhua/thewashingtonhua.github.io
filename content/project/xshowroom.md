@@ -1,3 +1,11 @@
+---
+title: 'Xshowroom 买手圈'
+description: '国内时尚业首个专业买手服务平台'
+cover: '../images/project/thumb/xshowroom.jpg'
+from: '2016-03-01'
+to: '2017-03-01'
+---
+
 # Xshowroom 买手圈
 
 ## 简介
@@ -9,20 +17,6 @@
 ## 周期
 
 2016 年 3 月 - 2017 年 3 月
-
-## 技术栈
-<div class="stacks">
-  <div class="stack fix-ratio ratio-1-1 icon icon-html5" title="HTML5"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-css3" title="CSS3"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-javascript" title="JavaScript"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-angularjs" title="AngularJS"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-jquery" title="jQuery"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-less" title="LESS"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-sass" title="SASS"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-gulp" title="Gulp"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-npm" title="NPM"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-yarn" title="Yarn"></div>
-</div>
 
 ## 相关链接
 

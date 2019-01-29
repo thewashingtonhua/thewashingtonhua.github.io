@@ -6,6 +6,7 @@
   "author": "Washington Hua <ideal19920402@gmail.com>",
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
+    "dayjs": "^1.8.0",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
@@ -46,9 +47,11 @@
   ],
   "license": "MIT",
   "scripts": {
+    "predev": "rm -rf .cache",
     "dev": "gatsby develop",
+    "prebuild": "rm -rf .cache",
     "build": "gatsby build",
-    "postbuild": "mv public docs",
+    "postbuild": "rm -rf docs && mv public docs",
     "serve": "gatsby serve"
   },
   "repository": {

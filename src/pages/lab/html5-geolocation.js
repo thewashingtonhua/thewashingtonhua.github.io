@@ -1,16 +1,44 @@
-<div id="mf-content">
+import React, { PureComponent } from 'react'
+import { Link, graphql } from 'gatsby'
+import Layout from '../../components/layout'
+import SEO from '../../components/seo'
+import './lab.scss'
 
-  <article>
-    <a href="/lab.html" class="back">&laquo; Back</a>
+export default class HTML5Geolocation extends PureComponent {
+  render () {
+    return (
+      <Layout>
+        <SEO
+          title='Geolocation | 实验室'
+          keywords={this.props.data.site.siteMetadata.keywords}
+        />
+        <div className='mf-content lab-item'>
 
-    <h1>Geolocation</h1>
+          <article>
+            <Link to='/lab' className='back'>&laquo; Back</Link>
 
-    <p>Latitude: <span id="latitude"></span></p>
-    <p>Longtitude: <span id="longitude"></span></p>
-    <p>Altitude: <span id="altitude"></span></p>
-    <p>Accuracy: <span id="accuracy"></span></p>
-    <p>Heading: <span id="heading"></span></p>
+            <h1>Geolocation</h1>
 
-    <p id="error"></p>
-  </article>
-</div>
+            <p>Latitude: <span id='latitude'></span></p>
+            <p>Longtitude: <span id='longitude'></span></p>
+            <p>Altitude: <span id='altitude'></span></p>
+            <p>Accuracy: <span id='accuracy'></span></p>
+            <p>Heading: <span id='heading'></span></p>
+
+            <p id='error'></p>
+          </article>
+        </div>
+      </Layout>
+    )
+  }
+}
+
+export const query = graphql`
+query {
+  site {
+    siteMetadata {
+      title,
+      keywords
+    }
+  }
+}`

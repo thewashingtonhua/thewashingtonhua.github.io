@@ -1,3 +1,11 @@
+---
+title: 'FBC'
+description: 'FBC 会员服务 Web App'
+cover: '../images/project/thumb/fbc.jpg'
+from: '2017-04-01'
+to: '2017-06-01'
+---
+
 # FBC
 
 ## 简介
@@ -11,21 +19,6 @@ FBC 会员服务 Web App，设计用于微信端。
 ## 周期
 
 2017 年 4 月 - 2017 年 6 月
-
-## 技术栈
-<div class="stacks">
-  <div class="stack fix-ratio ratio-1-1 icon icon-html5" title="HTML5"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-css3" title="CSS3"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-javascript" title="JavaScript"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-es" title="ECMAScript 2015+"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-vue" title="vue"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-sass" title="SASS"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-karma" title="Karma"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-mocha" title="Mocha"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-webpack" title="webpack"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-yarn" title="Yarn"></div>
-  <div class="stack fix-ratio ratio-1-1 icon icon-eslint" title="ESLint"></div>
-</div>
 
 ## 相关链接
 
