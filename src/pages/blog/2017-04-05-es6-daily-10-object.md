@@ -7,13 +7,13 @@ cover: '../../images/blog/es6daily.jpg'
 series: 'es6daily'
 ---
 
-# 迟来的更新
+## 迟来的更新
 
 想来这个系列上一次更新还是去年年底的时候……真心对不起日更的标题，这个Flag立大了……虽然时至今日ES6已经不再新鲜，不过自己挖的坑说什么也得填完，这一篇咱继续对象的扩展。
 
 ES5 给对象加入了大量实用的方法，用于创建、枚举、封闭一个对象，ES6 在此基础上进一步完善。
 
-# 属性简写
+## 属性简写
 
 ES6 允许在对象之中直接使用单个变量来代表属性键值对，变量名就是属性名，变量值就是属性值。
 
@@ -44,7 +44,7 @@ var o = {
 
 简写的属性名始终被当做字符串看待，不用避讳语言本身的关键字，因此完全可以定义一个方法叫 `class() {}` 。
 
-# 属性名表达式
+## 属性名表达式
 
 ES6 允许在使用字面量定义对象时使用表达式来作为属性名，表达式用方括号包裹：
 
@@ -81,7 +81,7 @@ const myObject = {
 // [keyA]、[keyB]都解析为[object Object]，后者将前者覆盖
 ```
 
-# 方法的name属性
+## 方法的name属性
 
 函数的 `name` 属性返回函数名。
 
@@ -142,7 +142,7 @@ obj[key1].name // "[description]"
 obj[key2].name // ""，key2没有描述，所以为空
 ```
 
-# Object.is()
+## Object.is()
 
 ES6 引入了一种“同值相等”比较，作为“==”和“===”的补充。使用“==”时会自动转换类型，使用“===”时NaN不等于自身，+0和-0相等，而 `Object.is()` 只要两边的值相等就相等。大部分情况下 `Object.is()` 和===等效，但对于两种特殊情况的处理是相反的。
 
@@ -156,7 +156,7 @@ Object.is(+0, -0) // false，区分正负
 Object.is(NaN, NaN) // true，NaN 不等于 NaN 本来就不合理
 ```
 
-# Object.assign()
+## Object.assign()
 
 用于合并两个对象，依参数列表顺序右边覆盖左边。此前要么开发者自行实现 `extend()` 函数，或者用一些类库封装的 `extend` （例如：jQuery 的 `$.extend()` ）。常用于插件开发中的自定义参数覆盖默认参数。
 
@@ -178,11 +178,11 @@ const opt = Object.assign({}, opt1, opt2); // {x:3, y:2}
 
 `Object.assign()` 可以用于处理数组，但会把数组转换成属性名为 0、1、2……的对象，并依次替换。
 
-# Object.keys()、Object.values()、Object.entries()
+## Object.keys()、Object.values()、Object.entries()
 
 ES5 引入了  `Object.keys()` 来返回一个数组，其成员是参数对象的可枚举的自有属性的键名，ES2017 跟着引入了 `Object.values()` 和 `Object.entries()` 用于返回属性对应的值，以及以键值对数组的形式返回。可以配合 `for...of` 循环使用。
 
-# Object.getOwnPropertyDescriptors()
+## Object.getOwnPropertyDescriptors()
 
 ES5 中有个 `Object.getOwnPropertyDescriptor()` 函数用于返回某个对象属性的描述对象（值、是否可修改、可枚举、可配置），ES2017 新增了一个更全面的函数（函数名后面加了个 s），可以直接作用于对象，返回该对象所有自有属性（非继承属性）的描述对象。原理上其实非常简单，就是对对象的所有自有属性循环调用 `Object.getOwnPropertyDescriptor()` ，然后返回一个集合。
 
@@ -257,7 +257,7 @@ const clone = (obj) => Object.create(
 );
 ```
 
-# 属性的遍历
+## 属性的遍历
 
 ES6 中一共有 5 种遍历对象属性的方法：
 | 方法名 | 遍历自有属性（非Symbol） | 遍历自有属性（Symbol） | 遍历继承属性 | 遍历不可枚举属性 |
@@ -274,7 +274,7 @@ ES6 中一共有 5 种遍历对象属性的方法：
 2. 在遍历属性名为字符串的属性，按生成时间为序
 3. 最后遍历属性名为Symbol值的属性，按生成时间为序
 
-# 该系列的其他文章
+## 该系列的其他文章
 
 上一篇：[每天一点ES6(9)：函数的扩展](./es6-daily-09-function)
 

@@ -9,7 +9,7 @@ series: 'es6daily'
 
 本系列是对阮一峰老师的开源著作 <a target='_blank' href='http://es6.ruanyifeng.com' title='《ES6 标准入门》'>《ES6 标准入门》</a> 的学习笔记，通过博客的方式强迫自己将学到的东西解释给别人听，进而加深认识，同时也算为推广ES6贡献一点绵薄之力吧。
 
-# ES6是啥？
+## ES6是啥？
 
 <a target='_blank' href='http://www.ecma-international.org/ecma-262/6.0/index.html' title='ECMAScript 6 标准原文'>ECMAScript 6</a>（简称ES6）是 JavaScript 的最新标准，发布于 2015 年 6 月。这项标准的制定者 <a target='_blank' href='http://baike.baidu.com/link?url=eDLqrXRuzTuLgmsHYAtAhdcq19UoR-sf0ouQF4-WTH5TypVRJd12ES7WTvY0gYJLfcFA-IY1cuqf6bDAyxdaPK'>ECMA</a> 计划以后每年发布一次标准，使用年份作为标准的版本，因此 ES6 正式叫法应该是 ECMAScript 2015（简称 ES 2015）。明年预计会发布小幅修订的 ES 2016（至于是叫 ES7 还是 ES6.1，就要到时候看各位大大们的兴致了）。
 
@@ -25,25 +25,25 @@ series: 'es6daily'
 
 > 2017-04-17：纸质版在 15 年底出了第二版，不过还是推荐在线看，因为一直有在更新，包括 ES6 之后的内容（ES 2016、2017、2018 ……）也会不断的补充进来，估计要不了多久阮大大的这个系列就可以改名《ES标准入门》了，哈哈。
 
-# ES6 的支持度
+## ES6 的支持度
 
 主流浏览器都已经开始拥抱 ES6。值得注意的是，这次微软放大招了，IE11 和 Microsoft Edge 13 的支持进度竟然名列前茅（以该博客发布时为参考），甚至超越了 Firefox、Chrome 和 Safari，似乎是打了一场漂亮的翻身仗啊。目前 Node.js 平台对 ES6 的支持度是最好的，基本已经全部覆盖，可以使用命令 `node --v8-options | grep harmony` 来查看当前环境所支持 ES6 的内容的列表，还可以用阮一峰老师开发的 [ES-Checker](http://ruanyf.github.io/es-checker/ "How Much of ECMAScript 6 Does Your Browser Support? - ES-Checker") 来查看当前环境的支持度。
 
 虽然各家进度不一，但终究也只是时间的问题。详细的支持情况可以参考 <a target='_blank' href='http://kangax.github.io/compat-table/es6/' title='ECMAScript 6 compatibility table'>ECMAScript 6 compatibility table</a>。
 
-# 过渡阶段的方案
+## 过渡阶段的方案
 
 虽然 ES6 的支持情况非常乐观，目测要不了多久就能全面支持，但就目前而言，在生产环境下使用 ES6 还是比较困难的。好在有 <a target='_blank' href='https://babeljs.io/' title='Bable'>Babel</a> 和 <a target='_blank' href='https://github.com/google/traceur-compiler' title='Traceur by Google'>Traceur</a> 这样的转换工具，可以把 ES6 的代码转换成 ES5，以此让开发者们尝鲜 ES6 的语法。两者都支持运行在 Node.js 环境中编译好后发布，也可以在浏览器中实时编译，用于学习的话后者显然更方便，但对于生产环境，还是推荐在 Node.js 中编译好，然后直接发布 ES5 的代码，这样执行效率更高。
 
 
-# 展望一下 ES 7
+## 展望一下 ES 7
 
 2013 年 3 月，ES6 的草案封闭，不再接受新功能，新的功能将被加入 ES7。关于 ES7 的最新动态，可以关注 <a target="_blank" href="https://tc39.github.io/ecma262/" title="Draft ECMA-262 ECMAScript 2016 Language Specification">ES7 标准的草案</a>
 
-# 关于该系列
+## 关于该系列
 
 从标题“每天一点ES6”可以看出，理论上这是一个日更的系列，我也会尽力做到日更，但毕竟我也不是闲着没别的事有大把的时间可以写博客，因此如果没有日更……你~能~拿~我~怎~么~样？
 
-# 该系列的其他文章
+## 该系列的其他文章
 
 下一篇：[每天一点ES6(2)：let和const](./es6-daily-02-let-and-const)

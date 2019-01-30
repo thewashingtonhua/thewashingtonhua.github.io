@@ -7,7 +7,7 @@ cover: '../../images/blog/es6daily.jpg'
 series: 'es6daily'
 ---
 
-# 写在前面
+## 写在前面
 
 这次轮到遍历了。其实 ES5 中就已经有好多种用于遍历的方法：
 
@@ -20,7 +20,7 @@ series: 'es6daily'
 
 那么这次 ES6 又打算在遍历上搞什么花样劲？
 
-# Iterator
+## Iterator
 
 算上 ES6 新引入的数据类型，JavaScript 原生用于表示集合的数据结构就有：Array、Object、Map、Set 四种，开发者还可以自定义由各种数据结构组成的集合。面对众多的数据结构，我们需要一个统一的方式来遍历各种数据结构，Iterator 就是为此而生。
 
@@ -98,7 +98,7 @@ for (const item of iterable) {
 
 字符串某种程度上也可以看作是数组，因此也默认部署了 Iterator 接口，可以使用 `for...of` 遍历。
 
-# Iterator 的调用
+## Iterator 的调用
 
 以下情况下会调用 Iterator 接口：
 
@@ -110,7 +110,7 @@ for (const item of iterable) {
 - `Map()` 、 `Set()` 、 `WeekMap()` 、 `WeekSet()` ，例如： `new Map([['a', 1], ['b', 2]])`
 - `Promise.all()` 、 `Promise.race()`
 
-# Iterator 和 Generator
+## Iterator 和 Generator
 
 日常使用中和 Iterator 关系最大的，要数 Generator —— ES6 中新引入的一种异步解决方案，后面会讲到。通过 Generator，我们可以非常快捷的部署 Iterator 接口，只需一步步写出每次要输出的 value 即可，不用费心去管理 done。
 
@@ -125,7 +125,7 @@ const obj = {
 [...obj] // ["hello", "world"]
 ```
 
-# 遍历器对象的 return() 和 throw()
+## 遍历器对象的 return() 和 throw()
 
 除了  `next()` ，遍历器对象还包含了 `return()` 和 `throw()` 两个可选的方法。
 
@@ -172,7 +172,7 @@ for (let line of readLinesSync(fileName)) {
 
 需要注意的是， `return()` 必须返回一个对象，z合适 Generator 的规格决定的。 `throw()` 主要是配合 Generator 使用，一般的遍历器用不到，后面会具体讲。
 
-# for...of
+## for...of
 
 配合 Iterator，ES6 新增了一个新的循环操作： `for...of` ，只要是正确部署了 `Symbol.iterator` 属性的数据结构都可以使用它。
 
@@ -182,11 +182,11 @@ Map 和 Set 也可以通过 `for...of` 来遍历，不过是按照元素的添�
 
 对象、数组、Map、Set 都支持 `keys()` 、 `values()` 、 `entries()` ，其返回的内容也是遍历器对象，可以通过 `for...of` 遍历。
 
-# 小结
+## 小结
 
 有了 Iterator，我们可以自由地定义数据结构的遍历方式。这一部分的两个关键点，一个是 `[Symbol.iterator]` 属性是个函数，包含必须的 `next()` 函数，在一个就是新的循环语法 `for...of` 。至于文中提到的 Generator，我们会在该系列之后的文章中进行介绍。
 
-# 该系列的其他文章
+## 该系列的其他文章
 
 上一篇：[每天一点ES6(13)：Proxy 和 Reflect](./es6-daily-13-proxy-and-reflect)
 

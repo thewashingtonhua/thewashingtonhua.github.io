@@ -6,7 +6,7 @@ tags: ['typescript', 'vue']
 cover: '../../images/blog/guide-for-vue-with-typescript.jpg'
 ---
 
-# TypeScript 这个磨人的小妖精
+## TypeScript 这个磨人的小妖精
 
 讲到 TypeScript，那重点当然是在 Type 上。TypeScript 作为 JavaScript 的超集，在实现了主流 ECMAScript 标准的同时，提供了强大的静态类型系统。但也恰恰因为这一类型系统的功能之强大、规则之严格，初上手时会有明显的阵痛。
 
@@ -16,11 +16,11 @@ Angular 在设计之初就押注 TypeScript，从头到脚系统级的语法支�
 
 Vue 诞生之际并没有计划走 TypeScript 的路子，是半路加盟的合作伙伴，因此在语法支持度上还差一截。2.x 开始逐渐加入对 TypeScript 的支持，官方层面上为整个生态链（即不光 Vue，也包括 Vue-Router、Vuex）提供了 @types 类型声明，最近的 2.5 Release 还特意发文说增强了对 TypeScript 的支持，正好手头有个项目要用 Vue 做，就趁机试了一下用 TypeScript 写 Vue。
 
-# 是与不是
+## 是与不是
 
 这篇博客不是教你如何配置 Vue 项目以支持 TypeScript 的，这在 Vue 和 TypeScript 的官方文档上都有详细的教程。这篇博客只是记录了我在进行这一尝试过程中所遇到的坑和对应的解决方案。随着时间推移以及双方新版本的发布，下面提到的内容随时可能失效，因此仅供参考。
 
-# 工欲善其事
+## 工欲善其事
 
 开发工具方面，官方推荐使用 Visual Studio Code 配合 Vetur 插件，这几乎是目前开发 Vue 项目的黄金搭档了，也是我个人一直以来的选择。前者是时下前端圈子最流行的代码编辑器/IDE，后者是在 VSCode 下最强大，同时也是有着官方背书的 Vue 支持插件，提供了文件类型支持、语法高亮、代码提示、代码片段、代码风格检查等众多实用功能。项目结构是使用 `vue-cli` 选择 PWA 模板创建的。
 
@@ -31,9 +31,9 @@ Vue 诞生之际并没有计划走 TypeScript 的路子，是半路加盟的合�
 - Vetur: 0.10.1
 - TSLint: 4.5.1
 
-# 坑和解决方案
+## 坑和解决方案
 
-## 1）找不到 *.vue 模块
+### 1）找不到 *.vue 模块
 
 在 `webpack.base.config.js` 中我们已经配置了 `/\.tsx?/` 和 `/\.vue$/` 对应的 loader，并且在 `tsconfig.json` 中指定了 `appendTsSuffixTo: [/\.vue$/]` ，通常来讲这样就足够了，但在引入 `*.vue` 文件时还是遇到了 `Cannot find Module XXX.vue` 的问题。
 
@@ -48,13 +48,13 @@ declare module "*.vue" {
 
 这个文件只要存在于 `/src` 目录下即可，不需要在任何地方将其引入。（该方法来自<a target="_blank" href='https://github.com/Microsoft/TypeScript-Vue-Starter#single-file-components'>TypeScript 官方提供的用于 Vue 的启动教程</a>）
 
-## 2）不支持 @ alias
+### 2）不支持 @ alias
 
 如果你是使用官方提供的 `vue-cli` 创建的项目，那么在 `webpack.base.config.js` 中默认已经配置了一个叫做 `@` 的 alias 指向 `/src` 目录，在代码中可以通过它来引用 JavaScript 模块，避免了在移动文件后还要检查各级相对路径依赖的问题。但 TypeScript 并不能识别这种语法，TSLint 会报错说找不到对应模块，只能用回相对路径。（其实编译是能过的，终端也不报错，因为语法上没错，Webpack 能够正常解析，但是编辑器会有红线提示 TSLint 不过，作为强迫症这个不能忍啊）
 
 解决方案：目前无解，只能用相对路径，或者置之不理（逼死强迫症）。
 
-## 3）无法推断 Vue 实例内部属性类型
+### 3）无法推断 Vue 实例内部属性类型
 
 例如 `this.$router` 、 `watch: {'$router' (to, from) {}}` 这样的代码，在使用 JavaScript 开发时一切正常，到了 TypeScript 下却报错说属性不存在。同样的还有在 `methods` 中用 `this.variable` 访问 `data` 中的数据，也会报不存在， `this` 实际指向了
 
@@ -70,7 +70,7 @@ export default Vue.extend({
 
 但按照官网的表述，使用 Vetur 和 单文件组件（SFC）时，这一步是不需要的，类型推断应该会自动应用于默认导出，直接按照常规的写法即可。但事实上还是逃不了这一遭。
 
-## 4）对异步组件支持不佳
+### 4）对异步组件支持不佳
 
 这又是一个和 Webpack 有关的问题，在利用 Code-Split 作异步组件加载时，如果用到了 `require()` 函数，会提示说 `Cannot find name 'require'` ，如果激进一点使用 Dynamic Import，则不能在 `tsconfig.json` 中设置 `module: 'es2015'` 。
 
@@ -78,7 +78,7 @@ export default Vue.extend({
 
 另外，即便使用了 `@types/node` 和span.code{@types/webpack}，依然会提示"require 不存在 ensure 属性"，解决办法是添加依赖 `@types/webpack-env` ，未添加时的 require 使用的是 Node 中的标准 require，自然没有 ensure 属性。或者，也可以把 require 强制转换成 any 类型，这种方法虽然可行，但还是要尽可能避免使用 any。
 
-## 5）无法使用 Promise
+### 5）无法使用 Promise
 
 这个纯粹是语言上的坑，跟框架和工具无关。想要使用 `Promise.reject()` ，但提示说 `'Promise' only refers to a type. but is being used as a value here` 。
 
@@ -86,19 +86,19 @@ export default Vue.extend({
 
 注意：官网上相关的说明取值都是全大写的，如：ES2015，但实际上需要全小写，如果你用的 VSCode，它会提示你无效的值。
 
-## 6）无法访问 window、document 等全局变量
+### 6）无法访问 window、document 等全局变量
 
 这个也是语言上的坑，直接使用会提示找不到这些东西。
 
 解决方案：。要在 `tsconfig.json` 中设置 `lib: ['dom']` 即可访问。
 
-## 7）不支持 Node 相关变量
+### 7）不支持 Node 相关变量
 
 在 TypeScript 中无法直接使用 Node 专有变量，例如 `process.env.NODE_ENV` 会提示 `Cannot find name 'process'`
 
 解决方案：安装 `@types` 依赖，例如缺 Node 相关的变量，就安装 `@types/node` ，其它环境/库亦是如此
 
-## 8）强制处理潜在类型不兼容
+### 8）强制处理潜在类型不兼容
 
 这其实是 TypeScript 一个让人又爱又恨的地方。强制类型检查虽然能避免不必要的类型错误，但这条规则有时候有显得太过于严格，以至于在 JavaScript 中习以为常的“正确”写法，到了 TypeScript 下变成了“错误”：
 
@@ -108,7 +108,7 @@ export default Vue.extend({
 
 解决方案：迎难而上接受 TypeScript 的规则，必要时添加相应类型声明，或者退而求其次用回 JavaScript。
 
-# So Far
+## So Far
 
 目前已知的有上面这么些个问题，逛社区的时候也遇到过其他人有各式各样别的问题的，可能运气好我没遇到。
 
@@ -120,7 +120,7 @@ Vue 官方对于 TypeScript 的态度，目前还不是很明确，提供了必�
 
 其实在前端百家争鸣的大背景下，尤大大向来是保持技术中立的，Vue 专心做好视图层，语言层面的东西不站队，如果社区需求强烈，那就加入支持，作为一个开发者，这一点我还是非常敬重尤大大的。
 
-# 从入门到放弃
+## 从入门到放弃
 
 最终，我还是选择了放弃 TypeScript，用回 JavaScript 来完成这次的项目，毕竟是公司的项目，虽然不大，但也是有 deadline 的，稳定性上也有要求，盲目加入风险不可控的新技术是非常不负责任的行为。
 

@@ -7,11 +7,11 @@ cover: '../../images/blog/es6daily.jpg'
 series: 'es6daily'
 ---
 
-# 写在前面
+## 写在前面
 
 Promise 大概是 ES6 中最为人熟知的内容之一了，时至今日它已经成为了异步操作中事实上的新标准。
 
-# 什么是 Promise
+## 什么是 Promise
 
 Promise 和它的字面意思一样，代表着某种承诺，承诺未来某个时间会发生的事。Promise 被用来执行异步操作，等异步操作完成后（无论成败），执行后续的内容。
 
@@ -25,7 +25,7 @@ Promise 也有一些缺点：
 - Promise 内部抛出的错误，除非设置了回调函数，否则不会反应到外部。
 - Promise 在 pending 状态下时，无法得知具体的进度，即到底是刚开始还是快要结束了。
 
-# Promise 的基本使用
+## Promise 的基本使用
 
 Promise 本身是一个构造函数，接收一个函数作为参数，创建一个 Promise 实例。作为参数的函数包含两个参数： `resolve` 和 `reject` 。这两个参数都是函数，分别用于将 Promise 对象的状态从 pending 改为 resolved 和 rejected，并将异步操作的结果/错误以参数的形式传递出去。
 
@@ -52,13 +52,13 @@ Promise 实例通过 `then()` 方法指定异步操作成功/失败后的后续�
 
 按照正常的逻辑来讲， `resolve()` 和 `reject()` 应该表示一个 Promise 的结束，之后不应该再有别的代码。尽管不推荐这么做，但是语法上是允许在这后面继续执行内容的，而且如果是同步的代码，还会先于回调执行。一般来说后续的操作应该放到 `then()` 里， `resolve()` 和 `reject()` 前面最好加上 `return` 。
 
-# Promise.prorotype.then()
+## Promise.prorotype.then()
 
 `then()` 是 Promise 实例的方法，用于给 Promise 实例添加状态改变时的回调函数。
 
 `then()` 支持链式调用，可以连续执行多个 `then()` ，前一个 `then()` 的返回会作为后一个 `then()` 的参数。
 
-# Promise.prototype.catch()
+## Promise.prototype.catch()
 
 `catch()` 是 `then(null, reject)` 的别名，用于处理错误，无论是异步操作过程出错，还是 `catch()` 之前的 `then()` 出错，都会进入到 `catch()` 里，有点类似 `try...catch` ， `rejcet()` 就是在抛出错误。Promise 一旦状态变为 resolve，再抛出错误是无效的，如果要 reject，，请及早 reject。
 
@@ -87,13 +87,13 @@ Promise 的 `catch()` 后面还可以跟 `then()` 和 `catch()` 。如果没有�
 
 Promise 的 `catch()` 会处理到自己为止之前所有未处理的错误，错误一旦被 `catch()` 捕获，就会到此为止，不再继续向后传递；之后发生的新错误会在遇到下一个 `catch()` 时被处理，或直到最后也没被处理，被“内部消化”。
 
-# Promise.prototype.finally
+## Promise.prototype.finally
 
 这是 ES2018 引入的内容，位于 Promise 对象的最后。无论 Promise 对象最后的状态如何，都会执行其中的代码。 `finally()` 不接受任何参数，也就意味着 `finally()` 无法得知 Promise 最终的状态，也就是说 `finally()` 中的操作应该是与 Promise 的状态无关的，例如释放资源占用、关闭连接等。
 
 `finally()` 本质上还是 `then()` 的语法糖，如果 `then()` 的两个参数执行的是完全相同的内容，并且返回传入的值，那么就和用 `finally()` 执行一次是一样的。需要注意的是， `finally()` 总是会返回上一步的结果，因此尽管从语义上看它应该位于 Promise 的最后，但是语法上是允许其后继续接 `then()` 或 `catch()` 等语句的，毕竟本质上这就只是一个 `then()` 而已。
 
-# Promise.all()、Promise.race()
+## Promise.all()、Promise.race()
 
 这两个是 Promise 的静态方法，接受一个 Promise 数组作为参数，将其包装为一个新的 Promise。如果数组中的元素不是 Promise 实例，就会通过 `Promise.resolve()` 将其转换成 Promise 实例。事实上只要是具有 Iterator 接口的数据结构都可以，只是数组最常用。
 
@@ -105,7 +105,7 @@ Promise 的 `catch()` 会处理到自己为止之前所有未处理的错误，�
 
 如果作为参数的 Promise 实例自己定义了 `catch()` ，那么它的 reject 会被自己的 `catch()` 处理，而不会传递到 `Promise.all()` 和 `Promise.race()` 的 `catch()` 。
 
-# Promise.resolve()、Promise.reject()
+## Promise.resolve()、Promise.reject()
 
 这两个也是 Promise 的静态函数，接受一个对象，并将其转为对应状态的 Promise 对象。相比之下，这两个函数可能比 `Promise.all()` 和 `Promise.race()` 还要更常用一些。
 
@@ -136,7 +136,7 @@ console.log('one'); // 立即执行
 
 `Promise.reject()` 的参数没有那么复杂，不管是什么类型，都会原封不动的作为 reject 的理由传递给后续的方法。通常来说，reject 的理由会是一个 Error 的实例。
 
-# Promise.try()
+## Promise.try()
 
 这是一个非标准的函数，还在提案阶段。但是一些主流的 Promise 库（Bluebird、Q、when）早就已经提供了这个方法，背后也确实有实际需求存在，未来还是很可能进入标准的。
 
@@ -144,13 +144,13 @@ console.log('one'); // 立即执行
 
 `Promise.try` 被设计为可以容纳同步和异步的代码，不管哪种类型的异常，都可以交给 `Promise.prototype.catch` 去捕获，这样一来 Promise 就具备了完整的 `try...catch` 机制，不再只有 catch 却没有 try 了。
 
-# 小结
+## 小结
 
 Promise 是 ES6 带来的重要特性之一，也是最为广大开发者熟知的 ES6 新特性之一。从我对应聘者的面试情况来看，当我问及 ES6 有哪些新特性时，应聘者可能未必能说出 ES6 为对象、数组、字符串等添加了什么新的方法，也未必能讲清楚 Symbol、Proxy、Reflect 都是个啥，甚至可能都不知道 Map 和 Set 的存在，但说到 Promise，每个人都可以说上一两句，即便没有专门研究过 ES6，在使用 Axios、Fetch API、Q 等的过程中也会顺带学习到 `then()` 的用法，可见 Promise 在前端圈子的普及度。
 
 当然，在异步流程控制这一块，ES6 的贡献远不止 Promise，还包括 Generator、Async/Await 等方案，别着急，我们马上就会讲到。
 
-# 该系列的其他文章
+## 该系列的其他文章
 
 上一篇：[每天一点ES6(14)：Iterator](./es6-daily-14-iterator)
 

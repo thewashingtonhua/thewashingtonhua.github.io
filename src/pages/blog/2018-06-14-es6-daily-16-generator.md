@@ -7,13 +7,13 @@ cover: '../../images/blog/es6daily.jpg'
 series: 'es6daily'
 ---
 
-# 什么是 Generator ？
+## 什么是 Generator ？
 
 Generator 函数是 ES6 引入的一种异步编程解决方案，在之前讲[Iterator](./es6-daily-14-iterator)和[Promise](./es6-daily-15-promise)的时候有提到过。
 
 Generator 从字面上理解，叫“生成器”，单看名字感觉和工厂函数有关，似乎是用来创建某些东西的。可以把 Generator 理解为一个状态机，可以在其内部封装多个状态，按序进行产出。执行 Generator 会返回一个遍历器对象，遍历得到的内容就是其内部的各种状态。所以 Generator 实际上是生成了一个可遍历的状态序列。
 
-# Generator 的基本语法
+## Generator 的基本语法
 
 Generator 函数跟普通函数没什么两样，但是有两个特征：
 
@@ -49,7 +49,7 @@ hw.next() // { value: undefined, done: true}
 
 注意，Generator 不能使用 `new` 来创建实例（但可以通过改造来达到同样的效果）
 
-# yield 表达式
+## yield 表达式
 
 Generator 中使用 yield 表达式来暂停后续函数的执行，并将紧跟其后的表达式的值作为返回对象的 `value` 属性进行产出（yield 字面意思就是“产出”）。下次调用 `next()` 时，继续执行，直到下一个 `yield` ；或遇到 `return` ，那么就把 `return` 的值作为最后一个状态的 `value` ；或函数运行到最后一行 `return` ，那么最后一个状态的 `value` 就是 `undefined` 。
 
@@ -78,14 +78,14 @@ function* gen () {
 }
 ```
 
-# yield 和 return 的区别
+## yield 和 return 的区别
 
  `yield` 和 `return` 很相似，都是返回紧跟在语句后面的表达式的值。区别在于：
 
 - `yield` 会暂停函数，下次再从该位置仅需执行， `return` 不会记忆位置。
 - 一个函数里只能执行一次 `return` ，执行后函数就退出了。但可以执行多次 `yield` ，执行后只是暂停函数并返回表示当前状态的对象，并不一定会导致函数退出。这也是 Generator 区别于其他函数的最大一点，普通函数只能返回一个值，Generator 可以返回一系列的值，这也是它名称的由来（生成器），配合循环可以用于生成集合数据结构。
 
-# 与 Iterator 接口的关系
+## 与 Iterator 接口的关系
 
 任意一个对象的 `Symbol.iterator` 方法，等于该对象的遍历器生成函数，调用这个函数就会返回该对象的一个遍历器对象。Generator 函数就是遍历器生成函数，所以可以直接把 Generator 赋值给 `Symbol.iterator` ，以此来部署 Iterator 接口。
 
@@ -100,13 +100,13 @@ myIterable[Symbol.iterator] = function* () {
 [...myIterable] // [1, 2, 3]
 ```
 
-# next() 的参数
+## next() 的参数
 
  `yield` 表达式本身并没有返回值，如果尝试执行 `const foo = yield 1` ， `foo` 的值会是 `undifined` 。可以在调用 `next()` 时传入一个参数，作为上一个 `yield` 的返回值。第一次调用 `next()` 时不应该传入参数，因为这一步只是为了启动 Generator，还不存在“上一个 yield”；即便传入了也会被忽略。
 
 利用这一点，可以在 Generator 执行过程中改变其上下文，进而调整其行为。
 
-# for...of
+## for...of
 
  `for...of` 循环可以自动遍历 Generator 生成的 Iterator 对象，而不需要手动调用 `next()` 方法。 `for...of` 会依次获取每次 `yield` 表达式的值，直到某一次 `next()` 返回的对象的 `done` 属性为 `true` 时终止，或者遇到了 `return` 。
 
@@ -154,7 +154,7 @@ for (const [key, value] of jane) {
 
 除了 `for...of` 之外，扩展运算符（ `...` ）、解构赋值和 `Array.from()` 内部调用的都是遍历器接口。因此 Generator 返回的 Iterator 对象在这些地方都能用。
 
-# Generator.prototype.throw()
+## Generator.prototype.throw()
 
 Generator 函数返回的遍历器对象，都有一个 `throw()` 方法，可以在函数体外抛出错误，在函数体内捕获，但这样的捕获只会发生一次。
 
@@ -184,7 +184,7 @@ try {
 
 Generator 执行过程中如果抛出了异常，只要被内部捕获，Geneerator 就能继续执行下去。但如果没有被内部捕获，就会终止执行。继续调用 `next()` 将返回 `{value: undefined, done: true}` 。
 
-# Generator.prototype.return()
+## Generator.prototype.return()
 
 这里的 `return()` 类似 JS 里普通的 `return` ，返回值并终止函数，这里会返回 value 值为传入参数，done 值为 true 的 Generator 状态对象，并终结遍历 Generator 的函数。
 
@@ -230,7 +230,7 @@ g.next() // { value: 7, done: true } // return 的结果到这里才出现
 - `throw()` 将其替换为抛出一个异常。
 - `return()` 将其替换为一个普通返回。
 
-# yield* 表达式
+## yield* 表达式
 
 这个特殊的 `yield` 表达式用于在一个 Generator 内部调用另一个 Generator。普通的 `yield` 只会返回 Generator 对象，但并不会执行它。
 
@@ -274,7 +274,7 @@ for (let v of bar()) {
 
  `yield*` 后面跟 Generator 函数（没有 `return` )，等同于给这个 Generator 内部部署一个 `for...of` 循环。实际上任何部署了 Iterator 接口的数据结构都可以 `yield*` 进行遍历。
 
-# Generator 的 `this`
+## Generator 的 `this`
 
 Generator 函数总是返回一个遍历器，可以通过 `prototype` 去定义实例方法，但无法直接通过 `this` 去定义。可以通过 `call()` 绑定一个空对象作为上下文，把属性都赋值到这个对象上，用这个对象作为 Generator 函数的实例，来变通实现。
 
@@ -339,7 +339,7 @@ f.b // 2
 f.c // 3
 ```
 
-# 小结
+## 小结
 
 Generator 的本质就是一个状态机，相比 ES5 用普通函数实现的效果，不会把内部状态暴露出来，更优雅也更安全。
 
@@ -347,7 +347,7 @@ Generator 也可以看作是 ES6 对协程的不完全实现，多个 Generator 
 
 当然，Generator 在实际应用中最广泛的用途，还是用来控制异步流，将其转换为更为直观的类似同步流的写法。
 
-# 该系列的其他文章
+## 该系列的其他文章
 
 上一篇：[每天一点ES6(15)：Promise](./es6-daily-15-promise)
 

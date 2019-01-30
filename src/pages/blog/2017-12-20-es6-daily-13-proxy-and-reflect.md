@@ -7,15 +7,15 @@ cover: '../../images/blog/es6daily.jpg'
 series: 'es6daily'
 ---
 
-# 写在前面
+## 写在前面
 
 又好久没更了，这次来讲的是 ES6 中比较冷门的一块内容：元编程。大部分时候其实我们不会接触到这一块，日常的业务开发通常不会涉及这么高级的操作，但元编程对于一门语言来说可谓是瑞士军刀，一旦掌握，便可以施展出强大的法力。
 
-# 元编程是个什么鬼？
+## 元编程是个什么鬼？
 
 一般我们编程都是为了实现一些业务上的需求，直接使用语言原生提供的内容即可，最多在其上做一层简单的封装。而元编程则是对编程语言本身进行编程，去修改其原本的行为，实现一些原生方法做不到的事，但实际编写起来又是原生的语法，非常神奇。
 
-# Proxy
+## Proxy
 
 Proxy 本意是代理，一般我们在计算机网络中经常听到这个词。使用 Proxy 我们可以通过编程来接管外界对对象的操作，改变其原本的行为。有点类似于中间件的概念。
 
@@ -58,7 +58,7 @@ obj.time // 35
 
 这里 obj 本身并没有 time 属性，因此沿原型链向上寻找，找到 proxy 的 time 属性，proxy 虽然也没有 time 属性，但其拦截了所有属性访问操作并固定返回 35，因此依然能拿到结果。
 
-## Proxy 支持的拦截操作
+### Proxy 支持的拦截操作
 | 操作 | 作用 |
 |-|-|
 | get(target, key, receiver) | 拦截对象属性的读取，三个参数分别为：目标对象、属性名、proxy 实例本身（即 this 所指），其中最后一个参数可选 |
@@ -75,7 +75,7 @@ obj.time // 35
 | apply(target, obj, args) | 拦截 Proxy 实例作为函数调用的操作，例如： `proxy(...args)` 、 `proxy.call(object, ...args)` 、 `proxy.apply(...)`  |
 | construct(target, args) | 拦截 Proxy 实例作为构造函数调用的操作，例如： `new proxy(...args)`  |
 
-## Proxy.revocable()
+### Proxy.revocable()
  `Proxy.revocable()` 返回一个对象，该对象的 `proxy` 属性是 Proxy 实例， `revoke`  是一个用于取消 Proxy 实例的函数。被取消的 Proxy 实例不可再被访问。
 
 ```javascript
@@ -93,10 +93,10 @@ proxy.foo // TypeError: Revoked
 
  `Proxy.revocable()` 的一个使用场景就是临时授权对象访问。一个对象不允许直接访问，但允许通过代理临时访问，访问结束后收回代理权，之后不再允许访问。
 
-## Proxy 中的 this
+### Proxy 中的 this
 在使用了 Proxy 的情况下，目标对象内部的 `this` 关键字会指向 Proxy 代理，而非原本的对象。使用时要时刻注意这一点，Proxy 内部的 `this` 未必是我们以为的那一个
 
-# Reflect
+## Reflect
 
 字面意思解叫“反射”，熟悉 Java 的朋友应该也有接触过这个词。它和 Proxy 一样，都是 ES6 引入的用于操作对象的新 API。
 
@@ -109,7 +109,7 @@ Reflect 的设计目的有以下几个：
 
 简而言之， `Reflect` 的存在意义有两点：一是把一些原本捆绑在 `Object` 对象上但实际上更应该属于语言内部的方法提取出来，并加以合理化，让 `Object` 更纯粹作为一种数据结构。二是和 `Proxy` 组 CP，用于在 `Proxy` 中始终指向默认行为，防止加了代理之后回不去。
 
-## Reflect 的静态方法
+### Reflect 的静态方法
 
 如前面所说的， `Reflect` 的静态方法和 `Proxy` 支持的拦截操作一一对应。
 
@@ -127,11 +127,11 @@ Reflect 的设计目的有以下几个：
 - Reflect.getPrototypeOf(target)
 - Reflect.setPrototypeOf(target, prototype)
 
-# 小结
+## 小结
 
 通过 Proxy 和 Reflect，我们可以进一步控制对象的行为，甚至改变其默认行为。这可以说是对 JavaScript 能力的又一次提升。
 
-# 该系列的其他文章
+## 该系列的其他文章
 
 上一篇：[每天一点ES6(12)：Map 和 Set](./es6-daily-12-set-and-map)
 
