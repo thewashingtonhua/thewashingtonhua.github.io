@@ -5,6 +5,19 @@ import SEO from '../../components/seo'
 import './lab.scss'
 
 export default class HTML5Canvas extends PureComponent {
+  canvas = React.createRef()
+
+  draw = () => {
+    const canvas = this.canvas.current
+    if (canvas.getContext) {
+      const ctx = canvas.getContext('2d')
+      ctx.fillStyle = '#999'
+      // ctx.fillRect(50, 50, 200, 100)
+      ctx.font='18px Arial';
+      ctx.fillText('This browser supports canvas.', 25, 100);
+    }
+  }
+
   render () {
     return (
       <Layout>
@@ -19,9 +32,7 @@ export default class HTML5Canvas extends PureComponent {
 
             <h1>Canvas</h1>
 
-            <p id='support'></p>
-
-            <canvas id='mycanvas' height='200' width='300' style={{
+            <canvas ref={this.canvas} height='200' width='300' style={{
               'backgroundColor': '#DDD',
               'marginTop': '20px'
             }}>Canvas is not supported on this browser</canvas>
@@ -29,6 +40,10 @@ export default class HTML5Canvas extends PureComponent {
         </div>
       </Layout>
     )
+  }
+
+  componentDidMount () {
+    this.draw()
   }
 }
 

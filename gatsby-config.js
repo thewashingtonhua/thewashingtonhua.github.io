@@ -58,13 +58,13 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [,
-          {
-            resolve: 'gatsby-remark-embed-snippet',
-            options: {
-              classPrefix: 'gatsby-code-',
-              directory: `${__dirname}/samples/`,
-            },
-          },
+          // {
+          //   resolve: 'gatsby-remark-embed-snippet',
+          //   options: {
+          //     classPrefix: 'gatsby-code-',
+          //     directory: `${__dirname}/samples/`,
+          //   },
+          // },
           {
             resolve: 'gatsby-remark-prismjs',
             options: {

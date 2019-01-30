@@ -6,7 +6,18 @@ import './lab.scss'
 import './html5-online.scss'
 
 export default class HTML5Online extends PureComponent {
+  state = {
+    status: ''
+  }
+
+  updateStatus = e => {
+    const status = navigator.onLine ? 'online' : 'offline'
+    this.setState({ status })
+  }
+
   render () {
+    const { status } = this.state
+
     return (
       <Layout>
         <SEO
@@ -20,12 +31,24 @@ export default class HTML5Online extends PureComponent {
 
             <h1>Online</h1>
 
-            <p>Status: <span id='status'></span></p>
+            <p>Status: <span id='status' className={status}>{status}</span></p>
           </article>
 
         </div>
       </Layout>
     )
+  }
+
+  componentDidMount () {
+    this.updateStatus()
+
+    window.addEventListener('online', this.updateStatus)
+    window.addEventListener('offline', this.updateStatus)
+  }
+
+  componentWillUnmount () {
+    window.removeEventListener('online', this.updateStatus)
+    window.removeEventListener('offline', this.updateStatus)
   }
 }
 

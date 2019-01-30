@@ -12,7 +12,7 @@ to: '2017-03-01'
 
 国内时尚业首个专业买手服务平台，基于 AngularJS 开发。
 
-项目接手自前任团队，接手时所用技术栈为手写 CSS，且没有任何的依赖管理和自动化构建流。自接手，先后引入了 LESS 和 SASS 进行 CSS 的模块化，使用 Gulp 搭建了自动化构建流，使用 npm（后转为 Yarn）进行依赖管理。考虑到 AngularJS 设计之初 ES2015 标准尚未发布，支持度没有保障，该项目没有强行使用 ES2015 的语法。
+项目接手自前任团队，接手时所用技术栈为手写 CSS，且没有任何的依赖管理和自动化构建流。自接手，我引入了 SASS 进行 CSS 的模块化，使用 Gulp 搭建了自动化构建流，使用 Yarn进行依赖管理。考虑到 AngularJS 设计之初 ES2015 标准尚未发布，支持度没有保障，因此该项目没有强行使用 ES2015 的语法。
 
 ## 周期
 
@@ -20,7 +20,7 @@ to: '2017-03-01'
 
 ## 相关链接
 
-线上地址：<a target="_blank" href="http://www.xshowroom.cn">这里</a>
+<a target="_blank" href="http://www.xshowroom.cn">线上地址</a>
 
 ## 项目截图
 ![截图](../images/project/xshowroom/screenshot.jpg)

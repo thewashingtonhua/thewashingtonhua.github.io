@@ -6,9 +6,25 @@
     padding: 0 15px;
   }
 
-  h1, h2, p, li, a, label {
+  h1, h2, p, li, a, label, th, td {
     color: $theme-color-text-secondary;
     font-family: $theme-font-code;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  td {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 15px;
+    white-space: nowrap;
+  }
+
+  tr.title td {
+    color: $theme-color-text-primary;
+    padding: 25px 15px;
+    font-weight: 700;
   }
 
   h1 {
