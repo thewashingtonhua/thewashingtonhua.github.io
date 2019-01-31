@@ -118,8 +118,6 @@
             font-size: 14px;
             color: $theme-color-text-secondary;
             line-height: 1;
-            padding-right: 10px;
-            margin-right: 10px;
             position: relative;
             white-space: nowrap;
             transition: font-size 0.3s ease-out, margin-bottom 0.3s ease-out;
@@ -128,12 +126,27 @@
               margin-bottom: 2px;
               font-size: 12px;
             }
+          }
 
-            &::after {
+          .tags {
+            padding-left: 10px;
+            margin-left: 10px;
+            display: flex;
+            color: $theme-color-text-secondary;
+            line-height: 1;
+            font-size: 14px;
+            transition: font-size 0.3s ease-out;
+            position: relative;
+
+            @media (max-width: $break-point-tablet) {
+              font-size: 12px;
+            }
+
+            &::before {
               content: '';
               position: absolute;
               top: 50%;
-              right: 0;
+              left: 0;
               transform: translate(0, -50%);
               width: 1px;
               height: 12px;
@@ -144,20 +157,37 @@
               }
             }
           }
-
-          .tags {
-            display: flex;
-            color: $theme-color-text-secondary;
-            line-height: 1;
-            font-size: 14px;
-            transition: font-size 0.3s ease-out;
-
-            @media (max-width: $break-point-tablet) {
-              font-size: 12px;
-            }
-          }
         }
       }
+    }
+  }
+
+  .bottom-line {
+    width: 100%;
+    height: 30px;
+    position: relative;
+
+    &::before, &::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &::before {
+      content: '';
+      height: 1px;
+      width: calc(100% - 30px);
+      background-color: $theme-color-text-secondary;
+    }
+
+    &::after {
+      content: 'The End';
+      display: inline-block;
+      padding: 0 0.5em;
+      color: $theme-color-text-secondary;
+      background-color: #000;
     }
   }
 }

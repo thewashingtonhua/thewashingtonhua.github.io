@@ -90,9 +90,9 @@ ES6 提供了原生函数用于重复字符串，方法接受一个非负整数�
 
 ```javascript
 $("#result").append(
-  "There are &lt;b&gt;" + basket.count + "&lt;/b&gt; "
+  "There are <b>" + basket.count + "</b> "
   + "items in your basket, "
-  + "&lt;em&gt;" + basket.onSale + "&lt;/em&gt; are on sale!"
+  + "<em>" + basket.onSale + "</em> are on sale!"
 );
 ```
 
@@ -100,8 +100,8 @@ $("#result").append(
 
 ```javascript
 $("#result").append(`
-  There are &lt;b&gt;${basket.count}&lt;/b&gt; items
-  in your basket, &lt;em&gt;${basket.onSale}&lt;/em&gt;
+  There are <b>${basket.count}</b> items
+  in your basket, <em>${basket.onSale}</em>
   are on sale!
 `);
 ```
@@ -174,6 +174,6 @@ String.raw = function (strings, ...values) {
 
 ## 该系列的其他文章
 
-上一篇：[每天一点ES6(4)：Babel](./es6-daily-04-babel)
+上一篇：[每天一点ES6(4)：Babel](/blog/2016/02/19/es6-daily-04-babel)
 
-下一篇：[每天一点ES6(6)：正则的扩展](./es6-daily-06-regexp)
+下一篇：[每天一点ES6(6)：正则的扩展](/blog/2016/04/06/es6-daily-06-regexp)

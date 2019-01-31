@@ -349,6 +349,6 @@ Generator 也可以看作是 ES6 对协程的不完全实现，多个 Generator 
 
 ## 该系列的其他文章
 
-上一篇：[每天一点ES6(15)：Promise](./es6-daily-15-promise)
+上一篇：[每天一点ES6(15)：Promise](/blog/2018/03/04/es6-daily-15-promise)
 
-下一篇：[每天一点ES6(17)：Async / Await](./es6-daily-17-async-await)
+下一篇：[每天一点ES6(17)：Async / Await](/blog/2018/10/06/es6-daily-17-async-await)

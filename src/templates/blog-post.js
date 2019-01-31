@@ -30,7 +30,7 @@ export default ({ data }) => {
             <p className='publish-date'>
               <time dateTime={post.frontmatter.date}>{date}</time>
             </p>
-            <p className='tags'>Tags: {post.frontmatter.tags.join(', ')}</p>
+            {/* <p className='tags'>Tags: {post.frontmatter.tags.join(', ')}</p> */}
           </div>
           <div className='banner'>
             <img src={cover} alt='' />

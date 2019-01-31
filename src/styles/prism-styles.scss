@@ -33,10 +33,8 @@ $prism-color-operator: #fc929e;
   font-family: $theme-font-code;
   color: $theme-color-text-primary;
   background-color: $theme-color-dark-primary;
-  padding: 0 0.5em;
-  margin: 0 0.5em;
-  line-height: 1.75;
-  border-radius: 2px;
+  padding: 0.5em 0.5em;
+  border-radius: 6px;
 }
 
 .gatsby-highlight {
@@ -47,6 +45,13 @@ $prism-color-operator: #fc929e;
   tab-size: 1.5em;
   margin-bottom: 15px;
   -webkit-overflow-scrolling: touch;
+  position: relative;
+
+  pre {
+    &.line-numbers {
+      padding-left: 40px;
+    }
+  }
 
   code,
   span {
@@ -167,4 +172,56 @@ $prism-color-operator: #fc929e;
   display: block;
   margin: -0.125rem calc(-1rem - 15px);
   padding: 0.125rem calc(1rem + 15px);
+}
+
+.line-numbers-rows > span {
+  line-height: 1.5;
+}
+
+.gatsby-highlight {
+  &[data-language]::before {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    padding: 3px 10px;
+    font-size: 12px;
+    text-align: right;
+    color: #444;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    border-radius: 0 0 5px 5px;
+    background: #ddd;
+  }
+
+  &[data-language='javascript']::before {
+    content: 'js';
+    background: #f7df1e;
+  }
+
+  &[data-language='css']::before {
+    content: 'css';
+    background: #ff9800;
+    color: #fff;
+    font-weight: 400;
+  }
+
+  &[data-language='html']::before {
+    content: 'html';
+    background: #00a5ff;
+    color: #fff;
+    font-weight: 400;
+  }
+
+  &[data-language='bash']::before {
+    content: 'bash';
+    background: #f6ffe5;
+    font-weight: 400;
+  }
+
+  &[data-language='json']::before {
+    content: 'json';
+    background: #37ff00;
+    font-weight: 400;
+  }
 }

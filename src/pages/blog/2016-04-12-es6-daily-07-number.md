@@ -19,11 +19,11 @@ ES5 开始，严格模式下就不再允许使用前缀 `0` ，ES6 进一步明�
 
 ES6 的一项重要任务，就是对全局函数的整理，将一些全局函数规范化到 `String` 、 `Number` 、 `RegExp` 等原始类型中。
 
-### （1）Number.isFinite()，Number.isNaN()
+### 1. Number.isFinite()，Number.isNaN()
 
 这两个函数是 ES6 中新增的函数，作为 `Number` 类的方法。在 ES5 中，有两个同名的全局函数，作用其实相同，区别在于 ES5 中的这两个函数会先调用 `Number()` 讲非数值转换为数值后再判断，而两个新的方法值对数只有小，对非数值一律返回false。
 
-### （2）Number.parseInt()，Number.parseFloat()
+### 2. Number.parseInt()，Number.parseFloat()
 
 同样是 ES6 中新增的函数，同样作为 `Number` 类的方法，同样在 ES5 中存在同名的全局函数，但这两个函数的作用和用法并没有改变
 
@@ -46,7 +46,7 @@ Number.EPSILON.toFixed(20)      // '0.00000000000000022204'
 
 ## 安全整数
 
-JavaScript 能准确表示的整数范围为：- 2^53 ~ 2^53，超出这个范围的整数，JavaScript将无法直接表示。ES6 引入了 `Number.MAX_SAFE_INTEGER` 和 `Number.MIN_SAFE_INTEGER` 这两个常量，用来表示这个范围的上下限，以及 `Number.isSafeInteger()` 来判断一个整数是否在这个范围内。
+JavaScript 能准确表示的整数范围为：- 2^53 ~ 2^53，超出这个范围的整数，JavaScript 将无法直接表示。ES6 引入了 `Number.MAX_SAFE_INTEGER` 和 `Number.MIN_SAFE_INTEGER` 这两个常量，用来表示这个范围的上下限，以及 `Number.isSafeInteger()` 来判断一个整数是否在这个范围内。
 
 ```javascript
 Number.MAX_SAFE_INTEGER ===  9007199254740991;             //   2^53 - 1
@@ -165,9 +165,9 @@ Math.expm1(1);  // 1.718281828459045
 | Math.acosh(x) | 反双曲余弦 |
 | Math.atanh(x) | 反双曲正切 |
 
-### 指数运算符号**
+### 指数运算符号 **
 
-这是一个 ES7 打算引入的运算符 `**` ，可以和等号连用构成 `**=` 。目前 Babel 已经支持
+这是一个 ES7 打算引入的运算符 `**` ，可以和等号连用构成 `**=` 。目前 Babel 已经支持。
 
 ```javascript
 2 ** 3;   // 8
@@ -178,6 +178,6 @@ a **= 3;  // 8
 
 ## 该系列的其他文章
 
-上一篇：[每天一点ES6(6)：正则的扩展](./es6-daily-06-regexp)
+上一篇：[每天一点ES6(6)：正则的扩展](/blog/2016/04/06/es6-daily-06-regexp)
 
-下一篇：[每天一点ES6(8)：数组的扩展](./es6-daily-08-array)
+下一篇：[每天一点ES6(8)：数组的扩展](/blog/2016/07/26/es6-daily-08-array)

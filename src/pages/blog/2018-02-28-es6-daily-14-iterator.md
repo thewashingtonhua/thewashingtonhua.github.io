@@ -188,6 +188,6 @@ Map 和 Set 也可以通过 `for...of` 来遍历，不过是按照元素的添�
 
 ## 该系列的其他文章
 
-上一篇：[每天一点ES6(13)：Proxy 和 Reflect](./es6-daily-13-proxy-and-reflect)
+上一篇：[每天一点ES6(13)：Proxy 和 Reflect](/blog/2017/12/20/es6-daily-13-proxy-and-reflect)
 
-下一篇：[每天一点ES6(15)：Promise](./es6-daily-15-promise)
+下一篇：[每天一点ES6(15)：Promise](/blog/2018/03/04/es6-daily-15-promise)

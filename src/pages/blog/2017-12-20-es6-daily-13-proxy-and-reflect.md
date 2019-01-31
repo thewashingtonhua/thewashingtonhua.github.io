@@ -133,6 +133,6 @@ Reflect 的设计目的有以下几个：
 
 ## 该系列的其他文章
 
-上一篇：[每天一点ES6(12)：Map 和 Set](./es6-daily-12-set-and-map)
+上一篇：[每天一点ES6(12)：Map 和 Set](/blog/2017/07/03/es6-daily-12-set-and-map)
 
-下一篇：[每天一点ES6(14)：Iterator](./es6-daily-14-iterator)
+下一篇：[每天一点ES6(14)：Iterator](/blog/2018/02/28/es6-daily-14-iterator)

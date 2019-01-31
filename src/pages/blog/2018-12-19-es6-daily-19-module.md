@@ -255,6 +255,6 @@ import('./section-modules/${someVariable}.js')
 
 ## 该系列的其他文章
 
-上一篇：[每天一点ES6(18)：Class](./es6-daily-18-class)
+上一篇：[每天一点ES6(18)：Class](/blog/2018/12/17/es6-daily-18-class)
 
-<!-- 下一篇：[每天一点ES6(20)：装饰器]('') -->
+<!-- 下一篇：[每天一点ES6(20)：rest & spread]('') -->

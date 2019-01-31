@@ -1,3 +1,58 @@
 @charset "utf-8";
 
 @import '../styles/_common.scss';
+
+#page-not-found {
+  height: calc(100vh - #{$header-height});
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+
+  h1 {
+    color: $theme-color-text-primary;
+    font-size: 36px;
+  }
+
+  pre {
+    margin-top: 40px;
+    margin-bottom: 0;
+
+    code {
+      font-size: 16px;
+      font-family: $theme-font-code;
+      color: $theme-color-text-secondary;
+      line-height: 1.75;
+
+      @media (max-width: $break-point-mobile) {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .btn-back {
+    font-size: 16px;
+    font-family: $theme-font-code;
+    color: $theme-color-text-primary;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 30px;
+    border: 1px solid $theme-color-text-primary;
+    border-radius: 4px;
+    transition:
+      background-color 0.15s ease-out,
+      color 0.15s ease-out;
+
+    @media (max-width: $break-point-mobile) {
+      font-size: 14px;
+    }
+
+    &:hover {
+      background-color: $theme-color-text-primary;
+      color: $theme-color-bg;
+    }
+  }
+}

@@ -101,7 +101,7 @@ babel src -d lib
 还可以从 Terminal 的标准输入中读取文件进行转码：
 
 ```bash
-babel -o es6-babeled.js &lt; es6.js
+babel -o es6-babeled.js < es6.js
 ```
 
 ## 通过 npm 安装 Babel
@@ -128,7 +128,7 @@ babel -o es6-babeled.js &lt; es6.js
 
 ~~甚至可以改写 `package.json` 文件，用 babel-node 替代 node 命令来直接运行。~~
 
-```javascript
+```json
 {
   "scripts": {
     "run-node": "babel-node app.js"    // 需替换成实际文件名
@@ -193,17 +193,17 @@ npm install babel-core@5
 
 ## 在线试用 Babel
 
-有时候我们并不需要在项目中操作什么，纯粹就想看看 Babel 到底做了什么。为此 Babel 官方提供了一套在线的<a href="https://babeljs.io/repl/" target="_blank">REPL (Read-Eval-Print-Loop)</a>，可以方便的试用 Babel。
+有时候我们并不需要在项目中操作什么，纯粹就想看看 Babel 到底做了什么。为此 Babel 官方提供了一套在线的 <a href="https://babeljs.io/repl/" target="_blank">REPL (Read-Eval-Print-Loop)</a>，可以方便的试用 Babel。
 
 ## 路由查询命令的近亲 —— Traceur
 
-除了 Babel 之外，还有一款不错的 ES6 转码器叫做<a href="https://github.com/google/traceur-compiler" target="_blank">Traceur</a>，是由科技巨头 Google 开发的，支持度虽然差 Babel 一大截，但使用非常简单，可以作为备用方案。Traceur 同样支持浏览器、在线 REPL、命令行、Node.js 四种环境下的使用。
+除了 Babel 之外，还有一款不错的 ES6 转码器叫做 <a href="https://github.com/google/traceur-compiler" target="_blank">Traceur</a>，是由科技巨头 Google 开发的，支持度虽然差 Babel 一大截，但使用非常简单，可以作为备用方案。Traceur 同样支持浏览器、在线 REPL、命令行、Node.js 四种环境下的使用。
 
 学过计算机网络的同学，或多或少都应该听说过 Linux 下的  `tracerouter`  命令，和 Windows 下的  `tracert` 命令。这两个命令都是用来追踪数据包从起点到终点所经过的路由的。而 Traceur 的名字，和它们实在是太像了，科技圈的命名方式真是一道风景。
 
 
 ## 该系列的其他文章
 
-上一篇：<a href="es6-daily-03-destructuring.html">每天一点ES6(3)：解构赋值</a>
+上一篇：[每天一点ES6(3)：解构赋值](/blog/2016/02/02/es6-daily-03-destructuring)
 
-下一篇：<a href="es6-daily-05-string.html">每天一点ES6(5)：字符串的扩展</a>
+下一篇：[每天一点ES6(5)：字符串的扩展](/blog/2016/04/05/es6-daily-05-string)

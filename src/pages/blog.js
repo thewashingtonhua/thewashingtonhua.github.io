@@ -3,8 +3,6 @@ import { Link, graphql } from 'gatsby'
 import dayjs from 'dayjs'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
-import 'normalize-scss/sass/normalize/_import-now.scss'
-import '../styles/vendor.scss'
 import './blog.scss'
 
 export default ({ data }) => {
@@ -36,13 +34,14 @@ export default ({ data }) => {
                     <p className='date'>
                       <time dateTime='{node.frontmatter.date}'>{date}</time>
                     </p>
-                    <p className='tags'>Tags: {node.frontmatter.tags.join(', ')}</p>
+                    {/* <p className='tags'>Tags: {node.frontmatter.tags.join(', ')}</p> */}
                   </footer>
                 </div>
               </Link>
             )
           })}
         </div>
+        <div className='bottom-line' />
       </div>
     </Layout>
   )

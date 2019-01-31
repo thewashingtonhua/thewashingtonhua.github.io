@@ -388,6 +388,6 @@ const { SourceMapConsumer, SourceNode } = require("source-map");
 
 ## 该系列的其他文章
 
-上一篇：[每天一点ES6(2)：let和const](./es6-daily-02-let-and-const)
+上一篇：[每天一点ES6(2)：let 和 const](/blog/2016/01/25/es6-daily-02-let-and-const)
 
-下一篇：[每天一点ES6(4)：Babel和Traceur](./es6-daily-04-babel-and-traceur)
+下一篇：[每天一点ES6(4)：Babel](/blog/2016/02/19/es6-daily-04-babel)

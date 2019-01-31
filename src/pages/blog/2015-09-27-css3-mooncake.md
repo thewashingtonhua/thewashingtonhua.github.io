@@ -34,6 +34,7 @@ PPS：建议使用Chrome浏览器（或其它webkit、blink内核的浏览器）
 ```
 
 我将背景设为 `position: relative;` ，以便其中的元素能够进行绝对定位。使用CSS3绘图时，我们会用到大量的绝对定位。
+
 ![css3-mooncake-01](../../images/blog/css3-mooncake/01.jpg)
 
 ## 周围的花边
@@ -131,6 +132,7 @@ li:nth-child(3) {
 ![css3-mooncake-03-01](../../images/blog/css3-mooncake/03-01.jpg)
 
  `ul>li` 默认是竖着往下的，也就是朝向3点钟方向的那一个直角。因此其它3个方向的部分需要借助 `transform: rotate(90deg);` 来实现旋转，再调整 `top` 和 `left` 来进行对齐，就完成了。
+
 ![css3-mooncake-03-02](../../images/blog/css3-mooncake/03-02.jpg)
 
 ## 中间的字

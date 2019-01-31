@@ -188,6 +188,6 @@ for (let [index, elem] of ['a', 'b'].entries()) {
 
 ## 该系列的其他文章
 
-上一篇：[每天一点ES6(7)：数值的扩展](./es6-daily-07-number)
+上一篇：[每天一点ES6(7)：数值的扩展](/blog/2016/04/12/es6-daily-07-number)
 
-下一篇：[每天一点ES6(9)：函数的扩展](./es6-daily-09-function)
+下一篇：[每天一点ES6(9)：函数的扩展](/blog/2016/12/20/es6-daily-09-function)

@@ -95,29 +95,12 @@
           font-size: 14px;
           color: $theme-color-text-secondary;
           line-height: 1;
-          padding-right: 10px;
-          margin-right: 10px;
           position: relative;
           white-space: nowrap;
           transition: margin-bottom 0.3s ease-out;
 
           @media (max-width: $break-point-tablet) {
             margin-bottom: 6px;
-          }
-
-          &::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            right: 0;
-            transform: translate(0, -50%);
-            width: 1px;
-            height: 12px;
-            background-color: $theme-color-text-secondary;
-
-            @media (max-width: $break-point-tablet) {
-              content: none;
-            }
           }
         }
 
@@ -126,10 +109,27 @@
           color: $theme-color-text-secondary;
           line-height: 1;
           font-size: 14px;
+          padding-left: 10px;
+          margin-left: 10px;
           transition: font-size 0.3s ease-out;
 
           @media (max-width: $break-point-tablet) {
             font-size: 12px;
+          }
+
+          &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translate(0, -50%);
+            width: 1px;
+            height: 12px;
+            background-color: $theme-color-text-secondary;
+
+            @media (max-width: $break-point-tablet) {
+              content: none;
+            }
           }
         }
       }

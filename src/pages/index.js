@@ -3,15 +3,18 @@ import { Link, graphql } from 'gatsby'
 import dayjs from 'dayjs'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
-import 'normalize-scss/sass/normalize/_import-now.scss'
-import '../styles/vendor.scss'
 import './index.scss'
 
 export default ({ data }) => {
   const nodes = data.allMarkdownRemark.edges
 
-  const latestBlog = nodes.filter(({ node }) => node.fields.type === 'blog')[0].node
-  const latestProjects = nodes.filter(({ node }) => node.fields.type === 'project').slice(0, 2)
+  const latestBlog = nodes
+    .filter(({ node }) => node.fields.type === 'blog')
+    .sort((x, y) => new Date(y.node.frontmatter.date) - new Date(x.node.frontmatter.date))[0].node
+  const latestProjects = nodes
+    .filter(({ node }) => node.fields.type === 'project')
+    .sort((x, y) => new Date(y.node.frontmatter.from) - new Date(x.node.frontmatter.from)).slice(0, 2)
+    .map(n => n.node)
 
   const blogCover = latestBlog.frontmatter.cover
     ? latestBlog.frontmatter.cover.publicURL
@@ -41,7 +44,7 @@ export default ({ data }) => {
                 <p className='date'>
                   <time dateTime={latestBlog.frontmatter.date}>{blogDate}</time>
                 </p>
-                <p className='tags'>Tags: {latestBlog.frontmatter.tags.join(', ')}</p>
+                {/* <p className='tags'>Tags: {latestBlog.frontmatter.tags.join(', ')}</p> */}
               </footer>
             </div>
           </Link>
@@ -52,18 +55,18 @@ export default ({ data }) => {
           <Link to='/project' className='more'>查看全部 &raquo;</Link>
         </header>
         <div className='channel-body projects'>
-          { latestProjects.map(({node}) => {
-            const cover = node.frontmatter.cover
-              ? node.frontmatter.cover.publicURL
+          { latestProjects.map(p => {
+            const cover = p.frontmatter.cover
+              ? p.frontmatter.cover.publicURL
               : ''
             return (
-              <Link className='project' to={node.fields.slug} key={node.id}>
+              <Link className='project' to={p.fields.slug} key={p.id}>
                 <div className='cover'>
                   <img src={cover} alt='' />
                 </div>
                 <div className='intro'>
-                  <h2>{node.frontmatter.title}</h2>
-                  <p>{node.frontmatter.description}</p>
+                  <h2>{p.frontmatter.title}</h2>
+                  <p>{p.frontmatter.description}</p>
                 </div>
               </Link>
             )
@@ -83,7 +86,7 @@ query {
       keywords
     }
   }
-  allMarkdownRemark(sort: { fields: [frontmatter___date, frontmatter___from], order: DESC }) {
+  allMarkdownRemark {
     totalCount
     edges {
       node {
@@ -92,6 +95,8 @@ query {
           title
           description
           date
+          from
+          to
           tags
           cover {
             publicURL

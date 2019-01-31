@@ -161,9 +161,9 @@ foo() // 3
 
 如果上面函数中的 `x=3` 没有用 `var` 申明，那么引用的就是参数中的 `x`
 
-## rest参数
+## rest 参数
 
-ES6 引入了 `...argument` 的写法，放在参数列表的最后，用于获取函数的剩余参数。剩余参数的数量不定，本质是一个数组，可以用它代替arguments对象，更简洁更自然。需要注意的是rest参数不计入函数的 `length` 。
+ES6 引入了 `...argument` 的写法，放在参数列表的最后，用于获取函数的剩余参数。剩余参数的数量不定，本质是一个数组，可以用它代替 arguments 对象，更简洁更自然。需要注意的是 rest 参数不计入函数的 `length` 。
 
 ```javascript
 function add(...values) {
@@ -182,7 +182,7 @@ add(2, 5, 3) // 10
 
 ## 扩展运算符（spread）
 
-同样也是 `...argument` ，但它是rest参数的逆运算，将一个数组转为逗号分隔的参数序列
+同样也是 `...argument` 的写法，但它是 rest 参数的逆运算，将一个数组转为逗号分隔的参数序列。
 
 ```javascript
 console.log(...[1, 2, 3]);
@@ -206,7 +206,7 @@ var args = [0, 1];
 f(-1, ...args, 2, ...[3]);
 ```
 
-扩展运算符可以有很多的应用，例如可以代替数组的 `apply()` ，可以很方便的合并两个数组，可以将任何实现了Iterator接口的对象转成数组（例如配合Map、Set、Generator等）。
+扩展运算符可以有很多的应用，例如可以代替数组的 `apply()` ，可以很方便的合并两个数组，可以将任何实现了 Iterator 接口的对象转成数组（例如配合 Map、Set、Generator等）。
 
 ## name 属性
 
@@ -233,19 +233,19 @@ foo.bind({}).name             // "bound foo"
 Lambda表达式是在Java、Python、C#、C++等语言中早已实现的写法，ES6 将其命名为箭头函数（Arrow Function）更加直观形象，但其实它们是一个东西。箭头函数的主要作用是让函数的表达更加简洁，尤其是用于回调的匿名函数。
 
 ```javascript
-var f = v =&gt; v;
+var f = v => v;
 // 等同于：
 var f = function(v) {
   return v;
 };
 
 // 如果箭头函数不需要参数或需要多个参数，就使用一个圆括号代表参数部分。
-var f = () =&gt; 5;
+var f = () => 5;
 // 等同于
 var f = function () { return 5 };
 
 
-var sum = (num1, num2) =&gt; num1 + num2;
+var sum = (num1, num2) => num1 + num2;
 // 等同于
 var sum = function(num1, num2) {
   return num1 + num2;
@@ -253,16 +253,16 @@ var sum = function(num1, num2) {
 
 
 // 如果箭头函数的代码块部分多于一条语句，就要使用大括号将它们括起来。
-var sum = (num1, num2) =&gt; { return num1 + num2; }
+var sum = (num1, num2) => { return num1 + num2; }
 
 // 由于大括号被解释为代码块，所以如果箭头函数直接返回一个对象，必须在对象外面加上括号。
-var getTempItem = id =&gt; ({ id: id, name: "Temp" });
+var getTempItem = id => ({ id: id, name: "Temp" });
 ```
 
 箭头函数可以和解构赋值一起用
 
 ```javascript
-const full = ({ first, last }) =&gt; first + ' ' + last;
+const full = ({ first, last }) => first + ' ' + last;
 
 // 等同于
 function full(person) {
@@ -415,6 +415,6 @@ Fibonacci(10);
 
 ## 该系列的其他文章
 
-上一篇：<a href="es6-daily-08-array.html">每天一点ES6(8)：数组的扩展</a>
+上一篇：[每天一点ES6(8)：数组的扩展](/blog/2016/07/26/es6-daily-08-array)
 
-下一篇：<a href="es6-daily-10-object.html">每天一点ES6(10)：对象的扩展</a>
+下一篇：[每天一点ES6(10)：对象的扩展](/blog/2017/04/05/es6-daily-10-object)

@@ -3,6 +3,9 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 
 import Header from './header'
+import 'normalize-scss/sass/normalize/_import-now.scss'
+import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
+import '../styles/vendor.scss'
 import './layout.scss'
 
 const Layout = ({ children }) => (

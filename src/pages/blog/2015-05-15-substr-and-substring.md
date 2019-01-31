@@ -8,7 +8,7 @@ cover: '../../images/blog/substring.jpg'
 
 JavaScript 中有两个非常常用但又非常容易混淆的函数： `substr()` 和 `substring()` ，两者都是 String 类型的方法，作用都是返回目标字符串的一个子串。
 
-关于两者的详细文档可以参考：<a target='_blank' href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substr'>String.prototype.substr()</a> 和 <a target='_blank' href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring'>String.prototype.substring()</a>
+关于两者的详细文档可以参考：<a target='_blank' href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substr'>\[MDN\] String.prototype.substr</a> 和 <a target='_blank' href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring'>\[MDN\] String.prototype.substring</a>
 
 
 两者都接收两个参数以控制子串的起止位置。第一个参数作用相同，都表示子串的起点位置，主要区别在于第二个参数： `substr()` 要求获取一个长度len，通过子串的长度来计算截止点，而 `substring()` 则是直接定义终点的位置，从终点开始往后的字符串不被截取。换句话说，前者是“起点+长度”，后者是“起点+终点”。
@@ -77,7 +77,7 @@ console.log(str.substring(0, 10));
 
 和许多其他编程语言一样，JavaScript 中的字符串也是不可改变的， `substr()` 和 `substring()` 都只是返回子串，要想保存结果还需要单独定义变量，否则就能即时输出一下。
 
-## 跨界好基友slice( start [ , end ] )
+## 跨界好基友 slice( start [ , end ] )
 
 除了本文的两个主角，JavaScript中还有一个函数也可用于获取子串，那就是主角们的好基友 `slice()` ，而之所以说它“跨界”，是因为 `slice()` 函数在 String 和 Array 类中都有定义。
 

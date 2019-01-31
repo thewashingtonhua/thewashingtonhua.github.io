@@ -123,6 +123,6 @@ const spawn = genF => {
 
 ## 该系列的其他文章
 
-上一篇：[每天一点ES6(16)：Generator](./es6-daily-16-generator)
+上一篇：[每天一点ES6(16)：Generator](/blog/2018/06/14/es6-daily-16-generator)
 
-下一篇：[每天一点ES6(18)：Class](./es6-daily-18-class)
+下一篇：[每天一点ES6(18)：Class](/blog/2018/12/17/es6-daily-18-class)
