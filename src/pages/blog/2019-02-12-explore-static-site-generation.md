@@ -1,26 +1,48 @@
 ---
-title: '静态站点生成方案探索'
-description: '当 SPA 遇上 SEO，难道只能做 SSR ？'
-date: '2019-02-12'
+title: '除了 SSR，就没有别的办法了吗'
+description: '当 MVVM 遇上 SEO，该如何是好'
+date: '2019-02-01'
 tags: ['static', 'site', 'gatsby', 'pug']
 cover: '../../images/blog/explore-static-site-generation.jpg'
 series: ''
 ---
 
-## 标题
+## SSR 出啥事了
 
-#### 标题
+放心，SSR 没出事。
 
-#### 标题
+写这篇博客并不是想说 SSR 有什么不好，而是因为一些别的原因。
 
-##### 标题
+## 想想一个这样的场景
 
-史沙案华院油修旅探十考烈几若作斗牌亲？。
+作为有追求的开发者，我们都希望自己能够负责一些有难度的项目，比如 Node、RN、Electron，最不济也得是一些工具型的应用。但作为公司业务来说，总会有一些小型的静态站点的项目，比如产品官网、活动页、甚至是一些内部使用的后台管理系统。这些需求虽然不那么诱人，但总得有人来做。
 
-生忍重脱街陈油另卫断伦压杂话男住封。官忆调科夫吃急即预翻重村生洲带军创此！故拍杀旅由误趣店物江姆？香老图们验否国致婚胡可妹终健。量又然天旁解待周从遍选界？缺旅斯责越进中再蒙耳和抱未名军洲好！音调领免永两平回市亚脑它战更谢科！获分确很处空样其海迹然族才天迹迷许除同。也师人伙放灯案美怕七？便苏恋算恋陈左雄判今报多息全到光府？病化适就娜价甚丽众景收务士陈降农情练。些击案只婚药怎读画续助时谢定低。作端火。
+## 没有什么是 jQuery 一把梭搞不定的
 
-Dolore sunt consequat labore ullamco consectetur voluptate esse ut.
+一般接到这类“简单”的需求，相信绝大部分人的第一反应肯定是 jQuery，尽管它早已落入前端鄙视链的最底层，但依然魅力不减，宝刀未老。配合 BootStrap 又是一把梭，分分钟搞定。
 
-Dolor sunt consectetur dolore ipsum. Ea pariatur quis cillum aliquip laboris cillum velit. Dolor consectetur velit sunt amet eiusmod ea labore pariatur. Velit exercitation nulla eiusmod elit ad velit culpa occaecat. Est non pariatur nulla laborum sint minim ex officia voluptate. Culpa do non esse ad ad tempor incididunt.
+时至今日，这套方案依然可行，很好的满足了业务的需求，对开发者的技术要求也不高，可以说是非常稳了。
 
-Laborum nulla id occaecat nostrud elit cupidatat exercitation excepteur ullamco do fugiat exercitation elit. Ipsum esse ullamco sunt ut aliquip deserunt sunt ex nostrud fugiat. Excepteur amet labore magna exercitation. Pariatur sint commodo fugiat exercitation anim. Elit cupidatat aute dolore ipsum minim sit deserunt dolor adipisicing amet officia velit. Fugiat sint fugiat Lorem non ipsum do ut proident. In irure ea incididunt adipisicing dolor.
+那不就行了，你还担心啥？
+
+## 教练，我想打篮球
+
+这是一个属于 MVVM 的时代，即便是刚入行的新人也都知道：jQuery 不是终点。
+
+Angular、React、Vue，不管谁是你的本命，一旦入坑，就再也回不去了。即便不为框架故，ES 2015+ 了解一下？LESS、SCSS 了解一下？用了这些那肯定要逃不开 Babel、Gulp、Webpack 了吧？
+
+See？不是 jQuery 不行了，而是行业的发展，让开发者更倾向于（至少已经习惯于）用 MVVM 来开发。
+
+## 老生常谈 SEO
+
+MVVM 的开发体验是不错，极大的解放了前端开发者的生产力。但和 MVVM 经常一起出现的还有另一个让人又爱又恨东西，叫 SPA。
+
+SPA 的体验非常好，这点大家都承认，页面切换非常自然。传统的 MPA 给人的感觉是一个个独立的场景，而 SPA 更像是一个完整的系统。
+
+## prerender 了解一下
+
+## 了不起的盖茨比
+
+## 简单谈一谈 Imgcook
+
+前阵子阿里爸爸放出来一个大杀器——<a target='_blank' href='https://imgcook.taobao.org'>Imgcook，让一批前端从业者背后一凉。
