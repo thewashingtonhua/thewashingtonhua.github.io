@@ -4,10 +4,15 @@ import dayjs from 'dayjs'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import './blog.scss'
+import { IS_PROD } from '../config'
 
 export default ({ data }) => {
-  const blogs = data.allMarkdownRemark.edges
+  let blogs = data.allMarkdownRemark.edges
     .filter(({ node }) => node.fields.type === 'blog')
+
+  if (IS_PROD) {
+    blogs = blogs.filter(({ node }) => !node.frontmatter.draft)
+  }
 
   return (
     <Layout>
@@ -23,12 +28,12 @@ export default ({ data }) => {
               : ''
             const date = dayjs(node.frontmatter.date).format('MMM DD, YYYY')
             return (
-              <Link className='blog' to={node.fields.slug} key={node.id}>
+              <Link className={'blog' + (node.frontmatter.draft ? ' draft' : '')} to={node.fields.slug} key={node.id}>
                 <div className='banner'>
                   <img src={cover} alt='' />
                 </div>
                 <div className='info'>
-                  <h2 className='title'>{node.frontmatter.title}</h2>
+                  <p className='title'>{node.frontmatter.title}</p>
                   <p className='desc'>{node.frontmatter.description}</p>
                   <footer className='blog__footer'>
                     <p className='date'>
@@ -69,6 +74,7 @@ query {
             publicURL
           }
           series
+          draft
         }
         fields {
           slug

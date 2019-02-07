@@ -49,7 +49,7 @@
   "license": "MIT",
   "scripts": {
     "predev": "rm -rf .cache",
-    "dev": "gatsby develop",
+    "dev": "gatsby develop -p 5004",
     "prebuild": "rm -rf .cache",
     "build": "gatsby build",
     "postbuild": "rm -rf docs && mv public docs",

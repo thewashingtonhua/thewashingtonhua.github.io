@@ -28,6 +28,7 @@
       line-height: 1.3;
       margin-bottom: .5em;
       transition: font-size 0.3s ease-out;
+      position: relative;
 
       @media (max-width: $break-point-desktop-small) {
         font-size: 32px;
@@ -281,6 +282,17 @@
           + p {
             margin-top: .75em;
           }
+        }
+      }
+    }
+
+    &.draft {
+      opacity: 0.2;
+      border: 1px dashed #fff;
+
+      .title {
+        &::before {
+          content: '[ 草稿 ] ';
         }
       }
     }

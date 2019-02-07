@@ -24,8 +24,8 @@ export default ({ data }) => {
 
       <div className='mf-content blog-post'>
         <p className='back-to-parent'><Link to='/blog'>&laquo; 回到博客列表</Link></p>
-        <article>
-          <h1>{post.frontmatter.title}</h1>
+        <article className={post.frontmatter.draft ? ' draft' : ''}>
+          <h1 className='title'>{post.frontmatter.title}</h1>
           <div className='metas'>
             <p className='publish-date'>
               <time dateTime={post.frontmatter.date}>{date}</time>
@@ -60,6 +60,8 @@ query($slug: String!) {
         publicURL
       }
       tags
+      series
+      draft
     }
   }
 }`

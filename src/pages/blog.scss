@@ -159,6 +159,17 @@
           }
         }
       }
+
+      &.draft {
+        opacity: 0.2;
+        border: 1px dashed #fff;
+
+        .title {
+          &::before {
+            content: '[ 草稿 ] ';
+          }
+        }
+      }
     }
   }
 
