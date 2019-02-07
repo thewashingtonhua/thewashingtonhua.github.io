@@ -1,3 +1,0 @@
-dosomething({
-    "data":"JSONP Works"
-});

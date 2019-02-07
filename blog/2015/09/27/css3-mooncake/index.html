@@ -1,0 +1,371 @@
+<!DOCTYPE html><html lang="zh"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1"/><meta http-equiv="render" content="webkit"/><meta http-equiv="force-rendering" content="webkit"/><meta http-equiv="format-detection" content="telephone=no"/><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, userscalable=no, shrink-to-fit=no, viewport-fit=cover"/><style data-href="/component---src-templates-blog-post-js.1f9878be215805fd5cc7.css">#mf-header{position:fixed;top:0;left:0;width:100%;height:44px;background-color:#000;z-index:10;box-shadow:0 0 2px 2px rgba(0,0,0,.5)}#mf-header .mf-header-wrapper{width:100%;max-width:960px;height:100%;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding-left:15px;padding-right:15px;transition:max-width .3s ease-out}@media (max-width:1280px){#mf-header .mf-header-wrapper{max-width:768px}}#mf-header .mf-header-wrapper .logo{height:44px;display:flex;align-items:center}#mf-header .mf-header-wrapper .logo img{height:32px;margin-right:15px}#mf-header .mf-header-wrapper .logo span{display:block;font-size:20px;height:44px;line-height:44px;color:hsla(0,0%,100%,.84);transition:color .3s ease-out,font-size .3s ease-out}@media (max-width:480px){#mf-header .mf-header-wrapper .logo span{font-size:16px}}#mf-header .mf-header-wrapper .logo span:hover{color:#fff}#mf-header .mf-header-wrapper .hamberger{width:22px;height:16px;display:flex;flex-direction:column;justify-content:space-between;border-top:2px solid hsla(0,0%,100%,.84);border-bottom:2px solid hsla(0,0%,100%,.84);position:relative;transition:border-color .3s ease-out;cursor:pointer}#mf-header .mf-header-wrapper .hamberger.open{border-top-color:transparent;border-bottom-color:transparent}#mf-header .mf-header-wrapper .hamberger.open:before{-webkit-transform:translate(-50%,-50%) rotate(-45deg);transform:translate(-50%,-50%) rotate(-45deg)}#mf-header .mf-header-wrapper .hamberger.open:after{-webkit-transform:translate(-50%,-50%) rotate(45deg);transform:translate(-50%,-50%) rotate(45deg)}#mf-header .mf-header-wrapper .hamberger:after,#mf-header .mf-header-wrapper .hamberger:before{content:"";position:absolute;top:50%;left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);-webkit-transform-origin:50% 50%;transform-origin:50% 50%;width:100%;height:2px;background-color:hsla(0,0%,100%,.84);transition:-webkit-transform .3s ease-out;transition:transform .3s ease-out;transition:transform .3s ease-out,-webkit-transform .3s ease-out}#mf-header .mf-header-wrapper .nav-menu{position:fixed;top:44px;left:0;right:0;bottom:0;background-color:#000;display:flex;flex-direction:column;justify-content:center;align-items:center;opacity:0;pointer-events:none;z-index:10;transition:opacity .3s ease-out}#mf-header .mf-header-wrapper .nav-menu.open{opacity:1;pointer-events:all}#mf-header .mf-header-wrapper .nav-menu .menus{flex-basis:1;display:flex;flex-direction:column;align-items:center}#mf-header .mf-header-wrapper .nav-menu .menus .menu{display:block;width:180px;height:40px;line-height:40px;font-size:16px;color:hsla(0,0%,100%,.54);text-align:center;transition:background-color .3s ease-out}#mf-header .mf-header-wrapper .nav-menu .menus .menu:hover{color:hsla(0,0%,100%,.54)}#mf-header .mf-header-wrapper .nav-menu .menus .menu:not(:first-child){margin-top:15px}#mf-header .mf-header-wrapper .nav-menu .menus .menu.active{color:hsla(0,0%,100%,.84);border-top:1px solid hsla(0,0%,100%,.84);border-bottom:1px solid hsla(0,0%,100%,.84)}#mf-header .mf-header-wrapper .nav-menu .menus .menu.active:hover{color:hsla(0,0%,100%,.84)}#mf-header-placeholder{height:44px}body{-webkit-overflow-scrolling:touch}.scroll-lock{overflow:hidden}.mf-content{width:100%;max-width:960px;margin:0 auto 30px;transition:max-width .3s ease-out}@media (max-width:1280px){.mf-content{max-width:768px}}@media (max-width:768px){.mf-content{max-width:100%}}main{min-height:calc(100vh - 44px)}html{font-family:-apple-system,BlinkMacSystemFont,PingFang SC,Hiragino Sans GB,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Open Sans,Droid Sans,Microsoft YaHei,WenQuanYi Micro Hei,Helvetica Neue,Tahoma,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0;background-color:#000}.gatsby-code-text{font-size:.8em;font-family:Fira Code,Source Code Pro,Menlo,Monaco,Consolas,Liberation Mono,Simsun,Courier New,monospace;color:hsla(0,0%,100%,.84);background-color:#181818;padding:.5em;border-radius:6px}.gatsby-highlight{background:#222;color:#fff;border-radius:10px;overflow:auto;-moz-tab-size:1.5em;-o-tab-size:1.5em;tab-size:1.5em;margin-bottom:15px;-webkit-overflow-scrolling:touch;position:relative}.gatsby-highlight pre.line-numbers{padding-left:40px}.gatsby-highlight code,.gatsby-highlight span{font-family:Fira Code,Source Code Pro,Menlo,Monaco,Consolas,Liberation Mono,Simsun,Courier New,monospace}.gatsby-highlight code{color:#ccc}.gatsby-highlight>code[class*=gatsby-code-],.gatsby-highlight>pre.prism-code,.gatsby-highlight>pre[class*=gatsby-code-]{height:auto!important;margin:1rem;font-size:14px;line-height:20px;white-space:pre-wrap;word-break:break-word}.gatsby-highlight+.gatsby-highlight{margin-top:20}.gatsby-highlight .token.attr-name{color:#c684c1}.gatsby-highlight .token.block-comment,.gatsby-highlight .token.cdata,.gatsby-highlight .token.comment,.gatsby-highlight .token.doctype,.gatsby-highlight .token.prolog{color:#666}.gatsby-highlight .token.constant,.gatsby-highlight .token.deleted,.gatsby-highlight .token.function-name,.gatsby-highlight .token.number,.gatsby-highlight .token.property,.gatsby-highlight .token.symbol{color:#5a9bcf}.gatsby-highlight .token.boolean{color:#ff8b50}.gatsby-highlight .token.tag{color:#fc929e}.gatsby-highlight .token.string{color:#8dc891}.gatsby-highlight .token.punctuation{color:#88c6be}.gatsby-highlight .token.builtin,.gatsby-highlight .token.char,.gatsby-highlight .token.inserted,.gatsby-highlight .token.selector{color:#d8dee9}.gatsby-highlight .token.function{color:#efbd54}.gatsby-highlight .token.entity,.gatsby-highlight .token.operator,.gatsby-highlight .token.url,.gatsby-highlight .token.variable{color:#9adcff}.gatsby-highlight .token.attr-value{color:#8dc891}.gatsby-highlight .token.keyword{color:#c684c1}.gatsby-highlight .token.atrule,.gatsby-highlight .token.class-name{color:#fac863}.gatsby-highlight .token.important{font-weight:400}.gatsby-highlight .token.bold{font-weight:700}.gatsby-highlight .token.italic{font-style:italic}.gatsby-highlight .token.entity{cursor:help}.gatsby-highlight .namespace{opacity:.7}.gatsby-highlight-code-line{background-color:#353b45;display:block;margin:-.125rem calc(-1rem - 15px);padding:.125rem calc(1rem + 15px)}.line-numbers-rows>span{line-height:1.5}.gatsby-highlight[data-language]:before{position:absolute;top:0;right:20px;padding:3px 10px;font-size:12px;text-align:right;color:#444;font-weight:700;letter-spacing:.8px;text-transform:uppercase;border-radius:0 0 5px 5px;background:#ddd}.gatsby-highlight[data-language=javascript]:before{content:"js";background:#f7df1e}.gatsby-highlight[data-language=css]:before{content:"css";background:#ff9800;color:#fff;font-weight:400}.gatsby-highlight[data-language=html]:before{content:"html";background:#00a5ff;color:#fff;font-weight:400}.gatsby-highlight[data-language=bash]:before{content:"bash";background:#f6ffe5;font-weight:400}.gatsby-highlight[data-language=json]:before{content:"json";background:#37ff00;font-weight:400}*{box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,PingFang SC,Hiragino Sans GB,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Open Sans,Droid Sans,Microsoft YaHei,WenQuanYi Micro Hei,Helvetica Neue,Tahoma,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol}body,html{margin:0;padding:0}h1,h2,h3,h4,h5,p{margin:0}a,h1,h2,h3,h4,h5,p{font-weight:400}ol,ul{margin:0;padding:0}ul{list-style:none}a{text-decoration:none}.blog-post .back-to-parent{padding:50px 15px 20px}.blog-post .back-to-parent a{color:hsla(0,0%,100%,.54)}.blog-post article{padding:10px 15px 150px}.blog-post article a::selection,.blog-post article code::selection,.blog-post article h1::selection,.blog-post article h2::selection,.blog-post article h3::selection,.blog-post article h4::selection,.blog-post article h5::selection,.blog-post article img::selection,.blog-post article li::selection,.blog-post article p::selection,.blog-post article span::selection,.blog-post article td::selection,.blog-post article th::selection,.blog-post article time::selection{background-color:hsla(0,0%,100%,.84);color:#000}.blog-post article>h1{color:hsla(0,0%,100%,.84);font-size:36px;font-weight:700;line-height:1.3;margin-bottom:.5em;transition:font-size .3s ease-out;position:relative}@media (max-width:1280px){.blog-post article>h1{font-size:32px}}@media (max-width:768px){.blog-post article>h1{font-size:28px}}@media (max-width:480px){.blog-post article>h1{font-size:24px}}.blog-post article .metas{display:flex}@media (max-width:480px){.blog-post article .metas{flex-direction:column}}.blog-post article .metas .publish-date{color:hsla(0,0%,100%,.54);font-size:18px;font-weight:100;line-height:1;position:relative;margin-bottom:0;transition:font-size .3s ease-out,margin-bottom .3s ease-out}@media (max-width:480px){.blog-post article .metas .publish-date{margin-bottom:4px;font-size:14px}}.blog-post article .metas .tags{color:hsla(0,0%,100%,.54);font-size:18px;font-weight:100;line-height:1;margin-bottom:0;transition:font-size .3s ease-out;position:relative;padding-left:1em;margin-left:1em}@media (max-width:480px){.blog-post article .metas .tags{font-size:14px}}.blog-post article .metas .tags:after{content:"";position:absolute;top:50%;left:0;-webkit-transform:translateY(-50%);transform:translateY(-50%);width:1px;height:16px;background-color:hsla(0,0%,100%,.54)}@media (max-width:480px){.blog-post article .metas .tags:after{content:none}}.blog-post article .banner{margin:20px 0}.blog-post article .banner img{width:100%;display:block;border-radius:6px}.blog-post article .content h1,.blog-post article .content h2,.blog-post article .content h3,.blog-post article .content h4,.blog-post article .content h5{color:hsla(0,0%,100%,.84);font-weight:700;line-height:1.5;transition:font-size .3s ease-out}.blog-post article .content h1{font-size:32px;margin-top:1.5em;margin-bottom:.5em}@media (max-width:480px){.blog-post article .content h1{font-size:28px}}.blog-post article .content h2{font-size:28px;margin-top:1.5em;margin-bottom:.8em}@media (max-width:480px){.blog-post article .content h2{font-size:24px}}.blog-post article .content h3{font-size:24px;margin-top:1.5em;margin-bottom:.5em}@media (max-width:480px){.blog-post article .content h3{font-size:20px}}.blog-post article .content h4{font-size:20px;margin-top:1.5em;margin-bottom:.5em}@media (max-width:480px){.blog-post article .content h4{font-size:18px}}.blog-post article .content h5{font-size:18px;margin-top:1.5em;margin-bottom:.5em}@media (max-width:480px){.blog-post article .content h5{font-size:16px}}.blog-post article .content p{font-size:15px;color:hsla(0,0%,100%,.54);line-height:1.75;margin-top:0;margin-bottom:1em;transition:font-size .3s ease-out}@media (max-width:480px){.blog-post article .content p{font-size:14px}}.blog-post article .content pre{position:relative;overflow-x:auto;overflow-y:hidden}.blog-post article .content a{color:hsla(0,0%,100%,.84);font-size:15px;font-weight:400;word-wrap:break-word}.blog-post article .content a:hover{text-decoration:underline}.blog-post article .content ul{list-style:circle}.blog-post article .content ol,.blog-post article .content ul{padding-left:30px;margin:1em 0}.blog-post article .content ol ol,.blog-post article .content ol ul,.blog-post article .content ul ol,.blog-post article .content ul ul{margin:.5em 0}.blog-post article .content ol li,.blog-post article .content ul li{font-weight:100;line-height:1.8;margin-bottom:.5em;color:hsla(0,0%,100%,.54);transition:font-size .3s ease-out}@media (max-width:480px){.blog-post article .content ol li,.blog-post article .content ul li{font-size:14px}}.blog-post article .content table{margin-bottom:15px;min-width:100%;border-collapse:collapse}.blog-post article .content table tr:nth-child(odd){background-color:#292929}.blog-post article .content table tr:nth-child(2n){background-color:#1f1f1f}.blog-post article .content table thead tr:nth-child(odd){background-color:#1f1f1f}.blog-post article .content table td,.blog-post article .content table th{font-size:15px;line-height:1.75;margin-top:0;margin-bottom:1em;padding:15px 20px;text-align:left;word-wrap:normal;color:hsla(0,0%,100%,.54);transition:font-size .3s ease-out}@media (max-width:480px){.blog-post article .content table td,.blog-post article .content table th{font-size:14px}}.blog-post article .content table td a,.blog-post article .content table th a{padding:0}.blog-post article .content blockquote{margin:0 0 .75em;border-left:4px solid hsla(0,0%,100%,.2);background-color:#181818;padding:15px;font-size:14px;line-height:1.5;color:hsla(0,0%,100%,.54);transition:font-size .3s ease-out}@media (max-width:480px){.blog-post article .content blockquote{font-size:12px}}.blog-post article .content blockquote p{margin-bottom:0}.blog-post article .content blockquote p+p{margin-top:.75em}.blog-post article.draft{opacity:.2;border:1px dashed #fff}.blog-post article.draft .title:before{content:"[ \8349\7A3F   ] "}</style><style data-href="/0.0e62e357cbd1b652ed55.css">/*! normalize-scss | MIT/GPLv2 License | bit.ly/normalize-scss */html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figcaption,figure{display:block}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}main{display:block}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}input{overflow:visible}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;display:table;max-width:100%;padding:0;color:inherit;white-space:normal}progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}details{display:block}summary{display:list-item}menu{display:block}canvas{display:inline-block}template{display:none}[hidden]{display:none}pre[class*=language-].line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}pre[class*=language-].line-numbers>code{position:relative;white-space:inherit}.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:0;font-size:100%;left:-3.8em;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}</style><meta name="generator" content="Gatsby 2.0.116"/><link rel="shortcut icon" href="/icons/icon-48x48.png"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#000"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png"/><title data-react-helmet="true">纯 CSS3 绘制月饼 | 博客 | 童话说</title><meta data-react-helmet="true" name="description" content="Washington Hua 的个人博客，专注大前端技术"/><meta data-react-helmet="true" property="og:title" content="纯 CSS3 绘制月饼 | 博客"/><meta data-react-helmet="true" property="og:description" content="Washington Hua 的个人博客，专注大前端技术"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="Washington Hua"/><meta data-react-helmet="true" name="twitter:title" content="纯 CSS3 绘制月饼 | 博客"/><meta data-react-helmet="true" name="twitter:description" content="Washington Hua 的个人博客，专注大前端技术"/><meta data-react-helmet="true" name="keywords" content="tonghuashuo, github, front-end, javascript, typescript, react, node, washington, hua, 童话, 童话说, 前端, 博客, 技术, 计算机, 互联网"/><link as="script" rel="preload" href="/webpack-runtime-2b39d1abb995005efa97.js"/><link as="script" rel="preload" href="/app-0669fa491a4eb2ef8213.js"/><link as="script" rel="preload" href="/0-f6610012133b7c72d745.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-05be77ad86af625a013e.js"/><link as="fetch" rel="preload" href="/static/d/190/path---blog-2015-09-27-css-3-mooncake-df-4-612-TMvlgw0toHyIH7gkGzvUf1aJefE.json" crossOrigin="use-credentials"/></head><body><noscript id="gatsby-noscript">This app works best with JavaScript enabled.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group"><header id="mf-header"><div class="mf-header-wrapper"><a class="logo" href="/"><img src="/static/logo-8503f6989dba3ce27939964a48c8b787.png" alt=""/><span>童话说</span></a><div class="hamberger"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><nav class="nav-menu"><div class="menus"><a class="menu active" href="/blog">博客</a><a class="menu" href="/project">代表作</a><a class="menu" href="/lab">实验室</a><a class="menu" href="/friend">朋友</a><a class="menu" href="/about">我</a></div></nav></div></header><section id="mf-header-placeholder"></section><main><div class="mf-content blog-post"><p class="back-to-parent"><a href="/blog">« 回到博客列表</a></p><article class="" id="blog__css3-mooncake"><h1 class="title">纯 CSS3 绘制月饼</h1><div class="metas"><p class="publish-date"><time dateTime="2015-09-27">Sep 27, 2015</time></p></div><div class="banner"><img src="/static/css3-mooncake-9aaefaae86216c79623893c080f1ccc2.jpg" alt=""/></div><div class="content"><p>用CSS3绘图并不是什么新鲜事，业内有很多大牛都已经尝试过。借着中秋，我们就来画个月饼试试吧。</p>
+<p>PS：考虑到我并非学美术出身，美观度方面还请各位多多包涵。</p>
+<p>PPS：建议使用Chrome浏览器（或其它webkit、blink内核的浏览器）查看，效果最佳。</p>
+<h2>基本结构</h2>
+<p>我把月饼大致分为四个部分：主体圆形、周围的花边、面上的纹理、中间的字。</p>
+<h2>主体圆形</h2>
+<p>利用 <code class="gatsby-code-text">border-radius</code> 来绘制圆形，这是CSS3绘图中最基本的一个方法。</p>
+<div class="gatsby-highlight" data-language="css"><pre style="counter-reset: linenumber NaN" class="gatsby-code-css line-numbers"><code class="gatsby-code-css"><span class="token selector">.main</span> <span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 300px<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 300px<span class="token punctuation">;</span>
+  <span class="token property">border-radius</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #C76603<span class="token punctuation">;</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> 4px solid #BA3B00<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<div class="gatsby-highlight" data-language="html"><pre style="counter-reset: linenumber NaN" class="gatsby-code-html line-numbers"><code class="gatsby-code-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>main<span class="token punctuation">'</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span></span></pre></div>
+<p>我将背景设为 <code class="gatsby-code-text">position: relative;</code> ，以便其中的元素能够进行绝对定位。使用CSS3绘图时，我们会用到大量的绝对定位。</p>
+<p><a
+    class="gatsby-resp-image-link"
+    href="/static/d4a0277d2f4bb65e786f65bc9b535278/5992f/01.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-wrapper"
+    style="position: relative; display: block;  max-width: 600px; margin-left: auto; margin-right: auto;"
+  >
+    <span
+      class="gatsby-resp-image-background-image"
+      style="padding-bottom: 86.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAARABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAMEAv/EABYBAQEBAAAAAAAAAAAAAAAAAAABBP/aAAwDAQACEAMQAAAB1T7jh16hYAB//8QAGhABAAIDAQAAAAAAAAAAAAAAAQIRAAMgIf/aAAgBAQABBQKTQbPcmWEG+P/EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8BH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8BH//EABYQAAMAAAAAAAAAAAAAAAAAAAAhMP/aAAgBAQAGPwIcP//EABoQAAEFAQAAAAAAAAAAAAAAAAEAEBEhMSD/2gAIAQEAAT8htlNAGxtCMsIHP//aAAwDAQACAAMAAAAQjCCC/8QAFxEBAAMAAAAAAAAAAAAAAAAAAREgIf/aAAgBAwEBPxACNp//xAAWEQEBAQAAAAAAAAAAAAAAAAARASD/2gAIAQIBAT8Qq4//xAAcEAEAAQQDAAAAAAAAAAAAAAABEQAQIUEgUWH/2gAIAQEAAT8QGYSuA7qACCxJqynsSe0MxDleP//Z'); background-size: cover; display: block;"
+    ></span>
+    <img
+        class="gatsby-resp-image-image"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;"
+        alt="css3-mooncake-01"
+        title=""
+        src="/static/d4a0277d2f4bb65e786f65bc9b535278/5992f/01.jpg"
+        srcset="/static/d4a0277d2f4bb65e786f65bc9b535278/9995a/01.jpg 240w,
+/static/d4a0277d2f4bb65e786f65bc9b535278/b7826/01.jpg 480w,
+/static/d4a0277d2f4bb65e786f65bc9b535278/5992f/01.jpg 600w"
+        sizes="(max-width: 600px) 100vw, 600px"
+      />
+  </span>
+  </a></p>
+<h2>周围的花边</h2>
+<p>花边的本质也是圆，只不过小一点。这里为了计算方便，我画了12个，当然真正的月饼肯定不止这么多，只是我偷懒了，因为纯CSS3的环境下没法进行表达式计算，如果借助JavaScript或是LESS、SCSS、SASS的力量，我们就可以很方便地控制数量，想画多少个就画多少个。</p>
+<p>每个小圆通过绝对定位进行放置，结合圆心的坐标以及三角函数关系，就能确定每个小圆的坐标位置。注意，由于盒模型的关系，计算出小圆的圆心坐标之后，还要减去半径，得到盒子左上角的坐标才对。</p>
+<p><a
+    class="gatsby-resp-image-link"
+    href="/static/1b62be50b384faee54eca367bc638663/5992f/02-01.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-wrapper"
+    style="position: relative; display: block;  max-width: 600px; margin-left: auto; margin-right: auto;"
+  >
+    <span
+      class="gatsby-resp-image-background-image"
+      style="padding-bottom: 86.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAARABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAMBBP/EABcBAQEBAQAAAAAAAAAAAAAAAAAEAQL/2gAMAwEAAhADEAAAAbypGGzsG86AD//EABkQAAIDAQAAAAAAAAAAAAAAAAECABARIP/aAAgBAQABBQJ2yByKddgUnn//xAAVEQEBAAAAAAAAAAAAAAAAAAABIP/aAAgBAwEBPwEj/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPwEf/8QAGBAAAgMAAAAAAAAAAAAAAAAAARARICH/2gAIAQEABj8CxyLf/8QAGRABAAMBAQAAAAAAAAAAAAAAAQARISAx/9oACAEBAAE/IVz6iWtkGy42CIUECgDj/9oADAMBAAIAAwAAABCjIIL/xAAVEQEBAAAAAAAAAAAAAAAAAAARIP/aAAgBAwEBPxAEf//EABYRAQEBAAAAAAAAAAAAAAAAABEBIP/aAAgBAgEBPxCrj//EABoQAQEAAwEBAAAAAAAAAAAAAAERABAhMVH/2gAIAQEAAT8QkSvt+GXHSqOAAaJccKEIh65bE7FThheYCadf/9k='); background-size: cover; display: block;"
+    ></span>
+    <img
+        class="gatsby-resp-image-image"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;"
+        alt="css3-mooncake-02-01"
+        title=""
+        src="/static/1b62be50b384faee54eca367bc638663/5992f/02-01.jpg"
+        srcset="/static/1b62be50b384faee54eca367bc638663/9995a/02-01.jpg 240w,
+/static/1b62be50b384faee54eca367bc638663/b7826/02-01.jpg 480w,
+/static/1b62be50b384faee54eca367bc638663/5992f/02-01.jpg 600w"
+        sizes="(max-width: 600px) 100vw, 600px"
+      />
+  </span>
+  </a></p>
+<p>每个小圆之间是互相叠加的，细心的朋友应该会发现了，最后一个圆会覆盖到第一个圆上，使其变成最下面一层，破坏了连贯性。这里我们用一点点小技巧来解决。</p>
+<p><a
+    class="gatsby-resp-image-link"
+    href="/static/67804eec8f60cbfb3cb2bcdadfdedfbe/3833b/02-02.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-wrapper"
+    style="position: relative; display: block;  max-width: 300px; margin-left: auto; margin-right: auto;"
+  >
+    <span
+      class="gatsby-resp-image-background-image"
+      style="padding-bottom: 66.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABAAC/8QAFgEBAQEAAAAAAAAAAAAAAAAABAAB/9oADAMBAAIQAxAAAAFODwGNg23/xAAYEAEBAAMAAAAAAAAAAAAAAAABAAITIP/aAAgBAQABBQJyC2Qjx//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAEDAQE/AYj/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAgEBPwGq/8QAFBABAAAAAAAAAAAAAAAAAAAAIP/aAAgBAQAGPwJf/8QAGhABAAIDAQAAAAAAAAAAAAAAAQARECExUf/aAAgBAQABPyFalgFpKPYJYzu3P//aAAwDAQACAAMAAAAQjw//xAAVEQEBAAAAAAAAAAAAAAAAAAAQEf/aAAgBAwEBPxCD/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxAP/8QAGhABAAMAAwAAAAAAAAAAAAAAAQARIRBBkf/aAAgBAQABPxB3pC0C5uVdG5QGnkVSiq3bw5P/2Q=='); background-size: cover; display: block;"
+    ></span>
+    <img
+        class="gatsby-resp-image-image"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;"
+        alt="css3-mooncake-02-02"
+        title=""
+        src="/static/67804eec8f60cbfb3cb2bcdadfdedfbe/3833b/02-02.jpg"
+        srcset="/static/67804eec8f60cbfb3cb2bcdadfdedfbe/bf594/02-02.jpg 240w,
+/static/67804eec8f60cbfb3cb2bcdadfdedfbe/3833b/02-02.jpg 300w"
+        sizes="(max-width: 300px) 100vw, 300px"
+      />
+  </span>
+  </a></p>
+<p>首先我们要让0点方向的圆的左半边重新回到最上层，因此我们把0点位置的圆复制一下，再利用 <code class="gatsby-code-text">border-radius</code> 将其变成一个半圆，这样一来，左边就重新出现了。（为了便于理解，这里我改变了一下半圆的颜色和层叠关系）</p>
+<div class="gatsby-highlight" data-language="css"><pre style="counter-reset: linenumber NaN" class="gatsby-code-css line-numbers"><code class="gatsby-code-css"><span class="token selector">.ear.index12</span> <span class="token punctuation">{</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 50px<span class="token punctuation">;</span>
+  <span class="token property">border-radius</span><span class="token punctuation">:</span> 50px 0 0 50px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<div class="gatsby-highlight" data-language="html"><pre style="counter-reset: linenumber NaN" class="gatsby-code-html line-numbers"><code class="gatsby-code-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>ear index12<span class="token punctuation">'</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span></span></pre></div>
+<p><a
+    class="gatsby-resp-image-link"
+    href="/static/8a8c087d2edec8a958d350b6ba2887e9/3833b/02-03.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-wrapper"
+    style="position: relative; display: block;  max-width: 300px; margin-left: auto; margin-right: auto;"
+  >
+    <span
+      class="gatsby-resp-image-background-image"
+      style="padding-bottom: 66.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABAABAv/EABUBAQEAAAAAAAAAAAAAAAAAAAEE/9oADAMBAAIQAxAAAAFXJdirZBh//8QAGRABAQADAQAAAAAAAAAAAAAAAQIAEBES/9oACAEBAAEFAiu1VebEdKrn/8QAFhEBAQEAAAAAAAAAAAAAAAAAABEh/9oACAEDAQE/AZqP/8QAFhEBAQEAAAAAAAAAAAAAAAAAABEh/9oACAECAQE/Abiv/8QAGBAAAgMAAAAAAAAAAAAAAAAAARAAERL/2gAIAQEABj8CzCHZX//EABkQAQADAQEAAAAAAAAAAAAAAAEAESExEP/aAAgBAQABPyEBHVq5fuhBbGGadjpLXz//2gAMAwEAAgADAAAAEFAP/8QAFxEAAwEAAAAAAAAAAAAAAAAAEBEhQf/aAAgBAwEBPxB6wf/EABcRAAMBAAAAAAAAAAAAAAAAABARIUH/2gAIAQIBAT8QWdD/xAAaEAEAAwEBAQAAAAAAAAAAAAABABExIUFx/9oACAEBAAE/ELP/AJAYV/rU1TgzmR5TxI1iIGxNGejZNbHmT//Z'); background-size: cover; display: block;"
+    ></span>
+    <img
+        class="gatsby-resp-image-image"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;"
+        alt="css3-mooncake-02-03"
+        title=""
+        src="/static/8a8c087d2edec8a958d350b6ba2887e9/3833b/02-03.jpg"
+        srcset="/static/8a8c087d2edec8a958d350b6ba2887e9/bf594/02-03.jpg 240w,
+/static/8a8c087d2edec8a958d350b6ba2887e9/3833b/02-03.jpg 300w"
+        sizes="(max-width: 300px) 100vw, 300px"
+      />
+  </span>
+  </a>
+<a
+    class="gatsby-resp-image-link"
+    href="/static/556d3561218ebeb9d6910703d81ebfd4/3833b/02-04.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-wrapper"
+    style="position: relative; display: block;  max-width: 300px; margin-left: auto; margin-right: auto;"
+  >
+    <span
+      class="gatsby-resp-image-background-image"
+      style="padding-bottom: 66.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABAABAv/EABUBAQEAAAAAAAAAAAAAAAAAAAEE/9oADAMBAAIQAxAAAAFPJdgsdBk//8QAGhABAAEFAAAAAAAAAAAAAAAAAQACAxARMf/aAAgBAQABBQJqCFwnc7Sf/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQMBAT8BiP/EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAECAQE/Aar/xAAWEAADAAAAAAAAAAAAAAAAAAAAICH/2gAIAQEABj8CKv8A/8QAGRABAAMBAQAAAAAAAAAAAAAAAQARIVEQ/9oACAEBAAE/Ibbd5EcQQWb6ZBZ//9oADAMBAAIAAwAAABCs/wD/xAAVEQEBAAAAAAAAAAAAAAAAAAAQEf/aAAgBAwEBPxCT/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxAP/8QAGxABAAMAAwEAAAAAAAAAAAAAAQARIRAxQWH/2gAIAQEAAT8QrTceI6g+W7hhQPpO9dXeAEIu8Z//2Q=='); background-size: cover; display: block;"
+    ></span>
+    <img
+        class="gatsby-resp-image-image"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;"
+        alt="css3-mooncake-02-04"
+        title=""
+        src="/static/556d3561218ebeb9d6910703d81ebfd4/3833b/02-04.jpg"
+        srcset="/static/556d3561218ebeb9d6910703d81ebfd4/bf594/02-04.jpg 240w,
+/static/556d3561218ebeb9d6910703d81ebfd4/3833b/02-04.jpg 300w"
+        sizes="(max-width: 300px) 100vw, 300px"
+      />
+  </span>
+  </a></p>
+<p>但这也带来了一个新问题：半圆右边有一条竖线。解决办法有两个，一个是单独设置半圆的 <code class="gatsby-code-text">border-right-color: transparent;</code> ，这个方法有效但并不完美，仔细观察会发现顶部留有一个小小的缺口。</p>
+<p><a
+    class="gatsby-resp-image-link"
+    href="/static/f08569c6ffe7119b97e235afd4635526/1caba/02-05.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-wrapper"
+    style="position: relative; display: block;  max-width: 400px; margin-left: auto; margin-right: auto;"
+  >
+    <span
+      class="gatsby-resp-image-background-image"
+      style="padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABAABA//EABUBAQEAAAAAAAAAAAAAAAAAAAAE/9oADAMBAAIQAxAAAAFHM+w2PgR//8QAGhAAAgIDAAAAAAAAAAAAAAAAAAIBEhMgMf/aAAgBAQABBQJmqZJO6f/EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAEDAQE/AYj/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAgEBPwGq/8QAFxAAAwEAAAAAAAAAAAAAAAAAAAEgIf/aAAgBAQAGPwI1T//EABsQAQACAgMAAAAAAAAAAAAAAAEAIRExEEGB/9oACAEBAAE/IdYtYdB5BBk1MWy+P//aAAwDAQACAAMAAAAQsA//xAAWEQEBAQAAAAAAAAAAAAAAAAABEEH/2gAIAQMBAT8QDs//xAAWEQADAAAAAAAAAAAAAAAAAAABEFH/2gAIAQIBAT8QMJ//xAAcEAEAAgIDAQAAAAAAAAAAAAABABEhUUFxgaH/2gAIAQEAAT8QMAVrC8BthnJOwwy1osghMF1K2+QE4v2f/9k='); background-size: cover; display: block;"
+    ></span>
+    <img
+        class="gatsby-resp-image-image"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;"
+        alt="css3-mooncake-02-05"
+        title=""
+        src="/static/f08569c6ffe7119b97e235afd4635526/1caba/02-05.jpg"
+        srcset="/static/f08569c6ffe7119b97e235afd4635526/38c71/02-05.jpg 240w,
+/static/f08569c6ffe7119b97e235afd4635526/1caba/02-05.jpg 400w"
+        sizes="(max-width: 400px) 100vw, 400px"
+      />
+  </span>
+  </a></p>
+<p>另一个方案就是用一个略小一点的色块来把这条线盖住，这里我们采用的就是这种方法，将半圆复制一下，并进行一定的调整，使其刚好能把这条竖线藏起来，同时又不会挡到1点中方向的小圆。</p>
+<div class="gatsby-highlight" data-language="css"><pre style="counter-reset: linenumber NaN" class="gatsby-code-css line-numbers"><code class="gatsby-code-css"><span class="token selector">.ear.index13</span> <span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 25px<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 42px<span class="token punctuation">;</span>
+  <span class="token property">border-radius</span><span class="token punctuation">:</span> 0 25px 0 0<span class="token punctuation">;</span>
+  <span class="token property">border-color</span><span class="token punctuation">:</span> #C76603<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<div class="gatsby-highlight" data-language="html"><pre style="counter-reset: linenumber NaN" class="gatsby-code-html line-numbers"><code class="gatsby-code-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>ear index13<span class="token punctuation">'</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span></span></pre></div>
+<p><a
+    class="gatsby-resp-image-link"
+    href="/static/c331f3ec3ef8210b60beb66cd95a9656/3833b/02-06.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-wrapper"
+    style="position: relative; display: block;  max-width: 300px; margin-left: auto; margin-right: auto;"
+  >
+    <span
+      class="gatsby-resp-image-background-image"
+      style="padding-bottom: 66.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABAAC/8QAFgEBAQEAAAAAAAAAAAAAAAAABAEC/9oADAMBAAIQAxAAAAFUPQlKhU1//8QAGRABAQADAQAAAAAAAAAAAAAAAQIAEBIi/9oACAEBAAEFAuvVpFFDpWnP/8QAFxEBAAMAAAAAAAAAAAAAAAAAABESIf/aAAgBAwEBPwGuof/EABYRAQEBAAAAAAAAAAAAAAAAABEAAf/aAAgBAgEBPwFwm//EABgQAQADAQAAAAAAAAAAAAAAABEAARAS/9oACAEBAAY/AuYLref/xAAaEAEAAgMBAAAAAAAAAAAAAAABABEhMZEQ/9oACAEBAAE/IQJG1qWhw1ALHsMZNy8Nr5//2gAMAwEAAgADAAAAEE/P/8QAFxEBAQEBAAAAAAAAAAAAAAAAAREQIf/aAAgBAwEBPxBUN5n/xAAXEQADAQAAAAAAAAAAAAAAAAABEBEh/9oACAECAQE/EBaJqf/EABwQAQEBAAIDAQAAAAAAAAAAAAERACExQVFhkf/aAAgBAQABPxCmCQPgd7lFCHpP26XB84OahEHInZmPEVZLpOt//9k='); background-size: cover; display: block;"
+    ></span>
+    <img
+        class="gatsby-resp-image-image"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;"
+        alt="css3-mooncake-02-06"
+        title=""
+        src="/static/c331f3ec3ef8210b60beb66cd95a9656/3833b/02-06.jpg"
+        srcset="/static/c331f3ec3ef8210b60beb66cd95a9656/bf594/02-06.jpg 240w,
+/static/c331f3ec3ef8210b60beb66cd95a9656/3833b/02-06.jpg 300w"
+        sizes="(max-width: 300px) 100vw, 300px"
+      />
+  </span>
+  </a></p>
+<h2>面上的纹理</h2>
+<p>表面的纹理我选择了十字交错的直线，主要是因为圆形已经用得够多了，想换个风格。我们先从一个直角开始，剩下的只要旋转并对齐就好了。</p>
+<p>这里我选择了 <code class="gatsby-code-ul">li</code> 的结构来实现，因为本质上这就是一个由不同长度的线段组成的等距线段列表。只要把 <code class="gatsby-code-text">ul</code> 定好位，然后通过不断的尝试，设定最佳的数量和长度即可。</p>
+<div class="gatsby-highlight" data-language="css"><pre style="counter-reset: linenumber NaN" class="gatsby-code-css line-numbers"><code class="gatsby-code-css"><span class="token selector">ul</span> <span class="token punctuation">{</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">ul.top-qu</span> <span class="token punctuation">{</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> 128px<span class="token punctuation">;</span>
+  <span class="token property">left</span><span class="token punctuation">:</span> 227px<span class="token punctuation">;</span>
+  <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotate</span><span class="token punctuation">(</span>-90deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">li</span> <span class="token punctuation">{</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> 5px solid #BA3B00<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 0 0 11px 0<span class="token punctuation">;</span>
+  <span class="token property">list-style</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">li:first-child</span> <span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+  <span class="token property">margin-left</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">li:nth-child(2)</span> <span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 55px<span class="token punctuation">;</span>
+  <span class="token property">margin-left</span><span class="token punctuation">:</span> 80px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">li:nth-child(3)</span> <span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 85px<span class="token punctuation">;</span>
+  <span class="token property">margin-left</span><span class="token punctuation">:</span> 60px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<div class="gatsby-highlight" data-language="html"><pre style="counter-reset: linenumber NaN" class="gatsby-code-html line-numbers"><code class="gatsby-code-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>top-qu<span class="token punctuation">'</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span> // 重复10个
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span></span></pre></div>
+<p><a
+    class="gatsby-resp-image-link"
+    href="/static/4116739f87e769439dbbd2e0b3ee51e3/5992f/03-01.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-wrapper"
+    style="position: relative; display: block;  max-width: 600px; margin-left: auto; margin-right: auto;"
+  >
+    <span
+      class="gatsby-resp-image-background-image"
+      style="padding-bottom: 83.33333333333334%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAARABQDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAIDBAH/xAAXAQEBAQEAAAAAAAAAAAAAAAAABAEC/9oADAMBAAIQAxAAAAHRRbRDZtcbzKISB//EABoQAAIDAQEAAAAAAAAAAAAAAAABAhARAyH/2gAIAQEAAQUCnLBTddEZovEKv//EABURAQEAAAAAAAAAAAAAAAAAAAEg/9oACAEDAQE/ASP/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/AR//xAAXEAEAAwAAAAAAAAAAAAAAAAAQAREg/9oACAEBAAY/Am8Sf//EABwQAQACAgMBAAAAAAAAAAAAAAEAERAhMVFxsf/aAAgBAQABPyGjrlh3eyDZcVoHsEqCCg6x9sf/2gAMAwEAAgADAAAAEAPPAv/EABYRAQEBAAAAAAAAAAAAAAAAAAERIP/aAAgBAwEBPxAEx//EABYRAQEBAAAAAAAAAAAAAAAAAAERIP/aAAgBAgEBPxBW4//EABsQAQADAQADAAAAAAAAAAAAAAEAETEhEEGh/9oACAEBAAE/EHII/KW1dLRgAMS53GoqkuiV5mQxfSobNeL/2Q=='); background-size: cover; display: block;"
+    ></span>
+    <img
+        class="gatsby-resp-image-image"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;"
+        alt="css3-mooncake-03-01"
+        title=""
+        src="/static/4116739f87e769439dbbd2e0b3ee51e3/5992f/03-01.jpg"
+        srcset="/static/4116739f87e769439dbbd2e0b3ee51e3/9995a/03-01.jpg 240w,
+/static/4116739f87e769439dbbd2e0b3ee51e3/b7826/03-01.jpg 480w,
+/static/4116739f87e769439dbbd2e0b3ee51e3/5992f/03-01.jpg 600w"
+        sizes="(max-width: 600px) 100vw, 600px"
+      />
+  </span>
+  </a></p>
+<p> <code class="gatsby-code-ul">li</code> 默认是竖着往下的，也就是朝向3点钟方向的那一个直角。因此其它3个方向的部分需要借助 <code class="gatsby-code-text">transform: rotate(90deg);</code> 来实现旋转，再调整 <code class="gatsby-code-text">top</code> 和 <code class="gatsby-code-text">left</code> 来进行对齐，就完成了。</p>
+<p><a
+    class="gatsby-resp-image-link"
+    href="/static/472c3d85a91f875f3a966731efb8114e/5992f/03-02.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-wrapper"
+    style="position: relative; display: block;  max-width: 600px; margin-left: auto; margin-right: auto;"
+  >
+    <span
+      class="gatsby-resp-image-background-image"
+      style="padding-bottom: 83.33333333333334%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAARABQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAIDBAEF/8QAFwEBAQEBAAAAAAAAAAAAAAAAAAQBAv/aAAwDAQACEAMQAAAB0UWZobPQcbzKATB//8QAGxABAAICAwAAAAAAAAAAAAAAAQACAxAREiH/2gAIAQEAAQUCvbrDI6y15gLDwldf/8QAFREBAQAAAAAAAAAAAAAAAAAAASD/2gAIAQMBAT8BI//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8BH//EABcQAQADAAAAAAAAAAAAAAAAABABESD/2gAIAQEABj8CbxJ//8QAGxABAAIDAQEAAAAAAAAAAAAAAQARECExcYH/2gAIAQEAAT8hra6wLvZBsuJQfYpQQUGOveP/2gAMAwEAAgADAAAAEB/PAv/EABYRAQEBAAAAAAAAAAAAAAAAAAERIP/aAAgBAwEBPxAEx//EABURAQEAAAAAAAAAAAAAAAAAAAEg/9oACAECAQE/EGP/xAAbEAEAAgMBAQAAAAAAAAAAAAABABEhMUEQwf/aAAgBAQABPxBDBeq+S8uxyPyAA0lwAapiAaFhi8Ib9P8A/9k='); background-size: cover; display: block;"
+    ></span>
+    <img
+        class="gatsby-resp-image-image"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;"
+        alt="css3-mooncake-03-02"
+        title=""
+        src="/static/472c3d85a91f875f3a966731efb8114e/5992f/03-02.jpg"
+        srcset="/static/472c3d85a91f875f3a966731efb8114e/9995a/03-02.jpg 240w,
+/static/472c3d85a91f875f3a966731efb8114e/b7826/03-02.jpg 480w,
+/static/472c3d85a91f875f3a966731efb8114e/5992f/03-02.jpg 600w"
+        sizes="(max-width: 600px) 100vw, 600px"
+      />
+  </span>
+  </a></p>
+<h2>中间的字</h2>
+<p>字的部分就很简单了，在 <code class="gatsby-code-text">div.text</code> 里用两个 <code class="gatsby-code-text">p</code> 写好文字，设置好间距，定好位，给点圆角，就OK了。注意，这里需要给文字的边框设置一下背景色，否则它就是透明的，底下的十字交错结构会显示出来。</p>
+<div class="gatsby-highlight" data-language="css"><pre style="counter-reset: linenumber NaN" class="gatsby-code-css line-numbers"><code class="gatsby-code-css"><span class="token selector">.text</span> <span class="token punctuation">{</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 160px<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 160px<span class="token punctuation">;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #C76603<span class="token punctuation">;</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> 4px solid #BA3B00<span class="token punctuation">;</span>
+  <span class="token property">border-radius</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.text p</span> <span class="token punctuation">{</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 80px<span class="token punctuation">;</span>
+  <span class="token property">line-height</span><span class="token punctuation">:</span> 80px<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #BA3B00<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+<div class="gatsby-highlight" data-language="html"><pre style="counter-reset: linenumber NaN" class="gatsby-code-html line-numbers"><code class="gatsby-code-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>text<span class="token punctuation">'</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>快中<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>乐秋<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code><span aria-hidden="true" class="line-numbers-rows" style="white-space: normal; width: auto; left: 0;"><span></span><span></span><span></span><span></span></span></pre></div>
+<p><a
+    class="gatsby-resp-image-link"
+    href="/static/d9cb9dbdfe64102de172d1e9cdfb5944/5992f/04.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-wrapper"
+    style="position: relative; display: block;  max-width: 600px; margin-left: auto; margin-right: auto;"
+  >
+    <span
+      class="gatsby-resp-image-background-image"
+      style="padding-bottom: 83.33333333333334%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAARABQDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAIDBAH/xAAXAQEBAQEAAAAAAAAAAAAAAAAABAEC/9oADAMBAAIQAxAAAAG+i3PDZvG89iEgf//EABsQAQACAgMAAAAAAAAAAAAAAAEAAgMQERIh/9oACAEBAAEFAr26wumsleYCw8Ia/8QAFREBAQAAAAAAAAAAAAAAAAAAASD/2gAIAQMBAT8BI//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8BH//EABcQAQADAAAAAAAAAAAAAAAAABABESD/2gAIAQEABj8CbxJ//8QAGxABAAICAwAAAAAAAAAAAAAAAQARECExUbH/2gAIAQEAAT8hrFcsW3sg2XGoCI0EFB1j2x//2gAMAwEAAgADAAAAEP8ADwL/xAAWEQEBAQAAAAAAAAAAAAAAAAABESD/2gAIAQMBAT8QBMf/xAAWEQADAAAAAAAAAAAAAAAAAAABIDH/2gAIAQIBAT8QNT//xAAbEAEAAgIDAAAAAAAAAAAAAAABABEhMRCRsf/aAAgBAQABPxBwV8pfXY5GAA0lzMMmEINZd9QQdCob5X//2Q=='); background-size: cover; display: block;"
+    ></span>
+    <img
+        class="gatsby-resp-image-image"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;box-shadow:inset 0px 0px 0px 400px white;"
+        alt="css3-mooncake-04"
+        title=""
+        src="/static/d9cb9dbdfe64102de172d1e9cdfb5944/5992f/04.jpg"
+        srcset="/static/d9cb9dbdfe64102de172d1e9cdfb5944/9995a/04.jpg 240w,
+/static/d9cb9dbdfe64102de172d1e9cdfb5944/b7826/04.jpg 480w,
+/static/d9cb9dbdfe64102de172d1e9cdfb5944/5992f/04.jpg 600w"
+        sizes="(max-width: 600px) 100vw, 600px"
+      />
+  </span>
+  </a></p>
+<h2>小结</h2>
+<p>使用 CSS3 进行图形的绘制，从减轻网络传输负载、提高浏览器渲染效率的角度上讲，是非常好的一个技巧。从技术上讲，只要能把原图产分成基本几何形状的，都能用 CSS3 来实现。但这项技术最大的不足在于代码编写较为费时费力，涉及大量的定位和数值计算工作，重复性劳动较多，因此实战中只能用于元素较为简单的情况，过于复杂的绘图要求在进度上会比较吃力。</p>
+<p>业余时间用 CSS3 画点小东西，主要是为了熟悉 CSS3 的一些使用技巧，像盒模型的边框、定位、旋转、斜切，以及如何利用这些基础的东西搭建起一个相对复杂一些的玩意儿。就像是乐高玩具，本身很简单，但发挥想象力，我们可以用它塑造出很多有意思的东西。</p></div></article></div></main></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.page={"componentChunkName":"component---src-templates-blog-post-js","jsonName":"blog-2015-09-27-css-3-mooncake-df4","path":"/blog/2015/09/27/css3-mooncake"};window.dataPath="190/path---blog-2015-09-27-css-3-mooncake-df-4-612-TMvlgw0toHyIH7gkGzvUf1aJefE";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-0669fa491a4eb2ef8213.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-1e4a7a64e477822f6560.js"],"component---src-templates-project-detail-js":["/component---src-templates-project-detail-js.c243e0c2cabf94e75fb6.css","/component---src-templates-project-detail-js-0683446e90163b083a39.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js.1f9878be215805fd5cc7.css","/component---src-templates-blog-post-js-05be77ad86af625a013e.js"],"component---src-pages-404-js":["/component---src-pages-404-js.03b4c5866ddb88a0b2cd.css","/component---src-pages-404-js-b58f024def7941ac1e82.js"],"component---src-pages-about-js":["/component---src-pages-about-js.db2ba8fe8edcf5bc9ef4.css","/component---src-pages-about-js-25f071b87ca583f6e9ac.js"],"component---src-pages-blog-js":["/component---src-pages-blog-js.6e15458645d1ee348488.css","/component---src-pages-blog-js-f296f05f3ad66ead1de6.js"],"component---src-pages-friend-js":["/component---src-pages-friend-js.7a886e03eb9aaab7b80e.css","/component---src-pages-friend-js-e36e54e4ba3304699146.js"],"component---src-pages-index-js":["/component---src-pages-index-js.8276bd0b8c685b9fd538.css","/component---src-pages-index-js-b6678a45230fece23197.js"],"component---src-pages-lab-js":["/component---src-pages-lab-js.9aeb4196db8ed3f8ce13.css","/component---src-pages-lab-js-ae132a815a6df660ef52.js"],"component---src-pages-lab-browser-ua-js":["/component---src-pages-lab-browser-ua-js.d97839d529336eba37f3.css","/component---src-pages-lab-browser-ua-js-2c0f17dec2c0b65be0c9.js"],"component---src-pages-lab-browser-viewport-js":["/component---src-pages-lab-browser-viewport-js.d97839d529336eba37f3.css","/component---src-pages-lab-browser-viewport-js-3f97bae76b20299ccd03.js"],"component---src-pages-lab-html-5-canvas-js":["/component---src-pages-lab-html-5-canvas-js.d97839d529336eba37f3.css","/component---src-pages-lab-html-5-canvas-js-e4f971b1075082777dd2.js"],"component---src-pages-lab-html-5-connection-js":["/component---src-pages-lab-html-5-connection-js.d97839d529336eba37f3.css","/component---src-pages-lab-html-5-connection-js-ef2e3d6b9e0c37b0efbc.js"],"component---src-pages-lab-html-5-geolocation-js":["/component---src-pages-lab-html-5-geolocation-js.d97839d529336eba37f3.css","/component---src-pages-lab-html-5-geolocation-js-eb9deb09aed6524e7cd6.js"],"component---src-pages-lab-html-5-input-js":["/component---src-pages-lab-html-5-input-js.7f66062237e69c40fd3a.css","/component---src-pages-lab-html-5-input-js-6f0a119aec1e7c492857.js"],"component---src-pages-lab-html-5-online-js":["/component---src-pages-lab-html-5-online-js.7edeba176bd644a29515.css","/component---src-pages-lab-html-5-online-js-8b0c54ba238af1de386c.js"],"component---src-pages-project-js":["/component---src-pages-project-js.fd9d5b6eea4f281b705f.css","/component---src-pages-project-js-56f4fa7cadc5078911d4.js"],"pages-manifest":["/pages-manifest-28996568958ac0633e2f.js"]};/*]]>*/</script><script src="/component---src-templates-blog-post-js-05be77ad86af625a013e.js" async=""></script><script src="/0-f6610012133b7c72d745.js" async=""></script><script src="/app-0669fa491a4eb2ef8213.js" async=""></script><script src="/webpack-runtime-2b39d1abb995005efa97.js" async=""></script></body></html>
