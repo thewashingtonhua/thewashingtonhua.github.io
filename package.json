@@ -53,10 +53,10 @@
     "dev": "gatsby develop -p 5004",
     "prebuild": "rm -rf .cache",
     "build": "gatsby build",
+    "postbuild": "cp -f README.md public/README.md",
     "postbuild-deprecated": "rm -rf docs && mv public docs",
     "serve": "gatsby serve",
-    "predeploy": "rm -rf .cache",
-    "deploy": "gatsby build && gh-pages -d public -b master"
+    "deploy": "yarn build && gh-pages -d public -b master"
   },
   "repository": {
     "type": "git",
