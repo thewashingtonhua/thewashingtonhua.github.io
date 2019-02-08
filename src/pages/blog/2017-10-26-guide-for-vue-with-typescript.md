@@ -1,7 +1,6 @@
 ---
 title: 'TypeScriptS + Vue 踩坑纪实'
 description: '坑这种东西，多踩踩就平了'
-date: '2017-10-26'
 tags: ['typescript', 'vue']
 cover: '../../images/blog/guide-for-vue-with-typescript.jpg'
 ---

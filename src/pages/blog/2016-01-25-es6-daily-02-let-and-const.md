@@ -1,7 +1,6 @@
 ---
 title: '每天一点ES6(2)：let 和 const'
 description: '终于，JavaScript 也能用上块级作用域和常量了'
-date: '2016-01-25'
 tags: ['ecmascript', '2015', 'es6', 'javascript', 'let', 'const']
 cover: '../../images/blog/es6daily.jpg'
 series: 'es6daily'

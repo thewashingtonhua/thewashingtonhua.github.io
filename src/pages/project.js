@@ -22,7 +22,7 @@ export default ({ data }) => {
               ? node.frontmatter.cover.publicURL
               : ''
             return (
-              <Link className='project' to={node.fields.slug} key={node.fields.slug}>
+              <Link className='project' to={node.fields.slug} key={node.fields.slug} id={node.fields.id}>
                 <div className='cover'>
                   <img src={cover} alt='' />
                 </div>
@@ -54,13 +54,13 @@ query {
         id
         frontmatter {
           title
-          date
           description
           cover {
             publicURL
           }
         }
         fields {
+          id
           slug
           type
         }

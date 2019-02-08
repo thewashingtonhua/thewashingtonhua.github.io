@@ -1,7 +1,6 @@
 ---
 title: '每天一点ES6(10)：对象的扩展'
 description: '迟来的更新……'
-date: '2017-04-05'
 tags: ['ecmascript', '2015', 'es6', 'javascript', 'object']
 cover: '../../images/blog/es6daily.jpg'
 series: 'es6daily'

@@ -1,7 +1,6 @@
 ---
 title: 'iOS 下 click() 无效的问题'
 description: 'iOS这个傲娇的小公举'
-date: '2017-03-31'
 tags: ['ios', 'click']
 cover: '../../images/blog/ios-click.jpg'
 ---

@@ -1,7 +1,6 @@
 ---
 title: '每天一点ES6(8)：数组的扩展'
 description: '别拿语法糖不当干粮'
-date: '2016-07-26'
 tags: ['ecmascript', '2015', 'es6', 'javascript', 'array']
 cover: '../../images/blog/es6daily.jpg'
 series: 'es6daily'

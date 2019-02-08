@@ -1,7 +1,6 @@
 ---
 title: 'Leetcode 第一刷：Two Sum'
 description: '都闪开，我要开始装逼了'
-date: '2017-04-11'
 tags: ['leetcode', 'two', 'sum']
 cover: '../../images/blog/leetcode.jpg'
 ---

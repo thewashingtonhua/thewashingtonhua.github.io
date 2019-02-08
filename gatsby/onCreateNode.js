@@ -8,6 +8,7 @@ module.exports = ({ node, getNode, actions }) => {
   if (node.internal.type === `MarkdownRemark`) {
     const { relativePath } = getNode(node.parent)
 
+    let id = ''
     let slug = ''
     let type = ''
 
@@ -18,18 +19,23 @@ module.exports = ({ node, getNode, actions }) => {
       const day = match[3]
       const filename = match[4]
 
+      id = filename
       slug = `/blog/${year}/${month}/${day}/${filename}`
-
       type = 'blog'
+
+      const date = new Date(year, month - 1, day)
+      createNodeField({ node, name: 'date', value: date })
     }
 
     if (relativePath.includes('project')) {
       const projectName = relativePath.slice(8, -3)
-      slug = `/project/${projectName}`
 
+      id = projectName
+      slug = `/project/${projectName}`
       type = 'project'
     }
 
+    createNodeField({ node, name: 'id', value: id, })
     createNodeField({ node, name: 'type', value: type, })
     createNodeField({ node, name: 'slug', value: slug, })
   }

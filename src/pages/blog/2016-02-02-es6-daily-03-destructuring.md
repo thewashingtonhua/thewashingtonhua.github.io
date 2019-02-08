@@ -1,7 +1,6 @@
 ---
 title: '每天一点ES6(3)：解构赋值'
 description: '让你一次赋个够'
-date: '2016-02-02'
 tags: ['ecmascript', '2015', 'es6', 'javascript', 'destructuring']
 cover: '../../images/blog/es6daily.jpg'
 series: 'es6daily'

@@ -10,7 +10,8 @@ export default ({ data }) => {
 
   const latestBlog = nodes
     .filter(({ node }) => node.fields.type === 'blog')
-    .sort((x, y) => new Date(y.node.frontmatter.date) - new Date(x.node.frontmatter.date))[0].node
+    .filter(({ node }) => !node.frontmatter.draft)
+    .sort((x, y) => new Date(y.node.fields.date) - new Date(x.node.fields.date))[0].node
   const latestProjects = nodes
     .filter(({ node }) => node.fields.type === 'project')
     .sort((x, y) => new Date(y.node.frontmatter.from) - new Date(x.node.frontmatter.from)).slice(0, 2)
@@ -94,17 +95,19 @@ query {
         frontmatter {
           title
           description
-          date
           from
           to
           tags
           cover {
             publicURL
           }
+          series
+          draft
         }
         fields {
           slug
           type
+          date
         }
         excerpt
       }

@@ -1,7 +1,6 @@
 ---
 title: 'PHP 处理多源 CORS 的解决办法'
 description: '一个老生常谈的话题，碰到了顺便记录一下'
-date: '2017-03-30'
 tags: ['php', 'cors']
 cover: '../../images/blog/cors.jpg'
 ---

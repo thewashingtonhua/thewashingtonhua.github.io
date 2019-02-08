@@ -1,7 +1,6 @@
 ---
 title: 'Webpack "Invalid Host Header"'
 description: '更新有风险，更新需谨慎……'
-date: '2017-05-04'
 tags: ['webpack', 'dev', 'server', 'invalid', 'host']
 cover: '../../images/blog/webpack-dev-server.jpg'
 ---

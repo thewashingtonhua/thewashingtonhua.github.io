@@ -1,7 +1,6 @@
 ---
 title: '每天一点ES6(1)：概述'
 description: '伊艾斯6大法好，每天一点不会老！'
-date: '2016-01-24'
 tags: ['ecmascript', '2015', 'es6', 'javascript']
 cover: '../../images/blog/es6daily.jpg'
 series: 'es6daily'

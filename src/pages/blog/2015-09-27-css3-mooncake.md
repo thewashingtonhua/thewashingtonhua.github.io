@@ -1,7 +1,6 @@
 ---
 title: '纯 CSS3 绘制月饼'
 description: '中秋佳节，用CSS3来画个月饼吧'
-date: '2015-09-27'
 tags: ['css', 'mooncake', 'project']
 cover: '../../images/blog/css3-mooncake.jpg'
 ---

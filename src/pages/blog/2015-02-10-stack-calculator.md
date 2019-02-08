@@ -1,7 +1,6 @@
 ---
 title: '栈计算器'
 description: '通过“栈”实现的方程式计算器'
-date: '2015-02-10'
 tags: ['stack', 'calculator', 'algorithm', 'project']
 cover: '../../images/blog/stack-calculator.jpg'
 ---

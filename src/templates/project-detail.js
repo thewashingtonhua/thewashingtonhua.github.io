@@ -16,7 +16,7 @@ export default ({ data }) => {
       />
       <div className='mf-content project-detail'>
         <p className='back-to-parent'><Link to='/project'>&laquo; 回到项目列表</Link></p>
-        <article className='content' dangerouslySetInnerHTML={{ __html: post.html }} />
+        <article className='content' id={`project__${post.fields.id}`} dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
     </Layout>
   )
@@ -34,6 +34,9 @@ query($slug: String!) {
     html
     frontmatter {
       title
+    }
+    fields {
+      id
     }
   }
 }`

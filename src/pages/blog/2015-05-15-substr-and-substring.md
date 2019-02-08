@@ -1,7 +1,6 @@
 ---
 title: 'substr() 和 substring() 的区别'
 description: '两个函数，傻傻分不清楚'
-date: '2015-05-15'
 tags: ['javascript', 'substr', 'substring', 'slice']
 cover: '../../images/blog/substring.jpg'
 ---

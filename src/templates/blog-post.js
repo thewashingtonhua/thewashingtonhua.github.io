@@ -13,7 +13,7 @@ export default ({ data }) => {
   const cover = post.frontmatter.cover
     ? post.frontmatter.cover.publicURL
     : ''
-  const date = dayjs(post.frontmatter.date).format('MMM DD, YYYY')
+  const date = dayjs(post.fields.date).format('MMM DD, YYYY')
 
   return (
     <Layout>
@@ -24,11 +24,11 @@ export default ({ data }) => {
 
       <div className='mf-content blog-post'>
         <p className='back-to-parent'><Link to='/blog'>&laquo; 回到博客列表</Link></p>
-        <article className={post.frontmatter.draft ? ' draft' : ''}>
+        <article className={post.frontmatter.draft ? ' draft' : ''} id={`blog__${post.fields.id}`}>
           <h1 className='title'>{post.frontmatter.title}</h1>
           <div className='metas'>
             <p className='publish-date'>
-              <time dateTime={post.frontmatter.date}>{date}</time>
+              <time dateTime={post.fields.date}>{date}</time>
             </p>
             {/* <p className='tags'>Tags: {post.frontmatter.tags.join(', ')}</p> */}
           </div>
@@ -55,13 +55,16 @@ query($slug: String!) {
     frontmatter {
       title
       description
-      date
       cover {
         publicURL
       }
       tags
       series
       draft
+    }
+    fields {
+      id
+      date
     }
   }
 }`

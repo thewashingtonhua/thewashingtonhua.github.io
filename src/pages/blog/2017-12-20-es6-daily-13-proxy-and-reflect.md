@@ -1,7 +1,6 @@
 ---
 title: '每天一点ES6(13)：Proxy 和 Reflect'
 description: '对不起，有代理真就是可以为所欲为'
-date: '2017-12-20'
 tags: ['ecmascript', '2015', 'es6', 'javascript', 'proxy', 'reflect']
 cover: '../../images/blog/es6daily.jpg'
 series: 'es6daily'

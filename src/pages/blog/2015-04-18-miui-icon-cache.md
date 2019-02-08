@@ -1,7 +1,6 @@
 ---
 title: 'MIUI 图标缓存问题'
 description: '离奇失踪的图标'
-date: '2015-04-18'
 tags: ['android', 'miui', 'icon', 'cache']
 cover: '../../images/blog/miui-icon-cache.jpg'
 ---

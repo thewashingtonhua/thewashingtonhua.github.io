@@ -1,7 +1,6 @@
 ---
 title: 'Electron 安装出坑指南'
 description: '世界本无坑，用的人多了，也就有了坑'
-date: '2017-07-06'
 tags: ['electron']
 cover: '../../images/blog/electron.jpg'
 ---

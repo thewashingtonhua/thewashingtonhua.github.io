@@ -1,7 +1,6 @@
 ---
 title: '时间是什么颜色的'
 description: '如果时间有颜色……'
-date: '2015-02-10'
 tags: ['color', 'time', 'project']
 cover: '../../images/blog/tik-tok-color.jpg'
 ---

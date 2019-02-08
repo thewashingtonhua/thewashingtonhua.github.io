@@ -1,7 +1,6 @@
 ---
 title: '每天一点ES6(11)：Symbol'
 description: '原始类型家族的新成员'
-date: '2017-07-02'
 tags: ['ecmascript', '2015', 'es6', 'javascript', 'symbol']
 cover: '../../images/blog/es6daily.jpg'
 series: 'es6daily'

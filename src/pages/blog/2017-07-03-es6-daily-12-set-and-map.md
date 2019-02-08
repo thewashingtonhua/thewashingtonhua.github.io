@@ -1,7 +1,6 @@
 ---
 title: '每天一点ES6(12)：Set 和 Map'
 description: '多余的，一概不要'
-date: '2017-07-03'
 tags: ['ecmascript', '2015', 'es6', 'javascript', 'map', 'set']
 cover: '../../images/blog/es6daily.jpg'
 series: 'es6daily'

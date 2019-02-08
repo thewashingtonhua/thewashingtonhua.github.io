@@ -1,7 +1,6 @@
 ---
 title: '每天一点ES6(4)：Babel'
 description: '《圣经》的光辉，永恒！'
-date: '2016-02-19'
 tags: ['ecmascript', '2015', 'es6', 'javascript', 'babel', 'npm']
 cover: '../../images/blog/es6daily.jpg'
 series: 'es6daily'

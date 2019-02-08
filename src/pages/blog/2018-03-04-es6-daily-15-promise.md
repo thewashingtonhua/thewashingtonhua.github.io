@@ -1,7 +1,6 @@
 ---
 title: '每天一点ES6(15)：Promise'
 description: '对你的承诺，永远不变'
-date: '2018-03-04'
 tags: ['ecmascript', '2015', 'es6', 'javascript', 'promise']
 cover: '../../images/blog/es6daily.jpg'
 series: 'es6daily'

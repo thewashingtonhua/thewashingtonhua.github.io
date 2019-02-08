@@ -1,7 +1,6 @@
 ---
 title: '每天一点ES6(9)：函数的扩展'
 description: '博采众长的实用语法糖'
-date: '2016-12-20'
 tags: ['ecmascript', '2015', 'es6', 'javascript', 'function']
 cover: '../../images/blog/es6daily.jpg'
 series: 'es6daily'

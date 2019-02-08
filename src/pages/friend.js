@@ -18,7 +18,7 @@ export default ({ data }) => (
       <h1 className='title'>未来，就在这里</h1>
 
       <div className='friends'>
-        <a className='friend' id='lucode' target='_blank' href='http://www.lucode.net'>
+        <a className='friend' id='friend__lucode' target='_blank' href='http://www.lucode.net'>
           <div className='cover fix-ratio ratio-16-9'>
             <img src={lucode} alt='' />
           </div>
@@ -32,7 +32,7 @@ export default ({ data }) => (
           </div>
         </a>
 
-        <a className='friend' id='infinite-script' target='_blank' href='https://infinitescript.com/'>
+        <a className='friend' id='friend__infinite-script' target='_blank' href='https://infinitescript.com/'>
           <div className='cover fix-ratio ratio-16-9'>
             <img src={infiniteScript} alt='' />
           </div>
@@ -46,7 +46,7 @@ export default ({ data }) => (
           </div>
         </a>
 
-        <a className='friend' id='everain' target='_blank' href='https://everain.me/'>
+        <a className='friend' id='friend__everain' target='_blank' href='https://everain.me/'>
           <div className='cover fix-ratio ratio-16-9'>
             <img src={everain} alt='' />
           </div>
@@ -60,7 +60,7 @@ export default ({ data }) => (
           </div>
         </a>
 
-        <a className='friend' id='silvermac' target='_blank' href='https://silvermac.io/'>
+        <a className='friend' id='friend__silvermac' target='_blank' href='https://silvermac.io/'>
           <div className='cover fix-ratio ratio-16-9'>
             <img src={silvermac} alt='' />
           </div>

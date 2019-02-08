@@ -1,7 +1,6 @@
 ---
 title: '童话说 V2.0 改版小结'
 description: '时隔多年，终于换新面貌了'
-date: '2017-08-12'
 tags: ['blog', '2.0', 'update']
 cover: '../../images/blog/introduction-to-ths-v2.jpg'
 ---

@@ -1,7 +1,6 @@
 ---
 title: '每天一点ES6(17)：Async / Await'
 description: '异步？先等等！'
-date: '2018-10-06'
 tags: ['ecmascript', '2015', 'es6', 'javascript', 'async', 'await', 'generator']
 cover: '../../images/blog/es6daily.jpg'
 series: 'es6daily'

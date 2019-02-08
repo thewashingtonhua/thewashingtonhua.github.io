@@ -1,7 +1,6 @@
 ---
 title: '使用 Sublime Text 编写 LaTeX'
 description: '用你最熟悉的工具来写 LaTeX 吧'
-date: '2015-04-01'
 tags: ['sublime', 'latex']
 cover: '../../images/blog/latex-with-sublime-text.jpg'
 ---

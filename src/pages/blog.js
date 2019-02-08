@@ -7,12 +7,13 @@ import './blog.scss'
 import { IS_PROD } from '../config'
 
 export default ({ data }) => {
-  let blogs = data.allMarkdownRemark.edges
-    .filter(({ node }) => node.fields.type === 'blog')
+  let blogs = data.allMarkdownRemark.edges.filter(({ node }) => node.fields.type === 'blog')
 
   if (IS_PROD) {
     blogs = blogs.filter(({ node }) => !node.frontmatter.draft)
   }
+
+  blogs = blogs.sort((x, y) => new Date(y.node.fields.date) - new Date(x.node.fields.date))
 
   return (
     <Layout>
@@ -26,9 +27,9 @@ export default ({ data }) => {
             const cover = node.frontmatter.cover
               ? node.frontmatter.cover.publicURL
               : ''
-            const date = dayjs(node.frontmatter.date).format('MMM DD, YYYY')
+            const date = dayjs(node.fields.date).format('MMM DD, YYYY')
             return (
-              <Link className={'blog' + (node.frontmatter.draft ? ' draft' : '')} to={node.fields.slug} key={node.id}>
+              <Link className={'blog' + (node.frontmatter.draft ? ' draft' : '')} to={node.fields.slug} key={node.id} id={node.fields.id}>
                 <div className='banner'>
                   <img src={cover} alt='' />
                 </div>
@@ -37,7 +38,7 @@ export default ({ data }) => {
                   <p className='desc'>{node.frontmatter.description}</p>
                   <footer className='blog__footer'>
                     <p className='date'>
-                      <time dateTime='{node.frontmatter.date}'>{date}</time>
+                      <time dateTime='{node.fields.date}'>{date}</time>
                     </p>
                     {/* <p className='tags'>Tags: {node.frontmatter.tags.join(', ')}</p> */}
                   </footer>
@@ -60,14 +61,13 @@ query {
       keywords
     }
   }
-  allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+  allMarkdownRemark {
     totalCount
     edges {
       node {
         id
         frontmatter {
           title
-          date
           description
           tags
           cover {
@@ -77,8 +77,10 @@ query {
           draft
         }
         fields {
+          id
           slug
           type
+          date
         }
       }
     }

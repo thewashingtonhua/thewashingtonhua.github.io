@@ -1,7 +1,6 @@
 ---
 title: 'Node.js 9.0.0 发布'
 description: '一转眼，又半年过去了'
-date: '2017-11-01'
 tags: ['nodejs', 'release']
 cover: '../../images/blog/nodejs-9-release.jpg'
 ---
