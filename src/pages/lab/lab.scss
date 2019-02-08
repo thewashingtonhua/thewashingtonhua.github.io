@@ -1,0 +1,78 @@
+@charset 'utf-8';
+@import '../../styles/_common.scss';
+
+.lab-item {
+  article {
+    padding: 0 15px;
+  }
+
+  h1, h2, p, li, a, label, th, td {
+    color: $theme-color-text-secondary;
+    font-family: $theme-font-code;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  td {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 15px;
+    white-space: nowrap;
+  }
+
+  tr.title td {
+    color: $theme-color-text-primary;
+    padding: 25px 15px;
+    font-weight: 700;
+  }
+
+  h1 {
+    font-size: 32px;
+    color: $theme-color-text-primary;
+    line-height: 1.5;
+    margin-bottom: .5em;
+  }
+
+  h2 {
+    font-size: 28px;
+    color: $theme-color-text-primary;
+    line-height: 1.5;
+    margin-top: 1em;
+  }
+
+  p {
+    color: $theme-color-text-secondary;
+    line-height: 1.5;
+  }
+
+  ul {
+    li {
+      line-height: 1.5;
+    }
+  }
+
+  a {
+    font-size: 16px;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &.back {
+      display: block;
+      font-size: 20px;
+      color: $theme-color-text-secondary;
+      padding: 50px 0 20px;
+    }
+  }
+
+  canvas {
+    display: block;
+  }
+
+  #error {
+    color: red;
+  }
+}

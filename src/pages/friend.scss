@@ -1,0 +1,73 @@
+@charset "utf-8";
+
+@import '../styles/_common.scss';
+
+#friends {
+  h1.title {
+    font-weight: 100;
+    font-size: 32px;
+    color: $theme-color-text-primary;
+    padding: 0 15px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    transition: margin-top .3s ease-out, font-size .3s ease-out;
+
+    @media (max-width: $break-point-tablet) {
+      margin-top: 20px;
+      font-size: 28px;
+    }
+  }
+
+  .friends {
+    @include clearfix;
+  }
+
+  .friend {
+    display: block;
+    float: left;
+    width: 50%;
+    padding: 10px 15px 30px;
+    transition: background-color .3s ease-out;
+
+    @media (max-width: 480px) {
+      width: 100%;
+    }
+
+    .cover {
+      width: 100%;
+
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    .intro {
+      padding: 10px 0;
+
+      h2 {
+        font-size: 26px;
+        color: $theme-color-text-primary;
+        line-height: 1.5;
+        transition: color .3s ease-out;
+        @include ellipsis;
+
+        @media (max-width: 480px) {
+          font-size: 24px;
+        }
+      }
+
+      ul li {
+        color: $theme-color-text-secondary;
+        transition: color .3s ease-out;
+        font-size: 14px;
+        line-height: 1.5;
+        @include ellipsis;
+
+        @media (max-width: 480px) {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

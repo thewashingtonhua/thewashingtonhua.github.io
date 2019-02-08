@@ -1,0 +1,37 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+import { StaticQuery, graphql } from 'gatsby'
+
+import Header from './header'
+import 'normalize-scss/sass/normalize/_import-now.scss'
+import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
+import '../styles/vendor.scss'
+import './layout.scss'
+
+const Layout = ({ children }) => (
+  <StaticQuery
+    query={graphql`
+      query SiteTitleQuery {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `}
+    render={data => (
+      <>
+        <Header />
+        <main>
+          {children}
+        </main>
+      </>
+    )}
+  />
+)
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
+}
+
+export default Layout

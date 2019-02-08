@@ -1,0 +1,78 @@
+@charset "utf-8";
+
+@import '../styles/_common.scss';
+
+.project-catalog {
+  h1.title {
+    font-weight: 100;
+    font-size: 32px;
+    color: $theme-color-text-primary;
+    padding: 0 15px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    transition: margin-top .3s ease-out, font-size .3s ease-out;
+
+    @media (max-width: $break-point-tablet) {
+      margin-top: 20px;
+      font-size: 28px;
+    }
+  }
+
+  .project-list {
+    @include clearfix;
+    margin-bottom: 40px;
+
+    .project {
+      display: block;
+      float: left;
+      width: 50%;
+      padding: 15px 15px 30px;
+      transition: background-color .3s ease-out;
+
+      @media (max-width: 480px) {
+        width: 100%
+      }
+
+      &:nth-child(even) {
+        margin-right: 0;
+      }
+
+      .cover {
+        width: 100%;
+
+        img {
+          display: block;
+          width: 100%;
+        }
+      }
+
+      .intro {
+        padding: 20px 0;
+
+        h2 {
+          font-size: 26px;
+          color: $theme-color-text-primary;
+          transition: color .3s ease-out;
+          margin-bottom: 0.5em;
+
+          @include ellipsis;
+
+          @media (max-width: 480px) {
+            font-size: 24px;
+          }
+        }
+
+        p {
+          color: $theme-color-text-secondary;
+          transition: color .3s ease-out;
+          font-size: 14px;
+          @include ellipsis;
+
+          @media (max-width: 480px) {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}
