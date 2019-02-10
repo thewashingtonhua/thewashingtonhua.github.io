@@ -3,6 +3,8 @@ title: '栈计算器'
 description: '通过“栈”实现的方程式计算器'
 tags: ['stack', 'calculator', 'algorithm', 'project']
 cover: '../../images/blog/stack-calculator.jpg'
+series: ''
+draft: false
 ---
 
 ## 简单说两句

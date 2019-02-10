@@ -3,6 +3,8 @@ title: 'PHP 处理多源 CORS 的解决办法'
 description: '一个老生常谈的话题，碰到了顺便记录一下'
 tags: ['php', 'cors']
 cover: '../../images/blog/cors.jpg'
+series: ''
+draft: false
 ---
 
 CORS 本不是什么新鲜事，也不是特别的难，但最近遇上一个跨域的问题，后端人员是个新手没经验，靠不住，没办法只好自己上。这里权当是个记录。

@@ -4,6 +4,7 @@ description: '让你一次赋个够'
 tags: ['ecmascript', '2015', 'es6', 'javascript', 'destructuring']
 cover: '../../images/blog/es6daily.jpg'
 series: 'es6daily'
+draft: false
 ---
 
 ## 什么叫解构

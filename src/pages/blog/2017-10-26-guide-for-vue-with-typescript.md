@@ -3,6 +3,8 @@ title: 'TypeScriptS + Vue 踩坑纪实'
 description: '坑这种东西，多踩踩就平了'
 tags: ['typescript', 'vue']
 cover: '../../images/blog/guide-for-vue-with-typescript.jpg'
+series: ''
+draft: false
 ---
 
 ## TypeScript 这个磨人的小妖精

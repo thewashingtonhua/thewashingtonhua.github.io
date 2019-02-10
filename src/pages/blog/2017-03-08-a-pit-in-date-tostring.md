@@ -3,6 +3,8 @@ title: '记 new Date().toString() 的一个坑'
 description: '万万没想到，竟在这里踩了个坑……'
 tags: ['javascript', 'date', 'tostring']
 cover: '../../images/blog/date-tostring.jpg'
+series: ''
+draft: false
 ---
 
 ## 先从问题说起

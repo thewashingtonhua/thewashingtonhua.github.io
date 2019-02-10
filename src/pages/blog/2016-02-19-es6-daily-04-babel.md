@@ -4,6 +4,7 @@ description: '《圣经》的光辉，永恒！'
 tags: ['ecmascript', '2015', 'es6', 'javascript', 'babel', 'npm']
 cover: '../../images/blog/es6daily.jpg'
 series: 'es6daily'
+draft: false
 ---
 
 ## 打脸

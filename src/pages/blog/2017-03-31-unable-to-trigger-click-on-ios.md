@@ -3,6 +3,8 @@ title: 'iOS 下 click() 无效的问题'
 description: 'iOS这个傲娇的小公举'
 tags: ['ios', 'click']
 cover: '../../images/blog/ios-click.jpg'
+series: ''
+draft: false
 ---
 
 最近用 Vue 做了个项目，其中涉及到头像上传的功能，在 Web 端典型的做法是把文件控件隐藏，然后点击上传按钮时候模拟点击文件控件：

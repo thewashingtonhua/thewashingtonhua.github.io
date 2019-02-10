@@ -4,6 +4,7 @@ description: '伊艾斯6大法好，每天一点不会老！'
 tags: ['ecmascript', '2015', 'es6', 'javascript']
 cover: '../../images/blog/es6daily.jpg'
 series: 'es6daily'
+draft: false
 ---
 
 本系列是对阮一峰老师的开源著作 <a target='_blank' href='http://es6.ruanyifeng.com' title='《ES6 标准入门》'>《ES6 标准入门》</a> 的学习笔记，通过博客的方式强迫自己将学到的东西解释给别人听，进而加深认识，同时也算为推广ES6贡献一点绵薄之力吧。

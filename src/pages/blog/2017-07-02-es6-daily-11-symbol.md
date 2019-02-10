@@ -4,6 +4,7 @@ description: '原始类型家族的新成员'
 tags: ['ecmascript', '2015', 'es6', 'javascript', 'symbol']
 cover: '../../images/blog/es6daily.jpg'
 series: 'es6daily'
+draft: false
 ---
 
 ## 什么是 Symbol

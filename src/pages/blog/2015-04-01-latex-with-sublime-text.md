@@ -3,6 +3,8 @@ title: '使用 Sublime Text 编写 LaTeX'
 description: '用你最熟悉的工具来写 LaTeX 吧'
 tags: ['sublime', 'latex']
 cover: '../../images/blog/latex-with-sublime-text.jpg'
+series: ''
+draft: false
 ---
 
 ## 为什么要用 Sublime Text

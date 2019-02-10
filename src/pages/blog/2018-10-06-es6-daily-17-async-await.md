@@ -4,6 +4,7 @@ description: '异步？先等等！'
 tags: ['ecmascript', '2015', 'es6', 'javascript', 'async', 'await', 'generator']
 cover: '../../images/blog/es6daily.jpg'
 series: 'es6daily'
+draft: false
 ---
 
 ## 又一个异步解决方案

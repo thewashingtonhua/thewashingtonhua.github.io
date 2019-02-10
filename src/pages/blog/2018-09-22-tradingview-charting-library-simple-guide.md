@@ -3,6 +3,8 @@ title: 'TradingView + WebSocket 脱坑指南'
 description: '让我来告诉你，K 线到底该怎么画'
 tags: ['tradingview', 'chart', 'library', 'guide', 'websocket', 'webworker', 'ohlc', 'kchart']
 cover: '../../images/blog/tradingview.jpg'
+series: ''
+draft: false
 ---
 
 ## 0. 竟然被催更了

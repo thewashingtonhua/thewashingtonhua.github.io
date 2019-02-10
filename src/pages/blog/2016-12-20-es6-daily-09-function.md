@@ -4,6 +4,7 @@ description: '博采众长的实用语法糖'
 tags: ['ecmascript', '2015', 'es6', 'javascript', 'function']
 cover: '../../images/blog/es6daily.jpg'
 series: 'es6daily'
+draft: false
 ---
 
 ## 实用的语法糖

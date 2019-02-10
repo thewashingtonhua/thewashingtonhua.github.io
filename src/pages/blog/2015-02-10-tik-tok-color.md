@@ -3,6 +3,8 @@ title: '时间是什么颜色的'
 description: '如果时间有颜色……'
 tags: ['color', 'time', 'project']
 cover: '../../images/blog/tik-tok-color.jpg'
+series: ''
+draft: false
 ---
 
 ## 简单说两句

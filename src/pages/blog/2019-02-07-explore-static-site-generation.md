@@ -4,6 +4,7 @@ description: '当 MVVM 遇上 SEO，该如何是好'
 tags: ['static', 'site', 'gatsby', 'pug']
 cover: '../../images/blog/explore-static-site-generation.jpg'
 series: ''
+draft: false
 ---
 
 ## SSR 出啥事了
@@ -134,7 +135,3 @@ Gatsby 支持部署到 Github Page、Now.sh、Surge.sh 等各大主流托管平�
 其实这没什么新鲜，Word、Photoshop、Sketch 导出成 HTML 早就已经是存在了很久的功能了。
 
 每次 AI 出点什么新闻，都会让一批人背后一凉，担心什么时候自己就失业了。但在我看来，AI 再厉害不过是个熟练工。如果一件事情只要重复次数多了谁都能来，那它就有可能被 AI 做到，否则，那就不用担心。不管是设计，还是开发，都属于创造型工作，从创意到实现的过程或许能被 AI 代替，但形成创意的过程，再强大的电脑也算不过来。
-
-<!-- 自动识别、自动生成，这是 AI 给我们带来的便利，但我们并不会因此就失业。AI 可以根据训练的结果，得出一个靠谱的结果。但 AI 永远不可能具备的，就是创造力。就像工厂流水线上的自动化设备，它可以取代流水线上的人工，甚至自己制造自己，但它永远不可能知道接下来该去。 -->
-
-<!-- <a target='_blank' href=''></a> -->

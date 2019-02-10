@@ -4,6 +4,7 @@ description: '可能是 ES6 中对未来影响最大的一项改变'
 tags: ['ecmascript', '2015', 'es6', 'javascript', 'module', 'import', 'export']
 cover: '../../images/blog/es6daily.jpg'
 series: 'es6daily'
+draft: false
 ---
 
 ## 模块化
@@ -178,6 +179,8 @@ import { default as foo } from 'modules'
 默认导出后面不允许跟变量申明语句（即不是用 `var` 、 `let` 、 `const` 声明的），可以是一个已声明的变量，或是常规的函数声明、类定义，特别的，由于默认导出已经有变量名 `default` 了，因此它还可以是一个直接量。
 
 ## export 与 import 的复合写法
+
+> 该提案目前还处于 Stage 1 阶段
 
 有一些特殊的场景，我们需要先导入再导出同一个模块，这时候我们可以把 `export` 和 `import` 语句写在一起。
 

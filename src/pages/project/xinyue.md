@@ -4,6 +4,7 @@ description: '在线视频协作平台'
 cover: '../../images/project/thumb/xinyue.jpg'
 from: '2017-08-01'
 to: '2017-10-01'
+draft: false
 ---
 
 # 新阅

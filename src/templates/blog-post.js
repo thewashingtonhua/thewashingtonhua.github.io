@@ -10,7 +10,11 @@ import './blog-post.scss'
 export default ({ data }) => {
   const post = data.markdownRemark
 
-  const cover = post.frontmatter.cover
+  if (!post) {
+    return null
+  }
+
+  const cover = post.frontmatter && post.frontmatter.cover
     ? post.frontmatter.cover.publicURL
     : ''
   const date = dayjs(post.fields.date).format('MMM DD, YYYY')

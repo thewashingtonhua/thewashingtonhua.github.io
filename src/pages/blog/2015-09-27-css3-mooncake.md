@@ -3,6 +3,8 @@ title: '纯 CSS3 绘制月饼'
 description: '中秋佳节，用CSS3来画个月饼吧'
 tags: ['css', 'mooncake', 'project']
 cover: '../../images/blog/css3-mooncake.jpg'
+series: ''
+draft: false
 ---
 
 用CSS3绘图并不是什么新鲜事，业内有很多大牛都已经尝试过。借着中秋，我们就来画个月饼试试吧。
