@@ -9,11 +9,12 @@
     "standard-jsx"
   ],
   "plugins": [
-    "react"
+    "react",
+    "react-hooks"
   ],
   "settings": {
     "react": {
-      "version": "16.7.0"
+      "version": "16.8.1"
     }
   },
   "rules": {
@@ -107,6 +108,7 @@
       }
     ],
     "react/self-closing-comp": "warn",
+    "react-hooks/rules-of-hooks": "error",
     "standard/array-bracket-even-spacing": [
       "warn",
       "either"
