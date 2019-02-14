@@ -25,7 +25,8 @@ export default ({ data }) => {
   return (
     <Layout>
       <SEO
-        title='首页'
+        title={data.site.siteMetadata.title}
+        exactTitle
         keywords={data.site.siteMetadata.keywords}
       />
       <div className='mf-content'>
