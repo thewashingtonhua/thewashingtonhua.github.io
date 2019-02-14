@@ -59,7 +59,7 @@ Hooks 的方案，可以简单理解为把 class 独有的东西全都整合到�
 
 ### state
 
-定义一个组件时，到底应该用函数还是用 Class，这是过去大家一致非常关心的问题，最核心的一点就是：组件是否包含 state。
+定义一个组件时，到底应该用函数还是用 Class，这是过去大家一直非常关心的问题，最核心的一点就是：组件是否包含 state。
 
 Hooks 通过 `useState()` 把 state 引进了函数，并且相比在 Class 中的语法还更加简洁。
 
@@ -67,40 +67,78 @@ Hooks 通过 `useState()` 把 state 引进了函数，并且相比在 Class 中�
 
 使用 Class 的另一个原因就是生命周期函数，Hooks 去掉了生命周期函数，改为用 `useEffect()` 等方法实现。因此如何我们能够给每个生命周期函数都找到对应的解决办法，问题不就解决了嘛。让我们按照这个思路来试一下：
 
-> 这里我们只考虑 React 16 开始的新的生命周期方法，`UNSAFE_` 开头的方法由于要被废除了，就不再讨论了。
+> 这里我们只讨论 React 16 开始的新的生命周期方法，`UNSAFE_` 开头的方法由于要被废除了，就不再讨论了。
 
-#### 1. `componentDidMount`、`componentDidUpdate`
+#### 1. `componentDidUpdate()`
 
-这两个方法都是紧跟在 render 之后触发，区别在于一个仅在第一次，一个在后续每一次都触发。只要能够区分这一点，那就可以把这两个方法合并到一起，通过一个 `useEffect()` 实现。
+Hooks 使用 `useEffect(callback[, depends])` 替代 `componentDidUpdate()` 来处理“副作用（Side Effect，简称 Effect）”。
 
-#### 2. `componentWillUnmount`
+Effect 会在每次 render 完成之后被执行，刚好就是 `componentDidUpdate()` 触发的时机。可以在 callback 中通过条件判断来决定具体要执行哪些逻辑，也可以通过 `useEffect()` 的第二个参数，传入一个数组，数组中放入需要检查的属性，只有当数组里的属性和上一次不同时，callback 才会被执行。
 
+Hooks 的设计目的之一，就是让相关的逻辑靠得更近，让不相关的逻辑独立开来，因此如果组件中包含有多种不同的副作用，最好交给不同的 `useEffect()` 去处理。
 
+#### 2. `componentDidMount()`
 
-#### `getDerivedStateFromProps`
+`componentDidMount()` 同样也用于处理副作用，因此也是通过 `useEffect()` 实现。
 
-用update
+`componentDidMount()` 和 `componentDidUpdate()` 都是在 render 之后被触发，最大的不同在于前者仅在第一次触发，后者从第二次开始往后都会触发。因此只要能够区分触发的时机，就能够用同样的函数来完成两个阶段的任务。
 
-#### `shouldComponentUpdate`
+> Instead of thinking in terms of “mounting” and “updating”, you might find it easier to think that effects happen “after render”.
+>
+> 不用费心去考虑是“挂载”还是“更新”，只需简单记住“副作用发生在 render 之后”就好了。
 
-`React.memo(renderFn, compareFn)`
+只需要在第二个参数位置传入一个空数组，告知该 Effect 不依赖任何属性的变化，即可将其和 `componentDidUpdate()` 的作用区分开来。
 
-#### `getSnapshotBeforeUpdate`、`componentDidCatch`
+同样的，不同的副作用应该交给不同的 `useEffect()` 去处理。
 
-暂无，会有
+#### 3. `componentWillUnmount()`
 
-### `forceUpdate`
+`useEffect()` 默认不需要返回任何东西，但如果你希望某个副作用在下一次执行之前先做点什么（比如清理一些旧数据），可以在 `useEffect()` 的 callback 中返回一个 cleanup 函数，在这个函数中定义的内容会在下一次 Effect 之前被执行。
 
-严格说来，这个函数不属于生命周期，但 React 保留了这个函数，用于在实在没办法的情况下强制触发一次 update。
+如果此时 `useEffect()` 的第二个参数刚好是个空数组，那么就只会在组件销毁时被触发，起到 `componentWillUnMount()` 的作用，否则就相当于是 `componentDidUpdate()` 的一部分。
 
-Hooks 目前还没有针对这两个生命周期函数的替代方案
+#### 4. `getDerivedStateFromProps()`
+
+在 Hooks 的设计中，是没有这个环节的，相关逻辑全部用 `useEffect()` 去触发 update 来实现。
+
+#### 5. `shouldComponentUpdate()`
+
+函数式组件可以使用 `React.memo(renderFn, areEqualFn)` 中的 `areEqualFn` 来起到 `shouldComponentUpdate()` 的作用。
+
+需要注意的是， `areEqualFn` 如果返回 true 表示两次的 props 相同，不更新，这一点和 `shouldComponentUpdate()` 刚好相反。从函数命名上也能看出来。
+
+#### 6. `getSnapshotBeforeUpdate()`、`componentDidCatch()`
+
+目前还没有针对这两个生命周期函数的替代方案，但官方表示未来会有的。
+
+前者用的比较少，影响不大；后者意味着 Error Boundary 跟 Hooks 暂时还不兼容，不过如果组件设计的合理的话，不用也没问题。
+
+#### 7. `forceUpdate()`
+
+严格说来，这个函数不属于生命周期，但是因为和生命周期息息相关，所以放了进来。
+
+React 保留了这个函数，用于在实在没办法的情况下强制触发一次 update。注意使用时候前面不用加 `this.`，直接调用即可。
 
 ## 为什么要用 Hooks？是 Class 不行了吗？
 
-这点在官方文档中 <a target='_blank' href='https://reactjs.org/docs/hooks-intro.html#motivation'>Motivation</a> 一节解释得很清楚。
+这点在官方文档中 <a target='_blank' href='https://reactjs.org/docs/hooks-intro.html#motivation'>Motivation</a> 一节解释得很清楚，主要原因在于：
 
-### 组件间难以复用逻辑。
+### 1. 组件间难以复用逻辑。
 
-渲染属性（Render Props）、高阶组件（High-Order Component）组件之间层层嵌套过深，形成包裹器地狱（wrapper hell）。
+在 Hooks 出现之前，想要在组件之间复用一段逻辑通常会使用渲染属性（Render Props）、高阶组件（High-Order Component）、Context 来解决。但这样的后果是组件之间层层嵌套过深，组件如果稍微复杂一点，很容易就会形成包裹器地狱（wrapper hell）。
 
-### 互相关联的逻辑被拆散至不同地方，维护不便。
+Hooks 通过自定义 Hook 把可复用的逻辑抽取出来，成为一个普通函数。组件间复用逻辑就像复用一个工具函数一样。
+
+### 2. 互相关联的逻辑被拆散至不同地方，维护不便。
+
+挂载/卸载、更新前/后，这些成对出现的生命周期函数，往往导致一些紧密相关的逻辑被拆分到不同函数中，同一函数中可能包含多个不相关的逻辑。这在程序的角度来看是合理的，但是对开发者来说，关注点被分散了，不利于维护。
+
+Hooks 把逻辑按照相关性进行拆分，把同一功能的代码集中在一起，不同的功能的代码独立开来，维护起来就清楚很多。
+
+### 3. Class 对人机都不友好
+
+Class 中需要处理 `this` 的问题，一些相关语法的提案也还不够稳定，即便是有经验的开发者，也免不了在这上面遇到坑。
+
+让开发人员在 Class 和函数之间选择用何种方式定义组件也属于额外的负担。
+
+Class 对工具链也不是很友好，不利于优化。

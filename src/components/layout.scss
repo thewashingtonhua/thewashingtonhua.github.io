@@ -2,6 +2,16 @@
 
 @import '../styles/_common.scss';
 
+* {
+  box-sizing: border-box;
+  font-family: $theme-font;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 html {
   font-family: $theme-font;
   -ms-text-size-adjust: 100%;
@@ -11,4 +21,49 @@ html {
 body {
   margin: 0;
   background-color: $theme-color-bg;
+  -webkit-overflow-scrolling: touch;
+}
+
+h1, h2, h3, h4, h5, h5, p {
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h5, p, a {
+  font-weight: 400;
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.scroll-lock {
+  overflow: hidden;
+}
+
+.mf-content {
+  width: 100%;
+  max-width: $theme-max-width-lg;
+  margin: 0 auto 30px;
+  transition: max-width 0.3s ease-out;
+
+  @media (max-width: $break-point-desktop-small) {
+    max-width: $theme-max-width-md;
+  }
+
+  @media (max-width: $break-point-tablet) {
+    max-width: 100%;
+  }
+}
+
+main {
+  min-height: calc(100vh - #{$header-height});
 }

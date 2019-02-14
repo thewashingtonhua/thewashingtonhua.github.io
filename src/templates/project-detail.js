@@ -2,7 +2,6 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
-import 'normalize-scss/sass/normalize/_import-now.scss'
 import './project-detail.scss'
 
 export default ({ data }) => {

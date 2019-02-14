@@ -3,7 +3,7 @@ import { Link, graphql } from 'gatsby'
 import dayjs from 'dayjs'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
-import 'normalize-scss/sass/normalize/_import-now.scss'
+import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 import '../styles/prism-styles.scss'
 import './blog-post.scss'
 
