@@ -51,7 +51,7 @@ function Greeting() {
   return <p>Hello</p>;
 }
 
-// React 内部
+// 在 React 内部
 const result = Greeting(props); // <p>Hello</p>
 ```
 
@@ -65,7 +65,7 @@ class Greeting extends React.Component {
   }
 }
 
-// React 内部
+// 在 React 内部
 const instance = new Greeting(props); // Greeting {}
 const result = instance.render(); // <p>Hello</p>
 ```
@@ -516,7 +516,7 @@ console.log(Greeting.prototype instanceof React.Component);
 最初这个标记是在 `React.Component` 这个基类自己身上：
 
 ```jsx
-// React 内部
+// 在 React 内部
 class Component {}
 Component.isReactClass = {};
 
@@ -530,7 +530,7 @@ console.log(Greeting.isReactClass); // ✅ 是的
 这也是为什么 React 把这个标记 <a target='_blank' href='https://github.com/facebook/react/pull/5021'>移动到了</a> `React.Component.prototype`：
 
 ```jsx
-// React 内部
+// 在 React 内部
 class Component {}
 Component.prototype.isReactComponent = {};
 

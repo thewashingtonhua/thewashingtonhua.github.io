@@ -64,9 +64,9 @@ class Checkbox extends React.Component {
 ```jsx
 class Checkbox extends React.Component {
   constructor(props) {
-    // 🔴 Can’t use `this` yet
+    // 🔴 还不能使用 `this`
     super(props);
-    // ✅ Now it’s okay though
+    // ✅ 现在可以了
     this.state = { isOn: true };
   }
   // ...
@@ -109,7 +109,7 @@ greetColleagues() {
 ```jsx
 constructor(props) {
   super(props);
-  // ✅ Okay to use `this` now
+  // ✅ 现在可以使用 `this` 了
   this.state = { isOn: true };
 }
 ```
@@ -121,7 +121,7 @@ constructor(props) {
 你或许觉得把 `props` 传进 `super` 是必要的，这使得基类 `React.Component` 可以初始化 `this.props`：
 
 ```jsx
-// Inside React
+// 在 React 内部
 class Component {
   constructor(props) {
     this.props = props;
@@ -137,7 +137,7 @@ class Component {
 这是什么原理？其实 **React 在调用你的构造函数之后，马上又给实例设置了一遍 `props`**：
 
 ```jsx
-// Inside React
+// 在 React 内部
 const instance = new YourComponent(props);
 instance.props = props;
 ```
@@ -151,7 +151,7 @@ instance.props = props;
 **或许并非如此，因为这依然让人困扰**。诚然，React 会在你的构造函数运行之后设置 `this.props`。但在 `super` 调用一直到构造函数结束之前，`this.props` 依然是未定义的。
 
 ```jsx
-// Inside React
+// 在 React 内部
 class Component {
   constructor(props) {
     this.props = props;
@@ -162,7 +162,7 @@ class Component {
 // Inside your code
 class Button extends React.Component {
   constructor(props) {
-    super(); // 😬 We forgot to pass props
+    super(); // 😬 我们忘了传入 props
     console.log(props);      // ✅ {}
     console.log(this.props); // 😬 undefined
   }
@@ -175,7 +175,7 @@ class Button extends React.Component {
 ```jsx
 class Button extends React.Component {
   constructor(props) {
-    super(props); // ✅ We passed props
+    super(props); // ✅ 我们传入了 props
     console.log(props);      // ✅ {}
     console.log(this.props); // ✅ {}
   }
