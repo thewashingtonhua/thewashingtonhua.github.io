@@ -4,13 +4,13 @@ description: '好像知道，又好像不知道'
 tags: ['react']
 cover: '../../images/blog/overreacted.jpg'
 series: 'overreacted'
-draft: true
+draft: false
 original: false
 ---
 
-> 原文地址：<a target='_blank' href=https://overreacted.io/why-do-we-write-super-props/>Why Do We Write super(props)?</a>
+> 原文地址：<a target='_blank' href='https://overreacted.io/why-do-we-write-super-props/'>Why Do We Write super(props)?</a>
 >
-> 原文作者：<a target='_blank' href=https://twitter.com/dan_abramov>Dan Abramov</a>
+> 原文作者：<a target='_blank' href='https://twitter.com/dan_abramov'>Dan Abramov</a>
 
 我听说 <a target='_blank' href='https://reactjs.org/docs/hooks-intro.html'>Hooks</a> 最近很火。讽刺的是，我想以一些关于 class 组件的有趣故事来开始这个博客。怎样！（皮一下很开心）
 

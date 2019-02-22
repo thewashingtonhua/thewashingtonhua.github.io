@@ -12,8 +12,6 @@ original: false
 >
 > 原文作者：<a target='_blank' href='https://twitter.com/dan_abramov'>Dan Abramov</a>
 
-# React 如何区分 Class 和 Function？
-
 让我们来看一下这个以函数形式定义的 `Greeting` 组件：
 
 ```jsx
