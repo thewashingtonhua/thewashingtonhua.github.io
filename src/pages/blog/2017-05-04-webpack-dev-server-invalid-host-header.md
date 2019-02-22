@@ -5,6 +5,7 @@ tags: ['webpack', 'dev', 'server', 'invalid', 'host']
 cover: '../../images/blog/webpack-dev-server.jpg'
 series: ''
 draft: false
+original: true
 ---
 
 一直以来都在用 Webpack 打包代码，配合 webpack-devserver 作 Hot Module Replacement 感觉棒棒哒，可以专心于程序逻辑，不用被无关紧要的琐事打扰。直到刚才……

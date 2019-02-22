@@ -45,6 +45,7 @@
 
     .metas {
       display: flex;
+      margin-bottom: 20px;
 
       @media (max-width: $break-point-mobile) {
         flex-direction: column;
@@ -97,7 +98,7 @@
     }
 
     .banner {
-      margin: 20px 0;
+      margin-bottom: 20px;
 
       img {
         width: 100%;
@@ -251,7 +252,7 @@
       }
 
       blockquote {
-        margin: 0 0 .75em;
+        margin: 0 0 1em;
         border-left: 3px solid $theme-color-text-secondary;
         background-color: $theme-color-dark-primary;
         padding: 15px;

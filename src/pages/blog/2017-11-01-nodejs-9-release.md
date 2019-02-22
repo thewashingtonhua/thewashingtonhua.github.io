@@ -5,6 +5,7 @@ tags: ['nodejs', 'release']
 cover: '../../images/blog/nodejs-9-release.jpg'
 series: ''
 draft: false
+original: true
 ---
 
 ## Node.js 发布计划

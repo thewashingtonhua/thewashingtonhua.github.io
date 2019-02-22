@@ -5,6 +5,7 @@ tags: ['android', 'miui', 'icon', 'cache']
 cover: '../../images/blog/miui-icon-cache.jpg'
 series: ''
 draft: false
+original: true
 ---
 
 ## 问题描述

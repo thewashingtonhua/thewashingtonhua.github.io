@@ -5,6 +5,7 @@ tags: ['sublime', 'latex']
 cover: '../../images/blog/latex-with-sublime-text.jpg'
 series: ''
 draft: false
+original: true
 ---
 
 ## 为什么要用 Sublime Text

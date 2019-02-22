@@ -5,6 +5,7 @@ tags: ['javascript', 'substr', 'substring', 'slice']
 cover: '../../images/blog/substring.jpg'
 series: ''
 draft: false
+original: true
 ---
 
 JavaScript 中有两个非常常用但又非常容易混淆的函数： `substr()` 和 `substring()` ，两者都是 String 类型的方法，作用都是返回目标字符串的一个子串。

@@ -5,6 +5,7 @@ tags: ['stack', 'calculator', 'algorithm', 'project']
 cover: '../../images/blog/stack-calculator.jpg'
 series: ''
 draft: false
+original: true
 ---
 
 ## 简单说两句

@@ -36,9 +36,11 @@ export default ({ data }) => {
             </p>
             {/* <p className='tags'>Tags: {post.frontmatter.tags.join(', ')}</p> */}
           </div>
-          <div className='banner'>
-            <img src={cover} alt='' />
-          </div>
+          { cover &&
+            <div className='banner'>
+              <img src={cover} alt='' />
+            </div>
+          }
           <div className='content' dangerouslySetInnerHTML={{ __html: post.html }} />
         </article>
       </div>

@@ -5,6 +5,7 @@ tags: ['typescript', 'vue']
 cover: '../../images/blog/guide-for-vue-with-typescript.jpg'
 series: ''
 draft: false
+original: true
 ---
 
 ## TypeScript 这个磨人的小妖精

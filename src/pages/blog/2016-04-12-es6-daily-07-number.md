@@ -5,6 +5,7 @@ tags: ['ecmascript', '2015', 'es6', 'javascript', 'number']
 cover: '../../images/blog/es6daily.jpg'
 series: 'es6daily'
 draft: false
+original: true
 ---
 
 ## 二进制和八进制表示法

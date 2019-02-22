@@ -194,8 +194,14 @@ $prism-color-operator: #fc929e;
     background: #ddd;
   }
 
-  &[data-language='javascript']::before {
+  &[data-language='javascript']::before,
+  &[data-language='js']::before {
     content: 'js';
+    background: #f7df1e;
+  }
+
+  &[data-language='jsx']::before {
+    content: 'jsx';
     background: #f7df1e;
   }
 
@@ -209,6 +215,21 @@ $prism-color-operator: #fc929e;
   &[data-language='html']::before {
     content: 'html';
     background: #00a5ff;
+    color: #fff;
+    font-weight: 400;
+  }
+
+  &[data-language='typescript']::before,
+  &[data-language='ts']::before {
+    content: 'ts';
+    background: #284d7f;
+    color: #fff;
+    font-weight: 400;
+  }
+
+  &[data-language='tsx']::before {
+    content: 'tsx';
+    background: #284d7f;
     color: #fff;
     font-weight: 400;
   }

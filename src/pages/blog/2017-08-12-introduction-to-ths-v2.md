@@ -5,6 +5,7 @@ tags: ['blog', '2.0', 'update']
 cover: '../../images/blog/introduction-to-ths-v2.jpg'
 series: ''
 draft: false
+original: true
 ---
 
 ## 大更新！！！

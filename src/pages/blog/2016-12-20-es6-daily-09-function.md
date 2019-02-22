@@ -5,6 +5,7 @@ tags: ['ecmascript', '2015', 'es6', 'javascript', 'function']
 cover: '../../images/blog/es6daily.jpg'
 series: 'es6daily'
 draft: false
+original: true
 ---
 
 ## 实用的语法糖

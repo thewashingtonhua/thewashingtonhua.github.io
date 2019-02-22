@@ -5,6 +5,7 @@ tags: ['electron']
 cover: '../../images/blog/electron.jpg'
 series: ''
 draft: false
+original: true
 ---
 
 ## Electron

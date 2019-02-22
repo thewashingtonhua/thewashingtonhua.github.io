@@ -5,6 +5,7 @@ tags: ['static', 'site', 'gatsby', 'pug']
 cover: '../../images/blog/explore-static-site-generation.jpg'
 series: ''
 draft: false
+original: true
 ---
 
 ## SSR 出啥事了

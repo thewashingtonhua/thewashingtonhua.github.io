@@ -5,6 +5,7 @@ tags: ['leetcode', 'two', 'sum']
 cover: '../../images/blog/leetcode.jpg'
 series: ''
 draft: false
+original: true
 ---
 
 ## So，我又来装逼了

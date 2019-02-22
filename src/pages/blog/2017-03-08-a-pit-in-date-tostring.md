@@ -5,6 +5,7 @@ tags: ['javascript', 'date', 'tostring']
 cover: '../../images/blog/date-tostring.jpg'
 series: ''
 draft: false
+original: true
 ---
 
 ## 先从问题说起

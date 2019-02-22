@@ -5,6 +5,7 @@ tags: ['ecmascript', '2015', 'es6', 'javascript', 'map', 'set']
 cover: '../../images/blog/es6daily.jpg'
 series: 'es6daily'
 draft: false
+original: true
 ---
 
 ## Set，一个独一无二的数组

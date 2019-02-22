@@ -75,6 +75,7 @@ query {
           }
           series
           draft
+          original
         }
         fields {
           id

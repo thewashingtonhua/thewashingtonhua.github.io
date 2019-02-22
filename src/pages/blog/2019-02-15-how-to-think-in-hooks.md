@@ -5,6 +5,7 @@ tags: ['react', 'hooks']
 cover: '../../images/blog/think-in-hooks.jpg'
 series: ''
 draft: false
+original: true
 ---
 
 ## 喜迎 Hooks

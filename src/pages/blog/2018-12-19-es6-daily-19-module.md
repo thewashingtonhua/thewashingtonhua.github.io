@@ -5,6 +5,7 @@ tags: ['ecmascript', '2015', 'es6', 'javascript', 'module', 'import', 'export']
 cover: '../../images/blog/es6daily.jpg'
 series: 'es6daily'
 draft: false
+original: true
 ---
 
 ## 模块化

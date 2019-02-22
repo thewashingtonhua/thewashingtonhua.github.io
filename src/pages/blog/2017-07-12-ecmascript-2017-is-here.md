@@ -5,6 +5,7 @@ tags: ['ecmascript', '2017', 'es8', 'javascript']
 cover: '../../images/blog/es2017.jpg'
 series: ''
 draft: false
+original: true
 ---
 
 ## 不知不觉的到来

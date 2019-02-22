@@ -5,6 +5,7 @@ tags: ['ecmascript', '2015', 'es6', 'javascript', 'object']
 cover: '../../images/blog/es6daily.jpg'
 series: 'es6daily'
 draft: false
+original: true
 ---
 
 ## 迟来的更新

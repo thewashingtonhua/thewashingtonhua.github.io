@@ -5,6 +5,7 @@ tags: ['tradingview', 'chart', 'library', 'guide', 'websocket', 'webworker', 'oh
 cover: '../../images/blog/tradingview.jpg'
 series: ''
 draft: false
+original: true
 ---
 
 ## 0. 竟然被催更了
