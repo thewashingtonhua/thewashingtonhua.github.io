@@ -1,10 +1,10 @@
 ---
 title: '【译】React 如何区分 Class 和 Function？'
-description: '这就是为什么组件一定要首字母大写的原因'
+description: '所谓的简单，只是因为有人帮你把复杂的问题给解决掉了'
 tags: ['react']
 cover: '../../images/blog/overreacted.jpg'
 series: 'overreacted'
-draft: true
+draft: false
 original: false
 ---
 

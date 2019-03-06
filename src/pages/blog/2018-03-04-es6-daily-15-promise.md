@@ -61,11 +61,11 @@ Promise 实例通过 `then()` 方法指定异步操作成功/失败后的后续�
 
 ## Promise.prototype.catch()
 
-`catch()` 是 `then(null, reject)` 的别名，用于处理错误，无论是异步操作过程出错，还是 `catch()` 之前的 `then()` 出错，都会进入到 `catch()` 里，有点类似 `try...catch` ， `rejcet()` 就是在抛出错误。Promise 一旦状态变为 resolve，再抛出错误是无效的，如果要 reject，，请及早 reject。
+`catch()` 是 `then(null, reject)` 的别名，用于处理错误，无论是异步操作过程出错，还是 `catch()` 之前的 `then()` 出错，都会进入到 `catch()` 里，有点类似 `try...catch`，`rejcet()` 就是在抛出错误。Promise 一旦状态变为 resolve，再抛出错误是无效的，如果要 reject，请及早 reject。
 
-Promise 抛出的错误会一直冒泡，直到被捕获， `catch()` 会捕获其之前的所有错误，无论是来自异步操作还是回调。一般我们不通过 `then()` 的第二个参数来处理 reject，而是直接在 `catch()` 里处理。
+Promise 抛出的错误会一直向后传递，直到被捕获， `catch()` 会捕获其之前的所有错误，无论是来自异步操作还是回调。一般我们不通过 `then()` 的第二个参数来处理 reject，而是直接在 `catch()` 里处理（这只是最佳实践，写在 `then()` 的第二个参数里也是完全可以的）。
 
-与 `try...catch` 不同，Promise 对象如果不使用 `catch()` 指定错误处理的回调，其一步操作过程中抛出的错误就不会传递到外层代码，发生的错误会抛出但不会中断程序的运行，直接在内部就消化掉了。不过让人费解的是，Node.js 计划在未来不这么做，如果 Promise 内部有未捕获的错误，将会直接终止进程。
+与 `try...catch` 不同，Promise 对象如果不使用 `catch()` 指定错误处理的回调，其异步操作过程中抛出的错误就不会传递到外层代码，发生的错误会抛出但不会中断程序的运行，直接在内部就消化掉了。不过让人费解的是，Node.js 计划在未来不这么做，如果 Promise 内部有未捕获的错误，将会直接终止进程。
 
 如果错误发生在 resolve 之后，这样的错误属于 Promise 函数体之外抛出的，会冒泡到最外层，成为未捕获的异常：
 
@@ -90,9 +90,11 @@ Promise 的 `catch()` 会处理到自己为止之前所有未处理的错误，�
 
 ## Promise.prototype.finally
 
-这是 ES2018 引入的内容，位于 Promise 对象的最后。无论 Promise 对象最后的状态如何，都会执行其中的代码。 `finally()` 不接受任何参数，也就意味着 `finally()` 无法得知 Promise 最终的状态，也就是说 `finally()` 中的操作应该是与 Promise 的状态无关的，例如释放资源占用、关闭连接等。
+这是 ES2018 引入的内容。无论 Promise 对象最后的状态如何，都会执行其中的代码。`finally()` 不接受任何参数，也就是说 `finally()` 无法得知 Promise 最终的状态，因此 `finally()` 中的操作应该是与 Promise 的状态无关的，例如释放资源占用、关闭连接等。
 
-`finally()` 本质上还是 `then()` 的语法糖，如果 `then()` 的两个参数执行的是完全相同的内容，并且返回传入的值，那么就和用 `finally()` 执行一次是一样的。需要注意的是， `finally()` 总是会返回上一步的结果，因此尽管从语义上看它应该位于 Promise 的最后，但是语法上是允许其后继续接 `then()` 或 `catch()` 等语句的，毕竟本质上这就只是一个 `then()` 而已。
+虽然从字面上看 finally 表示「最终」，但 `finally()` 不一定非得放在最后，任何可以接 `then()` 的地方都可以接 `finally`。`finally()` 本质上还是 `then(callback, callback)` 的语法糖，相当于给 `then()` 的两个参数传入完全相同的内容，并且始终返回传入的值。
+
+`finally()` 总是会返回上一步的结果，所以如果你出于某些原因打算用 `then()` 来代替 `finally()`，请务必在最后返回上一步的结果。
 
 ## Promise.all()、Promise.race()
 
