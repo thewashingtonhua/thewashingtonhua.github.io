@@ -18,13 +18,22 @@ React 组件的生命周期，相信大家都非常熟悉了，无非那么几�
 
 刚好也是最近遇到一些关于生命周期的问题，项目涉及到大量的异步操作，需要清楚地知道各部分的执行顺序。正好借此机会整理一下。
 
-## 父子组件
+## TL,DR;
 
-子组件先 didMount，父组件再 didMount
+1. 同步路由，只有当子路由 mount 后，父路由才算 mount。
+2. 异步路由，父路先自顾自 mount，然后才会创建子路由的内容。
+3. Hooks 的加载过程并无例外，但是 Effect 会在父组件挂载 / 更新之后运行。
+4. 父组件更新导致子组件更新时：
+  `getSnapshotBeforeUpdate` 是子组件早于父组件调用，但
+5. 组件切换的具体过程：
+  1. 父组件触发更新过程，执行 `getDerivedStateFromProps` 和 `render`.
+  2. 在父组件的 `getSnapshotBeforeUpdate` 之前调用新子组件的 render.
+  3. 在父组件的 `getSnapshotBeforeUpdate` 之后，`componentDidUpdate` 之前，卸载旧的子组件。
+  4. 如果新组件使用了 useEffect，在父组件 `componentDidUpdate` 之后执行 Effect。
 
 ## 同步路由
 
-父路由先 didMount，子路由再 didMount
+子组件先 didMount，父组件再 didMount
 
 ## 异步路由
 
