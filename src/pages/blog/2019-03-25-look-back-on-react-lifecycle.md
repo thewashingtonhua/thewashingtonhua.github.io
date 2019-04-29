@@ -8,31 +8,41 @@ draft: true
 original: true
 ---
 
-<!-- TODO: 父组件是 Hooks 时，情况是否会变？ -->
-<!-- 标明组合的情况，Function & Class / 同步 & 异步 / 父 & 子 => 共 8 种情况-->
+  ## 写在前面
 
-## 写在前面
+React 组件的生命周期，相信大家都非常熟悉了，无非那么几个函数，官方文档已经写得非常清楚了。
 
-React 组件的生命周期，相信大家都非常熟悉了，无非那么几个函数，官方文档也都写得非常清楚了。
+（那还有什么好说的？这么基础的东西，合上！）
 
-那还有什么好说的？这么基础的东西。
+一般我们所讨论的，都是单个组件的生命周期。如果是父子组件呢？各个周期又是什么样的？异步路由的情况呢？前阵子新出的 Hooks 呢？有几个人敢站出来说我全知道的？（反正我是不敢）
 
-一般我们所知道的，只是单个组件的生命周期。如果是父子组件呢？各个周期怎么走？同步路由呢？异步路由呢？前阵子新出的 Hooks 呢？有几个人敢站出来说我全知道的？（反正我是不敢）
+刚好也是最近遇到一些关于生命周期的问题，项目中涉及到大量的异步操作，需要清楚地知道各部分的执行顺序，正好借此机会整理一下。
 
-刚好也是最近遇到一些关于生命周期的问题，项目涉及到大量的异步操作，需要清楚地知道各部分的执行顺序。正好借此机会整理一下。
+## 那么我们就来做个实验吧
+
+为了一探究竟，我写了一个 [Demo](https://tonghuashuo.github.io/react-lifecycle) 来模拟一些常见的用例，主要研究下面这几个问题：
+
+- 父子组件各阶段的执行顺序
+- 异步路由对加载顺序是否有影响
+- Hooks 的生命周期
+
 
 ## TL,DR;
 
-1. 同步路由，只有当子路由 mount 后，父路由才算 mount。
-2. 异步路由，父路先自顾自 mount，然后才会创建子路由的内容。
-3. Hooks 的加载过程并无例外，但是 Effect 会在父组件挂载 / 更新之后运行。
-4. 父组件更新导致子组件更新时：
-  `getSnapshotBeforeUpdate` 是子组件早于父组件调用，但
-5. 组件切换的具体过程：
-  1. 父组件触发更新过程，执行 `getDerivedStateFromProps` 和 `render`.
-  2. 在父组件的 `getSnapshotBeforeUpdate` 之前调用新子组件的 render.
-  3. 在父组件的 `getSnapshotBeforeUpdate` 之后，`componentDidUpdate` 之前，卸载旧的子组件。
-  4. 如果新组件使用了 useEffect，在父组件 `componentDidUpdate` 之后执行 Effect。
+我知道大家时间都很宝贵，赶时间的朋友可以直接看结论，细节我们放到后面讲：
+
+1. 父组件 `render` 时创建子组件
+    1. 同步路由，子组件 `didMount` 之后，父路由才算 `didMount`。
+    2. 异步路由，父路自己先 `didMount`，然后才会开始创建子路由的内容。
+    3. Hooks 的加载过程并无例外，但是 Effect 会在父组件 `didMount` / `didUpdate` 之后执行。
+2. 父组件更新导致子组件更新时：
+    1. 子组件 `getSnapshotBeforeUpdate` 之后，并不是直接进入到自身的 `didUpdate`，而是先触发父组件的 `getSnapshotBeforeUpdate`。
+    2. 上述过程之后，子组件先 `didUpdate`，然后才是父组件 `didUpdate`。
+3. 组件切换的具体过程：
+    1. 父组件触发更新过程，执行 `getDerivedStateFromProps` 和 `render`.
+    2. 在父组件的 `getSnapshotBeforeUpdate` 之前调用新子组件的 render.
+    3. 在父组件的 `getSnapshotBeforeUpdate` 之后，`componentDidUpdate` 之前，卸载旧的子组件。
+    4. 如果新组件使用了 useEffect，在父组件 `componentDidUpdate` 之后执行 Effect。
 
 ## 同步路由
 
