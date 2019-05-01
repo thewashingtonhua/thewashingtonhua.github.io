@@ -194,6 +194,41 @@ $prism-color-operator: #fc929e;
     background: #ddd;
   }
 
+  &[data-language='html']::before {
+    content: 'html';
+    background: #ef5f27;
+    color: #fff;
+    font-weight: 400;
+  }
+
+  &[data-language='css']::before {
+    content: 'css';
+    background: #2aa9df;
+    color: #fff;
+    font-weight: 400;
+  }
+
+  &[data-language='sass']::before {
+    content: 'sass';
+    background: #d0649a;
+    color: #fff;
+    font-weight: 400;
+  }
+
+  &[data-language='scss']::before {
+    content: 'scss';
+    background: #d0649a;
+    color: #fff;
+    font-weight: 400;
+  }
+
+  &[data-language='less']::before {
+    content: 'less';
+    background: #1d365d;
+    color: #fff;
+    font-weight: 400;
+  }
+
   &[data-language='javascript']::before,
   &[data-language='js']::before {
     content: 'js';
@@ -203,20 +238,6 @@ $prism-color-operator: #fc929e;
   &[data-language='jsx']::before {
     content: 'jsx';
     background: #f7df1e;
-  }
-
-  &[data-language='css']::before {
-    content: 'css';
-    background: #ff9800;
-    color: #fff;
-    font-weight: 400;
-  }
-
-  &[data-language='html']::before {
-    content: 'html';
-    background: #00a5ff;
-    color: #fff;
-    font-weight: 400;
   }
 
   &[data-language='typescript']::before,
@@ -242,7 +263,14 @@ $prism-color-operator: #fc929e;
 
   &[data-language='json']::before {
     content: 'json';
-    background: #37ff00;
+    background: #267cb9;
+    font-weight: 400;
+  }
+
+
+  &[data-language='php']::before {
+    content: 'php';
+    background: #8892bf;
     font-weight: 400;
   }
 }

@@ -260,9 +260,8 @@
         p {
           color: $theme-color-text-secondary;
           font-size: 14px;
-          line-height: 1.5;
-          margin-bottom: 0;
-          font-style: italic;
+          line-height: 1.75;
+          margin-bottom: 1em;
 
           @media (max-width: $break-point-mobile) {
             font-size: 12px;
