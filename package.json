@@ -6,6 +6,7 @@
   "author": "Washington Hua <ideal19920402@gmail.com>",
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
+    "@sentry/browser": "^5.1.1",
     "dayjs": "^1.8.0",
     "lodash": "^4.17.11",
     "prop-types": "^15.6.2",
