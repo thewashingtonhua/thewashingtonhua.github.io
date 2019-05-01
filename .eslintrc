@@ -12,11 +12,6 @@
     "react",
     "react-hooks"
   ],
-  "settings": {
-    "react": {
-      "version": "16.8.1"
-    }
-  },
   "rules": {
     "comma-dangle": [
       "warn",

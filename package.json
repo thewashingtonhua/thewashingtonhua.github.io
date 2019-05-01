@@ -57,7 +57,6 @@
     "prebuild": "rm -rf .cache",
     "build": "gatsby build",
     "postbuild": "cp -f README.md public/README.md",
-    "postbuild-deprecated": "rm -rf docs && mv public docs",
     "serve": "gatsby serve",
     "deploy": "yarn build && gh-pages -d public -b master"
   },

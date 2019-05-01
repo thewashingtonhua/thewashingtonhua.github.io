@@ -1,8 +1,13 @@
-# Browsers that we support
-
->0.2%,
-not dead,
-last 10 Chrome versions,
-last 10 Edge versions,
+[production staging]
+> 0.2%
+not dead
+not op_mini all
+last 10 Chrome versions
+last 5 Edge versions
 Firefox ESR
 maintained node versions
+
+[development]
+last 1 chrome version,
+last 1 firefox version,
+last 1 safari version
