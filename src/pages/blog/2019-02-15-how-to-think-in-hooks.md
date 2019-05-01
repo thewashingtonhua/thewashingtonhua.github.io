@@ -32,7 +32,7 @@ Hooks 正式发布于 v16.8.0，但由于官方团队的 <a target='_blank' href
 >
 > Hooks 目前尚处于早期阶段，一些第三方库目前可能还不兼容 Hooks。
 
-> We intend for Hooks to cover all existing use cases for classes, but we will keep supporting class components for the foreseeable future. bla bla bla bla bla bla bla bla bla bla bla bla
+> We intend for Hooks to cover all existing use cases for classes, but we will keep supporting class components for the foreseeable future.
 >
 > 我们计划让 Hooks 覆盖 class 的所有现有使用场景，但在可见的未来里我们还是会继续支持 class 组件。
 
