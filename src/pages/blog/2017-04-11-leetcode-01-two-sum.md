@@ -41,7 +41,7 @@ original: true
 
 方案代码如下：
 
-```javascript
+```js
 const twoSum = function(nums, target) {
 
   function quickSort(arr) {
@@ -95,7 +95,7 @@ const twoSum = function(nums, target) {
 
 70 分还算不错，但距离真正的优秀还差挺多，想着怎么优化一下。根据提示可以用 hash，前面算法里好像没用到，最多查找时候执行了两下，应该不算。看讨论区里说到最多的方案，是在挨个找的同时，用目标数去减当前数，如果所得依然在数组中，那就得到结果，时间为 O(n) ，空间为 O(1) ，感觉效率应该已经到头了，代码如下：
 
-```javascript
+```js
 var twoSum = function(nums, target) {
 
   let res = null, idx = null;
@@ -117,7 +117,7 @@ var twoSum = function(nums, target) {
 
 既然锁定了是查询的锅，那么就换种查询方式。JavaScript 中的对象就是一张哈希表，查询效率比遍历高，挨个过的时候判断其“另一半”是否被访问过，如果没有就记录元素自身及其下标，一开始都是未被访问过的，一路都在记录，直到某一刻遇到了匹配的项，凑成了一对，那就输出，注意这时的元素在返回数组中占第二位，哈希表中匹配到的才占第一位。时间复杂度 O(n) ，空间复杂度 O(n) ，等于是用空间换时间。代码如下：
 
-```javascript
+```js
 var twoSum = function(nums, target) {
   let res = [null, null], map = {}, j = null;
   for (var i = 0, len = nums.length; i < len; i++) {

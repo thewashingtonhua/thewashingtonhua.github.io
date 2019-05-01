@@ -20,7 +20,7 @@ Generator 函数跟普通函数没什么两样，但是有两个特征：
 
 一是 `function` 关键字与函数名之间有一个星号，具体是更靠近 `function` 关键字，还是更靠近函数名，这个没有规定，跟随团队当前所用的代码风格走就好，一般会选择靠近 `function` ，因为 Generator 本身还是一个普通函数，只是在定义的时候有所不同。值得注意的一点是，不能使用箭头函数来定义 Generator。
 
-```javascript
+```js
 function * gen () {} // 函数定义
 const gen = function * () {}  // 函数表达式
 const gen = { * gen () {} }   // 函数定义的简写
@@ -31,7 +31,7 @@ const gen = { * gen () {} }   // 函数定义的简写
 
 二是函数体内用 `yield` 表达式产出不同的状态，这是 Generator 特有的一个表达式，不能在普通函数中使用。
 
-```javascript
+```js
 function* gen () {
   yield 'hello'
   yield 'world'
@@ -60,7 +60,7 @@ Generator 函数可以不用 `yield` 表达式，这时就变成了一个单纯�
 
  `yield` 如果嵌套使用在另一个表达式中，必须放在圆括号里。
 
-```javascript
+```js
 function* gen () {
   console.log('Hello' + yield);       // SyntaxError
   console.log('Hello' + yield 123);   // SyntaxError
@@ -72,7 +72,7 @@ function* gen () {
 
  `yield` 表达式单独作为参数或者右值时，可以不加括号
 
-```javascript
+```js
 function* gen () {
   foo(yield 'a', yield 'b'); // OK
   let input = yield;         // OK
@@ -90,7 +90,7 @@ function* gen () {
 
 任意一个对象的 `Symbol.iterator` 方法，等于该对象的遍历器生成函数，调用这个函数就会返回该对象的一个遍历器对象。Generator 函数就是遍历器生成函数，所以可以直接把 Generator 赋值给 `Symbol.iterator` ，以此来部署 Iterator 接口。
 
-```javascript
+```js
 var myIterable = {};
 myIterable[Symbol.iterator] = function* () {
   yield 1;
@@ -113,7 +113,7 @@ myIterable[Symbol.iterator] = function* () {
 
 配合 Generator，可以用 `for...of` 遍历任意对象。一种方法是给对象外面包一层，将对象的键值对以二维数组形式给 `yield` 出来。
 
-```javascript
+```js
 function* objectEntries(obj) {
   const propKeys = Reflect.ownKeys(obj);
 
@@ -133,7 +133,7 @@ for (const [key, value] of objectEntries(jane)) {
 
 另一种方法是把 Generator 加到对象的 `Symbol.iterator` 属性上。
 
-```javascript
+```js
 function* objectEntries() {
   const propKeys = Object.keys(this);
 
@@ -159,7 +159,7 @@ for (const [key, value] of jane) {
 
 Generator 函数返回的遍历器对象，都有一个 `throw()` 方法，可以在函数体外抛出错误，在函数体内捕获，但这样的捕获只会发生一次。
 
-```javascript
+```js
 const g = function* () {
   try {
     yield;
@@ -189,7 +189,7 @@ Generator 执行过程中如果抛出了异常，只要被内部捕获，Geneera
 
 这里的 `return()` 类似 JS 里普通的 `return` ，返回值并终止函数，这里会返回 value 值为传入参数，done 值为 true 的 Generator 状态对象，并终结遍历 Generator 的函数。
 
-```javascript
+```js
 function* gen() {
   yield 1;
   yield 2;
@@ -205,7 +205,7 @@ g.next()        // { value: undefined, done: true }
 
 如果 Generator 函数里有 `try...finally` 代码块，那么 `return()` 将在 `finally` 代码块执行完之后执行。
 
-```javascript
+```js
 function* numbers () {
   yield 1;
   try {
@@ -235,7 +235,7 @@ g.next() // { value: 7, done: true } // return 的结果到这里才出现
 
 这个特殊的 `yield` 表达式用于在一个 Generator 内部调用另一个 Generator。普通的 `yield` 只会返回 Generator 对象，但并不会执行它。
 
-```javascript
+```js
 function* foo() {
   yield 'a';
   yield 'b';
@@ -279,7 +279,7 @@ for (let v of bar()) {
 
 Generator 函数总是返回一个遍历器，可以通过 `prototype` 去定义实例方法，但无法直接通过 `this` 去定义。可以通过 `call()` 绑定一个空对象作为上下文，把属性都赋值到这个对象上，用这个对象作为 Generator 函数的实例，来变通实现。
 
-```javascript
+```js
 function* F() {
   this.a = 1;
   yield this.b = 2;
@@ -299,7 +299,7 @@ obj.c // 3
 
 或者更好一点，绑定函数的原型为上下文，这样 `this` 直接指向实例本身。
 
-```javascript
+```js
 function* F () {
   this.a = 1;
   yield this.b = 2;
@@ -318,7 +318,7 @@ f.c // 3
 
 我们还可以进一步将其改造为构造函数，通过 `new` 来创建实例
 
-```javascript
+```js
 function* gen() {
   this.a = 1;
   yield this.b = 2;

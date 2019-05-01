@@ -2,7 +2,7 @@
 title: '这该死的数组'
 description: '常在河边走，哪有不湿鞋'
 tags: ['array']
-cover: '../../images/blog/think-in-hooks.jpg'
+cover: '../../images/blog/array.jpg'
 series: ''
 draft: true
 original: true

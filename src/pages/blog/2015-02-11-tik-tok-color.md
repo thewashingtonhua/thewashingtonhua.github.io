@@ -24,7 +24,7 @@ original: true
 
 CSS 中原生支持通过 HSL 模式来表示颜色，因此可以直接调用 `hsl(h, s, l)` 来进行显示。这里我们为了显示其对应的十六进制表示，还需要进行一次从 HSL 到 RGB 的转换。转换算法如下：
 
-```javascript
+```js
 function hsl2rgb (hsl) {
   var hsl_array = hsl.substring(4,hsl.length-1).trim().split(',')
   var h = Number(hsl_array[0])
@@ -71,7 +71,7 @@ function hsl2rgb (hsl) {
 
 CMYK 模式作为一种印刷行业的色彩空间，在 Web 上并没有原生的实现，因此只能借助 RGB 进行中转。好在 CMYK 到 RGB 的转换并不复杂，公式化简之后可以一步到位，关键算法如下：
 
-```javascript
+```js
 var c = hour
 var m = min
 var y = sec
@@ -88,7 +88,7 @@ var b = Math.round( (1 - y / 100 * ( 1 - k / 100 ) - k / 100 ) * 255)
 
 前面计算所得的 R、G、B 数值，不管是在 RGB 模式下，还是从 HSL 和 CMYK 转换过来的，我们都是将其作为十进制看待的，取值范围为 0-255，这一步我们需要将其转换为 6 位十六进制进行显示。
 
-```javascript
+```js
 function rgb2hex(color) {
   var rgb_array = color.substring(4,color.length-1).trim().split(',')
   var rd = Number(rgb_array[0])

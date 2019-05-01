@@ -2,7 +2,7 @@
 title: '为变化而设计'
 description: '世上唯一不变的，就是变化本身'
 tags: ['coding']
-cover: '../../images/blog/think-in-hooks.jpg'
+cover: '../../images/blog/design-for-change.jpg'
 series: ''
 draft: true
 original: true

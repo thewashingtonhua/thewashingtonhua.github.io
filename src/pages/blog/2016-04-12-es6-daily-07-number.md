@@ -40,7 +40,7 @@ ES6 的一项重要任务，就是对全局函数的整理，将一些全局函�
 
 这是一个极小的常量，设计用来平衡浮点数的计算误差，如果浮点数计算所得的误差不超过它，则认为是可接受的。
 
-```javascript
+```js
 Number.EPSILON                  //  2.220446049250313e-16
 Number.EPSILON.toFixed(20)      // '0.00000000000000022204'
 ```
@@ -49,7 +49,7 @@ Number.EPSILON.toFixed(20)      // '0.00000000000000022204'
 
 JavaScript 能准确表示的整数范围为：- 2^53 ~ 2^53，超出这个范围的整数，JavaScript 将无法直接表示。ES6 引入了 `Number.MAX_SAFE_INTEGER` 和 `Number.MIN_SAFE_INTEGER` 这两个常量，用来表示这个范围的上下限，以及 `Number.isSafeInteger()` 来判断一个整数是否在这个范围内。
 
-```javascript
+```js
 Number.MAX_SAFE_INTEGER ===  9007199254740991;             //   2^53 - 1
 Number.MIN_SAFE_INTEGER === -9007199254740991;             // -(2^53 - 1)
 Number.MIN_SAFE_INTEGER === -Number.MAX_SAFE_INTEGER;      // true
@@ -77,7 +77,7 @@ ES6 在 `Math` 对象上新增了17个静态方法：
 
 JavaScript 整数采用32位二进制形式表示，该函数返回一个数的32位无符号整数形式有多少个前导零。对于小数， `Math.clz32()` 只考虑去整数部分。clz是Count Leading Zero的缩写。
 
-```javascript
+```js
 Math.clz32(0) // 32
 Math.clz32(1) // 31
 Math.clz32(1000) // 22，1000的二进制为0...01111101000，前22位都是0
@@ -89,7 +89,7 @@ Math.clz32(1000) // 22，1000的二进制为0...01111101000，前22位都是0
 
 返回两个数以32位带符号整数形式相乘的结果，返回的也是一个32位的带符号整数。通常情况下和一般的乘法没有区别，这个函数的意义在于计算结果超过 2^53 时可以正确保留后 32 位的值。
 
-```javascript
+```js
 (0x7fffffff * 0x7fffffff)|0       // 0
 Math.imul(0x7fffffff, 0x7fffffff) // 1
 ```
@@ -98,7 +98,7 @@ Math.imul(0x7fffffff, 0x7fffffff) // 1
 
 返回一个数的单精度浮点数形式。对整数而言没有任何不同，主要影响那些无法用64个二进制位精确表示的小数，函数返回最接近这个小数的单精度浮点数。
 
-```javascript
+```js
 Math.fround(0);     // 0
 Math.fround(1);     // 1
 Math.fround(1.337); // 1.3370000123977661
@@ -110,7 +110,7 @@ Math.fround(NaN);   // NaN
 
 返回所有参数的平方和的平方根。
 
-```javascript
+```js
 Math.hypot(3, 4);        // 5
 Math.hypot(3, 4, 5);     // 7.0710678118654755
 ```
@@ -119,7 +119,7 @@ Math.hypot(3, 4, 5);     // 7.0710678118654755
 
  `math.expm1(x)` 返回e^x-1，即 `Math.exp(x) - 1`
 
-```javascript
+```js
 Math.expm1(-1); // -0.6321205588285577
 Math.expm1(0);  // 0
 Math.expm1(1);  // 1.718281828459045
@@ -129,7 +129,7 @@ Math.expm1(1);  // 1.718281828459045
 
  `Math.log1p(x)` 返回ln(1+x)，即 `Math.log(1+x)` 。如果 x<-1，返回 `NaN` 。
 
-```javascript
+```js
 Math.expm1(-1); // -0.6321205588285577
 Math.expm1(0);  // 0
 Math.expm1(1);  // 1.718281828459045
@@ -139,7 +139,7 @@ Math.expm1(1);  // 1.718281828459045
 
  `Math.log10(x)` 返回以10为底的x的对数，即 `Math.log(x) / Math.LN10` 。如果 x<0，返回 `NaN` 。
 
-```javascript
+```js
 Math.expm1(-1); // -0.6321205588285577
 Math.expm1(0);  // 0
 Math.expm1(1);  // 1.718281828459045
@@ -149,7 +149,7 @@ Math.expm1(1);  // 1.718281828459045
 
  `Math.log2(x)` 返回以2为底的x的对数，即 `Math.log(x) / Math.LN2` 。如果 x<0，返回 `NaN` 。
 
-```javascript
+```js
 Math.expm1(-1); // -0.6321205588285577
 Math.expm1(0);  // 0
 Math.expm1(1);  // 1.718281828459045
@@ -170,7 +170,7 @@ Math.expm1(1);  // 1.718281828459045
 
 这是一个 ES7 打算引入的运算符 `**` ，可以和等号连用构成 `**=` 。目前 Babel 已经支持。
 
-```javascript
+```js
 2 ** 3;   // 8
 
 let a=2;

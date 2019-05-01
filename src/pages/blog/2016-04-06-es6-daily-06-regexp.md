@@ -16,7 +16,7 @@ original: true
 
 ES5 中，构造函数 `RegExp()` 的参数有两种形式：
 
-```javascript
+```js
 var regexp = new RegExp('xyz', 'i');    // 字符串 + 修饰符
 var regexp = new RegExp(/xyz/i);        // 带修饰符的正则
 
@@ -26,7 +26,7 @@ var regexp = /xyz/i;
 
 ES6 提供了一种新的写法，提供带修饰符的正则的同时，还能通过第二个参数来覆盖修饰符的内容。
 
-```javascript
+```js
 var regexp = new RegExp('/xyz/ig', 'i');    // 第一个参数中的正则的修饰符会被忽略，用第二个参数覆盖
 ```
 
@@ -40,7 +40,7 @@ ES6 对其做了一步规范化，将这些函数的实现全部移到了 `RegEx
 
 “u”表示“Unicode模式”，用于正确处理四字节的UTF-16编码
 
-```javascript
+```js
 /^\uD83D/u.test('\uD83D\uDC2A');  /* false */
 /^\uD83D/.test('\uD83D\uDC2A');   /* true */
 ```
@@ -53,7 +53,7 @@ ES6 对其做了一步规范化，将这些函数的实现全部移到了 `RegEx
 
  `.` 在正则表达式中表示出换行符外的任意单个字符， `\S` 表示匹配所有不是空格的字符。对于四字节字符，它们是无法正确识别的，必须加上 `u` 修饰符。
 
-```javascript
+```js
 var s = '𠮷';
 
 /^.$/.test(s);  // false
@@ -64,7 +64,7 @@ var s = '𠮷';
 
 ES6 新增了使用花括号表示 Unicode 字符的写法，这种写法必须加上 `u` 修饰符才能识别，否则会被识别为正则表达式中的量词。例如下面的 `/\u{61}/` ，本意是想匹配“a”，但因为没有加 `u` ，只能被识别为匹配61个连续的“u”。
 
-```javascript
+```js
 /\u{61}/.test('a')      // false
 /\u{61}/u.test('a')     // true
 /\u{20BB7}/u.test('𠮷') // true
@@ -74,7 +74,7 @@ ES6 新增了使用花括号表示 Unicode 字符的写法，这种写法必须�
 
 有些Unicode字符的编码不同，但字型很相近，需要加 `u` 才能识别
 
-```javascript
+```js
 /[a-z]/i.test('\u212A');  // false
 /[a-z]/iu.test('\u212A'); // true
 ```
@@ -83,7 +83,7 @@ ES6 新增了使用花括号表示 Unicode 字符的写法，这种写法必须�
 
 和修饰符 `y` 类似，都是全局匹配，后一次从上一次匹配成功的下一位置开始继续匹配。区别在于， `g` 只要剩余部分中存在匹配即可，而 `y` 要求必须从剩余部分的第一个位置开始。所谓“粘连”就是这个意思，其设计用途就是让头部匹配标志 `^` 在全局匹配中都有效。
 
-```javascript
+```js
 var s = 'aaa_aa_a';
 var r1 = /a+/g;
 var r2 = /a+/y;

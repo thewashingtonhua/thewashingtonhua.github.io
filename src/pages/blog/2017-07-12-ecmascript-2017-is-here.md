@@ -38,7 +38,7 @@ ES2017，或者叫 ES8，是 ECMAScript 目前的最新标准（<a target="_blan
 
 这两个方法分别用于从左、右方向，用指定内容补充字符串长度到指定的最小值，主流浏览器都已经原生支持了这一功能。举例说明下（以 `padStart` 为例， `padEnd` 只是方向反一下，用法都一样）：
 
-```javascript
+```js
 let str = 'es8'
 str.padStart(2)          // 'es8'，原字符串已满足最小长度 2，不作为。
 str.padStart(5)          // '  es8'，原字符串长度不足最小长度 5，
@@ -57,7 +57,7 @@ str.padStart(5, 'great') // 'gres8'，原字符串长度不足最小长度 5，�
 
 在 ES5 中，就已经存在 `Object.getOwnPropertyDescriptor` 函数，用于返回一个对象的特定属性的描述（值、可修改性、可配置性、可枚举性、getter、setter）。从名字上不难看出， `Object.getOwnPropertyDescriptors` 的作用就是传入一个对象，注意：返回的不是一个数组，是一个对象，对象的内容是这个对象所有自有属性的&lt;属性名, 描述对象&gt;键值对。
 
-```javascript
+```js
 const obj = {x:1, y:2}
 Object.getOwnPropertyDescriptors(obj)
 // {
@@ -74,7 +74,7 @@ Object.getOwnPropertyDescriptors(obj)
 
 终于，可能是当前最好的原生异步方案的 `async` 和 `await` 终于被写入标准了，大家心里的石头终于放下了，原以为 ES2016 就可以包含进来，结果还是拖到了现在。相信大家该用的都已经用过了吧，那我给个案例就不多废话了。不了解的自己百度吧，大把大把的资料。
 
-```javascript
+```js
 function asyncFunc() {
   return new Promise(resolve => {
     setTimeout(() => {

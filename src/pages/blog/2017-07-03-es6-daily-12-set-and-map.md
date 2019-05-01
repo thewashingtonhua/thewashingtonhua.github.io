@@ -12,7 +12,7 @@ original: true
 
 Set 是 ES6 中新增的一种数据类型，可以理解为一种特殊的数组，重点区别在于 Set 的成员值都是唯一的，绝对不会重复。
 
-```javascript
+```js
 const s = new Set();
 [1, 2, 3, 4, 5, 5, 5, 5].forEach(x => s.add(x));
 
@@ -26,14 +26,14 @@ for (let i of s) {
 
 Set 可以接受一个数组（或其他具有 Iterable 接口的数据结构）作为参数来进行初始化。反过来也可以把 Set 作为参数来初始化一个数组。
 
-```javascript
+```js
 const s = new Set([1, 2, 3, 3, 3]); // 1, 2, 3
 const a = Array.from(new Set([1, 2, 3, 3, 3])); // [1, 2, 3]
 ```
 
 利用 Set 中的值不会重复的特点，可以用它来对数组进行去重。
 
-```javascript
+```js
 [...new Set(array)]
 
 // 可以进一步封装为函数
@@ -58,7 +58,7 @@ dedupe([1, 1, 2, 3]) // [1, 2, 3]
 
 Set 是一种特殊的 Object，在定义属性以及属性检测的写法上略有不同，但对 Set 判断类型得到的依然是 Object。
 
-```javascript
+```js
 typeof (new Set()) // "object"
 ```
 
@@ -88,7 +88,7 @@ WeakSet 类似于 Set，但有两点区别：（除此之外和 Set 的使用一
 
 对 WeakSet 的使用常见的一种错误就是直接用成员不是对象的一维数组去初始化，这与前面提到的 WeakSet 的第一条不同点相违背。
 
-```javascript
+```js
 const a1 = [[1, 2], [3, 4]];
 const a2 = [1, 2, 3, 4];
 
@@ -117,7 +117,7 @@ Map 支持传入一个二维数组进行初始化，二维数组中的每个元�
 
 由于 Map 中的键可以是任意类型，尤其需要注意对象/数组类型，必须是对同一个对象/数组的引用才会被认为是同一个键，值相等的不同引用会被认为是两个属性（引用的内存地址不同），这会导致两个键看上去一模一样，但实际上却是两个不同的键。
 
-```javascript
+```js
 const map = new Map();
 
 map.set(['a'], 1);
@@ -147,7 +147,7 @@ WeakMap 和 WeakSet 的存在价值相似，只接受对象作键名、弱引用
 
 WeakMap 的设计用于在对象上保存一些不需要参与引用计数的临时数据。注意 WeakMap 弱引用的是键名，键值依然是正常引用。
 
-```javascript
+```js
 const wm = new WeakMap();
 let key = {};
 let obj = {foo: 1};

@@ -110,7 +110,7 @@ UDF 是 TradingView 自己定义的一套协议。本质上其实也是调用的
 
 这部分的实现代码比较多，我们一步步来，先来实现一个发送数据的内部函数：
 
-```javascript
+```js
 getBars (symbolInfo, resolution, from, to, onHistoryCallback, onErrorCallback, firstDataRequest) {
   function _send (data) {
     // 按时间筛选
@@ -136,7 +136,7 @@ getBars (symbolInfo, resolution, from, to, onHistoryCallback, onErrorCallback, f
 
 这个函数负责调用回调函数，把我们获取到的数据传给图表。接下来，我们来获取数据（演示代码，一些涉密、兼容的代码已经省略，只保留最基本的、可公开的逻辑）：
 
-```javascript
+```js
 getBars (symbolInfo, resolution, from, to, onHistoryCallback, onErrorCallback, firstDataRequest) {
 
   function _send (data) {
@@ -251,7 +251,7 @@ getBars (symbolInfo, resolution, from, to, onHistoryCallback, onErrorCallback, f
 
 文档中说这个函数是用来订阅 K 线数据的，再加上“ `getBars()` 的 `onHistoryCallback` 回调仅一次调用”，这两句话误导了不少人，以为 `getBars()` 只会被调用一次，获取完历史数据就结束了，实时推送的获取需要在 `subscribeBars()` 里实现。事实上，这里只是增加一个订阅者，把添加更新数据的回调函数存到外层，回调函数的调用实际是在前面 `getBars()` 里完成的。相当于这个函数只是排个队，所有数据的获取和分发都在 `getBars()` 里进行。
 
-```javascript
+```js
 subscribeBars (symbolInfo, resolution, onRealtimeCallback, subscriberUID, onResetCacheNeededCallback) {
   // 限制单例
   window.kChartSubscriberList = window.kChartSubscriberList || []
@@ -275,7 +275,7 @@ subscribeBars (symbolInfo, resolution, onRealtimeCallback, subscriberUID, onRese
 
 了解完 `subscribeBars()` ，那其实 `unsubscribeBars()` 也就很明白了，简单带过：
 
-```javascript
+```js
 unsubscribeBars (subscriberUID) {
   window.kChartSubscriberList = window.kChartSubscriberList || []
 
@@ -290,7 +290,7 @@ unsubscribeBars (subscriberUID) {
 
 创建完 widget 实例之后，就可以通过特定的方法获取 chart 实例，然后通过特定方法更新 Symbol 和 Resolution，更新操作会以新的参数重新触发之前提到的几个函数。从这个角度看，这几个函数就有点像是生命周期函数，描述了获取数据、订阅更新等一列的操作发生的时机，有开发者决定什么时候该做什么事。
 
-```javascript
+```js
 this.widget = new window.TradingView.widget(widgetOptions)
 this.widget.onChartReady(() => {
   this.chart = this.widget.chart()

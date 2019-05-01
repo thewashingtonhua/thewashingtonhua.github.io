@@ -16,7 +16,7 @@ ES6 对函数的使用加入了不少比较实用的新特性，虽说依然还�
 
 ES6 原生支持在函数的参数列表中赋予默认值，当然此前通过在函数实现中对参数进行初始化也能实现同样的效果，但 ES6 的写法更简洁更语义化，吸收了其他成熟的编程语言的优点，建议马上用起来。
 
-```javascript
+```js
 function log(x, y = 'World') {
   console.log(x, y);
 }
@@ -28,7 +28,7 @@ log('Hello', '')      // Hello
 
 函数参数默认值可以和解构赋值一起使用
 
-```javascript
+```js
 function foo( {x, y = 5} ) {
   console.log(x, y);
 }
@@ -41,7 +41,7 @@ foo()               // TypeError: Cannot read property 'x' of undefined
 
 通常函数参数默认值配合解构赋值有两种写法，但两者是有一定差异的，需要留意一下：
 
-```javascript
+```js
 // 写法一
 function m1( {x = 0, y = 0} = {} ) {
   return [x, y];
@@ -72,7 +72,7 @@ m2( {z: 3} )       // [undefined, undefined]
 
 每个函数都有一个 `length` 属性，记录参数列表中参数的个数，如果指定了默认值的，将不计入 `length` ，即 `length` 表示期望接收到的参数的个数。
 
-```javascript
+```js
 (function (a) {}).length           // 1
 (function (a = 5) {}).length       // 0
 (function (a, b, c = 5) {}).length // 2
@@ -80,7 +80,7 @@ m2( {z: 3} )       // [undefined, undefined]
 
 如果参数的默认值也是一个参数，那么需要注意它的作用域：参数列表 > 函数外部
 
-```javascript
+```js
 let x = 1;
 
 function f(x, y = x) {
@@ -92,7 +92,7 @@ function f(x, y = x) {
 f(2) // 2
 ```
 
-```javascript
+```js
 let x = 1;
 
 function f(y = x) {
@@ -105,7 +105,7 @@ function f(y = x) {
 f() // 1
 ```
 
-```javascript
+```js
 function f(y = x) {
   let x = 2;
   console.log(y);
@@ -115,7 +115,7 @@ function f(y = x) {
 f() // ReferenceError: x is not defined
 ```
 
-```javascript
+```js
 var x = 1;
 
 function foo(x = x) {
@@ -129,7 +129,7 @@ foo() // ReferenceError: x is not defined
 
 如果函数的参数是一个方法，它的作用域同样是：参数列表 > 函数外部
 
-```javascript
+```js
 let foo = 'outer';
 
 // 参数 func 的默认值是一个匿名函数
@@ -145,7 +145,7 @@ bar();    // outer
 
 有时情况会比较复杂，例如：
 
-```javascript
+```js
 var x = 1;
 function foo( x, y = function() { x = 2; }) {
   var x = 3;
@@ -166,7 +166,7 @@ foo() // 3
 
 ES6 引入了 `...argument` 的写法，放在参数列表的最后，用于获取函数的剩余参数。剩余参数的数量不定，本质是一个数组，可以用它代替 arguments 对象，更简洁更自然。需要注意的是 rest 参数不计入函数的 `length` 。
 
-```javascript
+```js
 function add(...values) {
   let sum = 0;
 
@@ -185,7 +185,7 @@ add(2, 5, 3) // 10
 
 同样也是 `...argument` 的写法，但它是 rest 参数的逆运算，将一个数组转为逗号分隔的参数序列。
 
-```javascript
+```js
 console.log(...[1, 2, 3]);
 // 1 2 3
 // console.log()直接打印逗号分隔的参数，输出内容是不带逗号的，这是正常行为
@@ -201,7 +201,7 @@ add(...numbers) // 42
 
 扩展运算符与正常的函数参数可以结合使用，非常灵活。（当然下面的写法只是为了演示，实际应用并不推荐这么写，可读性太低）
 
-```javascript
+```js
 function f(v, w, x, y, z) { }
 var args = [0, 1];
 f(-1, ...args, 2, ...[3]);
@@ -213,7 +213,7 @@ f(-1, ...args, 2, ...[3]);
 
 函数现在正式拥有了 `name` 属性，虽然此前不少浏览器已经自行实现了该属性，但 ES6 正式将其写入了标准，并对匿名函数的 `name` 属性做了规范：
 
-```javascript
+```js
 var f = function() {}
 f.name; // ES5 显示 ""，ES6 显示 "f"
 
@@ -233,7 +233,7 @@ foo.bind({}).name             // "bound foo"
 
 Lambda表达式是在Java、Python、C#、C++等语言中早已实现的写法，ES6 将其命名为箭头函数（Arrow Function）更加直观形象，但其实它们是一个东西。箭头函数的主要作用是让函数的表达更加简洁，尤其是用于回调的匿名函数。
 
-```javascript
+```js
 var f = v => v;
 // 等同于：
 var f = function(v) {
@@ -262,7 +262,7 @@ var getTempItem = id => ({ id: id, name: "Temp" });
 
 箭头函数可以和解构赋值一起用
 
-```javascript
+```js
 const full = ({ first, last }) => first + ' ' + last;
 
 // 等同于
@@ -273,7 +273,7 @@ function full(person) {
 
 箭头函数没有独立执行上下文（ this ），区别于 `function` 中的 `this` 引用的是运行时所在的上下文，箭头函数引用的是其定义时所在的作用域，即其父函数所在的上下文。我们来看个例子。
 
-```javascript
+```js
 function foo() {
   setTimeout(() => {
     console.log('id:', this.id);
@@ -290,7 +290,7 @@ foo.call({ id: 42 });
 
 通过下面的 ES6 转成 ES5 后的对比就能清楚地明白个中原理了。
 
-```javascript
+```js
 // ES6
 function foo() {
   setTimeout(() => {
@@ -314,7 +314,7 @@ function foo() {
 
 这其实是一个ES7的语法（由于我的博客更得太慢，阮一峰老师都已经开始把ES7的内容整合进来了……），用来取代 `call` 、 `apply` 、 `bind` 的调用。写法是两个冒号，双冒号右边是被调用的函数，左边是 `this` 绑定的上下文。
 
-```javascript
+```js
 obj::func;
 func.bind(obj); // 等价
 
@@ -334,7 +334,7 @@ obj::obj.func;
 
 什么是尾调用？一句话说明就是：某个函数的最后一步是调用另一个函数。
 
-```javascript
+```js
 function f(x) {
   return g(x);
 } // f(x)最后一步调用g(x)，尾调用
@@ -351,7 +351,7 @@ function f(x) {
 
 下面几种情况不算尾调用（很容易混淆，但是看清定义之后就不难理解了）
 
-```javascript
+```js
 function f(x) {
   let y = g(x);
   return y;
@@ -373,7 +373,7 @@ function f(x) {
 
 从上面的解释我们不难得出，实现尾调用优化有两个必要条件：最后一步操作（不用保留调用位置）、不引用外层函数内部变量（不用保存内部变量）
 
-```javascript
+```js
 function outer(a) {
   let foo = 1;
   function inner(b) {
@@ -392,7 +392,7 @@ ES6规定尾调用优化只在严格模式下开启，正常模式是无效的�
 
 以计算斐波那契数组为例，其实就是把每一步的计算之后的结果传递给下一步，到最后一步时候直接返回最终结果，就不用原路返回了。
 
-```javascript
+```js
 // 普通递归，空间复杂度O(n)，容易栈溢出
 function Fibonacci (n) {
   if ( n <= 1 ) {return 1};

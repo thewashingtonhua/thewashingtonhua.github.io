@@ -20,7 +20,7 @@ original: true
 
 Proxy 本意是代理，一般我们在计算机网络中经常听到这个词。使用 Proxy 我们可以通过编程来接管外界对对象的操作，改变其原本的行为。有点类似于中间件的概念。
 
-```javascript
+```js
 var obj = new Proxy({}, {
   get: function (target, key, receiver) {
     console.log(`getting ${key}!`);
@@ -46,7 +46,7 @@ Proxy 的基本使用为： `const proxy = new Proxy(target, handler)` ，target
 
 Proxy 实例可以作为对象的原型：
 
-```javascript
+```js
 var proxy = new Proxy({}, {
   get: function(target, property) {
     return 35;
@@ -79,7 +79,7 @@ obj.time // 35
 ### Proxy.revocable()
  `Proxy.revocable()` 返回一个对象，该对象的 `proxy` 属性是 Proxy 实例， `revoke`  是一个用于取消 Proxy 实例的函数。被取消的 Proxy 实例不可再被访问。
 
-```javascript
+```js
 let target = {};
 let handler = {};
 

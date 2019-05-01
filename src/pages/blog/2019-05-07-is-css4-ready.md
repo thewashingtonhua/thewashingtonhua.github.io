@@ -2,7 +2,7 @@
 title: 'Is CSS4 Ready'
 description: '好久没有听说关于 CSS 的更新了，CSS 还在更新吗'
 tags: ['css']
-cover: '../../images/blog/think-in-hooks.jpg'
+cover: '../../images/blog/css4.jpg'
 series: ''
 draft: true
 original: true

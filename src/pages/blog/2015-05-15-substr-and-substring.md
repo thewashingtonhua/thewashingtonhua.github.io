@@ -29,7 +29,7 @@ JavaScript 中有两个非常常用但又非常容易混淆的函数： `substr(
   4. 若不指定，则默认从start截取到字符串末尾；
 
 举几个例子：
-```javascript
+```js
 var str = "abcgefghij";
 
 console.log('(1, 2): '   + str.substr(1, 2));   // '(1, 2): bc'
@@ -55,7 +55,7 @@ console.log('(20, 2): '  + str.substr(20, 2));  // '(20, 2): '
   3. 若 start &gt; end，则两者交换数值；
 
 举几个例子：
-```javascript
+```js
 var str = 'abcdefg';
 
 // Displays 'abc'

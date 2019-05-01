@@ -25,13 +25,13 @@ original: true
 
 调试许久后发现通过 `dispathEvent()` 直接派发事件不受影响，因此可以用下面的代码来实现触发：
 
-```javascript
+```js
 const event = new MouseEvent('click');
 document.querySelector('#file-picker').dispatchEvent(event);
 ```
 
 当然，在 Vue 中使用 `id` 或许并不是最合适的方案，我们也可以通过 `ref` 来实现：
 
-```javascript
+```js
 this.$refs.filePicker.dispatchEvent(event);
 ```

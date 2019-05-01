@@ -40,7 +40,7 @@ ESM 的核心是两个命令， `export` 用于导出， `import` 用于导入�
 
 ESM 中，一个模块就是一个独立的文件，文件中定义的变量，除非用 `export` 命令导出，在外部是无法访问的。
 
-```javascript
+```js
 // 定义后立即导出
 export const firstName = 'Phil'
 export const firstName = 'Coulson'
@@ -70,7 +70,7 @@ export {
 
 `export` 规定的是对外的接口，且必须和文件内的变量一一对应，不能直接导出一个直接量。换句话说，导出内容的本体必须是一个具名的变量、函数、类，导出时可以直接使用这个名字，也可以指定别名。
 
-```javascript
+```js
 // 报错
 export 1
 
@@ -92,7 +92,7 @@ export { n as m }
 
 `export` 导出的是一个接口，与之对应的值是动态绑定关系，通过这个接口可以取到模块内部实时的值。如果所导出的内容在未来发生变化，外部引用也会相应更新。
 
-```javascript
+```js
 export const foo = 'bar'
 setTimeout(() => foo = 'baz', 500)
 // 500 毫秒后，foo 的引用会被改变
@@ -102,7 +102,7 @@ setTimeout(() => foo = 'baz', 500)
 
 `import` 用于导入一个模块
 
-```javascript
+```js
 import { lastName as surname, firstname } form './profile.js'
 ```
 
@@ -122,7 +122,7 @@ import { lastName as surname, firstname } form './profile.js'
 
 如果想一次性加载一个模块里所有导出的接口，除了手动列举所有的接口外，还可以使用如下语法：
 
-```javascript
+```js
 import * as circle from './circle'
 ```
 
@@ -130,7 +130,7 @@ import * as circle from './circle'
 
 开发者在引入一个模块时，不可能总是清楚的知道模块里有哪些导出，因此 ESM 提供了一个“默认导出”的特性。默认导出本身可以有自己的变量名，但用户在引入模块的默认导出时不必非得使用这个名字，可以为其指定任意名字（不需要 `as` ，也不需要花括号）。
 
-```javascript
+```js
 // export-default.js
 // 默认导出匿名函数
 export default function () {
@@ -158,13 +158,13 @@ customeName() // 'foo'
 
 一个模块可以同时包含默认导出和普通导出，导入时也可以在同一条语句中导入，比如我们在使用 React 时经常会看到这样的写法：
 
-```javascript
+```js
 import React, { Component } from 'react'
 ```
 
 默认导出本质上就是输出一个名叫 `default` 的变量，然后允许在导入时任意起名，因此默认导出也可以写作：
 
-```javascript
+```js
 // modules.js
 function add (x, y) {
   return x + y
@@ -185,7 +185,7 @@ import { default as foo } from 'modules'
 
 有一些特殊的场景，我们需要先导入再导出同一个模块，这时候我们可以把 `export` 和 `import` 语句写在一起。
 
-```javascript
+```js
 // 把导入的内容直接导出
 // 相当于简单转达，模块内部无法访问
 export { foo, bar } from 'my_module'
@@ -217,7 +217,7 @@ import someIdentifier, { namedIdentifier } from 'someModule'
 
 模块也能继承。模块的继承其实就是整体导入一个或几个模块，增加点自己的内容，最后一并导出。有点像是把一个或几个模块打包重新导出成一个的意思。
 
-```javascript
+```js
 // circleplus.js
 export * from 'circle'
 export const e = 2.71828182846
@@ -238,7 +238,7 @@ console.log(exp(math.e))
 
 前面说到 ESM 是牺牲了动态加载换来了静态分析的可能性，但动态加载的需求又确实存在，难道就没有两全其美的解决方案吗？Dynamic Import 就是来弥补这个缺陷的。
 
-```javascript
+```js
 const main = document.querySelector('main')
 
 import('./section-modules/${someVariable}.js')

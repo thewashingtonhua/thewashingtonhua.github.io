@@ -43,7 +43,7 @@ async 函数返回一个 Promise 对象，可以直接用 `then()` 指定下一�
 
 少废话，看东西。
 
-```javascript
+```js
 const asyncFunc = async () => {
   console.log('called')
   const result = await Promise.resolve('async')
@@ -79,7 +79,7 @@ async 函数里如果出现有 Promise 被 reject 的情况，无论代码中是
 
 我们已经知道 async 就是一个 Generator 加上自动执行器，Generator 我们已经知道了，自动执行又是怎么做到的呢？要解释清楚这个问题，还得看代码。
 
-```javascript
+```js
 // 通过参数传入一个 Generator
 const spawn = genF => {
   return new Promise((resolve, reject) => {

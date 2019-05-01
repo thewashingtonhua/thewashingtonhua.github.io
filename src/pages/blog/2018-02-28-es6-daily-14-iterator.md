@@ -41,7 +41,7 @@ Iterator 本质是一个遍历器对象，它向数据结构中部署了一个�
 
 以下代码实现了一个简单的遍历器对象：
 
-```javascript
+```js
 const it = makeIterator(['a', 'b'])
 
 it.next() // { value: "a", done: false }
@@ -62,7 +62,7 @@ Iterator 只是把接口应用到数据结构上，和数据结构本身没有�
 
 ES6 规定，默认的 Iterator 接口部署在 `Symbol.iterator` 属性，具备这个属性的接口就是“可遍历的”。 `Symbol.iterator` 的值是一个函数，执行该函数会返回一个遍历器。属性名 `Symbol.iterator` 本身是一个表达式，返回 Symbol 对象的 iterator 属性，这是一个预定义好的、类型为 Symbol 的特殊值，所以必须要放在方括号内。
 
-```javascript
+```js
 const obj = {
   data: [ 'hello', 'world' ],
   [Symbol.iterator]() {
@@ -81,7 +81,7 @@ const obj = {
 
 对于类似数组的对象（存在数值键名和 length 属性），可以直接将 `Array.prototype[Symbol.iterator]` 赋值给对象的 `[Symbol.iterator]` 属性。
 
-```javascript
+```js
 Obj.prototype[Symbol.iterator] = Array.prototype[Symbol.iterator];
 Obj.prototype[Symbol.iterator] = [][Symbol.iterator]; // 效果相同
 
@@ -115,7 +115,7 @@ for (const item of iterable) {
 
 日常使用中和 Iterator 关系最大的，要数 Generator —— ES6 中新引入的一种异步解决方案，后面会讲到。通过 Generator，我们可以非常快捷的部署 Iterator 接口，只需一步步写出每次要输出的 value 即可，不用费心去管理 done。
 
-```javascript
+```js
 const obj = {
   * [Symbol.iterator]() {
     yield 'hello'
@@ -134,7 +134,7 @@ const obj = {
 
 举个例子：
 
-```javascript
+```js
 // readLinesSync 接受一个文件对象作为参数，返回一个遍历器对象
 function readLinesSync(file) {
   return {

@@ -41,7 +41,7 @@ Vue 诞生之际并没有计划走 TypeScript 的路子，是半路加盟的合�
 
 解决方案：遇到这个问题，可以在 `/src` 目录下新建文件 `vue-shims.d.ts` ，内容如下：
 
-```typescript
+```ts
 declare module "*.vue" {
   import Vue from 'vue'
   export default Vue
@@ -62,7 +62,7 @@ declare module "*.vue" {
 
 解决方案：<a target='_blank' href='https://cn.vuejs.org/v2/guide/typescript.html#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95'>Vue 官网教程</a>中其实有提到这个方法，就是用下面的代码改造一下：
 
-```typescript
+```ts
 import Vue from 'vue'
 
 export default Vue.extend({

@@ -12,7 +12,7 @@ original: true
 
 最近接到客户反馈的一个 Bug，说一个页面显示不正常，控制台一开，果然 JS 报错，仔细一看，是项目里用到的 bootstrap-datetime 这么个老牌日期插件报的错。大概意思是说无法调用 undefined 的 slice 方法。点进去看了下，出错的地方是这么一行代码：
 
-```javascript
+```js
 this.defaultTimeZone = (new Date).toString().split('(')[1].slice(0, -1);
 ```
 

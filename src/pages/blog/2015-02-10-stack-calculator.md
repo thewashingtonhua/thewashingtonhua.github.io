@@ -16,7 +16,7 @@ original: true
 
 这个案例的原理，是通过建立两个栈，分别存储读入的操作符和数字，在读取过程中判断操作符之间的优先级关系，来进行计算或等待。因此算法的核心其实是要建立起一张关于操作符优先级的关系表，我们可以通过二维数组来记录这张表，并实现比较。
 
-```javascript
+```js
 function compare(op1, op2) {
   var table = new Array(7);
 
@@ -45,7 +45,7 @@ function compare(op1, op2) {
 
 有了这张表，接下来我们就可以进行方程式的解析了。首先创建两个栈 `num` 和 `op` （在JavaScript中栈其实也是数组），分别用于存储读入的数字和操作符，然后在 `op` 中线存入一个 `#` ，用于初始化。
 
-```javascript
+```js
 function calculate (formula) {
   var num = []; // 用于存储数字的栈
   var op = []; // 用于存储操作符的栈

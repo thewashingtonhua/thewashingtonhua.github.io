@@ -14,7 +14,7 @@ original: true
 
 在过去（也就是 ES6 之前的时代），我们使用这样的语法来定义一个类：
 
-```javascript
+```js
 function Point (x, y) {
   this.x = x
   this.y = y
@@ -33,7 +33,7 @@ var p = new Point(1, 2)
 
 ES6 对开发者影响最大的改变之一，就是改变了类定义的语法（或者说“新增”比较合适，毕竟老的依然能用，只是不再推荐），使得在 JavaScript 中定义类的语法更加接近 C 风格，现在你可以使用如下的代码来重写上面的代码：
 
-```javascript
+```js
 class Point {
   constructor (x, y) {
     this.x = x
@@ -56,7 +56,7 @@ class Point {
 
 如果我们把两种语法的代码整理成下面的样子，一切就很好理解了：
 
-```javascript
+```js
 class Point {
   constructor () {
     // ...
@@ -98,7 +98,7 @@ Point.prototype = {
 
 和函数表达式类似，类也支持这样的写法：
 
-```javascript
+```js
 const MyClass = class Me {
   getClassName () {
     return Me.name
@@ -112,7 +112,7 @@ const MyClass = class Me {
 
 听说过立即执行函数吧，这个也差不多，同样是临时定义立即调用：
 
-```javascript
+```js
 const person = new class {
   constructor (name) {
     this.name = name
@@ -138,7 +138,7 @@ person.sayName()
 
 关于这个问题，有一个颇具争议但看样子依然会被写进标准的提案，建议在属性名前加 `#` 来表示私有变量，并且在语言层面上支持私有变量。根据提案， `#` 并不算是修饰符，而是变量名的一部分，也就是说 `#x` 和 `x` 是两个变量，虽然语法上允许这种形式的“重名”，但实际使用中建议还是避免这种骚操作。
 
-```javascript
+```js
 class Point {
   #x
 
@@ -176,7 +176,7 @@ class Point {
 
 类语法支持定义静态方法，语法非常符合认知：（两种定义方法都可以）
 
-```javascript
+```js
 class Foo {
   static classMethod () {
     return 'hello'
@@ -195,7 +195,7 @@ foo.classMethod() // TypeError: foo.classMethod is not a function
 
 注意，静态方法中的 `this` 指向的是类本身，而不是实例，也就是这里的 `this` 只能访问静态方法和静态变量。
 
-```javascript
+```js
 class Foo {
   static bar () {
     this.baz()
@@ -217,7 +217,7 @@ Foo.bar() // hello
 
 ES6 规定类内部只有静态方法，没有静态属性，但后续的提案很快就把这块加上了。当然 ES5 的语法依然有效。
 
-```javascript
+```js
 class Foo {
   // 实例属性
   instanceProp = 1
@@ -238,7 +238,7 @@ Foo.prop = 2
 
 这个属性可以用来确定构造函数是怎么调用的，比如强制构造函数只能用 `new` 调用，或者强制某各类不能直接实例化，必须继承后才可实例化。（子类继承父类时， `new.target` 返回子类）
 
-```javascript
+```js
 fucntion Person (name) {
   // new target === Person
   if (new.target !== undefined) {
@@ -266,7 +266,7 @@ class Shape {
 
 Class 提供了 `extends` 关键字用于实现继承，相比修改原型链的写法，新语法更直观方便。
 
-```javascript
+```js
 class Point {
   toString () {
     return 'Point'
@@ -299,7 +299,7 @@ ES6 中，是先通过父类获取 `this` ，再添加子类的属性，所以�
 
  `Object.getPrototypeOf()` 用于获取一个子类的父类、（你或许见过用 `__proto__` 来获取原型的方式，这是现代浏览器自己实现的快捷方式，不属于语言标准，Node.js 也不支持这样的语法，不建议使用）
 
-```javascript
+```js
 Object.getPrototypeOf(ColorPoint) === Point // true
 ```
 

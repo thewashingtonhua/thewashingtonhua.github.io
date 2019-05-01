@@ -18,7 +18,7 @@ original: true
 
 用于将类数组对象和ES6中的“可遍历对象”转换为真正的数组，事实上只要是部署了Iterator接口的数据结构都可以被 `Array.from()` 转换为真正的数组。
 
-```javascript
+```js
 let arrayLike = {
   '0': 'a',
   '1': 'b',
@@ -58,7 +58,7 @@ function countSymbols(string) {
 
 将参数列表中的元素组合成一个数组，主要目的是为了解决 `Array()` 构造函数接受到不同个数的参数时行为不一致的问题。
 
-```javascript
+```js
 // Array() 面对不同个数的参数行为不统一
 Array()             // []
 Array(3)            // [, , ,]
@@ -80,7 +80,7 @@ function ArrayOf () {
 
 该方法用于在数组内部进行覆盖替换，第一个参数指定被替换内容的开始位置，后两个参数指定用于替换的内容的起止位置（注意end表示从这个索引开始不作为替换内容），皆为可选，负数表示倒过来数。
 
-```javascript
+```js
 // 将3号位复制到0号位
 [1, 2, 3, 4, 5].copyWithin(0, 3, 4)
 // [4, 2, 3, 4, 5]
@@ -112,7 +112,7 @@ i32a.copyWithin(0, 2);
 
 这两个方法还弥补了 `indexOf()` 无法处理 `NaN` 的不足。
 
-```javascript
+```js
 [1, 5, 10, 15].find(function(value, index, arr) {
   return value > 9;
 }) // 10
@@ -129,7 +129,7 @@ i32a.copyWithin(0, 2);
 
 该方法使用给定值填充数组，可用于空数组的初始化，第一个参数是用于填充的内容，可选低2、3个参数指定填充的起止位置
 
-```javascript
+```js
 ['a', 'b', 'c'].fill(7)
 // [7, 7, 7]
 
@@ -144,7 +144,7 @@ new Array(3).fill(7)
 
 返回一个数组遍历器对象，内容分别为数组的索引、数值、键值对，可以用 `for...of` 遍历
 
-```javascript
+```js
 for (let index of ['a', 'b'].keys()) {
   console.log(index);
 }
@@ -168,7 +168,7 @@ for (let [index, elem] of ['a', 'b'].entries()) {
 
 用于检测数组中是否包含指定项，接受第二个参数作为开始位置，负数表示倒过来数。该函数可作为 `indexOf()` 的替代品，更加语义化，且能够良好的处理 `NaN` 。
 
-```javascript
+```js
 [1, 2, 3].includes(2);     // true
 [1, 2, 3].includes(4);     // false
 [1, 2, NaN].includes(NaN); // true

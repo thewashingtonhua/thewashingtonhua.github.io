@@ -2,7 +2,7 @@
 title: 'TypeScript 进门'
 description: '终于，可以比较放心的使用 TS 了'
 tags: ['typescript']
-cover: '../../images/blog/think-in-hooks.jpg'
+cover: '../../images/blog/typescript.jpg'
 series: ''
 draft: true
 original: true
