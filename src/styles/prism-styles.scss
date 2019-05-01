@@ -47,12 +47,6 @@ $prism-color-operator: #fc929e;
   -webkit-overflow-scrolling: touch;
   position: relative;
 
-  pre {
-    &.line-numbers {
-      padding-left: 40px;
-    }
-  }
-
   code,
   span {
     font-family: $theme-font-code;
@@ -66,11 +60,16 @@ $prism-color-operator: #fc929e;
   > pre[class*="gatsby-code-"],
   > pre.prism-code {
     height: auto !important;
-    margin: 1rem;
+    // margin: 1rem;
+    margin: 30px 15px 10px 45px;
     font-size: 14px;
     line-height: 20px;
-    white-space: pre-wrap;
+    white-space: pre;
     word-break: break-word;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 5px;
   }
 
   + .gatsby-highlight {
@@ -174,8 +173,15 @@ $prism-color-operator: #fc929e;
   padding: 0.125rem calc(1rem + 15px);
 }
 
-.line-numbers-rows > span {
-  line-height: 1.5;
+.line-numbers {
+  .line-numbers-rows {
+    top: 30px;
+    padding-left: 15px;
+
+    > span {
+      line-height: 1.5;
+    }
+  }
 }
 
 .gatsby-highlight {
