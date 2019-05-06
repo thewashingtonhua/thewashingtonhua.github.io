@@ -33,7 +33,7 @@ yarn add electron
 
 从报错信息上看，似乎是在本地文件操作上遇到了权限问题。
 
-该问题在 Github 上有对应的 Issue：<a target="_blank" href="https://github.com/electron/electron/issues/8339">Failed at the electron@1.4.13 postinstall script 'node install.js' #8339</a>，目前有手动解决的办法，但官方还没有给出任何的解决办法。（然而居然就这样 Close 了）
+该问题在 Github 上有对应的 [Issue](https://github.com/electron/electron/issues/8339)，目前有手动解决的办法，但官方还没有给出任何的解决办法。（然而居然就这样 Close 了）
 
 一般的也就是卡在这里了，然后说好的学习 Electron 的计划就这么中断了，从入门到放弃，就这么轻松。不过既然是 JS 的问题，那么我们完全可以先去看下源码，说不定就能找到原因了呢。
 

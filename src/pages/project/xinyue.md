@@ -25,7 +25,7 @@ draft: false
 
 ## 相关链接
 
-<a target="_blank" href="https://www.uxinyue.com">线上地址</a>
+[线上地址](https://www.uxinyue.com)
 
 ## 项目截图
 

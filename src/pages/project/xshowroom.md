@@ -21,7 +21,7 @@ draft: false
 
 ## 相关链接
 
-<a target="_blank" href="http://www.xshowroom.cn">线上地址</a>
+[线上地址](http://www.xshowroom.cn)
 
 ## 项目截图
 ![截图](../../images/project/xshowroom/screenshot.jpg)

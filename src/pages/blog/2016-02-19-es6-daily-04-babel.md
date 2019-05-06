@@ -18,7 +18,7 @@ original: true
 
 ~~尽管 ES6 发布有一阵子了，但各大浏览器的兼容工作才刚刚开始，最新版的 Chrome、Firefox、Safari 对 ES6 的支持度还处于起步阶段，而谁又能想到，Microsoft Edge 这次竟成黑马，现阶段的支持度已有 80% 左右，实战能力仅次于 Node.js 平台。~~
 
-~~但相信大部分开发者的信仰归属依然是 Chrome 和 Firefox，现阶段要想在这些环境下试用 ES6，最好的办法就是借助一些转码器，将 ES6 的代码转换成 ES5 的等效实现。目前最靠谱的转码器非 <a href='https://babeljs.io/' target='_blank'>Babel</a> 莫属。~~
+~~但相信大部分开发者的信仰归属依然是 Chrome 和 Firefox，现阶段要想在这些环境下试用 ES6，最好的办法就是借助一些转码器，将 ES6 的代码转换成 ES5 的等效实现。目前最靠谱的转码器非 [Babel](https://babeljs.io) 莫属。~~
 
 ## 为什么需要 Babel
 
@@ -158,7 +158,7 @@ babel -o es6-babeled.js < es6.js
 
 ### babel-core
 
-这是 Babel 的核心 API 所在，在项目中加载该模块 `var babel = require("babel-core");` ，然后就可以通过 `babel.transform(code, options)` 方法来执行转码， `code` 是待转码的 ES6 代码字符串， `options` 提供了一些转码说明，例如指定语法规则、启用一些插件、设定编码等，具体用法可以参考 <a href="http://babeljs.io/docs/usage/options/" target="_blank">这里</a>。
+这是 Babel 的核心 API 所在，在项目中加载该模块 `var babel = require("babel-core");` ，然后就可以通过 `babel.transform(code, options)` 方法来执行转码， `code` 是待转码的 ES6 代码字符串， `options` 提供了一些转码说明，例如指定语法规则、启用一些插件、设定编码等，具体用法可以参考 [这里](http://babeljs.io/docs/usage/options)。
 
 ## 在浏览器中使用 Babel
 
@@ -170,7 +170,7 @@ babel -o es6-babeled.js < es6.js
 
 在命令行中使用 Babel 虽然在功能性上没得挑，但毕竟还有各种配置，多少有点麻烦。Babel 提供了一种可以在浏览器中使用的方法，只需两步就能一劳永逸。这个方法唯一的缺点就是实时转码需要时间，性能上不及预先转换的方案，因此生产环境中不推荐使用，仅供学习研究使用。
 
-首先我们需要下载<a href="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.29/browser.min.js" target="_blank">browser.js</a>，注意，这是 Babel 5 的版本，Babel 6 开始不再直接提供该文件，需要自行构建。
+首先我们需要下载 [browser.js](https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.29/browser.min.js)，注意，这是 Babel 5 的版本，Babel 6 开始不再直接提供该文件，需要自行构建。
 
 除了从上面的链接下载，你也可以用 npm 下载：
 
@@ -194,11 +194,11 @@ npm install babel-core@5
 
 ## 在线试用 Babel
 
-有时候我们并不需要在项目中操作什么，纯粹就想看看 Babel 到底做了什么。为此 Babel 官方提供了一套在线的 <a href="https://babeljs.io/repl/" target="_blank">REPL (Read-Eval-Print-Loop)</a>，可以方便的试用 Babel。
+有时候我们并不需要在项目中操作什么，纯粹就想看看 Babel 到底做了什么。为此 Babel 官方提供了一套在线的 [REPL (Read-Eval-Print-Loop)](https://babeljs.io/repl/)，可以方便的试用 Babel。
 
 ## 路由查询命令的近亲 —— Traceur
 
-除了 Babel 之外，还有一款不错的 ES6 转码器叫做 <a href="https://github.com/google/traceur-compiler" target="_blank">Traceur</a>，是由科技巨头 Google 开发的，支持度虽然差 Babel 一大截，但使用非常简单，可以作为备用方案。Traceur 同样支持浏览器、在线 REPL、命令行、Node.js 四种环境下的使用。
+除了 Babel 之外，还有一款不错的 ES6 转码器叫做 [Traceur](https://github.com/google/traceur-compiler)，是由科技巨头 Google 开发的，支持度虽然差 Babel 一大截，但使用非常简单，可以作为备用方案。Traceur 同样支持浏览器、在线 REPL、命令行、Node.js 四种环境下的使用。
 
 学过计算机网络的同学，或多或少都应该听说过 Linux 下的  `tracerouter`  命令，和 Windows 下的  `tracert` 命令。这两个命令都是用来追踪数据包从起点到终点所经过的路由的。而 Traceur 的名字，和它们实在是太像了，科技圈的命名方式真是一道风景。
 

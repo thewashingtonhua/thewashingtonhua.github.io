@@ -10,7 +10,7 @@ original: true
 
 JavaScript 中有两个非常常用但又非常容易混淆的函数： `substr()` 和 `substring()` ，两者都是 String 类型的方法，作用都是返回目标字符串的一个子串。
 
-关于两者的详细文档可以参考：<a target='_blank' href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substr'>\[MDN\] String.prototype.substr</a> 和 <a target='_blank' href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring'>\[MDN\] String.prototype.substring</a>
+关于两者的详细文档可以参考：[[MDN] String.prototype.substr](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substr) 和 [[MDN] String.prototype.substring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring)
 
 
 两者都接收两个参数以控制子串的起止位置。第一个参数作用相同，都表示子串的起点位置，主要区别在于第二个参数： `substr()` 要求获取一个长度len，通过子串的长度来计算截止点，而 `substring()` 则是直接定义终点的位置，从终点开始往后的字符串不被截取。换句话说，前者是“起点+长度”，后者是“起点+终点”。

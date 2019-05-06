@@ -10,7 +10,7 @@ original: true
 
 ## 简单说两句
 
-最初在 <a target='_blank' href='http://whatcolourisit.scn9a.org/'>这里</a> 看到了这个案例，觉得挺有意思的，就尝试自己仿制了一个。
+最初在 [这里](http://whatcolourisit.scn9a.org) 看到了这个案例，觉得挺有意思的，就尝试自己仿制了一个。
 
 原理上讲其实很简单，将时间的值对应为颜色通道的数值，并通过视觉效果体现出来。原作仅为 RGB 模式，我在其基础之上还尝试了 HSL 模式和 CMYK 的效果，并支持 3 种模式之间的切换查看。CMYK 模式在 Web 端并没有原生支持，无法直接使用，因此我把时、分、秒分别对应到 C、M、Y 通道，K 通道用日期表示，一天一变，保证每个通道都能有变化。
 
@@ -65,7 +65,7 @@ function hsl2rgb (hsl) {
 }
 ```
 
-函数接受一个形如 `hsl(h, s%, l%)` 的表达式作为参数，返回值为形如 `rgb(r, g, b)` 的表达式。由于 IEEE745 浮点数的精度问题，在计算过程中不得不通过缩放来维持计算的准确性。详细的算法描述可以参见：<a target='_blank' href='http://zh.wikipedia.org/wiki/HSL%E5%92%8CHSV%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4'>[Wikipedia] HSL到RGB的转换算法</a>
+函数接受一个形如 `hsl(h, s%, l%)` 的表达式作为参数，返回值为形如 `rgb(r, g, b)` 的表达式。由于 IEEE745 浮点数的精度问题，在计算过程中不得不通过缩放来维持计算的准确性。详细的算法描述可以参见：[[Wikipedia] HSL到RGB的转换算法]('http://zh.wikipedia.org/wiki/HSL%E5%92%8CHSV%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4)
 
 ## CMYK 到 RGB 的转换
 
@@ -82,7 +82,7 @@ var g = Math.round( (1 - m / 100 * ( 1 - k / 100 ) - k / 100 ) * 255)
 var b = Math.round( (1 - y / 100 * ( 1 - k / 100 ) - k / 100 ) * 255)
 ```
 
-变量 `hour` ,  `min` ,  `sec` ,  `day` 在之前的代码中有定义，来自于 `new Date()`，这里将其省略了。时间值与 CMYK 值的映射关系是我自定义的，因为色相主要由 C、M、Y 决定，如果这三个值变化太慢的话，视觉上不容易看出效果，而K主要负责定位套版的颜色，一天一变问题不大，你也可以变换尝试其他的组合，说不定会有意想不到的效果。详细的算法描述可以参见：<a href="http://zh.wikipedia.org/wiki/%E5%8D%B0%E5%88%B7%E5%9B%9B%E5%88%86%E8%89%B2%E6%A8%A1%E5%BC%8F" target="_blank">[Wikipedia] CMYK 到 RGB 的转换算法</a>
+变量 `hour` ,  `min` ,  `sec` ,  `day` 在之前的代码中有定义，来自于 `new Date()`，这里将其省略了。时间值与 CMYK 值的映射关系是我自定义的，因为色相主要由 C、M、Y 决定，如果这三个值变化太慢的话，视觉上不容易看出效果，而K主要负责定位套版的颜色，一天一变问题不大，你也可以变换尝试其他的组合，说不定会有意想不到的效果。详细的算法描述可以参见：[[Wikipedia] CMYK 到 RGB 的转换算法](http://zh.wikipedia.org/wiki/%E5%8D%B0%E5%88%B7%E5%9B%9B%E5%88%86%E8%89%B2%E6%A8%A1%E5%BC%8F)
 
 ## RGB 的十六进制表示法
 

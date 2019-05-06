@@ -8,11 +8,11 @@ draft: false
 original: false
 ---
 
-> 原文地址：<a target='_blank' href='https://overreacted.io/why-do-we-write-super-props/'>Why Do We Write super(props)?</a>
+> 原文地址：[Why Do We Write super(props)?](https://overreacted.io/why-do-we-write-super-props)
 >
-> 原文作者：<a target='_blank' href='https://twitter.com/dan_abramov'>Dan Abramov</a>
+> 原文作者：[Dan Abramov](https://twitter.com/dan_abramov)
 
-我听说 <a target='_blank' href='https://reactjs.org/docs/hooks-intro.html'>Hooks</a> 最近很火。讽刺的是，我想以一些关于 class 组件的有趣故事来开始这个博客。怎样！（皮一下很开心）
+我听说 [Hooks](https://reactjs.org/docs/hooks-intro.html) 最近很火。讽刺的是，我想以一些关于 class 组件的有趣故事来开始这个博客。怎样！（皮一下很开心）
 
 这些小坑并不会影响你高效的使用 React，但如果你愿意深入了解下背后的工作原理，你会发现它们非常有意思。
 
@@ -32,7 +32,7 @@ class Checkbox extends React.Component {
 }
 ```
 
-当然，<a target='_blank' href='https://github.com/tc39/proposal-class-fields'>class fields proposal</a> 允许我们跳过这个仪式。
+当然，[class fields proposal](https://github.com/tc39/proposal-class-fields) 允许我们跳过这个仪式。
 
 ```jsx
 class Checkbox extends React.Component {
@@ -41,7 +41,7 @@ class Checkbox extends React.Component {
 }
 ```
 
-这样的语法是在 2015 年 React 0.13 增加对纯 Class 的支持的时候加入 <a target='_blank' href='https://reactjs.org/blog/2015/01/27/react-v0.13.0-beta-1.html#es7-property-initializers'>计划</a> 的. 定义 `constructor` 和调用 `super(props)` 一直都只是 class fiels 出现之前的临时解决方案。
+这样的语法是在 2015 年 React 0.13 增加对纯 Class 的支持的时候加入 [计划](https://reactjs.org/blog/2015/01/27/react-v0.13.0-beta-1.html#es7-property-initializers) 的. 定义 `constructor` 和调用 `super(props)` 一直都只是 class fiels 出现之前的临时解决方案。
 
 然而，让我们只用 ES2015  的特性来回顾一下这个例子。
 
@@ -130,7 +130,7 @@ class Component {
 }
 ```
 
-很接近了——事实上，<a target='_blank' href='https://github.com/facebook/react/blob/1d25aa5787d4e19704c049c3cfa985d3b5190e0d/packages/react/src/ReactBaseClasses.js#L22'>它就是这么做的</a>。
+很接近了——事实上，[它就是这么做的](https://github.com/facebook/react/blob/1d25aa5787d4e19704c049c3cfa985d3b5190e0d/packages/react/src/ReactBaseClasses.js#L22)。
 
 然而，即便在调用 `super()` 时没有传入 `props` 参数，你依然能够在 `render` 和其它方法中访问 `this.props`。（你要是不相信我，可以自己试一试）
 
@@ -144,7 +144,7 @@ instance.props = props;
 
 因此，即便你忘了把 `props` 传入 `super()`，React 依然会在事后设置它们。这是有理由的。
 
-当 React 添加对 Class 的支持时，它并不是只添加了对 ES6 的支持，而是希望能够支持尽可能广泛的 class 抽象。由于 <a target='_blank' href='https://reactjs.org/blog/2015/01/27/react-v0.13.0-beta-1.html#other-languages'>不是很确定</a> ClojureScript、CoffeeScript、ES6、Fable、Scala.js、TypeScript 或其他解决方案谁更适合用来定义组件，React 对于是否有必要调用 `super()` 刻意不表态。
+当 React 添加对 Class 的支持时，它并不是只添加了对 ES6 的支持，而是希望能够支持尽可能广泛的 class 抽象。由于 [不是很确定](https://reactjs.org/blog/2015/01/27/react-v0.13.0-beta-1.html#other-languages) ClojureScript、CoffeeScript、ES6、Fable、Scala.js、TypeScript 或其他解决方案谁更适合用来定义组件，React 对于是否有必要调用 `super()` 刻意不表态。
 
 那么这是否意味着你可以只写 `super()` 而不用 `super(props)`？
 

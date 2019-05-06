@@ -45,8 +45,8 @@ webpack-dev-server 在大约两周前更新了 2.4.3 和 1.16.4 两个版，除�
 此次受影响的还包括其它基于 webpack-dev-server 的模块，例如 angular-cli，其 `ng serve` 命令就是基于 webpack-dev-server 实现的，在升级到 1.0.1 之后收到了牵连。目前官方已经解决了这一问题，1.0.0-beta.1 版本添加了`--disable-host-check`选项，更新后即可使用。如果你出于某些原因不方便更新，也可以反过来降级到 1.0.0 作为临时解决方案。
 
 相关 Issue 如下：
-- <a href="https://github.com/angular/angular-cli/issues/6070">问题讨论：Invalid Host header after updating to 1.0.1</a>
-- <a href="https://github.com/angular/angular-cli/issues/6173">解决方案：feat(@angular/cli): add host check flags to ng serve</a>
+- [问题讨论：Invalid Host header after updating to 1.0.1](https://github.com/angular/angular-cli/issues/6070)
+- [解决方案：feat(@angular/cli): add host check flags to ng serve](https://github.com/angular/angular-cli/issues/6173)
 
 ## 写在最后
 

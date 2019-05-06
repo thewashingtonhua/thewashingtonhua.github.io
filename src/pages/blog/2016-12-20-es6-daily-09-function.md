@@ -408,7 +408,7 @@ function Fibonacci(n, total = 1) {
 Fibonacci(10);
 ```
 
-阮一峰老师的原文还对非严格模式下的“尾递归优化”进行了探讨，但因为讲得比较深入，我没有更好的方法去概括，而且和我们的主题 ES6 并没有直接联系，这里就不继续展开了，附上<a href="http://es6.ruanyifeng.com/#docs/function#尾调用优化" target="_blank">原文链接</a>。
+阮一峰老师的原文还对非严格模式下的“尾递归优化”进行了探讨，但因为讲得比较深入，我没有更好的方法去概括，而且和我们的主题 ES6 并没有直接联系，这里就不继续展开了，附上 [原文链接](http://es6.ruanyifeng.com/#docs/function#尾调用优化)。
 
 ## 小结
 

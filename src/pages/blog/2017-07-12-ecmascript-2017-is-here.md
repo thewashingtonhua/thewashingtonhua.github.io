@@ -30,7 +30,7 @@ original: true
 
 ## 进入正题：ES 2017
 
-ES2017，或者叫 ES8，是 ECMAScript 目前的最新标准（<a target="_blank" href="https://www.ecma-international.org/ecma-262/8.0/index.html">标准的原文戳这里</a>），相比前代做出了不少的改进，不过关注 ES 进展的朋友们看过后已经改会发现，这些特性早就已经用上了（感谢 Babel 和 各大浏览器开发商），所以没什么太大的惊喜，一共 6 个新特性，给大家注意列举下：
+ES2017，或者叫 ES8，是 ECMAScript 目前的最新标准（[标准的原文戳这里](https://www.ecma-international.org/ecma-262/8.0/index.html)），相比前代做出了不少的改进，不过关注 ES 进展的朋友们看过后已经改会发现，这些特性早就已经用上了（感谢 Babel 和 各大浏览器开发商），所以没什么太大的惊喜，一共 6 个新特性，给大家注意列举下：
 
 ### 1) String.prototype.padStart 和 String.prototype.padEnd
 

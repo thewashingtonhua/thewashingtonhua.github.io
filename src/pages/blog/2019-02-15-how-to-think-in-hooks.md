@@ -10,9 +10,9 @@ original: true
 
 ## 喜迎 Hooks
 
-正当中国人民还沉浸在过年的忙碌中，在世界的另一头，React 团队的小伙伴们一点也没闲着，他们写了 <a target='_blank' href='https://reactjs.org/blog/2019/02/06/react-v16.8.0.html'>一篇博客</a> ，并借此正式发布了 Hooks —— 一个官方宣传了好久、开发者们也期待了好久的新特性。
+正当中国人民还沉浸在过年的忙碌中，在世界的另一头，React 团队的小伙伴们一点也没闲着，他们写了 [一篇博客](https://reactjs.org/blog/2019/02/06/react-v16.8.0.html) ，并借此正式发布了 Hooks —— 一个官方宣传了好久、开发者们也期待了好久的新特性。
 
-Hooks 正式发布于 v16.8.0，但由于官方团队的 <a target='_blank' href='https://reactjs.org/blog/2018/12/19/react-v-16-7.html'>一点点小失误</a>，在 v16.7.0-alpha.1 中就已经包含了 Hooks 的部分代码。好在 Dan Abramov 之前在 React Conf 上一再强调这还只是实验特性，API 随时有可能会改，欢迎早期反馈，但不建议用于生产环境；官方在事后也及时发文说明了原委，并表示“以后注意”。算是一个小插曲吧，无伤大雅。
+Hooks 正式发布于 v16.8.0，但由于官方团队的 [一点点小失误](https://reactjs.org/blog/2018/12/19/react-v-16-7.html)，在 v16.7.0-alpha.1 中就已经包含了 Hooks 的部分代码。好在 Dan Abramov 之前在 React Conf 上一再强调这还只是实验特性，API 随时有可能会改，欢迎早期反馈，但不建议用于生产环境；官方在事后也及时发文说明了原委，并表示“以后注意”。算是一个小插曲吧，无伤大雅。
 
 ## 稳住，别急
 

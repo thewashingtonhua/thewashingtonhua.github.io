@@ -48,7 +48,7 @@ declare module "*.vue" {
 }
 ```
 
-这个文件只要存在于 `/src` 目录下即可，不需要在任何地方将其引入。（该方法来自<a target="_blank" href='https://github.com/Microsoft/TypeScript-Vue-Starter#single-file-components'>TypeScript 官方提供的用于 Vue 的启动教程</a>）
+这个文件只要存在于 `/src` 目录下即可，不需要在任何地方将其引入。（该方法来自 [TypeScript 官方提供的用于 Vue 的启动教程](https://github.com/Microsoft/TypeScript-Vue-Starter#single-file-components)）
 
 ### 2）不支持 @ alias
 
@@ -60,7 +60,7 @@ declare module "*.vue" {
 
 例如 `this.$router` 、 `watch: {'$router' (to, from) {}}` 这样的代码，在使用 JavaScript 开发时一切正常，到了 TypeScript 下却报错说属性不存在。同样的还有在 `methods` 中用 `this.variable` 访问 `data` 中的数据，也会报不存在， `this` 实际指向了
 
-解决方案：<a target='_blank' href='https://cn.vuejs.org/v2/guide/typescript.html#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95'>Vue 官网教程</a>中其实有提到这个方法，就是用下面的代码改造一下：
+解决方案：[Vue 官网教程](https://cn.vuejs.org/v2/guide/typescript.html#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95)中其实有提到这个方法，就是用下面的代码改造一下：
 
 ```ts
 import Vue from 'vue'
@@ -116,7 +116,7 @@ export default Vue.extend({
 
 Vue 官方对于 TypeScript 的态度，目前还不是很明确，提供了必要的支持，但并不表示推荐。
 
-尤大大曾经<a target='_blank' href='https://www.zhihu.com/question/46397274'>在知乎上表示更倾向于 Flow 而不是 TypeScript</a>，理由是前者的迁移成本更低，更适合 Vue 当时的发展状态。如今 Vue 日益成熟，也逐渐加上了对 TypeScript 的支持，或许是出于对环境的妥协吧，毕竟 TypeScript 社区反响不错，而 Flow 又险些遇到专利问题，多一种选择肯定不是什么坏事。
+尤大大曾经 [在知乎上表示更倾向于 Flow 而不是 TypeScript](https://www.zhihu.com/question/46397274)，理由是前者的迁移成本更低，更适合 Vue 当时的发展状态。如今 Vue 日益成熟，也逐渐加上了对 TypeScript 的支持，或许是出于对环境的妥协吧，毕竟 TypeScript 社区反响不错，而 Flow 又险些遇到专利问题，多一种选择肯定不是什么坏事。
 
 目前最新版的官网上有专门章节提到对 TypeScript 的支持，但却只字未提 Flow，这或许恰恰因为 TypeScript 存在迁移成本，需要告知开发者如何迁移，而 Flow 的使用和框架无关，可以无痛集成，就不用多说了。从这次的尝试来看，开发者们对用 TypeScript 开发 Vue 已经开始有了不少的实践，但距离主流还很远，相关的讨论也还比较少，更多时候还是得到处翻文档。虽然 2.5 版本号称增强了对 TypeScript 的支持，但相关的工具链还没跟上。Vue-cli 项目计划后面要出一个用于 TypeScript 的模板，期待下到时的表现。
 

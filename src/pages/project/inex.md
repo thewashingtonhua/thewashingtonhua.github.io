@@ -22,7 +22,7 @@ draft: false
 
 ## 相关链接
 
-<a target="_blank" href='https://www.inex.exchange'>线上地址</a>
+[线上地址](https://www.inex.exchange)
 
 ## 项目截图
 

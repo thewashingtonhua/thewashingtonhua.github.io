@@ -64,9 +64,9 @@ SSR 其实并不是什么新鲜玩意儿，早在 SPA 占领世界之前，动�
 
 大家都觉得，这事儿不一定非得放到服务器去做，Node.js 只是一个运行环境，不用非把它当做服务器来看。如果能在构建阶段直接把渲染好的 HTML 打出来，问题不就解决了。
 
-于是有人开发出来这样一个 Webpack 插件 —— <a target='_blank' href='https://github.com/chrisvfritz/prerender-spa-plugin'>PrerenderSPAPlugin</a>。
+于是有人开发出来这样一个 Webpack 插件 —— [PrerenderSPAPlugin](https://github.com/chrisvfritz/prerender-spa-plugin)。
 
-这是一个很厉害的插件，不挑技术栈，无论你是 Angular、React、Vue 中谁的粉，只需要简单设定一下路由，就可以在构建阶段直接输出渲染好的静态页面。背后的原理主要是利用 <a target='_blank' href='https://github.com/GoogleChrome/puppeteer'>Puppeteer</a> 加载页面，并把加载完成后的内容保存下来。
+这是一个很厉害的插件，不挑技术栈，无论你是 Angular、React、Vue 中谁的粉，只需要简单设定一下路由，就可以在构建阶段直接输出渲染好的静态页面。背后的原理主要是利用 [Puppeteer](https://github.com/GoogleChrome/puppeteer) 加载页面，并把加载完成后的内容保存下来。
 
 PrerenderSPAPlugin 的好处是改造成本低，如果你有一个现有的系统，需要进行预渲染改造，那么你只需要调整一下 Webpack 的配置即可，业务代码不用动。
 
@@ -76,7 +76,7 @@ PrerenderSPAPlugin 的好处是改造成本低，如果你有一个现有的系�
 
 开发者大多有自己的博客，博客是一种典型的静态站点，过去有 WordPress、JekyII、Hexo 等大名鼎鼎的 CMS，都能生成静态站点。但这些工具目的性都太强，明白儿地告诉你：我就是个博客。
 
-<a target='_blank' href='https://www.gatsbyjs.org/'>Gatsby</a> 是最近流行起来的一种新型方案，<a target='_blank' href='https://github.com/gatsbyjs/gatsby/commits/master?after=2032147f23d40fe8d986fd33996a8c5362e6c75d+7960'>项目始于 2015 年</a>，原本只是个副业，开发了一年之后，发现反响不错，于是 <a target='_blank' href='https://www.bricolage.io/gatsby-open-source-work/'>创始人开始全职投入 Gatsby 的开发工作</a>。
+[Gatsby](https://www.gatsbyjs.org) 是最近流行起来的一种新型方案，[项目始于 2015 年](https://github.com/gatsbyjs/gatsby/commits/master?after=2032147f23d40fe8d986fd33996a8c5362e6c75d+7960)，原本只是个副业，开发了一年之后，发现反响不错，于是 [创始人开始全职投入 Gatsby 的开发工作](https://www.bricolage.io/gatsby-open-source-work/)。
 
 区别于其它方案，Gatsby 并没有死盯着 CMS 这一个领域，它定位于一种使用 React 技术栈开发站点的方式。不光可以用于开发静态站点，动态站点也完全不在话下。
 
@@ -137,11 +137,11 @@ Gatsby 默认会给所有 `src/pages` 目录下的组件提供 `this.props.locat
 
 ## 题外话：简单谈一谈 Imgcook
 
-前阵子阿里爸爸放又出来一个大杀器 —— <a target='_blank' href='https://imgcook.taobao.org'>Imgcook</a>，可以把设计稿一键生成可读性很高的代码，让一批前端从业者背后又一凉。
+前阵子阿里爸爸放又出来一个大杀器 —— [Imgcook](https://imgcook.taobao.org)，可以把设计稿一键生成可读性很高的代码，让一批前端从业者背后又一凉。
 
 为什么是“又”？
 
-一方面，人们研究设计稿自动转 HTML 的技术也不是一两天了。前有 <a target='_blank' href='https://github.com/tonybeltramelli/pix2code'>Pixel2Code</a> 一文惊天下，后有 <a target='_blank' href='https://github.com/Microsoft/ailab/tree/master/Sketch2Code'>微软</a>、<a target='_blank' href='https://airbnb.design/sketching-interfaces/'>Airbnb</a> 等大厂发力相关技术。另一方面，阿里爸爸在过去一年先后推出过好多这一类自动化的项目：<a target='_blank' href='https://luban.aliyun.com/'>鹿班</a>、<a target='_blank' href='https://alibaba.github.io/ice/'>飞冰</a>、<a target='_blank' href='https://fusion.design/'>Fusion Design</a>。
+一方面，人们研究设计稿自动转 HTML 的技术也不是一两天了。前有 [Pixel2Code](https://github.com/tonybeltramelli/pix2code) 一文惊天下，后有 [微软](https://github.com/Microsoft/ailab/tree/master/Sketch2Code)、[Airbnb](https://airbnb.design/sketching-interfaces/) 等大厂发力相关技术。另一方面，阿里爸爸在过去一年先后推出过好多这一类自动化的项目：[鹿班](https://luban.aliyun.com/)、[飞冰](https://alibaba.github.io/ice/)、[Fusion Design](https://fusion.design/)。
 
 其实这没什么新鲜，Word、Photoshop、Sketch 导出成 HTML 早就已经是存在了很久的功能了。
 
