@@ -3,26 +3,18 @@
 @import './_common.scss';
 
 $prism-color-base: #ccc;
-// $prism-color-dark: #282c34;
-// $prism-color-dark: #1e1e1e;
 $prism-color-dark: #222;
 $prism-color-white: #fff;
 $prism-color-char: #d8dee9;
 $prism-color-comment: #666;
-// $prism-color-comment: #ccc;
-// $prism-color-keyword: #c5a5c5;
 $prism-color-keyword: #c684c1;
-$prism-color-lineHighlight: #353b45; // $prism-color-dark + extra lightness
+$prism-color-lineHighlight: #333;
 $prism-color-primitive: #5a9bcf;
-// $prism-color-primitive: #7ec699;
 $prism-color-string: #8dc891;
-// $prism-color-variable: #d7deea;
 $prism-color-variable: #9adcff;
 $prism-color-boolean: #ff8b50;
 $prism-color-punctuation: #88c6be;
 $prism-color-tag: #fc929e;
-// $prism-color-function: #79b6f2;
-// $prism-color-function: #dcdda8;
 $prism-color-function: #efbd54;
 $prism-color-className: #fac863;
 $prism-color-method: #6699cc;
@@ -61,7 +53,7 @@ $prism-color-operator: #fc929e;
   > pre.prism-code {
     height: auto !important;
     // margin: 1rem;
-    margin: 30px 15px 10px 45px;
+    margin: 30px 15px 10px 50px;
     font-size: 14px;
     line-height: 20px;
     white-space: pre;
@@ -169,8 +161,10 @@ $prism-color-operator: #fc929e;
 .gatsby-highlight-code-line {
   background-color: $prism-color-lineHighlight;
   display: block;
-  margin: -0.125rem calc(-1rem - 15px);
-  padding: 0.125rem calc(1rem + 15px);
+  // margin: -0.125rem calc(-1rem - 15px);
+  // padding: 0.125rem calc(1rem + 15px);
+  margin: -0.125rem 0;
+  padding: 0.125rem 0;
 }
 
 .line-numbers {

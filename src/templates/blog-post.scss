@@ -162,8 +162,8 @@
         color: $theme-color-text-secondary;
         line-height: 1.75;
         margin-top: 0;
-        margin-bottom: 1em;
         transition: font-size 0.3s ease-out;
+        margin-bottom: 1em;
 
         @media (max-width: $break-point-mobile) {
           font-size: 14px;
@@ -263,6 +263,10 @@
 
           + p {
             margin-top: .75em;
+          }
+
+          &:last-of-type {
+            margin-bottom: 0;
           }
         }
       }
