@@ -32,9 +32,7 @@ Hooks 并不是新的组件类型，当我们讨论 Hooks 时，我们讨论的�
 
 所以要想真正实现 Think in Hooks，首先你得忘记如何 Think in Class。
 
-## 为什么我的 state 会不更新？
-
-### Cheap Talk
+## 为什么我的 state 没更新？
 
 Hooks 的本质是一个渲染函数，就像是 Class 组件的 `render()` 函数一样。
 
@@ -42,9 +40,7 @@ Hooks 的本质是一个渲染函数，就像是 Class 组件的 `render()` 函�
 
 到这里我们得出结论：
 
-> `render()` 函数中用到的 props 和 state 在函数执行的一开始就已经被确定了。 —— 记住这一点
-
-### The Code
+> `render()` 函数中用到的 props 和 state 在函数执行的一开始就已经被确定了。
 
 好了，理论说得够多了，我们来看代码吧。假设我们有这样一个组件：
 
@@ -73,7 +69,9 @@ class Counter extends Component {
 
   onClick = () => {
     setTimeout(() => {
-      this.setState({ count: this.state.count + 1 })
+      this.setState({
+        count: this.state.count + 1
+      })
     }, 2000)
   }
 
@@ -84,7 +82,7 @@ class Counter extends Component {
 
 ```
 
-对比一下两段函数，如果把 Class 的语法中的所有东西全部塞到 `render()` 函数里，然后把 `render()` 函数单独拎出来，给变量和函数换个名字 —— 恭喜你，你得到了一个等效的 Hooks ！。
+对比一下两段函数，如果把 Class 的语法中的所有东西全部塞到 `render()` 函数里，然后把 `render()` 函数单独拎出来，给变量和函数换个名字 —— 恭喜你，你得到了一个等效的 Hooks ！
 
 开玩笑的，但这真的很像对不对。
 
@@ -94,7 +92,7 @@ class Counter extends Component {
 
 但在 Hooks 的实现中，结果意外地变成了 1。很奇怪对不对，明明是一样的逻辑，为什么结果不一样？（我向你保证这跟闭包没有关系）
 
-如果你在 `onClick` 函数中 `console.log` 一下，你会发现点击事件确实被触发了 3 次，但是 3 次 `count` 的值一样。
+如果你在 `onClick` 函数中 `console.log` 一下，你会发现点击事件确实被触发了 3 次，但是 3 次 `count` 的值是一样的。
 
 这是为什么？
 
@@ -105,6 +103,7 @@ class Counter extends Component {
 function Counter () {
   // 这里是对 useState 的等价替换
   const count = 0 // highlight-line
+  const setCount = (val) => { ... }
 
   function onClick () {
     setTimeout(() => {
@@ -116,7 +115,7 @@ function Counter () {
 }
 ```
 
-注意到第 8 行的变化了么？这就是为什么。在这 2 秒钟之内，无论点击多少次，我们都是在给组件下达同样的指令：2 秒钟后把 `count` 设置为 1。2 秒之后组件或许会被更新多次，但结果都是一样的。`onClick` 函数中 `count` 的值在函数执行的一开始就已经被确定了。
+注意到第 9 行的变化了么？这就是为什么。在这 2 秒钟之内，无论点击多少次，我们都是在给组件下达同样的指令：2 秒钟后把 `count` 设置为 1。2 秒之后组件或许会被更新多次，但结果都是一样的。`onClick` 函数中 `count` 的值在一开始就已经被确定了。
 
 > 这里有一个细节，如果你碰巧真的运行了刚才的代码，你或许会注意到，不管我们在 2 秒之内点击了组件多少次，点击事件和 `setTimeout` 会执行同样的次数，但组件最多更新 2 次。这应该是 React 自身的一种优化机制吧。
 >
@@ -143,6 +142,8 @@ function Counter () {
 ## 永远对 useEffect 的依赖数组保持诚实
 
 这就是为什么我们经常会遇到 useEffect 里的值
+
+## 不要担心重复定义函数
 
 ## 如何在 Hooks 中请求数据
 
