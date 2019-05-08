@@ -28,8 +28,8 @@ class Header extends PureComponent {
 
   isMenuActive = ({ isPartiallyCurrent }) => {
     return isPartiallyCurrent
-      ? { className: 'menu active' }
-      : { className: 'menu' }
+      ? { className: 'menu-link active' }
+      : { className: 'menu-link' }
   }
 
   render () {
@@ -49,16 +49,17 @@ class Header extends PureComponent {
               <div className='bar' />
             </div>
             <nav className={'nav-menu' + (navMenuOpen ? ' open' : '')}>
-              <div className='menus'>
+              <ul className='menus'>
                 { this.menus.map(n => (
-                  <Link
-                    key={n.to}
-                    to={n.to}
-                    getProps={this.isMenuActive}
-                    onClick={this.close}
-                  >{n.text}</Link>
+                  <li className='menu' key={n.to}>
+                    <Link
+                      to={n.to}
+                      getProps={this.isMenuActive}
+                      onClick={this.close}
+                    >{n.text}</Link>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </nav>
           </div>
         </header>

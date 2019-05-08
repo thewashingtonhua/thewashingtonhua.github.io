@@ -8,7 +8,8 @@
   left: 0;
   width: 100%;
   height: $header-height;
-  background-color: $theme-color-bg;
+  // background-color: $theme-color-bg;
+  background-color: $theme-color-dark-primary;
   z-index: 10;
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.5);
 
@@ -104,7 +105,8 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: $theme-color-bg;
+      // background-color: $theme-color-bg;
+      background-color: $theme-color-dark-primary;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -126,6 +128,12 @@
         align-items: center;
 
         .menu {
+          &:not(:first-child) {
+            margin-top: 15px;
+          }
+        }
+
+        .menu-link {
           display: block;
           width: 180px;
           height: 40px;
@@ -135,12 +143,12 @@
           text-align: center;
           transition: background-color .3s ease-out;
 
-          &:hover {
-            color: lighten($theme-color-text-secondary, 50%);
+          &::selection {
+            background-color: transparent;
           }
 
-          &:not(:first-child) {
-            margin-top: 15px;
+          &:hover {
+            color: lighten($theme-color-text-secondary, 50%);
           }
 
           &.active {
@@ -151,7 +159,6 @@
             &:hover {
               color: lighten($theme-color-text-primary, 50%);
             }
-
           }
         }
       }

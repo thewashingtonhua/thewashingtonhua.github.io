@@ -113,7 +113,7 @@
     h1, h2, h3, h4, h5, h5, p, a, li, span, img, th, td {
       &::selection {
         background-color: $theme-color-text-primary;
-        color: $theme-color-dark-secondary;
+        color: $theme-color-bg;
       }
     }
   }
