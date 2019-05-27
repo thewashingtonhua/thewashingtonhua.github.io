@@ -2,7 +2,7 @@
 title: '重新 Think in Hooks'
 description: '忘记过去之所学，我们从头来过'
 tags: ['react', 'hooks']
-cover: '../../images/blog/think-in-hooks-again.jpg'
+cover: '../../images/blog/rethink-in-hooks.jpg'
 series: ''
 draft: false
 original: true
