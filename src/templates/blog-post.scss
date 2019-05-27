@@ -177,27 +177,25 @@
         border-bottom: 1px dotted $theme-color-primary;
         padding-bottom: 2px;
         transition: border-bottom-color 0.3s ease-out;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+
 
         &:hover {
           border-bottom-color: #fff;
         }
 
         &[target='_blank'] {
-          padding-right: 1.3em;
-          position: relative;
+          display: inline-flex;
+          align-items: center;
 
           &::after {
             content: '';
-            position: absolute;
-            top: 50%;
-            right: 0;
-            transform: translate(0, -50%);
             width: 1em;
             height: 1em;
+            margin-left: 0.3em;
             background-size: contain;
             background-image: url('../images/open-in-new.svg');
-            // background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#{$theme-color-primary}"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>');
-            // fill: $theme-color-primary;
           }
         }
       }
