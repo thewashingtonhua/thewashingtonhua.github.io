@@ -68,7 +68,7 @@
         justify-content: space-between;
 
         .title {
-          color: $theme-color-text-primary;
+          color: $theme-color-primary;
           font-size: 26px;
           font-weight: 700;
           line-height: 1.375;
@@ -92,7 +92,7 @@
         }
 
         .desc {
-          color: $theme-color-text-secondary;
+          color: $theme-color-text;
           line-height: 1.375;
           word-wrap: break-word;
           transition: color .3s ease-out;
@@ -116,7 +116,7 @@
 
           .date {
             font-size: 14px;
-            color: $theme-color-text-secondary;
+            color: $theme-color-text;
             line-height: 1;
             position: relative;
             white-space: nowrap;
@@ -132,7 +132,7 @@
             padding-left: 10px;
             margin-left: 10px;
             display: flex;
-            color: $theme-color-text-secondary;
+            color: $theme-color-text;
             line-height: 1;
             font-size: 14px;
             transition: font-size 0.3s ease-out;
@@ -150,7 +150,7 @@
               transform: translate(0, -50%);
               width: 1px;
               height: 12px;
-              background-color: $theme-color-text-secondary;
+              background-color: $theme-color-text;
 
               @media (max-width: $break-point-tablet) {
                 content: none;
@@ -164,7 +164,7 @@
         .title {
           &::before {
             content: '[ 草稿 ] ';
-            color: #f00;
+            color: #fc0266;
           }
         }
       }
@@ -188,14 +188,14 @@
       content: '';
       height: 1px;
       width: calc(100% - 30px);
-      background-color: $theme-color-text-secondary;
+      background-color: $theme-color-text;
     }
 
     &::after {
       content: 'The End';
       display: inline-block;
       padding: 0 0.5em;
-      color: $theme-color-text-secondary;
+      color: $theme-color-text;
       background-color: #000;
     }
   }

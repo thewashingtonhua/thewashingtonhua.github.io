@@ -3,12 +3,12 @@
 @import './_common.scss';
 
 $prism-color-base: #ccc;
-$prism-color-dark: #222;
+$prism-color-dark: #2d2d2d;
 $prism-color-white: #fff;
 $prism-color-char: #d8dee9;
 $prism-color-comment: #666;
 $prism-color-keyword: #c684c1;
-$prism-color-lineHighlight: #333;
+$prism-color-lineHighlight: #28292b;
 $prism-color-primitive: #5a9bcf;
 $prism-color-string: #8dc891;
 $prism-color-variable: #9adcff;
@@ -23,14 +23,15 @@ $prism-color-operator: #fc929e;
 .gatsby-code-text {
   font-size: 0.8em;
   font-family: $theme-font-code;
-  color: $theme-color-text-primary;
-  background-color: $theme-color-dark-primary;
+  color: $theme-color-primary;
+  background-color: $theme-color-code;
   padding: 0.5em 0.5em;
   border-radius: 6px;
 }
 
 .gatsby-highlight {
-  background: $prism-color-dark;
+  // background: $prism-color-dark;
+  background: $theme-color-code;
   color: $prism-color-white;
   border-radius: 10px;
   overflow: auto;

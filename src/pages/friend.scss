@@ -6,7 +6,7 @@
   h1.title {
     font-weight: 100;
     font-size: 32px;
-    color: $theme-color-text-primary;
+    color: $theme-color-primary;
     padding: 0 15px;
     margin-top: 50px;
     margin-bottom: 20px;
@@ -47,7 +47,7 @@
 
       h2 {
         font-size: 26px;
-        color: $theme-color-text-primary;
+        color: $theme-color-primary;
         line-height: 1.5;
         transition: color .3s ease-out;
         @include ellipsis;
@@ -58,7 +58,7 @@
       }
 
       ul li {
-        color: $theme-color-text-secondary;
+        color: $theme-color-text;
         transition: color .3s ease-out;
         font-size: 14px;
         line-height: 1.5;

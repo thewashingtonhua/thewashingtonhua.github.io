@@ -8,10 +8,9 @@
   left: 0;
   width: 100%;
   height: $header-height;
-  // background-color: $theme-color-bg;
-  background-color: $theme-color-dark-primary;
+  background-color: $theme-color-bg;
   z-index: 10;
-  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 
   .mf-header-wrapper {
     width: 100%;
@@ -44,7 +43,7 @@
         font-size: 20px;
         height: $header-height;
         line-height: $header-height;
-        color: $theme-color-text-primary;
+        color: $theme-color-primary;
         transition:
           color .3s ease-out,
           font-size .3s ease-out;
@@ -65,8 +64,8 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      border-top: 2px solid $theme-color-text-primary;
-      border-bottom: 2px solid $theme-color-text-primary;
+      border-top: 2px solid $theme-color-primary;
+      border-bottom: 2px solid $theme-color-primary;
       position: relative;
       transition: border-color 0.3s ease-out;
       cursor: pointer;
@@ -94,7 +93,7 @@
         transform-origin: 50% 50%;
         width: 100%;
         height: 2px;
-        background-color: $theme-color-text-primary;
+        background-color: $theme-color-primary;
         transition: transform 0.3s ease-out;
       }
     }
@@ -105,8 +104,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      // background-color: $theme-color-bg;
-      background-color: $theme-color-dark-primary;
+      background-color: $theme-color-bg;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -139,7 +137,7 @@
           height: 40px;
           line-height: 40px;
           font-size: 16px;
-          color: $theme-color-text-secondary;
+          color: $theme-color-text;
           text-align: center;
           transition: background-color .3s ease-out;
 
@@ -148,16 +146,16 @@
           }
 
           &:hover {
-            color: lighten($theme-color-text-secondary, 50%);
+            color: lighten($theme-color-text, 50%);
           }
 
           &.active {
-            color: $theme-color-text-primary;
-            border-top: 1px solid $theme-color-text-primary;
-            border-bottom: 1px solid $theme-color-text-primary;
+            color: $theme-color-primary;
+            border-top: 1px solid $theme-color-primary;
+            border-bottom: 1px solid $theme-color-primary;
 
             &:hover {
-              color: lighten($theme-color-text-primary, 50%);
+              color: lighten($theme-color-primary, 50%);
             }
           }
         }

@@ -7,7 +7,7 @@
   }
 
   h1, h2, p, li, a, label, th, td {
-    color: $theme-color-text-secondary;
+    color: $theme-color-text;
     font-family: $theme-font-code;
   }
 
@@ -22,27 +22,27 @@
   }
 
   tr.title td {
-    color: $theme-color-text-primary;
+    color: $theme-color-primary;
     padding: 25px 15px;
     font-weight: 700;
   }
 
   h1 {
     font-size: 32px;
-    color: $theme-color-text-primary;
+    color: $theme-color-primary;
     line-height: 1.5;
     margin-bottom: .5em;
   }
 
   h2 {
     font-size: 28px;
-    color: $theme-color-text-primary;
+    color: $theme-color-primary;
     line-height: 1.5;
     margin-top: 1em;
   }
 
   p {
-    color: $theme-color-text-secondary;
+    color: $theme-color-text;
     line-height: 1.5;
   }
 
@@ -63,7 +63,7 @@
     &.back {
       display: block;
       font-size: 20px;
-      color: $theme-color-text-secondary;
+      color: $theme-color-text;
       padding: 50px 0 20px;
     }
   }

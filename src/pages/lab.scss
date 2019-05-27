@@ -4,7 +4,7 @@
 
 .lab-catalog {
   h1 {
-    color: $theme-color-text-primary;
+    color: $theme-color-primary;
     margin-bottom: 20px;
     font-size: 32px;
     font-family: $theme-font-code;
@@ -37,8 +37,8 @@
       padding: 50px 10px;
       margin-right: 10px;
       margin-bottom: 10px;
-      border: 1px solid $theme-color-text-secondary;
-      color: $theme-color-text-secondary;
+      border: 1px solid $theme-color-text;
+      color: $theme-color-text;
       text-align: center;
       font-family: $theme-font-code;
       transition: color .3s ease-out, border-color .3s ease-out;
@@ -49,8 +49,8 @@
       }
 
       &:hover {
-        color: $theme-color-text-primary;
-        border-color: $theme-color-text-primary;
+        color: $theme-color-primary;
+        border-color: $theme-color-primary;
       }
 
       &:nth-child(3n+3) {

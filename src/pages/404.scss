@@ -11,7 +11,7 @@
   padding: 15px;
 
   h1 {
-    color: $theme-color-text-primary;
+    color: $theme-color-primary;
     font-size: 36px;
   }
 
@@ -22,7 +22,7 @@
     code {
       font-size: 16px;
       font-family: $theme-font-code;
-      color: $theme-color-text-secondary;
+      color: $theme-color-text;
       line-height: 1.75;
 
       @media (max-width: $break-point-mobile) {
@@ -34,13 +34,13 @@
   .btn-back {
     font-size: 16px;
     font-family: $theme-font-code;
-    color: $theme-color-text-primary;
+    color: $theme-color-primary;
     margin-top: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 15px 30px;
-    border: 1px solid $theme-color-text-primary;
+    border: 1px solid $theme-color-primary;
     border-radius: 4px;
     transition:
       background-color 0.15s ease-out,
@@ -51,7 +51,7 @@
     }
 
     &:hover {
-      background-color: $theme-color-text-primary;
+      background-color: $theme-color-primary;
       color: $theme-color-bg;
     }
   }
