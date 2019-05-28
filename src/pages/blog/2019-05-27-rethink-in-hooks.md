@@ -141,7 +141,7 @@ function Counter () {
 
 依赖数组真正的含义，是「这个 Effect 引用了哪些外部变量」。不管它是否参与比对的过程，只要 Effect 中引用了（也就是 Effect 依赖了这个变量），就必须出现在依赖数组中。举个例子：
 
-在下面的代码中，我们想要实现：`foo` 或 `bar` 在被点击时自身加一，其中任何一个的变化都会触发 `total` 也加一。重点关注第一个 Effect —— 我们希望 `foo` 和 `bar` 的变化能够引起 `total` 的变化。
+在下面的代码中，我们想要实现：`foo` 或 `bar` 在被点击时自身加一，其中任何一个的变化都会触发 `total` 也加一，同时有一个 Effect 在每秒打印 `total` 的值。由于我们只需要在组件挂载时启用一下计时器就好，因此我们把依赖数组留空。
 
 ```jsx
 const App = (props) => {
@@ -149,22 +149,25 @@ const App = (props) => {
   const [foo, setFoo] = useState(0)
   const [bar, setBar] = useState(0)
 
-  // 当 foo 或 bar 变化时，增加 total 计数
-  useEffect(() => { // highlight-line
-    setTotal(total + 1) // highlight-line
-  }, [foo, bar]) // highlight-line
-
-  // 初始化时归零
+  // highlight-range{1-5}
   useEffect(() => {
-    setTotal(0)
+    setInterval(() => {
+      console.log(total)
+    }, 1000)
   }, [])
+
+  function updateTotal () {
+    setTotal(t => t + 1)
+  }
 
   function addFoo () {
     setFoo(f => f + 1)
+    updateTotal()
   }
 
   function addBar () {
     setBar(b => b + 1)
+    updateTotal()
   }
 
   return <>
@@ -177,9 +180,9 @@ const App = (props) => {
 }
 ```
 
-这个 Effect 引用了 `total` 这个变量，用于计算新的 `total` 值，但是 `total` 并没有参与「是否要执行这个 Effect」的决策。按照我们之前对于 Class 组件的理解，`total` 不需要出现在依赖数组中。那么我们来执行一下这段代码。
+这个 Effect 引用了 `total` 这个变量，但是 `total` 并没有参与「是否要执行这个 Effect」的决策。按照我们之前对于 Class 组件的理解，`total` 不需要出现在依赖数组中。那么我们来执行一下这段代码。
 
-点击按钮，`foo` 和 `bar` 如我们预期的那样自增了，然而 `total` 却一点没更新。
+点击按钮，`foo` 和 `bar` 如我们预期的那样自增了，页面上 `total` 也显示了最新的值。然而控制台打印出来的 `total` 却始终为 0。
 
 为什么会这样？
 
@@ -188,39 +191,47 @@ const App = (props) => {
 ```jsx
 // 初始化时
 useEffect(() => {
-  setTotal(0 + 1)
-}, [0, 0])
+  setInterval(() => {
+    console.log(0)
+  }, 1000)
+}, [])
 ```
 
 ```jsx
 // 点击 foo
 useEffect(() => {
-  setTotal(0 + 1)
-}, [1, 0])
+  setInterval(() => {
+    console.log(0)
+  }, 1000)
+}, [])
 ```
 
 ```jsx
 // 再点击 bar
 useEffect(() => {
-  setTotal(0 + 1)
-}, [1, 1])
+  setInterval(() => {
+    console.log(0)
+  }, 1000)
+}, [])
 ```
 
-由于 `total` 并没有在依赖数组中申明，Effect 就不会去获取它的最新值，每次执行都引用了最初的值。
+由于 `total` 并没有在依赖数组中申明，因此 `total` 的更新不会触发 Effect 重新执行，也就不会去获取它的最新值，每次执行都引用了第一次执行时候的值。
 
-要解决这个问题，我们可以把 `total` 加入依赖数组，让 Effect 去获取它的最新值。但因为这个 Effect 会更新 `total` 的值，这么做会导致死循环。因此我们还不能把它放进依赖数组。这就比较尴尬了。
-
-别慌，还记得前面提到的 `setState` 的另一种写法吗？
+要解决这个问题，我们可以把 `total` 加入依赖数组，告诉 Effect 当 `total` 更新时重新执行 Effect，这样依赖 Effect 就能在重新执行时获取到 `total` 的最新值了。同时注意，由于每次 `total` 改变会引起 Effect 的重新执行，因此 `setInterval()` 也会重复执行，创建多个计时器，要解决这个问题，只要让 Effect 返回一个清理函数，结束掉上一个计时器即可：
 
 ```jsx
 useEffect(() => {
-  setTotal(t => t + 1)
-}, [foo, bar])
+  const id = setInterval(() => {
+    console.log(total)
+  }, 1000)
+
+  return () => {
+    clearInterval(id)
+  }
+}, [total])
 ```
 
-这么一来，Effect 不再依赖 `total` 的值，自然也就不需要在依赖数组中进行申明了。
-
-当然在这个特定的案例中，你也可以把 `setTotal()` 分散到点击事件中去执行，同样能够解决问题。这里我们讨论的是一种模式，假定组件中像 `foo`、`bar` 这一类的变量有很多（比如一个很长的多选列表），那么每次都单独处理就显得不那么合适了。
+这么一来，程序就正常了。
 
 现在新版的 React 已经自带了对 Hooks 规则的一些检查，当它发现一些不合规的写法（比如 Effect 中引用了外部变量，但没有在依赖数组中进行申明），就会给出提示。只要保持使用最新版的 React，理论上就可以避免这一类的错误。如果你出于某些原因不方便升级，也可以手动安装 [eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks) 来进行检查。
 
@@ -239,7 +250,9 @@ useEffect(() => {
 
 从工程学的角度，我们习惯通过缓存来避免频繁的销毁和重建同样的内容。在 Class 组件中，通过函数绑定，我们可以很轻易的做到这一点。但在 Hooks 中，我们或许需要改变一下习惯，试着接受这一类的开销。
 
-由于函数组件的特性，它不像类组件的实例那样，存在生命周期的概念。函数组件的核心就只有一个渲染函数，即便 Hooks 引入了 state，函数组件的更新也还是重新执行整个函数，而不是在某个实例上小修小改。这样的特定就决定了函数组件内定义的函数，会在组件每次重新渲染时被销毁然后重建，即便函数本身并没有改变，只是传入的参数发生了改变。
+由于函数组件的特性，它不像类组件的实例那样，存在生命周期的概念。函数组件的核心就只有一个渲染函数，即便 Hooks 引入了 state，函数组件的更新也还是重新执行整个函数，而不是在某个实例上小修小改。这样的特定就决定了函数组件内定义的函数，会在组件每次重新渲染时被销毁然后重建，即便函数本身并没有改变，只是传入的参数发生了改变。Hooks 的执行就只是单纯的「渲染 -> 执行 Effect」，当组件状态发生改变，它并不是去修改某个现有的东西，而是给组件的函数传入新的参数，然后重置走一遍「渲染 -> 执行 Effect」的流程。
+
+事实上，Hooks 的每一次渲染，都有它自己的 props、state、函数、Effect、……所有的一切都是这一次渲染独有的。
 
 好在，只要不是非常高频的更新，这种程度的开销并不会对我们的应用造成明显的负面影响。因此我们可以允许这种反模式的存在。
 
