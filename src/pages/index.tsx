@@ -57,18 +57,18 @@ export default (props: GatsbyDataProps) => {
           <Link to='/project' className='more'>查看全部 &raquo;</Link>
         </header>
         <div className='channel-body projects'>
-          { latestProjects.map((p: any) => {
-            const cover = p.frontmatter.cover
-              ? p.frontmatter.cover.publicURL
+          { latestProjects.map(node => {
+            const cover = node.frontmatter.cover
+              ? node.frontmatter.cover.publicURL
               : ''
             return (
-              <Link className='project' to={p.fields.slug} key={p.id}>
+              <Link className='project' to={node.fields.slug} key={node.id}>
                 <div className='cover'>
                   <img src={cover} alt='' />
                 </div>
                 <div className='intro'>
-                  <h2>{p.frontmatter.title}</h2>
-                  <p>{p.frontmatter.description}</p>
+                  <h2>{node.frontmatter.title}</h2>
+                  <p>{node.frontmatter.description}</p>
                 </div>
               </Link>
             )

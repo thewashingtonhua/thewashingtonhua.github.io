@@ -3,7 +3,7 @@
 @import '../styles/_common.scss';
 
 .project-catalog {
-  h1.title {
+  .title {
     font-weight: 100;
     font-size: 32px;
     color: $theme-color-primary;
@@ -16,6 +16,15 @@
       margin-top: 20px;
       font-size: 28px;
     }
+  }
+
+  .project-category-title {
+    font-weight: 100;
+    font-size: 24px;
+    color: $theme-color-primary;
+    padding: 0 15px;
+    margin-top: 50px;
+    margin-bottom: 20px;
   }
 
   .project-list {
@@ -54,6 +63,7 @@
           color: $theme-color-primary;
           transition: color .3s ease-out;
           margin-bottom: 0.5em;
+          position: relative;
 
           @include ellipsis;
 
@@ -70,6 +80,15 @@
 
           @media (max-width: 480px) {
             font-size: 12px;
+          }
+        }
+      }
+
+      &.draft {
+        .intro h2 {
+          &::before {
+            content: '[ Draft ] ';
+            color: $theme-color-draft;
           }
         }
       }

@@ -1,14 +1,14 @@
 ---
-title: 'FBC'
-description: 'FBC 会员服务 Web App'
-cover: '../../images/project/thumb/fbc.jpg'
-from: '2017-04-01'
-to: '2017-06-01'
-category: 'commercial'
-draft: false
+title: 'Story Peeker'
+description: '视频封面预览生成工具'
+cover: '../../images/project/thumb/inex.jpg'
+from: '2019-06-01'
+to: '2019-07-01'
+category: 'personal'
+draft: true
 ---
 
-# FBC
+# Story Peeker
 
 ## 简介
 
@@ -20,7 +20,7 @@ FBC 会员服务 Web App，设计用于微信端，会员可通过该 App 进行
 
 ## 周期
 
-2017 年 4 月 - 2017 年 6 月
+2019 年 6 月 - 2019 年 7 月
 
 ## 相关链接
 

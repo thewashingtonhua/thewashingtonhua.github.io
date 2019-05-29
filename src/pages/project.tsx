@@ -1,14 +1,25 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import './project.scss'
 import { GatsbyDataProps } from '../utils/interface'
+import { IS_PROD } from 'config';
 
 export default (props: GatsbyDataProps) => {
   const { data } = props
-  const projects = data.allMarkdownRemark.edges
-    .filter(({ node }) => node.fields.type === 'project')
+  const nodes = data.allMarkdownRemark.edges.map(n => n.node)
+  const projects = nodes
+    .filter(node => node.fields.type === 'project' && (!IS_PROD || !node.frontmatter.draft))
+    .sort((x, y) => new Date(y.frontmatter.from).getTime() - new Date(x.frontmatter.from).getTime())
+
+  const commercialProjects = projects.filter(node => node.frontmatter.category === 'commercial')
+  const personalProjects = projects.filter(node => node.frontmatter.category === 'personal')
+
+  const items = [
+    { title: '商业作品', data: commercialProjects },
+    { title: '个人作品', data: personalProjects }
+  ]
 
   return (
     <Layout>
@@ -17,25 +28,30 @@ export default (props: GatsbyDataProps) => {
         keywords={data.site.siteMetadata.keywords}
       />
       <div className='mf-content project-catalog'>
-        <h1 className='title'>代表作({projects.length})</h1>
-        <div className='project-list'>
-          { projects.map(({ node }) => {
-            const cover = node.frontmatter.cover
-              ? node.frontmatter.cover.publicURL
-              : ''
-            return (
-              <Link className='project' to={node.fields.slug} key={node.fields.slug} id={node.fields.id}>
-                <div className='cover'>
-                  <img src={cover} alt='' />
-                </div>
-                <div className='intro'>
-                  <h2>{node.frontmatter.title}</h2>
-                  <p>{node.frontmatter.description}</p>
-                </div>
-              </Link>
-            )
-          })}
-        </div>
+        <h1 className='title'>代表作 ({projects.length})</h1>
+        { items.map(item =>
+          <Fragment key={item.title}>
+            <h2 className='project-category-title'>{item.title} ({item.data.length})</h2>
+            <div className='project-list'>
+              { item.data.map(node => {
+                const cover = node.frontmatter.cover
+                  ? node.frontmatter.cover.publicURL
+                  : ''
+                return (
+                  <Link className={'project' + (node.frontmatter.draft ? ' draft' : '')} to={node.fields.slug} key={node.fields.slug} id={node.fields.id}>
+                    <div className='cover'>
+                      <img src={cover} alt='' />
+                    </div>
+                    <div className='intro'>
+                      <h2>{node.frontmatter.title}</h2>
+                      <p>{node.frontmatter.description}</p>
+                    </div>
+                  </Link>
+                )
+              })}
+            </div>
+          </Fragment>
+        )}
       </div>
     </Layout>
   )
@@ -60,6 +76,10 @@ query {
           cover {
             publicURL
           }
+          from
+          to
+          draft
+          category
         }
         fields {
           id

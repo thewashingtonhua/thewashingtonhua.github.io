@@ -4,6 +4,7 @@ description: '影力所 - 一个基于影响力的数字资产交易所'
 cover: '../../images/project/thumb/inex.jpg'
 from: '2018-01-01'
 to: ''
+category: 'commercial'
 draft: false
 ---
 

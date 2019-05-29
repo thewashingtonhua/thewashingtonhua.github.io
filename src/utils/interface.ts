@@ -1,3 +1,36 @@
+export interface GatsbyContentNode {
+  id: string,
+  frontmatter: {
+    title: string,
+    description: string,
+    date: string,
+    cover: {
+      id: string,
+      publicURL: string,
+      absolutePath: string,
+      relativePath: string,
+      extension: string,
+      size: number,
+      prettySize: string,
+    },
+    from: string,
+    to: string,
+    tags: string[],
+    series: string,
+    draft: boolean,
+    original: boolean,
+    category: string
+  },
+  fields: {
+    id: string,
+    slug: string,
+    type: string,
+    date: string
+  },
+  excerpt: string,
+  html: string
+}
+
 export interface GatsbyDataProps {
   data: {
     site: {
@@ -11,37 +44,9 @@ export interface GatsbyDataProps {
     allMarkdownRemark: {
       totalCount: number,
       edges: Array<{
-        node: {
-          id: string,
-          frontmatter: {
-            title: string,
-            description: string,
-            date: string,
-            cover: {
-              id: string,
-              publicURL: string,
-              absolutePath: string,
-              relativePath: string,
-              extension: string,
-              size: number,
-              prettySize: string,
-            },
-            from: string,
-            to: string,
-            tags: string[],
-            series: string,
-            draft: boolean,
-            original: boolean,
-          },
-          fields: {
-            id: string,
-            slug: string,
-            type: string,
-            date: string
-          },
-          excerpt: string
-        },
+        node: GatsbyContentNode
       }>
     }
+    markdownRemark: GatsbyContentNode
   }
 }

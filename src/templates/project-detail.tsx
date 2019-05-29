@@ -3,8 +3,10 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import './project-detail.scss'
+import { GatsbyDataProps } from '../utils/interface'
 
-export default ({ data }) => {
+export default (props: GatsbyDataProps) => {
+  const { data } = props
   const post = data.markdownRemark
 
   return (
