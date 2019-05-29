@@ -7,6 +7,10 @@ import './blog.scss'
 import { IS_PROD } from '../config'
 import { GatsbyDataProps } from '../utils/interface'
 
+const BottomLine = (props: { text: string }) => (
+  <div className='bottom-line'><span>{props.text}</span></div>
+)
+
 export default (props: GatsbyDataProps) => {
   const { data } = props
   let blogs = data.allMarkdownRemark.edges.filter(({ node }) => node.fields.type === 'blog')
@@ -49,7 +53,7 @@ export default (props: GatsbyDataProps) => {
             )
           })}
         </div>
-        <div className='bottom-line' />
+        <BottomLine text='The End' />
       </div>
     </Layout>
   )

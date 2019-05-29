@@ -180,11 +180,6 @@
         padding-left: 0.5em;
         padding-right: 0.5em;
 
-
-        &:hover {
-          border-bottom-color: #fff;
-        }
-
         &[target='_blank'] {
           display: inline-flex;
           align-items: center;
@@ -303,8 +298,8 @@
     &.draft {
       .title {
         &::before {
-          content: '[ 草稿 ] ';
-          color: #fc0266;
+          content: '[ Draft ] ';
+          color: $theme-color-draft;
         }
       }
     }

@@ -5,10 +5,13 @@ import * as Sentry from '@sentry/browser'
 import 'normalize-scss/sass/normalize/_import-now.scss'
 import './layout.scss'
 import Header from './header'
+import { IS_PROD } from 'config';
 
-Sentry.init({
-  dsn: 'https://9638de4372be4acebf892d0732a86a4a@sentry.io/1450204'
-})
+if (IS_PROD) {
+  Sentry.init({
+    dsn: 'https://9638de4372be4acebf892d0732a86a4a@sentry.io/1450204'
+  })
+}
 
 interface LayoutProps {
   children?: ReactNode

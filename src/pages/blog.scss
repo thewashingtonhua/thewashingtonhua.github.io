@@ -163,8 +163,8 @@
       &.draft {
         .title {
           &::before {
-            content: '[ 草稿 ] ';
-            color: #fc0266;
+            content: '[ Draft ] ';
+            color: $theme-color-draft;
           }
         }
       }
@@ -175,28 +175,20 @@
     width: 100%;
     height: 30px;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    span {
+      color: $theme-color-text;
+      padding: 0 0.5em;
+    }
 
     &::before, &::after {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    &::before {
       content: '';
       height: 1px;
-      width: calc(100% - 30px);
       background-color: $theme-color-text;
-    }
-
-    &::after {
-      content: 'The End';
-      display: inline-block;
-      padding: 0 0.5em;
-      color: $theme-color-text;
-      background-color: #000;
+      flex-grow: 1;
     }
   }
 }
