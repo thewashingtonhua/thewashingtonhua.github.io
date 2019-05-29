@@ -3,8 +3,10 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import './project.scss'
+import { GatsbyDataProps } from '../utils/interface'
 
-export default ({ data }) => {
+export default (props: GatsbyDataProps) => {
+  const { data } = props
   const projects = data.allMarkdownRemark.edges
     .filter(({ node }) => node.fields.type === 'project')
 

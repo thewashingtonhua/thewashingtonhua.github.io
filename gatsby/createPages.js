@@ -22,11 +22,11 @@ module.exports = ({ graphql, actions }) => {
       const type = node.fields ? node.fields.type : ''
 
       if (type === 'blog') {
-        tmpl = path.resolve(`./src/templates/blog-post.js`)
+        tmpl = path.resolve(`./src/templates/blog-post.tsx`)
       }
 
       if (type === 'project') {
-        tmpl = path.resolve(`./src/templates/project-detail.js`)
+        tmpl = path.resolve(`./src/templates/project-detail.tsx`)
       }
 
       // console.log({ tmpl, slug })

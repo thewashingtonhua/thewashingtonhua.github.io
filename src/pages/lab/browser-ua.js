@@ -1,20 +1,20 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent, useState, useEffect } from 'react'
 import { Link, graphql } from 'gatsby'
 import Layout from '../../components/layout'
 import SEO from '../../components/seo'
 import './lab.scss'
+import { GatsbyDataProps } from '../../utils/interface'
 
-export default class BrowserUA extends PureComponent {
-  state = {
-    browser: '',
-    os: '',
-    ua: '',
-    platform: '',
-    error: '',
-  }
+const BrowserUA = (props: GatsbyDataProps) => {
+
+  const [browser, setBrowser] = useState('')
+  const [os, setOS] = useState('')
+  const [ua, setUA] = useState('')
+  const [platform, setPlatform] = useState('')
+  const [error, setError] = useState('')
 
   // 获取浏览器信息（主流）
-  getBrowser = ua => {
+  const getBrowser = ua => {
     let browser = 'Unknown'
     let browserVersion = ''
 
@@ -76,7 +76,7 @@ export default class BrowserUA extends PureComponent {
   }
 
   // 获取国产浏览器信息
-  otherBrowserCheck = ua => {
+  const otherBrowserCheck = ua => {
     let browser = 'Unknown'
     let browserVersion = ''
     let webkitVersion = ''
@@ -258,7 +258,7 @@ export default class BrowserUA extends PureComponent {
     return browser
   }
 
-  getOS = (ua, platform) => {
+  const getOS = (ua, platform) => {
     let os = 'Unknown OS'
 
     const isWin = (platform === 'Win32') || (platform === 'Windows')
@@ -402,52 +402,49 @@ export default class BrowserUA extends PureComponent {
     return os
   }
 
-  render () {
-    const { browser, os, ua, platform, error } = this.state
+  useEffect(() => {
+    if (window.navigator) {
+      const { userAgent: _ua, platform: __platform } = window.navigator
 
-    return (
-      <Layout>
-        <SEO
-          title='User Agent | 实验室'
-          keywords={this.props.data.site.siteMetadata.keywords}
-        />
-        <div className='mf-content lab-item'>
-          <article>
-
-            <Link to='/lab' className='back'>&laquo; Back</Link>
-
-            <h1>UserAgent</h1>
-
-            <p>Browser: <span id='browser'>{browser || 'Detecting ...'}</span></p>
-            <p>OS: <span id='os'>{os || 'Detecting ...'}</span></p>
-
-            <p>UA: <span id='ua'>{ua || 'Detecting ...'}</span></p>
-            <p>Platform: <span id='platform'>{platform || 'Detecting ...'}</span></p>
-
-            <p id='error'>{error}</p>
-          </article>
-        </div>
-      </Layout>
-    )
-  }
-
-  componentDidMount () {
-    if (navigator.userAgent && navigator.platform) {
-      const { userAgent = 'Unknown', platform = 'Unknown' } = window.navigator
-
-      this.setState({
-        browser: this.getBrowser(userAgent.toLowerCase()),
-        os: this.getOS(userAgent.toLowerCase(), platform),
-        ua: userAgent,
-        platform: platform
-      })
+      setBrowser(this.getBrowser(_ua.toLowerCase()))
+      setOS(this.getOS(_ua.toLowerCase(), _platform))
+      setUA(_ua)
+      setPlatform(_platform)
     } else {
-      this.setState({ error: 'Browser info not detected.' })
+      setError('Browser info not detected.')
     }
-  }
+  }, [])
+
+  return (
+    <Layout>
+      <SEO
+        title='User Agent | 实验室'
+        keywords={props.data.site.siteMetadata.keywords}
+      />
+      <div className='mf-content lab-item'>
+        <article>
+
+          <Link to='/lab' className='back'>&laquo; Back</Link>
+
+          <h1>UserAgent</h1>
+
+          <p>Browser: <span id='browser'>{browser || 'Detecting ...'}</span></p>
+          <p>OS: <span id='os'>{os || 'Detecting ...'}</span></p>
+
+          <p>UA: <span id='ua'>{ua || 'Detecting ...'}</span></p>
+          <p>Platform: <span id='platform'>{platform || 'Detecting ...'}</span></p>
+
+          <p id='error'>{error}</p>
+        </article>
+      </div>
+    </Layout>
+  )
 }
 
+export default BrowserUA
+
 export const query = graphql`
+
 query {
   site {
     siteMetadata {

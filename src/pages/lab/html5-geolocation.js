@@ -1,99 +1,77 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent, useEffect } from 'react'
 import { Link, graphql } from 'gatsby'
 import Layout from '../../components/layout'
 import SEO from '../../components/seo'
 import './lab.scss'
+import { GatsbyDataProps } from '../../utils/interface'
 
-export default class HTML5Geolocation extends PureComponent {
-  state = {
-    latitude: null,
-    longitude: null,
-    accuracy: null,
-    altitude: null,
-    altitudeAccuracy: null,
-    heading: null,
-    speed: null,
-    error: ''
-  }
+const ERROR_TPYE = {
+  1: 'service denied',
+  2: 'cannot access geolocation info',
+  3: 'timeout'
+}
 
-  render () {
-    const {
-      latitude,
-      longitude,
-      accuracy,
-      altitude,
-      altitudeAccuracy,
-      heading,
-      speed,
-      error
-    } = this.state
+const HTML5Geolocation = (props: GatsbyDataProps) => {
+  const [latitude, setLatitude] = useState(null)
+  const [longitude, setLongitude] = useState(null)
+  const [accuracy, setAccuracy] = useState(null)
+  const [altitude, setAltitude] = useState(null)
+  const [altitudeAccuracy, setAltitudeAccuracy] = useState(null)
+  const [heading, setHeading] = useState(null)
+  const [speed, setSpeed] = useState(null)
+  const [error, setError] = useState('')
 
-    return (
-      <Layout>
-        <SEO
-          title='Geolocation | 实验室'
-          keywords={this.props.data.site.siteMetadata.keywords}
-        />
-        <div className='mf-content lab-item'>
-
-          <article>
-            <Link to='/lab' className='back'>&laquo; Back</Link>
-
-            <h1>Geolocation</h1>
-
-            <p>Latitude: {latitude}</p>
-            <p>Longtitude: {longitude}</p>
-            <p>Accuracy: {accuracy}</p>
-            <p>Altitude: {altitude}</p>
-            <p>Altitude Accuracy: {altitudeAccuracy}</p>
-            <p>Heading: {heading}</p>
-            <p>Speed: {speed}</p>
-
-            <p id='error'>{error}</p>
-          </article>
-        </div>
-      </Layout>
-    )
-  }
-
-  componentDidMount () {
+  useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         position => {
-          const coords = {
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude,
-            accuracy: position.coords.accuracy,
-            altitude: position.coords.altitude,
-            altitudeAccuracy: position.coords.altitudeAccuracy,
-            heading: position.coords.heading,
-            speed: position.coords.speed
-          }
           // 经纬度数值为正数表示东经、北纬，负数表示西经南纬，遵循直角坐标系
-          this.setState(coords)
-        },
+          setLatitude(position.coords.latitude)
+          setLongitude(position.coords.longitude)
+          setAccuracy(position.coords.accuracy)
+          setAltitude(position.coords.altitude)
+          setAltitudeAccuracy(position.coords.altitudeAccuracy)
+          setHeading(position.coords.heading)
+          setSpeed(position.coords.speed)        },
         error => {
-          const ERROR_TPYE = {
-            1: 'service denied',
-            2: 'cannot access geolocation info',
-            3: 'timeout'
-          }
-          this.setState({
-            error: '[Error] ' + ERROR_TPYE[error.code]
-          })
+          setError('[Error] ' + ERROR_TPYE[error.code])
         },
-        {
-          enableHighAcuracy: true
-        }
+        { enableHighAcuracy: true }
       )
     } else {
-      this.setState({
-        error: '[Error] Geolocation is not supported on this browser.'
-      })
+      setError('[Error] Geolocation is not supported on this browser.')
     }
-  }
+  }, [])
+
+  return (
+    <Layout>
+      <SEO
+        title='Geolocation | 实验室'
+        keywords={props.data.site.siteMetadata.keywords}
+      />
+      <div className='mf-content lab-item'>
+
+        <article>
+          <Link to='/lab' className='back'>&laquo; Back</Link>
+
+          <h1>Geolocation</h1>
+
+          <p>Latitude: {latitude}</p>
+          <p>Longtitude: {longitude}</p>
+          <p>Accuracy: {accuracy}</p>
+          <p>Altitude: {altitude}</p>
+          <p>Altitude Accuracy: {altitudeAccuracy}</p>
+          <p>Heading: {heading}</p>
+          <p>Speed: {speed}</p>
+
+          <p id='error'>{error}</p>
+        </article>
+      </div>
+    </Layout>
+  )
 }
 
+export default HTML5Geolocation
 export const query = graphql`
 query {
   site {

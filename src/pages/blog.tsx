@@ -5,15 +5,17 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import './blog.scss'
 import { IS_PROD } from '../config'
+import { GatsbyDataProps } from '../utils/interface'
 
-export default ({ data }) => {
+export default (props: GatsbyDataProps) => {
+  const { data } = props
   let blogs = data.allMarkdownRemark.edges.filter(({ node }) => node.fields.type === 'blog')
 
   if (IS_PROD) {
     blogs = blogs.filter(({ node }) => !node.frontmatter.draft)
   }
 
-  blogs = blogs.sort((x, y) => new Date(y.node.fields.date) - new Date(x.node.fields.date))
+  blogs = blogs.sort((x, y) => new Date(y.node.fields.date).getTime() - new Date(x.node.fields.date).getTime())
 
   return (
     <Layout>
@@ -38,9 +40,9 @@ export default ({ data }) => {
                   <p className='desc'>{node.frontmatter.description}</p>
                   <footer className='blog__footer'>
                     <p className='date'>
-                      <time dateTime='{node.fields.date}'>{date}</time>
+                      <time dateTime='{blog.node.fields.date}'>{date}</time>
                     </p>
-                    {/* <p className='tags'>Tags: {node.frontmatter.tags.join(', ')}</p> */}
+                    {/* <p className='tags'>Tags: {blog.node.frontmatter.tags.join(', ')}</p> */}
                   </footer>
                 </div>
               </Link>

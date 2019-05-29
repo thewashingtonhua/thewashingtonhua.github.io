@@ -1,37 +1,8 @@
 {
   "presets": [
-    [
-      "@babel/preset-env",
-      {
-        "loose": true,
-        "modules": false,
-        "useBuiltIns": "usage",
-        "corejs": "2.6.8",
-        "shippedProposals": true
-      }
-    ],
-    [
-      "@babel/preset-react",
-      {
-        "useBuiltIns": "usage",
-        "pragma": "React.createElement",
-      }
-    ]
+    "react-app"
   ],
   "plugins": [
-    [
-      "@babel/plugin-proposal-class-properties",
-      {
-        "loose": true
-      }
-    ],
-    "@babel/plugin-syntax-dynamic-import",
-    [
-      "@babel/plugin-transform-runtime",
-      {
-        "helpers": true,
-        "regenerator": true
-      }
-    ]
+    "@babel/plugin-proposal-export-default-from"
   ]
 }

@@ -4,18 +4,18 @@ import dayjs from 'dayjs'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import './index.scss'
+import { GatsbyDataProps } from '../utils/interface'
 
-export default ({ data }) => {
-  const nodes = data.allMarkdownRemark.edges
+export default (props: GatsbyDataProps) => {
+  const { data } = props
+  const nodes = data.allMarkdownRemark.edges.map(n => n.node)
 
   const latestBlog = nodes
-    .filter(({ node }) => node.fields.type === 'blog')
-    .filter(({ node }) => !node.frontmatter.draft)
-    .sort((x, y) => new Date(y.node.fields.date) - new Date(x.node.fields.date))[0].node
+    .filter(node => node.fields.type === 'blog' && !node.frontmatter.draft)
+    .sort((x, y) => new Date(y.fields.date).getTime() - new Date(x.fields.date).getTime())[0]
   const latestProjects = nodes
-    .filter(({ node }) => node.fields.type === 'project')
-    .sort((x, y) => new Date(y.node.frontmatter.from) - new Date(x.node.frontmatter.from)).slice(0, 2)
-    .map(n => n.node)
+    .filter(node => node.fields.type === 'project')
+    .sort((x, y) => new Date(y.frontmatter.from).getTime() - new Date(x.frontmatter.from).getTime()).slice(0, 2)
 
   const blogCover = latestBlog.frontmatter.cover
     ? latestBlog.frontmatter.cover.publicURL
@@ -57,7 +57,7 @@ export default ({ data }) => {
           <Link to='/project' className='more'>查看全部 &raquo;</Link>
         </header>
         <div className='channel-body projects'>
-          { latestProjects.map(p => {
+          { latestProjects.map((p: any) => {
             const cover = p.frontmatter.cover
               ? p.frontmatter.cover.publicURL
               : ''

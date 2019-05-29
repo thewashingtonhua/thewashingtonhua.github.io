@@ -13,7 +13,7 @@ const code = `\(function whatJustHappened \(\) \{
 \}\)\(\)
 `
 
-export default () => (
+const PageNotFound = () => (
   <Layout>
     <SEO title='404' />
     <div className='mf-content' id='page-not-found'>
@@ -27,3 +27,5 @@ export default () => (
     </div>
   </Layout>
 )
+
+export default PageNotFound

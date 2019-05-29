@@ -1,57 +1,53 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent, useEffect, useState } from 'react'
 import { Link, graphql } from 'gatsby'
 import Layout from '../../components/layout'
 import SEO from '../../components/seo'
 import './lab.scss'
 import './html5-online.scss'
+import { GatsbyDataProps } from '../../utils/interface'
 
-export default class HTML5Online extends PureComponent {
-  state = {
-    status: ''
-  }
+const HTML5Online = (props: GatsbyDataProps) => {
+  const [status, setStatue] = useState('')
 
-  updateStatus = e => {
+  const updateStatus = (e: Event) => {
     const status = navigator.onLine ? 'online' : 'offline'
     this.setState({ status })
   }
 
-  render () {
-    const { status } = this.state
+  useEffect(() => {
+    updateStatus()
 
-    return (
-      <Layout>
-        <SEO
-          title='Input Type | 实验室'
-          keywords={this.props.data.site.siteMetadata.keywords}
-        />
-        <div className='mf-content lab-item' id='lab-html5-online'>
+    window.addEventListener('online', updateStatus)
+    window.addEventListener('offline', updateStatus)
 
-          <article>
-            <Link to='/lab' className='back'>&laquo; Back</Link>
+    return () => {
+      window.removeEventListener('online', updateStatus)
+      window.removeEventListener('offline', updateStatus)
+    }
+  }, [])
 
-            <h1>Online</h1>
+  return (
+    <Layout>
+      <SEO
+        title='Input Type | 实验室'
+        keywords={this.props.data.site.siteMetadata.keywords}
+      />
+      <div className='mf-content lab-item' id='lab-html5-online'>
 
-            <p>Status: <span id='status' className={status}>{status}</span></p>
-          </article>
+        <article>
+          <Link to='/lab' className='back'>&laquo; Back</Link>
 
-        </div>
-      </Layout>
-    )
-  }
+          <h1>Online</h1>
 
-  componentDidMount () {
-    this.updateStatus()
+          <p>Status: <span id='status' className={status}>{status}</span></p>
+        </article>
 
-    window.addEventListener('online', this.updateStatus)
-    window.addEventListener('offline', this.updateStatus)
-  }
-
-  componentWillUnmount () {
-    window.removeEventListener('online', this.updateStatus)
-    window.removeEventListener('offline', this.updateStatus)
-  }
+      </div>
+    </Layout>
+  )
 }
 
+export default HTML5Online
 export const query = graphql`
 query {
   site {

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, graphql } from 'gatsby'
 import dayjs from 'dayjs'
 import Layout from '../components/layout'
@@ -7,8 +7,15 @@ import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 import '../styles/prism-styles.scss'
 import './blog-post.scss'
 
-export default ({ data }) => {
+interface Props {
+  data: any
+}
+
+export default (props: Props) => {
+  const { data } = props
   const post = data.markdownRemark
+
+  const [wechatMode, setWechatMode] = useState()
 
   if (!post) {
     return null
