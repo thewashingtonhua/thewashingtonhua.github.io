@@ -16,10 +16,15 @@ export default (props: GatsbyDataProps) => {
   const commercialProjects = projects.filter(node => node.frontmatter.category === 'commercial')
   const personalProjects = projects.filter(node => node.frontmatter.category === 'personal')
 
-  const items = [
-    { title: '商业作品', data: commercialProjects },
-    { title: '个人作品', data: personalProjects }
-  ]
+  const visibleProjects = []
+  if (commercialProjects.length) {
+    visibleProjects.push({ title: '商业作品', data: commercialProjects })
+  }
+  if (personalProjects.length) {
+    visibleProjects.push({ title: '个人作品', data: personalProjects })
+  }
+
+  const totalCount = visibleProjects.map(n => n.data.length).reduce((x, y) => x + y, 0)
 
   return (
     <Layout>
@@ -28,8 +33,8 @@ export default (props: GatsbyDataProps) => {
         keywords={data.site.siteMetadata.keywords}
       />
       <div className='mf-content project-catalog'>
-        <h1 className='title'>代表作 ({projects.length})</h1>
-        { items.map(item =>
+        <h1 className='title'>代表作 ({totalCount})</h1>
+        { visibleProjects.map(item =>
           <Fragment key={item.title}>
             <h2 className='project-category-title'>{item.title} ({item.data.length})</h2>
             <div className='project-list'>
