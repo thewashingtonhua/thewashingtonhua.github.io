@@ -1,4 +1,4 @@
-import React, { PureComponent, useEffect } from 'react'
+import React, { PureComponent, useEffect, useRef } from 'react'
 import { Link, graphql } from 'gatsby'
 import Layout from '../../components/layout'
 import SEO from '../../components/seo'
