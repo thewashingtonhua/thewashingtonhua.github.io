@@ -33,9 +33,9 @@ const About = (props: GatsbyDataProps) => {
 
   useEffect(() => {
     updateExperience()
-    useInterval(updateExperience, 1000)
   }, [])
 
+  useInterval(updateExperience, 1000)
 
   return (
     <Layout>

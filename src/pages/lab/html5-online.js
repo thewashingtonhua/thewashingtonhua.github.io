@@ -30,7 +30,7 @@ const HTML5Online = (props: GatsbyDataProps) => {
     <Layout>
       <SEO
         title='Input Type | 实验室'
-        keywords={this.props.data.site.siteMetadata.keywords}
+        keywords={props.data.site.siteMetadata.keywords}
       />
       <div className='mf-content lab-item' id='lab-html5-online'>
 
