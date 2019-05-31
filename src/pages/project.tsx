@@ -13,15 +13,15 @@ export default (props: GatsbyDataProps) => {
     .filter(node => node.fields.type === 'project' && (!IS_PROD || !node.frontmatter.draft))
     .sort((x, y) => new Date(y.frontmatter.from).getTime() - new Date(x.frontmatter.from).getTime())
 
-  const commercialProjects = projects.filter(node => node.frontmatter.category === 'commercial')
   const personalProjects = projects.filter(node => node.frontmatter.category === 'personal')
+  const commercialProjects = projects.filter(node => node.frontmatter.category === 'commercial')
 
   const visibleProjects = []
-  if (commercialProjects.length) {
-    visibleProjects.push({ title: '商业作品', data: commercialProjects })
-  }
   if (personalProjects.length) {
     visibleProjects.push({ title: '个人作品', data: personalProjects })
+  }
+  if (commercialProjects.length) {
+    visibleProjects.push({ title: '商业作品', data: commercialProjects })
   }
 
   const totalCount = visibleProjects.map(n => n.data.length).reduce((x, y) => x + y, 0)
