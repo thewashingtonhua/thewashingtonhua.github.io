@@ -13,13 +13,11 @@ const BottomLine = (props: { text: string }) => (
 
 export default (props: GatsbyDataProps) => {
   const { data } = props
-  let blogs = data.allMarkdownRemark.edges.filter(({ node }) => node.fields.type === 'blog')
-
-  if (IS_PROD) {
-    blogs = blogs.filter(({ node }) => !node.frontmatter.draft)
-  }
-
-  blogs = blogs.sort((x, y) => new Date(y.node.fields.date).getTime() - new Date(x.node.fields.date).getTime())
+  const nodes = data.allMarkdownRemark.edges.map(n => n.node)
+  const blogs = nodes
+    .filter(node => node.fields.type === 'blog')
+    .filter(node => !IS_PROD || !node.frontmatter.draft)
+    .sort((x, y) => new Date(y.fields.date).getTime() - new Date(x.fields.date).getTime())
 
   return (
     <Layout>
@@ -29,7 +27,7 @@ export default (props: GatsbyDataProps) => {
       />
       <div className='mf-content blog-catalog'>
         <div className='blog-list'>
-          { blogs.map(({ node }) => {
+          { blogs.map(node => {
             const cover = node.frontmatter.cover
               ? node.frontmatter.cover.publicURL
               : ''
