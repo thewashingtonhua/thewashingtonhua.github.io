@@ -7,11 +7,11 @@ import './html5-online.scss'
 import { GatsbyDataProps } from '../../utils/interface'
 
 const HTML5Online = (props: GatsbyDataProps) => {
-  const [status, setStatue] = useState('')
+  const [status, setStatus] = useState('')
 
   const updateStatus = (e: Event) => {
     const status = navigator.onLine ? 'online' : 'offline'
-    this.setState({ status })
+    setStatus(status)
   }
 
   useEffect(() => {

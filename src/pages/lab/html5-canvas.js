@@ -9,9 +9,9 @@ const HTML5Canvas = (props: GatsbyDataProps) => {
   const canvas = useRef()
 
   useEffect(() => {
-    const canvas = this.canvas.current
-    if (canvas.getContext) {
-      const ctx = canvas.getContext('2d')
+    const _canvas = canvas.current
+    if (_canvas.getContext) {
+      const ctx = _canvas.getContext('2d')
       ctx.fillStyle = '#999'
       ctx.font='18px Arial';
       ctx.fillText('This browser supports canvas.', 25, 100);
