@@ -324,7 +324,7 @@ const BrowserUA = (props: GatsbyDataProps) => {
 
     if (isAndroid) {
       _os = 'Android'
-      const androidVersion = ua.match(/android\s\d+(.\d+)+/)[0].substr(8)
+      const androidVersion = ua.match(/android\s[\.\d]+/)[0].substr(8)
       if (androidVersion) {
         _os = _os + ' ' + androidVersion
       }
@@ -406,10 +406,14 @@ const BrowserUA = (props: GatsbyDataProps) => {
     if (window.navigator) {
       const { userAgent: _ua, platform: _platform } = window.navigator
 
-      setBrowser(getBrowser(_ua.toLowerCase()))
-      setOS(getOS(_ua.toLowerCase(), _platform))
-      setUA(_ua)
-      setPlatform(_platform)
+      try {
+        setBrowser(getBrowser(_ua.toLowerCase()))
+        setOS(getOS(_ua.toLowerCase(), _platform))
+        setUA(_ua)
+        setPlatform(_platform)
+      } catch (e) {
+        console.error(`Caught Error`, e)
+      }
     } else {
       setError('Browser info not detected.')
     }
