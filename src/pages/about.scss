@@ -12,7 +12,7 @@
       font-weight: 700;
       line-height: 1.5;
       margin-top: 1.5em;
-      margin-bottom: .5em;
+      margin-bottom: 0.5em;
       transition: margin-top .3s ease-out, font-size .3s ease-out;
 
       @media (max-width: $break-point-tablet) {
@@ -32,7 +32,7 @@
       color: $theme-color-text;
       line-height: 1.75;
       margin-top: 0;
-      margin-bottom: .75em;
+      margin-bottom: 0.75em;
       transition: font-size .3s ease-out;
 
       @media (max-width: $break-point-mobile) {
@@ -42,7 +42,7 @@
 
     ul {
       padding-left: 20px;
-      margin-bottom: .75em;
+      margin-bottom: 0.75em;
 
       li {
         list-style: circle;

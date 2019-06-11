@@ -14,7 +14,11 @@
   article {
     padding: 10px 15px 20px;
 
-    h1, h2, h3, h4, h5 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
       color: $theme-color-primary;
       font-weight: 700;
       line-height: 1.5;
@@ -34,7 +38,7 @@
     h2 {
       font-size: 28px;
       margin-top: 1.5em;
-      margin-bottom: .8em;
+      margin-bottom: 0.8em;
 
       @media (max-width: $break-point-mobile) {
         font-size: 24px;
@@ -44,7 +48,7 @@
     h3 {
       font-size: 24px;
       margin-top: 1.5em;
-      margin-bottom: .5em;
+      margin-bottom: 0.5em;
 
       @media (max-width: $break-point-mobile) {
         font-size: 20px;
@@ -54,7 +58,7 @@
     h4 {
       font-size: 20px;
       margin-top: 1.5em;
-      margin-bottom: .5em;
+      margin-bottom: 0.5em;
 
       @media (max-width: $break-point-mobile) {
         font-size: 18px;
@@ -64,7 +68,7 @@
     h5 {
       font-size: 18px;
       margin-top: 1.5em;
-      margin-bottom: .5em;
+      margin-bottom: 0.5em;
 
       @media (max-width: $break-point-mobile) {
         font-size: 16px;
@@ -86,7 +90,6 @@
     a {
       color: $theme-color-primary;
       text-decoration: none;
-      font-weight: 700;
       font-size: 16px;
       font-weight: 300;
 
@@ -110,7 +113,19 @@
       }
     }
 
-    h1, h2, h3, h4, h5, h5, p, a, li, span, img, th, td {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h5,
+    p,
+    a,
+    li,
+    span,
+    img,
+    th,
+    td {
       &::selection {
         background-color: $theme-color-primary;
         color: $theme-color-bg;
