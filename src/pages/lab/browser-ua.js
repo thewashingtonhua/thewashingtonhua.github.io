@@ -15,26 +15,26 @@ const BrowserUA = (props: GatsbyDataProps) => {
 
   // 获取浏览器信息（主流）
   const getBrowser = ua => {
-    let browser = 'Unknown'
+    let _browser = 'Unknown'
     let browserVersion = ''
 
     if (ua.indexOf('edge') > -1) {                // Edge / 12+
       browserVersion = ua.match(/edge\/\d+(.\d+)+/)[0].substr(5)
-      browser = 'Microsoft Edge ' + browserVersion
+      _browser = 'Microsoft Edge ' + browserVersion
     } else if (ua.indexOf('edgios') > -1) {       // Edge for iOS
       const edgeVersion = ua.match(/edgios\/\d+(.\d+)+/)[0].substr(7)
-      browser = 'Edge for iOS ' + edgeVersion
+      _browser = 'Edge for iOS ' + edgeVersion
     } else if (ua.indexOf('msie') > -1) {         // IE <= 10
       browserVersion = ua.match(/msie\s\d+/)[0].substr(5)
-      browser = 'IE ' + browserVersion
+      _browser = 'IE ' + browserVersion
     } else if (ua.indexOf('trident') > -1) {      // IE 11  only have 'Trident', IE 8,9,10   have both 'MSIE' & 'Trident', IE 6,7 only have 'MSIE'
-      browser = 'IE 11'
+      _browser = 'IE 11'
     } else if (ua.indexOf('firefox') > -1) {      // Firefox
       browserVersion = ua.match(/firefox\/\d+(.\d+)+/)[0].substr(8)
       if (ua.indexOf('mobile') > -1) {
         browserVersion += ' (mobile)'
       }
-      browser = 'Firefox ' + browserVersion
+      _browser = 'Firefox ' + browserVersion
     } else if (ua.indexOf('opera') > -1) {        // Opera 9.8-
       browserVersion = ua.match(/opera\/\d+(.\d+)+/)[0].substr(6)
       if (Number(browserVersion) >= 9.8) {        // Opera 10+
@@ -43,7 +43,7 @@ const BrowserUA = (props: GatsbyDataProps) => {
       if (ua.indexOf('mini') > -1) {              // Opera mini
         browserVersion = 'mini ' + ua.match(/mini\/\d+(.\d+)+/)[0].substr(5)
       }
-      browser = 'Opera ' + browserVersion
+      _browser = 'Opera ' + browserVersion
     } else if (ua.indexOf('opr') > -1) {          // Opera with webkit/blink
       browserVersion = ua.match(/opr\/\d+(.\d+)+/)[0].substr(4)
       if (ua.indexOf('dev') > -1) {               // Opera dev edition
@@ -54,30 +54,30 @@ const BrowserUA = (props: GatsbyDataProps) => {
       if (ua.indexOf('mobile') > -1) {
         browserVersion += ' (mobile)'             // Opera Mobile
       }
-      browser = 'Opera ' + browserVersion
+      _browser = 'Opera ' + browserVersion
     } else if (ua.indexOf('chrome') > -1) {       // Chrome
       browserVersion = ua.match(/chrome\/\d+(.\d+)+/)[0].substr(7)
       if (ua.indexOf('mobile') > -1) {
         browserVersion += ' (mobile)'             // Chrome Mobile
       }
-      browser = 'Chrome ' + browserVersion
+      _browser = 'Chrome ' + browserVersion
     } else if (ua.indexOf('safari') > -1) {       // Safari
       if ((ua.indexOf('blackberry') > -1) || (ua.indexOf('bb10') > -1) || (ua.indexOf('playbook') > -1)) {
         const webkitVersion = ua.match(/webkit\/\d+(.\d+)+/)[0].substr(7)
-        browser = 'BlackBerry built-in / Webkit ' + webkitVersion
+        _browser = 'BlackBerry built-in / Webkit ' + webkitVersion
       } else {
         browserVersion = ua.match(/safari\/\d+(.\d+)+/)[0].substr(7)
-        browser = 'Safari ' + browserVersion
+        _browser = 'Safari ' + browserVersion
       }
     }
 
-    browser = this.otherBrowserCheck(userAgent)
-    return browser
+    _browser = otherBrowserCheck(ua, _browser)
+
+    return _browser
   }
 
   // 获取国产浏览器信息
-  const otherBrowserCheck = ua => {
-    let browser = 'Unknown'
+  const otherBrowserCheck = (ua, _browser) => {
     let browserVersion = ''
     let webkitVersion = ''
     let chromeVersion = ''
@@ -89,27 +89,27 @@ const BrowserUA = (props: GatsbyDataProps) => {
         browserVersion += '(mobile)'
       }
       chromeVersion = ua.match(/chrome\/\d+(.\d+)+/)[0].substr(7)
-      browser = 'QQ Browser ' + browserVersion + ' / Chrome ' + chromeVersion
+      _browser = 'QQ Browser ' + browserVersion + ' / Chrome ' + chromeVersion
     }
 
     // WeiXin
     if (ua.indexOf('micromessenger') > -1) {
       const weixinVersion = ua.match(/micromessenger\/\d+(.\d+)+/)[0].substr(15)
       webkitVersion = ua.match(/webkit\/\d+(.\d+)+/)[0].substr(7)
-      browser = 'WeiXin ' + weixinVersion + ' / wekit ' + webkitVersion
+      _browser = 'WeiXin ' + weixinVersion + ' / wekit ' + webkitVersion
     }
 
     // QQ
     if (ua.indexOf('qq/') > -1) {
       const qqVersion = ua.match(/qq\/\d+(.\d+)+/)[0].substr(3)
       webkitVersion = ua.match(/webkit\/\d+(.\d+)+/)[0].substr(7)
-      browser = 'QQ ' + qqVersion + ' / wekit ' + webkitVersion
+      _browser = 'QQ ' + qqVersion + ' / wekit ' + webkitVersion
     }
 
     // XiaoMi MIUI Browser
     if (ua.indexOf('miui') > -1) {
       chromeVersion = ua.match(/chrome\/\d+(.\d+)+/)[0].substr(7)
-      browser = 'XiaoMi MIUI Browser ' + browserVersion + ' / Chrome ' + chromeVersion
+      _browser = 'XiaoMi MIUI Browser ' + browserVersion + ' / Chrome ' + chromeVersion
     }
 
     // UC
@@ -122,19 +122,19 @@ const BrowserUA = (props: GatsbyDataProps) => {
         if (match) {
           uVersion = match[0].substr(1).replace('/', ' ')
         }
-        browser = 'UC Browser ' + browserVersion + ' / U' + uVersion
+        _browser = 'UC Browser ' + browserVersion + ' / U' + uVersion
       } else {
         if (ua.indexOf('chrome') > -1) {
           chromeVersion = ua.match(/chrome\/\d+(.\d+)+/)[0].substr(7)
-          browser = 'UC Browser ' + browserVersion + ' / Chrome ' + chromeVersion
+          _browser = 'UC Browser ' + browserVersion + ' / Chrome ' + chromeVersion
         } else if (ua.indexOf('edge') > -1) {
           const edgeVersion = ua.match(/edge\/\d+(.\d+)+/)[0].substr(5)
-          browser = 'UC Browser ' + browserVersion + ' / edge ' + edgeVersion
+          _browser = 'UC Browser ' + browserVersion + ' / edge ' + edgeVersion
         } else if (ua.indexOf('msie') > -1) {
           const ieVersion = ua.match(/msie\s\d+/)[0].substr(5)
-          browser = 'UC Browser ' + browserVersion + ' / IE ' + ieVersion
+          _browser = 'UC Browser ' + browserVersion + ' / IE ' + ieVersion
         } else if (ua.indexOf('trident') > -1) {
-          browser = 'UC Browser ' + browserVersion + ' / IE 11'
+          _browser = 'UC Browser ' + browserVersion + ' / IE 11'
         }
       }
     }
@@ -145,19 +145,19 @@ const BrowserUA = (props: GatsbyDataProps) => {
         browserVersion = ua.match(/browser\/\d+(.\d+)+/)[0].substr(8)
         browserVersion += ' (mobile)'
         webkitVersion = ua.match(/webkit\/\d+(.\d+)+/)[0].substr(7)
-        browser = 'Sogou Browser ' + browserVersion + ' / Webkit ' + webkitVersion
+        _browser = 'Sogou Browser ' + browserVersion + ' / Webkit ' + webkitVersion
       } else {
         if (ua.indexOf('chrome') > -1) {
           chromeVersion = ua.match(/chrome\/\d+(.\d+)+/)[0].substr(7)
-          browser = 'Sogou Browser / Chrome ' + chromeVersion
+          _browser = 'Sogou Browser / Chrome ' + chromeVersion
         } else if (ua.indexOf('edge') > -1) {
           const edgeVersion = ua.match(/edge\/\d+(.\d+)+/)[0].substr(5)
-          browser = 'Sogou Browser / edge ' + edgeVersion
+          _browser = 'Sogou Browser / edge ' + edgeVersion
         } else if (ua.indexOf('msie') > -1) {
           const ieVersion = ua.match(/msie\s\d+/)[0].substr(5)
-          browser = 'Sogou Browser / IE ' + ieVersion
+          _browser = 'Sogou Browser / IE ' + ieVersion
         } else if (ua.indexOf('trident') > -1) {
-          browser = 'Sogou Browser / IE 11'
+          _browser = 'Sogou Browser / IE 11'
         }
       }
     }
@@ -169,13 +169,13 @@ const BrowserUA = (props: GatsbyDataProps) => {
         browserVersion += ' (mobile)'
       }
       chromeVersion = ua.match(/chrome\/\d+(.\d+)+/)[0].substr(7)
-      browser = '360 Browser ' + browserVersion + ' / Chrome ' + chromeVersion
+      _browser = '360 Browser ' + browserVersion + ' / Chrome ' + chromeVersion
     }
 
     // liebao
     if (ua.indexOf('lbbrowser') > -1) {
       chromeVersion = ua.match(/chrome\/\d+(.\d+)+/)[0].substr(7)
-      browser = 'LieBao Browser / Chrome ' + chromeVersion
+      _browser = 'LieBao Browser / Chrome ' + chromeVersion
     }
 
     // liebao mobile
@@ -185,7 +185,7 @@ const BrowserUA = (props: GatsbyDataProps) => {
         browserVersion += ' (mobile)'
       }
       chromeVersion = ua.match(/chrome\/\d+(.\d+)+/)[0].substr(7)
-      browser = 'LieBao Fast Browser ' + browserVersion + ' / Chrome ' + chromeVersion
+      _browser = 'LieBao Fast Browser ' + browserVersion + ' / Chrome ' + chromeVersion
     }
 
     // baidu
@@ -193,18 +193,18 @@ const BrowserUA = (props: GatsbyDataProps) => {
       if (ua.indexOf('chrome') > -1) {
         browserVersion = ua.match(/browser\/\d+(.\d+)+/)[0].substr(8)
         chromeVersion = ua.match(/chrome\/\d+(.\d+)+/)[0].substr(7)
-        browser = 'Baidu Browser ' + browserVersion + ' / Chrome ' + chromeVersion
+        _browser = 'Baidu Browser ' + browserVersion + ' / Chrome ' + chromeVersion
       } else if (ua.indexOf('edge') > -1) {
         browserVersion = ua.match(/browser\s\d+(.\d+)+/)[0].substr(8)
         const edgeVersion = ua.match(/edge\/\d+(.\d+)+/)[0].substr(5)
-        browser = 'Baidu Browser ' + browserVersion + ' / edge ' + edgeVersion
+        _browser = 'Baidu Browser ' + browserVersion + ' / edge ' + edgeVersion
       } else if (ua.indexOf('msie') > -1) {
         browserVersion = ua.match(/browser\s\d+(.\d+)+/)[0].substr(8)
         const ieVersion = ua.match(/msie\s\d+/)[0].substr(5)
-        browser = 'Baidu Browser ' + browserVersion + ' / IE ' + ieVersion
+        _browser = 'Baidu Browser ' + browserVersion + ' / IE ' + ieVersion
       } else if (ua.indexOf('trident') > -1) {
         browserVersion = ua.match(/browser\s\d+(.\d+)+/)[0].substr(8)
-        browser = 'Baidu Browser ' + browserVersion + ' / IE 11'
+        _browser = 'Baidu Browser ' + browserVersion + ' / IE 11'
       }
     }
 
@@ -215,7 +215,7 @@ const BrowserUA = (props: GatsbyDataProps) => {
         browserVersion += ' (mobile)'
       }
       chromeVersion = ua.match(/chrome\/\d+(.\d+)+/)[0].substr(7)
-      browser = 'Baidu Browser ' + browserVersion + ' / Chrome ' + chromeVersion
+      _browser = 'Baidu Browser ' + browserVersion + ' / Chrome ' + chromeVersion
     }
 
     // maxthon
@@ -225,7 +225,7 @@ const BrowserUA = (props: GatsbyDataProps) => {
         browserVersion += ' (mobile)'
       }
       chromeVersion = ua.match(/chrome\/\d+(.\d+)+/)[0].substr(7)
-      browser = 'Maxthon ' + browserVersion + ' / Chrome ' + chromeVersion
+      _browser = 'Maxthon ' + browserVersion + ' / Chrome ' + chromeVersion
     }
 
     // maxthon mobile
@@ -235,14 +235,14 @@ const BrowserUA = (props: GatsbyDataProps) => {
         browserVersion += ' (mobile)'
       }
       chromeVersion = ua.match(/chrome\/\d+(.\d+)+/)[0].substr(7)
-      browser = 'Maxthon ' + browserVersion + ' / Chrome ' + chromeVersion
+      _browser = 'Maxthon ' + browserVersion + ' / Chrome ' + chromeVersion
     }
 
     // Dolphin
     if (ua.indexOf('dolphin') > -1) {
       browserVersion = ua.match(/dolphinbrowsercn\/\d+(.\d+)+/)[0].substr(17)
       chromeVersion = ua.match(/chrome\/\d+(.\d+)+/)[0].substr(7)
-      browser = 'Dolphin Browser ' + browserVersion + ' / Chrome ' + chromeVersion
+      _browser = 'Dolphin Browser ' + browserVersion + ' / Chrome ' + chromeVersion
     }
 
     // The World
@@ -252,14 +252,14 @@ const BrowserUA = (props: GatsbyDataProps) => {
         browserVersion += ' (mobile)'
       }
       chromeVersion = ua.match(/webkit\/\d+(.\d+)+/)[0].substr(7)
-      browser = 'The World ' + browserVersion + ' / wekit ' + chromeVersion
+      _browser = 'The World ' + browserVersion + ' / wekit ' + chromeVersion
     }
 
-    return browser
+    return _browser
   }
 
   const getOS = (ua, platform) => {
-    let os = 'Unknown OS'
+    let _os = 'Unknown OS'
 
     const isWin = (platform === 'Win32') || (platform === 'Windows')
     const isMac = (platform === 'Mac68K') || (platform === 'MacPPC') || (platform === 'Macintosh') || (platform === 'MacIntel')
@@ -278,57 +278,57 @@ const BrowserUA = (props: GatsbyDataProps) => {
     const isSymbian = ua.indexOf('symbian') > -1
 
     if (isMac) {
-      os = 'Mac'
+      _os = 'Mac'
       const macVersionStr = ua.match(/mac\sos\sx\s[0-9]{1,2}(_[0-9]{1,2})+/)
       if (macVersionStr && macVersionStr.length) {
         const macVersion = macVersionStr[0].replace(/mac\sos\sx\s/, '').replace(/_/g, '.')
-        os = os + ' ' + macVersion
+        _os = _os + ' ' + macVersion
       }
-      return os
+      return _os
     }
 
     if (isUnix) {
-      os = 'Unix'
-      return os
+      _os = 'Unix'
+      return _os
     }
 
     if (isLinux && !isAndroid) {
-      os = 'Linux'
+      _os = 'Linux'
       if (ua.indexOf('kf') > -1) {
-        os += '/Amazon Kindle'
+        _os += '/Amazon Kindle'
       }
-      return os
+      return _os
     }
 
     if (isWin) {
-      os = 'Windows'
+      _os = 'Windows'
       if (ua.indexOf('windows nt 5.0') > -1 || ua.indexOf('windows 2000') > -1) {
-        os = 'Windows 2000'
+        _os = 'Windows 2000'
       } else if (ua.indexOf('windows nt 5.1') > -1 || ua.indexOf('windows xp') > -1) {
-        os = 'Windows XP'
+        _os = 'Windows XP'
       } else if (ua.indexOf('windows nt 5.2') > -1 || ua.indexOf('windows 2003') > -1) {
-        os = 'Windows 2003'
+        _os = 'Windows 2003'
       } else if (ua.indexOf('windows nt 6.0') > -1 || ua.indexOf('windows Vista') > -1) {
-        os = 'Windows Vista'
+        _os = 'Windows Vista'
       } else if (ua.indexOf('windows nt 6.1') > -1 || ua.indexOf('windows 7') > -1) {
-        os = 'Windows 7'
+        _os = 'Windows 7'
       } else if (ua.indexOf('windows nt 6.2') > -1 || ua.indexOf('Windows 8') > -1) {
-        os = 'Windows 8'
+        _os = 'Windows 8'
       } else if (ua.indexOf('windows nt 6.3') > -1 || ua.indexOf('windows 8.1') > -1) {
-        os = 'Windows 8.1'
+        _os = 'Windows 8.1'
       } else if (ua.indexOf('windows nt 6.4') > -1 || ua.indexOf('windows nt 10.0') > -1 || ua.indexOf('windows 10') > -1) {
-        os = 'Windows 10'
+        _os = 'Windows 10'
       }
-      return os
+      return _os
     }
 
     if (isAndroid) {
-      os = 'Android'
-      const androidVersion = ua.match(/android\s\d+(.\d+)+/)[0].substr(8)
+      _os = 'Android'
+      const androidVersion = ua.match(/android\s[\.\d]+/)[0].substr(8)
       if (androidVersion) {
-        os = os + ' ' + androidVersion
+        _os = _os + ' ' + androidVersion
       }
-      return os
+      return _os
     }
 
     if (isIOS) {
@@ -339,77 +339,81 @@ const BrowserUA = (props: GatsbyDataProps) => {
         if (str[0].length) {
           iosVersion = str[0].substr(14).replace(/_/g, '.')
         }
-        os = 'iOS ' + iosVersion + ' / iPhone'
+        _os = 'iOS ' + iosVersion + ' / iPhone'
       } else if (isIPad) {
         const reg = /cpu\sos\s\d+(_\d+)+/
         const str = ua.match(reg)
         if (str[0].length) {
           iosVersion = str[0].substr(6).replace(/_/g, '.')
         }
-        os = 'iOS ' + iosVersion + ' / iPad'
+        _os = 'iOS ' + iosVersion + ' / iPad'
       } else if (isIPod) {
         const reg = /cpu\siphone\sos\s\d+(_\d+)+/
         const str = ua.match(reg)
         if (str[0].length) {
           iosVersion = str[0].substr(6).replace(/_/g, '.')
         }
-        os = 'iOS ' + iosVersion + ' / iPod'
+        _os = 'iOS ' + iosVersion + ' / iPod'
       } else {
-        os = 'iOS'
+        _os = 'iOS'
       }
-      return os
+      return _os
     }
 
     if (isWinPhone) {
       const reg = /\d+(.\d)+/
       const str = ua.substr(ua.indexOf('windows phone') + 14, 7)
       const winPhoneVersion = reg.exec(str)[0]
-      os = 'Windows Phone ' + winPhoneVersion
-      return os
+      _os = 'Windows Phone ' + winPhoneVersion
+      return _os
     }
 
     if (isSymbian) {
       const series = ua.match(/series\d+/)[0].toString().substr(6)
-      os = 'Symbian S' + series
-      return os
+      _os = 'Symbian S' + series
+      return _os
     }
 
     if (isBlackBerry) {
-      os = 'BlackBerry'
+      _os = 'BlackBerry'
       if (ua.indexOf('playbook') > -1) {
-        os += ' / PlayBook'
+        _os += ' / PlayBook'
       } else if (ua.indexOf('bb10') > -1) {
-        os += ' / BB10'
+        _os += ' / BB10'
       }
-      return os
+      return _os
     }
 
     if (isXBox) {
-      os = 'XBox'
+      _os = 'XBox'
       if (ua.indexOf('xbox one') > -1) {
-        os += ' One'
+        _os += ' One'
       } else {
-        os += ' 360'
+        _os += ' 360'
       }
-      return os
+      return _os
     }
 
     if (isMeeGo) {
-      os = 'MeeGo'
-      return os
+      _os = 'MeeGo'
+      return _os
     }
 
-    return os
+    return _os
   }
 
   useEffect(() => {
     if (window.navigator) {
-      const { userAgent: _ua, platform: __platform } = window.navigator
+      const { userAgent: _ua, platform: _platform } = window.navigator
 
-      setBrowser(this.getBrowser(_ua.toLowerCase()))
-      setOS(this.getOS(_ua.toLowerCase(), _platform))
-      setUA(_ua)
-      setPlatform(_platform)
+      try {
+        setBrowser(getBrowser(_ua.toLowerCase()))
+        setOS(getOS(_ua.toLowerCase(), _platform))
+        setUA(_ua)
+        setPlatform(_platform)
+      } catch (e) {
+        console.error(`Caught Error`, e)
+      }
     } else {
       setError('Browser info not detected.')
     }

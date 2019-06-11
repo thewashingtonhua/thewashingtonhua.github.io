@@ -46,6 +46,8 @@ const labs = [
 export default (props: GatsbyDataProps) => {
   const { data } = props
 
+  const categories = Array.from(new Set(labs.map(n => n.category)))
+
   return (
     <Layout>
       <SEO
@@ -54,12 +56,12 @@ export default (props: GatsbyDataProps) => {
       />
       <div className='mf-content lab-catalog'>
 
-        { labs.map(lab => (
-          <Fragment key={lab.url}>
-            <h1>{lab.category}</h1>
+        { categories.map(category => (
+          <Fragment key={category}>
+            <h1>{category}</h1>
             <div className='category'>
-              { labs.filter(n => n.category === lab.category).map(n => (
-                <Link key={n.url} className='item' to={n.url}>{n.title}</Link>
+              { labs.filter(n => n.category === category).map(lab => (
+                <Link key={lab.url} className='item' to={lab.url}>{lab.title}</Link>
               )) }
             </div>
           </Fragment>

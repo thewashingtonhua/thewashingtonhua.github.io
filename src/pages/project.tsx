@@ -10,7 +10,8 @@ export default (props: GatsbyDataProps) => {
   const { data } = props
   const nodes = data.allMarkdownRemark.edges.map(n => n.node)
   const projects = nodes
-    .filter(node => node.fields.type === 'project' && (!IS_PROD || !node.frontmatter.draft))
+    .filter(node => node.fields.type === 'project')
+    .filter(node => !IS_PROD || !node.frontmatter.draft)
     .sort((x, y) => new Date(y.frontmatter.from).getTime() - new Date(x.frontmatter.from).getTime())
 
   const personalProjects = projects.filter(node => node.frontmatter.category === 'personal')

@@ -14,6 +14,10 @@ export default function HTML(props) {
           name='viewport'
           content='width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, userscalable=no, shrink-to-fit=no, viewport-fit=cover'
         />
+        {/* <script src="https://cdn.bootcss.com/vConsole/3.3.0/vconsole.min.js"></script>
+        <script>
+          var VConsole = new VConsole();
+        </script> */}
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
