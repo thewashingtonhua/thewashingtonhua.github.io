@@ -1,12 +1,18 @@
 ---
 title: 'The · Favicon : 让小妖精再也不磨人'
-description: '不是每个磨人的小妖精都讨人喜欢的'
+description: '细节成就完美'
 tags: ['favicon']
 cover: '../../images/blog/the-favicon.jpg'
 series: ''
 draft: true
 original: true
 ---
+
+最近在跟同行聊天时，聊到了「可访问性」的问题，其中有一个点就是 favicon。
+
+通常，我们对 favicon 的印象，就是那个浏览器标签上的小图标，视觉上大概是 16×16 px 的尺寸，非常的不引人瞩目，但要是去掉了好像又觉得缺点啥。
+
+## 我们到底需要多少 favicon？
 
 ```html
 <!-- For iPad with @2× display running iOS ≤ 6: -->
@@ -56,3 +62,15 @@ original: true
 <meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
 <meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
 ```
+
+上面的内容，对于觉得多数项目应该是够用了。但这并不是全部，想要更讲究一点的话，这里有几个链接：
+
+- [Apple - Configuring Web Application](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html)
+- [Google - The Web Manifest](https://developers.google.com/web/fundamentals/web-app-manifest/)
+- [Microsoft - Build a live tile](https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/samples/dn455106(v=vs.85))
+
+## 拯救 UI 设计师
+
+都说能做出好工具的，要么是懂代码的设计师，要么是懂设计的工程师。刚巧，我自诩两个身份都沾。
+
+那就动手吧。

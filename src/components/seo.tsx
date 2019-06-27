@@ -64,7 +64,7 @@ const SEO = (props: SEOProps) => {
               keywords.length > 0
                 ? {
                     name: `keywords`,
-                    content: keywords.join(`, `),
+                    content: keywords.join(`,`),
                   }
                 : []
             )

@@ -32,7 +32,10 @@ export default (props: GatsbyDataProps) => {
     <Layout>
       <SEO
         title={`${post.frontmatter.title} | 博客`}
-        keywords={data.site.siteMetadata.keywords}
+        keywords={[
+          ...data.site.siteMetadata.keywords,
+          ...post.frontmatter.tags
+        ]}
       />
 
       <div className='mf-content blog-post'>
