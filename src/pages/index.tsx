@@ -21,7 +21,7 @@ export default (props: GatsbyDataProps) => {
   const blogCover = latestBlog.frontmatter.cover
     ? latestBlog.frontmatter.cover.publicURL
     : ''
-  const blogDate = dayjs(latestBlog.frontmatter.date).format('MMM DD, YYYY')
+  const blogDate = dayjs(latestBlog.fields.date).format('MMM DD, YYYY')
 
   return (
     <Layout>
