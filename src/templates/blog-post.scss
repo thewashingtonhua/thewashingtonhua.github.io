@@ -14,7 +14,21 @@
   article {
     padding: 10px 15px 150px;
 
-    h1, h2, h3, h4, h5, h5, p, a, li, span, code, time, img, th, td {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h5,
+    p,
+    a,
+    li,
+    span,
+    code,
+    time,
+    img,
+    th,
+    td {
       &::selection {
         background-color: $theme-color-primary;
         color: $theme-color-bg;
@@ -108,7 +122,11 @@
     }
 
     .content {
-      h1, h2, h3, h4, h5 {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
         color: $theme-color-primary;
         font-weight: 700;
         line-height: 1.5;
@@ -174,24 +192,33 @@
         color: $theme-color-primary;
         font-size: 15px;
         word-wrap: break-word;
-        border-bottom: 1px dotted $theme-color-primary;
         padding-bottom: 2px;
         transition: border-bottom-color 0.3s ease-out;
         padding-left: 0.5em;
         padding-right: 0.5em;
 
-        &[target='_blank'] {
-          display: inline-flex;
-          align-items: center;
+        &:not(.gatsby-resp-image-link) {
+          border-bottom: 1px dotted $theme-color-primary;
 
-          &::after {
-            content: '';
-            width: 1em;
-            height: 1em;
-            margin-left: 0.3em;
-            background-size: contain;
-            background-image: url('../images/open-in-new.svg');
+          &[target='_blank'] {
+            display: inline-flex;
+            align-items: center;
+
+            &::after {
+              content: '';
+              width: 1em;
+              height: 1em;
+              margin-left: 0.3em;
+              background-size: contain;
+              background-image: url('../images/open-in-new.svg');
+            }
           }
+        }
+      }
+
+      .gatsby-resp-image-link {
+        &:not(:first-child) {
+          margin-top: 15px;
         }
       }
 
@@ -199,11 +226,13 @@
         list-style: circle;
       }
 
-      ul, ol {
+      ul,
+      ol {
         padding-left: 30px;
         margin: 1em 0;
 
-        ul, ol {
+        ul,
+        ol {
           margin: 0.5em 0;
         }
 
@@ -235,7 +264,7 @@
         }
 
         thead tr:nth-child(odd) {
-          background-color: $theme-color-table-primary
+          background-color: $theme-color-table-primary;
         }
 
         th,
