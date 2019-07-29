@@ -13,7 +13,9 @@
       line-height: 1.5;
       margin-top: 1.5em;
       margin-bottom: 0.5em;
-      transition: margin-top .3s ease-out, font-size .3s ease-out;
+      transition:
+        margin-top 0.3s ease-out,
+        font-size 0.3s ease-out;
 
       @media (max-width: $break-point-tablet) {
         font-size: 28px;
@@ -33,7 +35,7 @@
       line-height: 1.75;
       margin-top: 0;
       margin-bottom: 0.75em;
-      transition: font-size .3s ease-out;
+      transition: font-size 0.3s ease-out;
 
       @media (max-width: $break-point-mobile) {
         font-size: 14px;
