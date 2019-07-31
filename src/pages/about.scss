@@ -40,6 +40,10 @@
       @media (max-width: $break-point-mobile) {
         font-size: 14px;
       }
+
+      span.highlight {
+        color: $theme-color-primary;
+      }
     }
 
     ul {
@@ -55,8 +59,16 @@
     }
 
     img {
-      max-width: 100%;
+      width: 100%;
       margin-bottom: 1em;
+
+      &.qr-wechat {
+        max-width: 160px;
+
+        @media (max-width: $break-point-mobile) {
+          max-width: 100%;
+        }
+      }
     }
 
     a {

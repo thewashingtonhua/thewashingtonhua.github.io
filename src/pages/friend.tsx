@@ -15,9 +15,7 @@ const friends = [
     cover: lucode,
     name: 'LuCode',
     desc: [
-      'CodeSun，中科大研究生',
-      '主攻编译技术、形式化验证',
-      '服务器资深玩家'
+      'CodeSun · 阿里'
     ]
   },
   {
@@ -25,9 +23,7 @@ const friends = [
     cover: infiniteScript,
     name: 'InfiniteScript',
     desc: [
-      'Dr.Xie，哈工大博士',
-      '主攻计算机视觉、机器,学习',
-      'Github 老司机'
+      'Dr.Xie · 商汤'
     ]
   },
   {
@@ -35,9 +31,7 @@ const friends = [
     cover: everain,
     name: 'Everain',
     desc: [
-      'Everain，网易前端开发',
-      '主攻 JavaScript 大前端,生态',
-      '猪厂大前端接班人'
+      '暮雨 · 网易'
     ]
   },
   {
@@ -45,9 +39,7 @@ const friends = [
     cover: silvermac,
     name: 'Silvermac',
     desc: [
-      'Sam，Autodesk 研发大佬',
-      '主攻各种我听不懂的黑科技,',
-      '各大厂抢着要的香饽饽'
+      'Sam · Autodesk'
     ]
   }
 ]
@@ -80,7 +72,7 @@ export default (props: GatsbyDataProps) => {
               <div className='intro'>
                 <h2>{friend.name}</h2>
                 <ul>
-                  { friend.desc.map(item => <li key='item'>{item}</li>) }
+                  { friend.desc.map(desc => <li key={desc}>{desc}</li>) }
                 </ul>
               </div>
             </a>
