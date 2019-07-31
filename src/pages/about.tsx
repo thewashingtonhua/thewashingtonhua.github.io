@@ -4,7 +4,7 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import './about.scss'
 import brain from '../images/about/brain.png'
-import qr from '../images/QR/qr.jpg'
+import qr from '../images/QR/qr-dark.png'
 import { GatsbyDataProps } from '../utils/interface'
 import { useInterval } from '../hooks'
 
