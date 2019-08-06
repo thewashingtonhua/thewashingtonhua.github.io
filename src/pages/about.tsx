@@ -4,9 +4,9 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import './about.scss'
 import brain from '../images/about/brain.png'
-import qr from '../images/QR/qr-dark.png'
+import qr from '../images/QR/qr.png'
 import { GatsbyDataProps } from '../utils/interface'
-import { useInterval } from '../hooks'
+// import { useInterval } from '../hooks'
 
 const START_DATE = new Date('2016-03-01 10:00:00')
 const DAYS_PER_MONTH = 365 / 12

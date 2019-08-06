@@ -16,8 +16,20 @@ export default (props: GatsbyDataProps) => {
   const nodes = data.allMarkdownRemark.edges.map(n => n.node)
   const blogs = nodes
     .filter(node => node.fields.type === 'blog')
-    .filter(node => !IS_PROD || !node.frontmatter.draft)
     .sort((x, y) => new Date(y.fields.date).getTime() - new Date(x.fields.date).getTime())
+
+  const drafts = []
+  const published = []
+  for (const blog of blogs) {
+    blog.frontmatter.draft
+      ? drafts.push(blog)
+      : published.push(blog)
+  }
+
+  const visibleBlogs = [
+    !IS_PROD && drafts,
+    published
+  ].filter(Boolean).flat()
 
   return (
     <Layout>
@@ -27,7 +39,7 @@ export default (props: GatsbyDataProps) => {
       />
       <div className='mf-content blog-catalog'>
         <div className='blog-list'>
-          { blogs.map(node => {
+          { visibleBlogs.map(node => {
             const cover = node.frontmatter.cover
               ? node.frontmatter.cover.publicURL
               : ''

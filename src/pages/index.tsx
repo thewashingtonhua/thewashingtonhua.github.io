@@ -5,13 +5,14 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import './index.scss'
 import { GatsbyDataProps } from '../utils/interface'
+import { IS_PROD } from 'config';
 
 export default (props: GatsbyDataProps) => {
   const { data } = props
   const nodes = data.allMarkdownRemark.edges.map(n => n.node)
 
   const latestBlog = nodes
-    .filter(node => node.fields.type === 'blog' && !node.frontmatter.draft)
+    .filter(node => !IS_PROD || (node.fields.type === 'blog' && !node.frontmatter.draft))
     .sort((x, y) => new Date(y.fields.date).getTime() - new Date(x.fields.date).getTime())[0]
   const latestProjects = nodes
     .filter(node => node.fields.type === 'project')
