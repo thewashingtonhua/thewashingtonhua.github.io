@@ -175,8 +175,13 @@ module.exports = {
           path.resolve(__dirname, 'node_modules/normalize-scss/sass')
         ]
       }
+    },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+      },
     }
-
   ],
   polyfill: false
 }
