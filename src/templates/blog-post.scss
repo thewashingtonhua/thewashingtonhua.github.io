@@ -19,7 +19,7 @@
     h3,
     h4,
     h5,
-    h5,
+    h6,
     p,
     a,
     li,
@@ -122,7 +122,8 @@
       h2,
       h3,
       h4,
-      h5 {
+      h5,
+      h6 {
         color: $theme-color-primary;
         font-weight: 700;
         line-height: 1.5;
@@ -171,13 +172,16 @@
         }
       }
 
+      h6 {
+        font-size: 16px;
+      }
+
       p {
         font-size: 15px;
         color: $theme-color-text;
         line-height: 1.75;
-        margin-top: 0;
-        transition: font-size 0.3s ease-out;
         margin-bottom: 1em;
+        transition: font-size 0.3s ease-out;
 
         @media (max-width: $break-point-mobile) {
           font-size: 14px;
@@ -186,12 +190,9 @@
 
       a {
         color: $theme-color-primary;
-        font-size: 15px;
         word-wrap: break-word;
-        padding-bottom: 2px;
+        padding: 0 0.5em 2px;
         transition: border-bottom-color 0.3s ease-out;
-        padding-left: 0.5em;
-        padding-right: 0.5em;
 
         &:not(.gatsby-resp-image-link) {
           border-bottom: 1px dotted $theme-color-primary;
@@ -212,10 +213,8 @@
         }
       }
 
-      .gatsby-resp-image-link {
-        &:not(:first-child) {
-          margin-top: 15px;
-        }
+      .gatsby-resp-image-link:not(:first-child) {
+        margin-top: 15px;
       }
 
       ul {
@@ -225,14 +224,15 @@
       ul,
       ol {
         padding-left: 30px;
-        margin: 1em 0;
+        margin-bottom: 1em;
 
         ul,
         ol {
-          margin: 0.5em 0;
+          margin-bottom: 0.5em;
         }
 
-        li {
+        li,
+        p {
           line-height: 1.8;
           margin-bottom: 0.5em;
           color: $theme-color-text;
@@ -271,6 +271,7 @@
           margin-bottom: 1em;
           padding: 15px 20px;
           text-align: left;
+          white-space: nowrap;
           word-wrap: normal;
           color: $theme-color-text;
           transition: font-size 0.3s ease-out;

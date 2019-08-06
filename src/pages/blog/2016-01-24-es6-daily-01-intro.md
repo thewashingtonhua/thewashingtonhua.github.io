@@ -39,7 +39,7 @@ original: true
 
 ## 展望一下 ES 7
 
-2013 年 3 月，ES6 的草案封闭，不再接受新功能，新的功能将被加入 ES7 及之后版本的标准中。关于 ECMAScript 的最新动态，可以关注 [ES 标准的草案](https://tc39.github.io/ecma262)</a>
+2013 年 3 月，ES6 的草案封闭，不再接受新功能，新的功能将被加入 ES7 及之后版本的标准中。关于 ECMAScript 的最新动态，可以关注 [ES 标准的草案](https://tc39.github.io/ecma262)
 
 ## 关于该系列
 

@@ -3,19 +3,30 @@
 @charset "utf-8";
 
 @mixin ellipsis {
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @mixin clearfix {
+  &::after {
+    clear: both;
+    content: '.';
+    display: block;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+  }
+}
 
-	&::after {
-		clear: both;
-		content: '.';
-		display: block;
-		width: 0;
-		height: 0;
-		visibility: hidden;
-	}
+@mixin shadow-grid($dir, $count, $color) {
+  $all: ();
+
+  $step: 200px;
+
+  @for $i from 0 through $count {
+    $all: append($all, if($dir == horizontal, 0 #{$step * $i}, #{$step * $i} 0) 0 0 $color, comma);
+  }
+
+  box-shadow: $all;
 }
