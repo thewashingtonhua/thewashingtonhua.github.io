@@ -9,6 +9,7 @@ const menus = [
   { to: '/project', text: '代表作' },
   { to: '/lab', text: '实验室' },
   { to: '/friend', text: '朋友' },
+  { to: '/recruit', text: '招人' },
   { to: '/about', text: '我' }
 ]
 
