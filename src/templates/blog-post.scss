@@ -249,18 +249,20 @@
         min-width: 100%;
         border-collapse: collapse;
 
-        tr {
-          &:nth-child(odd) {
-            background-color: $theme-color-table-secondary;
-          }
-
-          &:nth-child(even) {
-            background-color: $theme-color-table-primary;
-          }
+        thead tr {
+          background-color: $theme-color-table-primary;
         }
 
-        thead tr:nth-child(odd) {
-          background-color: $theme-color-table-primary;
+        tbody {
+          tr {
+            &:nth-child(odd) {
+              background-color: $theme-color-table-secondary;
+            }
+
+            &:nth-child(even) {
+              background-color: $theme-color-table-primary;
+            }
+          }
         }
 
         th,
