@@ -7,6 +7,7 @@ import lucode from '../images/friend/lucode.jpg'
 import infiniteScript from '../images/friend/infinite-script.jpg'
 import everain from '../images/friend/everain.jpg'
 import silvermac from '../images/friend/silvermac.jpg'
+import zhiyao from '../images/friend/zhiyao.jpg'
 import { GatsbyDataProps } from '../utils/interface'
 
 const friends = [
@@ -40,6 +41,14 @@ const friends = [
     name: 'Silvermac',
     desc: [
       'Sam · Autodesk'
+    ]
+  },
+  {
+    url: 'https://lizhiyao.github.io/',
+    cover: zhiyao,
+    name: '丁香园记',
+    desc: [
+      '志遥 · 丁香园'
     ]
   }
 ]
