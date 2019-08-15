@@ -9,12 +9,12 @@ import { GatsbyDataProps } from '../utils/interface'
 // import { useInterval } from '../hooks'
 
 const START_DATE = new Date('2016-03-01 10:00:00')
-const DAYS_PER_MONTH = 365 / 12
+// const DAYS_PER_MONTH = 365 / 12
 
 const About = (props: GatsbyDataProps) => {
   const { data } = props
 
-  const [experience, setExperience] = useState(0)
+  /* const [experience, setExperience] = useState(0)
 
   const updateExperience = () => {
     const now = new Date()
@@ -34,8 +34,8 @@ const About = (props: GatsbyDataProps) => {
   }
 
   useEffect(() => {
-    updateExperience()
-  }, [])
+    // updateExperience()
+  }, []) */
 
   // useInterval(updateExperience, 1000)
 
@@ -51,7 +51,8 @@ const About = (props: GatsbyDataProps) => {
           <h1>我</h1>
           <img src={brain} alt='Code in my left brain. Color in my right brain.' />
           <p>Washington Hua，花名「童话」</p>
-          <p>一个出道 {experience} 天的工程师</p>
+          {/* <p>一个出道 {experience} 天的前端工程师</p> */}
+          <p>前端工程师</p>
           <p>目前在马老师门下修福报</p>
           <p>征途是成为「懂设计的全栈工程师」</p>
 
