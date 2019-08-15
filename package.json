@@ -80,7 +80,8 @@
     "build": "gatsby build",
     "postbuild": "cp -f README.md public/README.md",
     "serve": "gatsby serve",
-    "deploy": "yarn build && gh-pages -d public -b master"
+    "gh-pages": "gh-pages -d public -b master",
+    "deploy": "yarn build && yarn gh-pages"
   },
   "repository": {
     "type": "git",
