@@ -54,13 +54,21 @@ original: true
 
 ## Subject
 
+多播
+
 ### 观察者模式
 
 ### 订阅者模式
 
 ## Scheduler
 
+用自己理解说明几种调度器的不同
+
 ## Operators
+
+更好的分类方式？
+
+Decision Tree ？
 
 ## 联想到 Hooks
 
