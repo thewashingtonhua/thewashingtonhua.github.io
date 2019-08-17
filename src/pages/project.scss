@@ -10,7 +10,9 @@
     padding: 0 15px;
     margin-top: 50px;
     margin-bottom: 20px;
-    transition: margin-top .3s ease-out, font-size .3s ease-out;
+    transition:
+      margin-top 0.3s ease-out,
+      font-size 0.3s ease-out;
 
     @media (max-width: $break-point-tablet) {
       margin-top: 20px;
@@ -29,6 +31,7 @@
 
   .project-list {
     @include clearfix;
+
     margin-bottom: 40px;
 
     .project {
@@ -36,10 +39,10 @@
       float: left;
       width: 50%;
       padding: 15px 15px 30px;
-      transition: background-color .3s ease-out;
+      transition: background-color 0.3s ease-out;
 
       @media (max-width: 480px) {
-        width: 100%
+        width: 100%;
       }
 
       &:nth-child(even) {
@@ -61,7 +64,7 @@
         h2 {
           font-size: 26px;
           color: $theme-color-primary;
-          transition: color .3s ease-out;
+          transition: color 0.3s ease-out;
           margin-bottom: 0.5em;
           position: relative;
 
@@ -74,8 +77,9 @@
 
         p {
           color: $theme-color-text;
-          transition: color .3s ease-out;
+          transition: color 0.3s ease-out;
           font-size: 14px;
+
           @include ellipsis;
 
           @media (max-width: 480px) {

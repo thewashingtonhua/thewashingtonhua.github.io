@@ -10,7 +10,9 @@
     padding: 0 15px;
     margin-top: 50px;
     margin-bottom: 20px;
-    transition: margin-top .3s ease-out, font-size .3s ease-out;
+    transition:
+      margin-top 0.3s ease-out,
+      font-size 0.3s ease-out;
 
     @media (max-width: $break-point-tablet) {
       margin-top: 20px;
@@ -27,7 +29,7 @@
     float: left;
     width: 50%;
     padding: 10px 15px 30px;
-    transition: background-color .3s ease-out;
+    transition: background-color 0.3s ease-out;
 
     @media (max-width: 480px) {
       width: 100%;
@@ -49,7 +51,8 @@
         font-size: 26px;
         color: $theme-color-primary;
         line-height: 1.5;
-        transition: color .3s ease-out;
+        transition: color 0.3s ease-out;
+
         @include ellipsis;
 
         @media (max-width: 480px) {
@@ -59,9 +62,10 @@
 
       ul li {
         color: $theme-color-text;
-        transition: color .3s ease-out;
+        transition: color 0.3s ease-out;
         font-size: 14px;
         line-height: 1.5;
+
         @include ellipsis;
 
         @media (max-width: 480px) {

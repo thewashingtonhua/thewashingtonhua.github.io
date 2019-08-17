@@ -4,6 +4,7 @@
 
 .channel-header {
   @include clearfix;
+
   padding: 10px 15px;
 
   &:first-of-type {
@@ -31,6 +32,7 @@
 
 .channel-body {
   @include clearfix;
+
   margin-bottom: 40px;
 
   @media (max-width: 480px) {
@@ -45,7 +47,7 @@
     display: block;
     width: 100%;
     padding: 15px;
-    transition: background-color .3s ease-out;
+    transition: background-color 0.3s ease-out;
 
     @media (max-width: 480px) {
       width: 100%;
@@ -143,7 +145,7 @@
     float: left;
     width: 50%;
     padding: 15px;
-    transition: background-color .3s ease-out;
+    transition: background-color 0.3s ease-out;
 
     @media (max-width: 480px) {
       width: 100%;
@@ -165,7 +167,8 @@
         font-size: 26px;
         line-height: 1.5;
         color: $theme-color-primary;
-        transition: font-size .3s ease-out;
+        transition: font-size 0.3s ease-out;
+
         @include ellipsis;
 
         @media (max-width: 480px) {
@@ -175,9 +178,10 @@
 
       p {
         color: $theme-color-text;
-        transition: font-size .3s ease-out;
+        transition: font-size 0.3s ease-out;
         font-size: 14px;
         line-height: 1.5;
+
         @include ellipsis;
 
         @media (max-width: 480px) {

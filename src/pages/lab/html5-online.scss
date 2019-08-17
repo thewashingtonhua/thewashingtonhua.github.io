@@ -1,10 +1,12 @@
 @charset 'utf-8';
+
 @import '../../styles/_common.scss';
 
 #lab-html5-online {
   .online {
     color: green;
   }
+
   .offline {
     color: red;
   }
