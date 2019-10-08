@@ -45,8 +45,8 @@
         line-height: $header-height;
         color: $theme-color-primary;
         transition:
-          color .3s ease-out,
-          font-size .3s ease-out;
+          color 0.3s ease-out,
+          font-size 0.3s ease-out;
 
         @media (max-width: 480px) {
           font-size: 16px;
@@ -139,7 +139,7 @@
           font-size: 16px;
           color: $theme-color-text;
           text-align: center;
-          transition: background-color .3s ease-out;
+          transition: background-color 0.3s ease-out;
 
           &::selection {
             background-color: transparent;
