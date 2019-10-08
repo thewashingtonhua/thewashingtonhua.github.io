@@ -1,14 +1,14 @@
 ---
-title: 'The · Favicon'
-description: '一键生成各种尺寸的 Favicon'
-cover: '../../images/project/thumb/unreleased.jpg'
+title: '小图标'
+description: '一站式 Favicon 解决方案'
+cover: '../../images/project/blank.jpg'
 from: '2019-07-01'
 to: '2019-08-01'
 category: 'personal'
 draft: true
 ---
 
-# The · Favicon
+# The · Favicon「小图标」
 
 ## 简介
 

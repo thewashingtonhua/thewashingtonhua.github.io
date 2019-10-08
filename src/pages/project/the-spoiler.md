@@ -1,14 +1,14 @@
 ---
-title: 'The · Spoiler'
-description: '仿 QQ影音「剧情连拍」功能'
-cover: '../../images/project/thumb/unreleased.jpg'
+title: '小剧透'
+description: 'Web 版「剧情连拍」'
+cover: '../../images/project/blank.jpg'
 from: '2019-06-01'
 to: '2019-07-01'
 category: 'personal'
 draft: true
 ---
 
-# The · Spoiler
+# The · Spoiler「小剧透」
 
 ## 简介
 

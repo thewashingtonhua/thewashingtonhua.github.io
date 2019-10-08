@@ -2,7 +2,7 @@
 title: '小剧透：不看评论，1 分钟识别好片烂片'
 description: '自己给自己剧透，应该就不会那啥了吧'
 tags: ['chrome', 'extension']
-cover: '../../images/blog/the-collector.jpg'
+cover: '../../images/blog/blank.jpg'
 series: ''
 draft: true
 original: true

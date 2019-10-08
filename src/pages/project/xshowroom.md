@@ -1,14 +1,14 @@
 ---
 title: 'Xshowroom 买手圈'
-description: '国内时尚业首个专业买手服务平台'
-cover: '../../images/project/thumb/xshowroom.jpg'
+description: '时尚业专业买手服务平台'
+cover: '../../images/project/xshowroom.jpg'
 from: '2016-03-01'
 to: '2017-03-01'
 category: 'commercial'
 draft: false
 ---
 
-# Xshowroom 买手圈
+# Xshowroom「买手圈」
 
 ## 简介
 

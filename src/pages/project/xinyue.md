@@ -1,7 +1,7 @@
 ---
 title: '新阅'
 description: '在线视频协作平台'
-cover: '../../images/project/thumb/xinyue.jpg'
+cover: '../../images/project/xinyue.jpg'
 from: '2017-08-01'
 to: '2017-10-01'
 category: 'commercial'

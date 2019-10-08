@@ -1,7 +1,7 @@
 ---
 title: 'FBC'
-description: 'FBC 会员服务 Web App'
-cover: '../../images/project/thumb/fbc.jpg'
+description: '联合办公空间的会员服务'
+cover: '../../images/project/fbc.jpg'
 from: '2017-04-01'
 to: '2017-06-01'
 category: 'commercial'

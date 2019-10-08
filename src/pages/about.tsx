@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
@@ -6,38 +6,9 @@ import './about.scss'
 import brain from '../images/about/brain.png'
 import qr from '../images/QR/qr-dark.png'
 import { GatsbyDataProps } from '../utils/interface'
-// import { useInterval } from '../hooks'
-
-const START_DATE = new Date('2016-03-01 10:00:00')
-// const DAYS_PER_MONTH = 365 / 12
 
 const About = (props: GatsbyDataProps) => {
   const { data } = props
-
-  /* const [experience, setExperience] = useState(0)
-
-  const updateExperience = () => {
-    const now = new Date()
-    const secondsPassed = (now.getTime() - START_DATE.getTime()) / 1000
-    const daysPassed = secondsPassed / 60 / 60 / 24
-
-    // const year = Math.floor(daysPassed / 365)
-    // const month = Math.floor(daysPassed / DAYS_PER_MONTH % 12)
-    // const day = Math.floor(daysPassed % DAYS_PER_MONTH)
-    // const hour = Math.floor(secondsPassed / 60 / 60 % 24)
-    // const minute = Math.floor(secondsPassed / 60 % 60)
-    // const second = Math.floor(secondsPassed % 60)
-
-    // setExperience(`${year} 年 ${month} 个月 ${day} 天 ${hour} 小时 ${minute} 分钟 ${second} 秒`)
-    // setExperience(`${year} 年 ${month} 个月 ${day} 天`)
-    setExperience(Math.floor(daysPassed))
-  }
-
-  useEffect(() => {
-    // updateExperience()
-  }, []) */
-
-  // useInterval(updateExperience, 1000)
 
   return (
     <Layout>
@@ -50,11 +21,9 @@ const About = (props: GatsbyDataProps) => {
 
           <h1>我</h1>
           <img src={brain} alt='Code in my left brain. Color in my right brain.' />
-          <p>Washington Hua，花名「童话」</p>
-          {/* <p>一个出道 {experience} 天的前端工程师</p> */}
-          <p>前端工程师</p>
-          <p>目前在马老师门下修福报</p>
-          <p>征途是成为「懂设计的全栈工程师」</p>
+          <p>Washington Hua，前端工程师</p>
+          <p>目前在马老师门下修福报，花名「童话」</p>
+          <p>征途是成为「懂设计会开发的全栈产品经理」</p>
 
           <h1>联系方式</h1>
           <img src={qr} alt='' />

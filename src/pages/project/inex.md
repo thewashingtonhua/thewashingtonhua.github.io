@@ -1,7 +1,7 @@
 ---
 title: 'INEX 影力所'
-description: '影力所 - 一个基于影响力的数字资产交易所'
-cover: '../../images/project/thumb/inex.jpg'
+description: '泛娱乐领域的垂直数字货币交易所'
+cover: '../../images/project/inex.jpg'
 from: '2018-01-01'
 to: ''
 category: 'commercial'
