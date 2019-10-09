@@ -2,7 +2,7 @@
 title: '为什么我们总是在不断的造轮子'
 description: '圆的圆的圆的东西'
 tags: ['thinking']
-cover: '../../images/blog/blank.jpg'
+cover: '../../images/blog/wheel.jpg'
 series: ''
 draft: true
 original: true

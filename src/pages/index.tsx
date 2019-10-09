@@ -12,11 +12,10 @@ export default (props: GatsbyDataProps) => {
   const nodes = data.allMarkdownRemark.edges.map(n => n.node)
 
   const latestBlog = nodes
-    .filter(node => !IS_PROD || (node.fields.type === 'blog' && !node.frontmatter.draft))
+    .filter(node => (node.fields.type === 'blog' && !node.frontmatter.draft))
     .sort((x, y) => new Date(y.fields.date).getTime() - new Date(x.fields.date).getTime())[0]
   const latestProjects = nodes
-    .filter(node => node.fields.type === 'project')
-    .filter(node => !node.frontmatter.draft)
+    .filter(node => (node.fields.type === 'project' && !node.frontmatter.draft))
     .sort((x, y) => new Date(y.frontmatter.from).getTime() - new Date(x.frontmatter.from).getTime()).slice(0, 2)
 
   const blogCover = latestBlog.frontmatter.cover
