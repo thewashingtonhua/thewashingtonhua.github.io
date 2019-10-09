@@ -2,7 +2,7 @@
 title: '【思想汇报】前端面试新理解'
 description: '人嘛，总是在不断的试错中成长起来的'
 tags: ['interview']
-cover: '../../images/blog/blank.jpg'
+cover: '../../images/blog/interview.jpg'
 series: ''
 draft: true
 original: true
