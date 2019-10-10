@@ -1,39 +1,59 @@
 ---
-title: 'Homebrew 的后悔药：如何取消一次小版本的更新'
+title: 'Homebrew 也有后悔药：回退一次小版本更新'
 description: '有了后悔药，可劲随便造'
 tags: ['homebrew']
 cover: '../../images/blog/homebrew.jpg'
 series: ''
-draft: true
+draft: false
 original: true
 ---
 
-# 一如既往的断更
+# 症状
 
-技术类的博客有三种。
+原本只是一次例行的 Homebrew 更新，结果更新完 Yarn 挂了。查了下 Github，果然已经有人提了 [Issue](https://github.com/yarnpkg/yarn/issues/7584) 。
 
-一种以走量为主，更新的很勤，每周甚至每天都有。作者比较看重阅读量、点赞评论数之类的，经营博客主要为了提高自己的知名度。内容以转载、或是基础教程之类居多，覆盖面很广，但往往深度不够。这类博客比较适合在通勤、排队等碎片化时间里快速阅读。
+更新导致的问题，回退版本就是了。但坑的是，Homebrew 不像 npm 可以指定任意历史版本，大部分的 formula 仅提供最新版，并且 Homebrew 官方表示[这是有意为之](https://docs.brew.sh/Versions.html)。这给回退工作造成了巨大阻碍。
 
-一种是业界大佬，更新频率不高，周更已经算勤的。这一类的作者本身已经在行业里有不错甚至很高的声望，经营博客更多的是为行业做贡献。内容覆盖面很广，还有着不错的深度，动不动就是源码精读、对新技术的看法、对行业的分析之类的。这类博客比较适合找一段连续的空闲时间静下心来仔细阅读。
+# 后悔药
 
-还有一种是像我这样，更新的很慢，平均下来一个月大概才能有一篇。看到阅读量很低也会失落，但更加看重评论区的各种声音。不想做第一类博客，因为已经够多了不缺我一个；努力在向第二种靠近，但目前水平还达不到。希望是能够做到用大白话去讲述难懂的技术，有深度的同时也不至于让人云里雾里。
+Homebrew 中的每一个 Formula，都对应一个 Ruby 文件，其中记录了关于这个 Formula 的一些信息，包括下载地址。
 
-更新频率一直是我在写博客时候纠结的点。一方面我希望能够持续输出一些有价值的内容，而不是在各种碎片流量中再去掺一脚；但一方面我对阅读量之类的数字也不是一点都不看重，也希望能都经常刷刷存在感。
+![yarn.rb](../../images/blog/how-to-downgrade-from-homebrew/yarn-rb.jpg)
 
-根据能量守恒定律，要想有输出，就必然得有输入，大佬也不例外，高质量输出的背后，一定是大量知识的输入和沉淀。我非常佩服那些能够持续甚至高频输出高质量内容的人，因为他们一定是在背后付出了大量的精力在进行持续学习。所以我其实非常理解 Zealer 火起来之后做的一些决定，一方面不想降低视频的质量，但同时又不得不向市场和商业妥协，追求尽早更新。
+Homebrew 官方提供的 Formula 是托管在 Github 上的，也就是说是可以看到提交记录的。默认情况下 Homebrew 会从 master 分支读取最新的版本，但 `brew install` 命令允许手动指定 Formula 的来源。因此只要我们能够找出某个 Formula 的历史版本，就可以手动安装它。
 
-# 入坑
+通常，我们可以直接在 Github 上点击「History」查看提交记录，但因为 [Homebrew/homebrew-core](https://github.com/Homebrew/homebrew-core) 这个仓库的历史提交太多了（每一个 Formula 的更新都算一次提交），系统已经算不过来了，建议大家把仓库克隆到本地之后，借助 SourceTree 等工具进行查看。
 
-原本只是一次例行的 Homebrew 更新
+![Git History](../../images/blog/how-to-downgrade-from-homebrew/git-history.jpg)
 
-建议大家暂时避免升级 yarn 到 1.19，因为[这个 issue](https://github.com/yarnpkg/yarn/issues/7584) ，我们可以等快发布的 yarn 2.0 到来时一块处理
+通过搜索关键字「Yarn」，我们很快就找出了 Yarn 的版本历史。
 
-当然，作为一名合格的工程师，对于这种事早就已经见怪不怪了，暂时先回退版本就是了。
+![Git History](../../images/blog/how-to-downgrade-from-homebrew/sourcetree.png)
 
-但坑的点在于，Homebrew 不像 npm 可以指定具体的 semver 版本，最多只能指定一个大版本，（比如：PHP、Python）
+接下来，我们只要让 `brew install` 命令可以访问到这个文件就可以了。
 
-# 出坑
+`brew install` 命令支持从任意网络位置加载 Formula，所以我们只要把这个文件放到某个网络地址，然后把 URL 传给命令就可以了。事实上，Github 作为全球最大的代码托管平台，我们完全可以用它来获取 URL。
+
+在 Github 中找到 `/Formula/yarn.rb` 这个文件，点击「Raw」查看原始文件，注意此时的 URL 中是带有分支名称的，默认是 master，像这样：
+
+https://raw.githubusercontent.com/Homebrew/homebrew-core/master/Formula/yarn.rb
+
+把它替换成某个 commit 的 id，就可以查看文件的历史版本了。注意，这里引入问题的版本是 1.19.0，我们需要回到它的上一个版本 1.17.3，因此我们要找的是 1.17.3 这个版本发布时的那个提交：
+
+https://raw.githubusercontent.com/Homebrew/homebrew-core/a7a15e9b10f8652572db9c746a9fd01aa46a5de2/Formula/yarn.rb
+
+然后把这一串 URL 作为参数贴到命令行中（为了更好的显示，这里只保留 URL 的头尾，你懂我意思就好）：
+
+```bash
+brew install https://raw.github......5de2/Formula/yarn.rb
+```
+
+剩下就只要等屏幕上的日志信息跑完，就大功告成了。（如果因为网络原因报错了，重试看看，或者换个网络再试下）
 
 # PS
 
-经过这一次的踩坑，我也意外的发现，Homebrew 上的版本，和 GitHub 上的版本并非完全对应，比如 Yarn 在 1.17.3 和 1.19.0 之间其实还有个 1.18.0 的版本，在 GitHub 的 Release 记录中可以查到，但在 Homebrew 的 Commit History 中就没有看到。
+截至本文发布，Yarn 官方已经提供了 1.19.1 的 patch 更新，据称已经修复了这个问题。
+
+经过这一次的踩坑，我也意外的发现，Homebrew 上记录的 Formula 的信息，和这个 Formula 自己的 GitHub 上的版本记录并非完全一致，比如 Yarn 在 1.17.3 和 1.19.0 之间其实还有个 1.18.0 的版本，在 Yarn 自己的 GitHub 的 Release 记录中可以查到，但在 Homebrew 的 Commit History 中就没有看到。
+
+生命不息，踩坑不止。
