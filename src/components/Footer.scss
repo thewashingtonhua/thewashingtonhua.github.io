@@ -3,5 +3,29 @@
 @import '../styles/_common.scss';
 
 #mf-footer {
-  //
+  .mf-footer-wrapper {
+    width: 100%;
+    max-width: $theme-max-width-lg;
+    height: 100%;
+    margin: 0 auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    p {
+      font-size: 14px;
+      color: $theme-color-text;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 10px;
+
+      img {
+        width: 14px;
+        display: block;
+        margin-left: 4px;
+        margin-right: 4px;
+      }
+    }
+  }
 }

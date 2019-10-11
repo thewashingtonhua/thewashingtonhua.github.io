@@ -4,7 +4,6 @@ import dayjs from 'dayjs'
 import { Layout, SEO } from '../components'
 import './index.scss'
 import { GatsbyDataProps } from '../utils/interface'
-import { IS_PROD } from 'config';
 
 export default (props: GatsbyDataProps) => {
   const { data } = props
@@ -13,9 +12,9 @@ export default (props: GatsbyDataProps) => {
   const latestBlog = nodes
     .filter(node => (node.fields.type === 'blog' && !node.frontmatter.draft))
     .sort((x, y) => new Date(y.fields.date).getTime() - new Date(x.fields.date).getTime())[0]
-  const latestProjects = nodes
-    .filter(node => (node.fields.type === 'project' && !node.frontmatter.draft))
-    .sort((x, y) => new Date(y.frontmatter.from).getTime() - new Date(x.frontmatter.from).getTime()).slice(0, 2)
+  // const latestProjects = nodes
+  //   .filter(node => (node.fields.type === 'project' && !node.frontmatter.draft))
+  //   .sort((x, y) => new Date(y.frontmatter.from).getTime() - new Date(x.frontmatter.from).getTime()).slice(0, 2)
 
   const blogCover = latestBlog.frontmatter.cover
     ? latestBlog.frontmatter.cover.publicURL
@@ -52,7 +51,7 @@ export default (props: GatsbyDataProps) => {
           </Link>
         </div>
 
-        <header className='channel-header'>
+        {/* <header className='channel-header'>
           <Link to='/project' className='title'>最新项目</Link>
           <Link to='/project' className='more'>查看全部 &raquo;</Link>
         </header>
@@ -73,7 +72,7 @@ export default (props: GatsbyDataProps) => {
               </Link>
             )
           })}
-        </div>
+        </div> */}
 
       </div>
     </Layout>

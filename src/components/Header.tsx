@@ -35,8 +35,8 @@ export const Header = () => {
   }
 
   return (
-    <>
-      <header id='mf-header'>
+    <header id='mf-header'>
+      <div className='mf-header-container'>
         <div className='mf-header-wrapper'>
           <Link to='/' className='logo'>
             <img src={logo} alt=''/>
@@ -61,8 +61,8 @@ export const Header = () => {
             </ul>
           </nav>
         </div>
-      </header>
-      <section id='mf-header-placeholder' />
-    </>
+      </div>
+      <div className='mf-header-placeholder' />
+    </header>
   )
 }

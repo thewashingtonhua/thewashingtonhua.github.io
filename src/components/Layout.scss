@@ -70,6 +70,17 @@ a {
   }
 }
 
-main {
-  min-height: calc(100vh - #{$header-height});
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  #mf-header,
+  #mf-footer {
+    flex-shrink: 0;
+  }
+
+  #mf-content {
+    flex-grow: 1;
+  }
 }

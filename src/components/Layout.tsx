@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode, FC } from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import * as Sentry from '@sentry/browser'
@@ -14,31 +14,33 @@ if (IS_PROD) {
   })
 }
 
-interface LayoutProps {
-  children?: ReactNode
-}
-
-export const Layout = (props: LayoutProps) => {
+export const Layout: FC = (props) => {
   const { children } = props
 
-  return <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-          }
+  const query = graphql`
+    query SiteTitleQuery {
+      site {
+        siteMetadata {
+          title
         }
       }
-    `}
-    render={data => (
-      <>
-        <Header />
-        <main>
-          {children}
-        </main>
-        <Footer />
-      </>
-    )}
-  />
+    }
+  `
+
+  const render = () => (
+    <div className='layout'>
+      <Header />
+      <main id='mf-content'>
+        {children}
+      </main>
+      <Footer />
+    </div>
+  )
+
+  return (
+    <StaticQuery
+      query={query}
+      render={render}
+    />
+  )
 }
