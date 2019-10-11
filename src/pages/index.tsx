@@ -1,8 +1,7 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import dayjs from 'dayjs'
-import Layout from '../components/layout'
-import SEO from '../components/seo'
+import { Layout, SEO } from '../components'
 import './index.scss'
 import { GatsbyDataProps } from '../utils/interface'
 import { IS_PROD } from 'config';

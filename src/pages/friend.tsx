@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../components/layout'
-import SEO from '../components/seo'
+import { Layout, SEO } from '../components'
 import './friend.scss'
 import lucode from '../images/friend/lucode.jpg'
 import infiniteScript from '../images/friend/infinite-script.jpg'

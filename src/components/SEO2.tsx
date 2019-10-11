@@ -11,7 +11,7 @@ interface SEOProps {
   exactTitle?: boolean
 }
 
-const SEO = (props: SEOProps) => {
+export const SEO = (props: SEOProps) => {
   const { description = '', lang = `zh`, meta = [], keywords = [], title = '', exactTitle = false } = props
 
   return (
@@ -75,8 +75,6 @@ const SEO = (props: SEOProps) => {
     />
   )
 }
-
-export default SEO
 
 const detailsQuery = graphql`
   query DefaultSEOQuery {

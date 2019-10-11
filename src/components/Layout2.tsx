@@ -3,9 +3,10 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import * as Sentry from '@sentry/browser'
 import 'normalize-scss/sass/normalize/_import-now.scss'
-import './layout.scss'
-import Header from './header'
-import { IS_PROD } from 'config';
+import './Layout.scss'
+import { Header } from './Header'
+import { Footer } from './Footer'
+import { IS_PROD } from 'config'
 
 if (IS_PROD) {
   Sentry.init({
@@ -17,7 +18,7 @@ interface LayoutProps {
   children?: ReactNode
 }
 
-const Layout = (props: LayoutProps) => {
+export const Layout = (props: LayoutProps) => {
   const { children } = props
 
   return <StaticQuery
@@ -36,9 +37,8 @@ const Layout = (props: LayoutProps) => {
         <main>
           {children}
         </main>
+        <Footer />
       </>
     )}
   />
 }
-
-export default Layout

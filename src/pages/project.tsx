@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react'
 import { Link, graphql } from 'gatsby'
-import Layout from '../components/layout'
-import SEO from '../components/seo'
+import { Layout, SEO } from '../components'
 import './project.scss'
 import { GatsbyDataProps } from '../utils/interface'
 import { IS_PROD } from 'config';

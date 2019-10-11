@@ -1,7 +1,7 @@
 import React, { useState, MouseEvent } from 'react'
 import { Link } from 'gatsby'
 import logo from '../images/logo.png'
-import './header.scss'
+import './Header.scss'
 import { LinkGetProps } from '@reach/router';
 
 const menus = [
@@ -13,7 +13,7 @@ const menus = [
   { to: '/about', text: '我' }
 ]
 
-const Header = () => {
+export const Header = () => {
 
   const [navMenuOpen, setNavMenuOpen] = useState(false)
 
@@ -66,5 +66,3 @@ const Header = () => {
     </>
   )
 }
-
-export default Header
