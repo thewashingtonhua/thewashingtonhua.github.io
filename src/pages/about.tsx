@@ -12,7 +12,7 @@ const About = (props: GatsbyDataProps) => {
   return (
     <Layout>
       <SEO
-        title='我'
+        title='关于'
         keywords={data.site.siteMetadata.keywords}
       />
       <div className='mf-content' id='about'>

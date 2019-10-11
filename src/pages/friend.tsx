@@ -58,7 +58,7 @@ export default (props: GatsbyDataProps) => {
   return (
     <Layout>
       <SEO
-        title='朋友'
+        title='友人'
         keywords={data.site.siteMetadata.keywords}
       />
       <div className='mf-content' id='friends'>

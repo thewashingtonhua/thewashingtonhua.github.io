@@ -50,7 +50,7 @@ export default (props: GatsbyDataProps) => {
   return (
     <Layout>
       <SEO
-        title='实验室'
+        title='工具'
         keywords={data.site.siteMetadata.keywords}
       />
       <div className='mf-content lab-catalog'>

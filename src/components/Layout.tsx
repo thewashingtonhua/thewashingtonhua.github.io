@@ -1,12 +1,11 @@
-import React, { ReactNode, FC } from 'react'
-import PropTypes from 'prop-types'
+import React, { FC } from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import * as Sentry from '@sentry/browser'
 import 'normalize-scss/sass/normalize/_import-now.scss'
 import './Layout.scss'
 import { Header } from './Header'
 import { Footer } from './Footer'
-import { IS_PROD } from 'config'
+import { IS_PROD } from '../config'
 
 if (IS_PROD) {
   Sentry.init({

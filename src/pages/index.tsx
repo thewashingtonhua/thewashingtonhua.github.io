@@ -103,6 +103,7 @@ query {
           }
           series
           draft
+          original
         }
         fields {
           slug

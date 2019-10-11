@@ -2,15 +2,16 @@ import React, { useState, MouseEvent } from 'react'
 import { Link } from 'gatsby'
 import logo from '../images/logo.png'
 import './Header.scss'
-import { LinkGetProps } from '@reach/router';
+import { LinkGetProps } from '@reach/router'
+import { Search } from './Search'
 
 const menus = [
   { to: '/blog', text: '博客' },
-  { to: '/project', text: '代表作' },
-  { to: '/lab', text: '实验室' },
-  { to: '/friend', text: '朋友' },
-  { to: '/recruit', text: '招人' },
-  { to: '/about', text: '我' }
+  { to: '/project', text: '项目' },
+  { to: '/lab', text: '工具' },
+  { to: '/friend', text: '友人' },
+  { to: '/recruit', text: '招聘' },
+  { to: '/about', text: '关于' }
 ]
 
 export const Header = () => {
@@ -38,28 +39,34 @@ export const Header = () => {
     <header id='mf-header'>
       <div className='mf-header-container'>
         <div className='mf-header-wrapper'>
-          <Link to='/' className='logo'>
-            <img src={logo} alt=''/>
-            <span>童话说</span>
-          </Link>
-          <div className={'hamberger' + (navMenuOpen ? ' open' : '')} onClick={toggle}>
-            <div className='bar' />
-            <div className='bar' />
-            <div className='bar' />
+          <div className='brand'>
+            <Link to='/' className='logo'>
+              <img src={logo} alt=''/>
+              <span>童话说</span>
+            </Link>
           </div>
-          <nav className={'nav-menu' + (navMenuOpen ? ' open' : '')}>
-            <ul className='menus'>
-              { menus.map(n => (
-                <li className='menu' key={n.to}>
-                  <Link
-                    to={n.to}
-                    getProps={isMenuActive}
-                    onClick={close}
-                  >{n.text}</Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+
+          <Search />
+
+          <div className='navigation'>
+            <div
+              className={'hamberger' + (navMenuOpen ? ' open' : '')}
+              onClick={toggle}
+            />
+            <nav className={'nav-menu' + (navMenuOpen ? ' open' : '')}>
+              <ul className='menus'>
+                { menus.map(n => (
+                  <li className='menu' key={n.to}>
+                    <Link
+                      to={n.to}
+                      getProps={isMenuActive}
+                      onClick={close}
+                    >{n.text}</Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
         </div>
       </div>
       <div className='mf-header-placeholder' />

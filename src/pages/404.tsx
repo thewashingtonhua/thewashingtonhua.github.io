@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import { Layout, SEO } from '../components'
 import './404.scss'
 
@@ -28,3 +28,40 @@ const PageNotFound = () => (
 )
 
 export default PageNotFound
+
+export const query = graphql`
+query {
+  site {
+    siteMetadata {
+      title,
+      keywords
+    }
+  }
+  allMarkdownRemark {
+    totalCount
+    edges {
+      node {
+        id
+        frontmatter {
+          title
+          description
+          from
+          to
+          tags
+          cover {
+            publicURL
+          }
+          series
+          draft
+          original
+        }
+        fields {
+          slug
+          type
+          date
+        }
+        excerpt
+      }
+    }
+  }
+}`

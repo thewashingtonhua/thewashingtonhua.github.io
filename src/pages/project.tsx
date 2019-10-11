@@ -29,7 +29,7 @@ export default (props: GatsbyDataProps) => {
   return (
     <Layout>
       <SEO
-        title='代表作'
+        title='项目'
         keywords={data.site.siteMetadata.keywords}
       />
       <div className='mf-content project-catalog'>

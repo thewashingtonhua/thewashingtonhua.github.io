@@ -11,7 +11,7 @@ const About = (props: GatsbyDataProps) => {
   return (
     <Layout>
       <SEO
-        title='招人'
+        title='招聘'
         keywords={data.site.siteMetadata.keywords}
       />
       <div className='mf-content' id='recruit'>

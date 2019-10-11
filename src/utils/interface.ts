@@ -1,26 +1,42 @@
+export interface BlogFrontMatter {
+  title: string,
+  description: string,
+  cover: {
+    id: string,
+    publicURL: string,
+    absolutePath: string,
+    relativePath: string,
+    extension: string,
+    size: number,
+    prettySize: string,
+  },
+  tags: string[],
+  series?: string,
+  draft: boolean,
+  original?: boolean,
+}
+
+export interface ProjectFrontMatter {
+  title: string,
+  description: string,
+  cover: {
+    id: string,
+    publicURL: string,
+    absolutePath: string,
+    relativePath: string,
+    extension: string,
+    size: number,
+    prettySize: string,
+  },
+  from: string,
+  to: string,
+  draft: boolean,
+  category?: string
+}
+
 export interface GatsbyContentNode {
   id: string,
-  frontmatter: {
-    title: string,
-    description: string,
-    date: string,
-    cover: {
-      id: string,
-      publicURL: string,
-      absolutePath: string,
-      relativePath: string,
-      extension: string,
-      size: number,
-      prettySize: string,
-    },
-    from: string,
-    to: string,
-    tags: string[],
-    series: string,
-    draft: boolean,
-    original: boolean,
-    category: string
-  },
+  frontmatter: BlogFrontMatter | ProjectFrontMatter,
   fields: {
     id: string,
     slug: string,
