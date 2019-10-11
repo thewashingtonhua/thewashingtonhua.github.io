@@ -1,7 +1,6 @@
 import React, { PureComponent, useEffect, useState } from 'react'
 import { Link, graphql } from 'gatsby'
-import Layout from '../../components/layout'
-import SEO from '../../components/seo'
+import { Layout, SEO } from '../../components'
 import './lab.scss'
 import './html5-online.scss'
 import { GatsbyDataProps } from '../../utils/interface'

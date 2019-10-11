@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link, graphql } from 'gatsby'
-import Layout from '../../components/layout'
-import SEO from '../../components/seo'
+import { Layout, SEO } from '../../components'
 import './lab.scss'
 import { GatsbyDataProps } from '../../utils/interface'
 
