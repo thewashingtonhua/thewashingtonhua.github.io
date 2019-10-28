@@ -14,7 +14,7 @@ original: true
 
 ## favicon 有什么用
 
-就像手机上的 App 都有自己的图标，favicon 就是网页的图标。在移动时代之前，这个小图标主要用在收藏夹中，而收藏夹的英文原话往往叫「favourite」，因而得名『favicon』（这里就看出中英文的差异了，中国人说「收藏」，老外说「最爱」）。在大前端时代，Web 和 Native 的边界日益模糊，我们可能已经不会刻意去区分是 App 的图标还是 favicon，统一都管它们叫图标。
+就像手机上的 App 都有自己的图标，favicon 就是网页的图标。在移动时代之前，这个小图标主要用在收藏夹中，而收藏夹的英文原话往往叫「favourite」，因而得名『favicon』。在大前端时代，Web 和 Native 的边界日益模糊，我们可能已经不会刻意去区分是 App 的图标还是 favicon，统一都管它们叫图标。
 
 > 由于我们是以 Web 平台为例，因此下文还是用「favicon」一词进行描述，以示区别。
 
@@ -22,7 +22,7 @@ original: true
 
 ## 我们到底需要多少 favicon？
 
-既然 favicon 和其它的图标，那么但凡会用到图标的地方，favicon 都需要覆盖到。除了浏览器的标签页，Speed Dial 也是一个需要展示
+随着越来越多的应用开始转向 Web 技术栈，favicon 的应用场景也越来越广泛。除了在浏览器标签页、收藏夹、Speed Dial 等地方出现，在移动端也经常和 App 图表平起平坐（保存为书签，还是安装 PWA，移动设备桌面上的图表都取自 favicon，Windows 的 Tile 也是用的 favicon。
 
 谈及 favicon 的尺寸，很多人印象里要么是 16 x 16，要么是 32 x 32，很多在线的 favicon 创建工具也只提供这么几个选项。Web 创世之初，确实是如此，但时至今日，Web 的早已触达更加广袤的领域，favicon 的应用场景相应的也就多了起来。
 
@@ -38,7 +38,6 @@ original: true
 <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
 <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png"><!-- 57×57px -->
 
-
 <!-- For iPhone with @3× display: -->
 <link rel="apple-touch-icon-precomposed" sizes="180x180" href="apple-touch-icon-180x180-precomposed.png">
 <!-- For iPad with @2× display & iOS10+: -->
@@ -48,19 +47,15 @@ original: true
 <!-- For iPhone with @2× display: -->
 <link rel="apple-touch-icon-precomposed" sizes="120x120" href="apple-touch-icon-120x120-precomposed.png">
 
-
 <!-- apple-touch links are marked as deprecated by Google -->
 <!-- Chrome for Android home screen icon -->
 <link rel="icon" type="image/png" href="favicon-192x192.png" sizes="192x192" />
 
-
 <!-- Chrome Web Store icon & Small Windows 8 Star Screen Icon -->
 <link rel="icon" type="image/png" href="favicon-128x128.png" sizes="128x128" />
 
-
 <!-- IE10 Metro tile for pinned site -->
 <link rel="icon" type="image/png" href="favicon-144x144.png" sizes="144x144" />
-
 
 <!-- Universal (32x32) -->
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
