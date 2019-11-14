@@ -5,7 +5,7 @@ import { Layout, SEO } from '../components'
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 import '../styles/prism-styles.scss'
 import './blog-post.scss'
-import { GatsbyDataProps } from 'utils/interface';
+import { GatsbyDataProps } from '../utils/interface'
 
 export default (props: GatsbyDataProps) => {
   const { data } = props
