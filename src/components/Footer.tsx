@@ -5,6 +5,7 @@ import heart from '../images/heart.svg'
 import dayjs from 'dayjs'
 
 const year = dayjs().format('YYYY')
+const author = `<Washington Hua />`
 
 export const Footer: FC = () => {
   return (
@@ -13,10 +14,10 @@ export const Footer: FC = () => {
         <p>
           <span>Designed, Developed & Wrote with</span>
           <img src={heart} alt='' />
-          <span>by Washington Hua</span>
+          <span>by {author}</span>
         </p>
 
-        <p>Copyright &copy; {year} All Rights Reserved</p>
+        <p>Copyright &copy; 2014 - {year} All Rights Reserved</p>
       </div>
     </footer>
   )

@@ -41,13 +41,6 @@ module.exports = {
         path: `${__dirname}/src/pages`,
       },
     },
-    // {
-    //   resolve: 'gatsby-source-filesystem',
-    //   options: {
-    //     name: 'content',
-    //     path: `${__dirname}/content/`,
-    //   },
-    // },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -60,14 +53,7 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-remark',
       options: {
-        plugins: [,
-          // {
-          //   resolve: 'gatsby-remark-embed-snippet',
-          //   options: {
-          //     classPrefix: 'gatsby-code-',
-          //     directory: `${__dirname}/samples/`,
-          //   },
-          // },
+        plugins: [
           {
             resolve: 'gatsby-remark-external-links',
             options: {
@@ -107,65 +93,6 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     'gatsby-plugin-offline',
-    /* {
-      resolve: 'gatsby-plugin-feed',
-      options: {
-        query: `
-         {
-          site {
-            siteMetadata {
-              title: rssFeedTitle
-              description: rssFeedDescription
-              siteUrl
-              site_url: siteUrl
-            }
-          }
-        }`,
-        feeds: [
-          {
-            serialize: ({query: {site, allMarkdownRemark}}) => {
-              return allMarkdownRemark.edges.map(edge => {
-                return Object.assign(
-                  {},
-                  {
-                    title: edge.node.frontmatter.title,
-                    description: edge.node.html,
-                    date: require('moment')(edge.node.fields.date).format(
-                      'MMMM DD, YYYY, h:mm A',
-                    ),
-                    url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                    guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  },
-                );
-              });
-            },
-            query: `
-              {
-                allMarkdownRemark
-                (limit: 10,
-                filter: {fileAbsolutePath: {regex: "/blog/"}},
-                sort: {fields: [fields___date],
-                order: DESC}) {
-                  edges {
-                    node {
-                      fields {
-                        date
-                        slug
-                      }
-                      frontmatter {
-                        title
-                      }
-                      html
-                    }
-                  }
-                }
-              }
-            `,
-            output: '/feed.xml',
-          },
-        ],
-      },
-    }, */
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-catch-links',
     {
