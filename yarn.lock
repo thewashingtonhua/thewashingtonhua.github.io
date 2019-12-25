@@ -994,12 +994,12 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@danbruegge/gatsby-plugin-stylelint@^3.4.0":
-  version "3.4.1"
-  resolved "https://registry.npm.taobao.org/@danbruegge/gatsby-plugin-stylelint/download/@danbruegge/gatsby-plugin-stylelint-3.4.1.tgz#ebe0b1f56f1fd3a40763cd9cdf138b9e712b6ba7"
-  integrity sha1-6+Cx9W8f06QHY82c3xOLnnEra6c=
+"@danbruegge/gatsby-plugin-stylelint@^4.0.0":
+  version "4.0.0"
+  resolved "http://r.cnpmjs.org/@danbruegge/gatsby-plugin-stylelint/download/@danbruegge/gatsby-plugin-stylelint-4.0.0.tgz#1a1b384eb0e92861fda474376f3a8d7a9e8a7e63"
+  integrity sha1-Ghs4TrDpKGH9pHQ3bzqNep6KfmM=
   dependencies:
-    stylelint-webpack-plugin "^0.10.5"
+    stylelint-bare-webpack-plugin "^2.0.0"
 
 "@hapi/address@2.x.x":
   version "2.1.4"
@@ -1523,10 +1523,15 @@
   resolved "https://registry.npm.taobao.org/@types/mkdirp/download/@types/mkdirp-0.3.29.tgz#7f2ad7ec55f914482fc9b1ec4bb1ae6028d46066"
   integrity sha1-fyrX7FX5FEgvybHsS7GuYCjUYGY=
 
-"@types/node@*", "@types/node@^12.0.3":
+"@types/node@*":
   version "12.12.21"
   resolved "https://registry.npm.taobao.org/@types/node/download/@types/node-12.12.21.tgz#aa44a6363291c7037111c47e4661ad210aded23f"
   integrity sha1-qkSmNjKRxwNxEcR+RmGtIQre0j8=
+
+"@types/node@^13.1.0":
+  version "13.1.0"
+  resolved "http://r.cnpmjs.org/@types/node/download/@types/node-13.1.0.tgz#225cbaac5fdb2b9ac651b02c070d8aa3c37cc812"
+  integrity sha1-Ily6rF/bK5rGUbAsBw2Ko8N8yBI=
 
 "@types/node@^7.0.11":
   version "7.10.9"
@@ -6505,6 +6510,13 @@ get-value@^2.0.3, get-value@^2.0.6:
   resolved "https://registry.npm.taobao.org/get-value/download/get-value-2.0.6.tgz#dc15ca1c672387ca76bd37ac0a395ba2042a2c28"
   integrity sha1-3BXKHGcjh8p2vTesCjlbogQqLCg=
 
+get-value@^3.0.1:
+  version "3.0.1"
+  resolved "http://r.cnpmjs.org/get-value/download/get-value-3.0.1.tgz#5efd2a157f1d6a516d7524e124ac52d0a39ef5a8"
+  integrity sha1-Xv0qFX8dalFtdSThJKxS0KOe9ag=
+  dependencies:
+    isobject "^3.0.1"
+
 getpass@^0.1.1:
   version "0.1.7"
   resolved "https://registry.npm.taobao.org/getpass/download/getpass-0.1.7.tgz#5eff8e3e684d569ae4cb2b1282604e8ba62149fa"
@@ -8053,6 +8065,13 @@ is-plain-object@^2.0.3, is-plain-object@^2.0.4:
   dependencies:
     isobject "^3.0.1"
 
+is-plain-object@^3.0.0:
+  version "3.0.0"
+  resolved "http://r.cnpmjs.org/is-plain-object/download/is-plain-object-3.0.0.tgz#47bfc5da1b5d50d64110806c199359482e75a928"
+  integrity sha1-R7/F2htdUNZBEIBsGZNZSC51qSg=
+  dependencies:
+    isobject "^4.0.0"
+
 is-png@^1.0.0:
   version "1.1.0"
   resolved "https://registry.npm.taobao.org/is-png/download/is-png-1.1.0.tgz#d574b12bf275c0350455570b0e5b57ab062077ce"
@@ -8239,6 +8258,11 @@ isobject@^3.0.0, isobject@^3.0.1:
   version "3.0.1"
   resolved "https://registry.npm.taobao.org/isobject/download/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
   integrity sha1-TkMekrEalzFjaqH5yNHMvP2reN8=
+
+isobject@^4.0.0:
+  version "4.0.0"
+  resolved "http://r.cnpmjs.org/isobject/download/isobject-4.0.0.tgz#3f1c9155e73b192022a80819bacd0343711697b0"
+  integrity sha1-PxyRVec7GSAiqAgZus0DQ3EWl7A=
 
 isomorphic-fetch@^2.1.1:
   version "2.2.1"
@@ -9201,7 +9225,7 @@ methods@~1.1.2:
   resolved "https://registry.npm.taobao.org/methods/download/methods-1.1.2.tgz#5529a4d67654134edcc5266656835b0f851afcee"
   integrity sha1-VSmk1nZUE07cxSZmVoNbD4Ua/O4=
 
-micromatch@^3.1.10, micromatch@^3.1.4, micromatch@^3.1.8:
+micromatch@^3.1.10, micromatch@^3.1.4:
   version "3.1.10"
   resolved "https://registry.npm.taobao.org/micromatch/download/micromatch-3.1.10.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fmicromatch%2Fdownload%2Fmicromatch-3.1.10.tgz#70859bc95c9840952f359a068a3fc49f9ecfac23"
   integrity sha1-cIWbyVyYQJUvNZoGij/En57PrCM=
@@ -9424,6 +9448,11 @@ mkdirp@0.5.1, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.1:
   integrity sha1-MAV0OOrGz3+MR2fzhkjWaX11yQM=
   dependencies:
     minimist "0.0.8"
+
+module-available@^1.0.6:
+  version "1.0.6"
+  resolved "http://r.cnpmjs.org/module-available/download/module-available-1.0.6.tgz#dd7265eeec1158791ea5305a16c1ac6731980f44"
+  integrity sha1-3XJl7uwRWHkepTBaFsGsZzGYD0Q=
 
 moment@^2.24.0:
   version "2.24.0"
@@ -11403,11 +11432,6 @@ quick-lru@^1.0.0:
   resolved "https://registry.npm.taobao.org/quick-lru/download/quick-lru-1.1.0.tgz#4360b17c61136ad38078397ff11416e186dcfbb8"
   integrity sha1-Q2CxfGETatOAeDl/8RQW4Ybc+7g=
 
-ramda@^0.25.0:
-  version "0.25.0"
-  resolved "https://registry.npm.taobao.org/ramda/download/ramda-0.25.0.tgz#8fdf68231cffa90bc2f9460390a0cb74a29b29a9"
-  integrity sha1-j99oIxz/qQvC+UYDkKDLdKKbKak=
-
 randombytes@^2.0.0, randombytes@^2.0.1, randombytes@^2.0.5:
   version "2.1.0"
   resolved "https://registry.npm.taobao.org/randombytes/download/randombytes-2.1.0.tgz#df6f84372f0270dc65cdf6291349ab7a473d4f2a"
@@ -13339,6 +13363,18 @@ stylehacks@^4.0.0:
     postcss "^7.0.0"
     postcss-selector-parser "^3.0.0"
 
+stylelint-bare-webpack-plugin@^2.0.0:
+  version "2.0.0"
+  resolved "http://r.cnpmjs.org/stylelint-bare-webpack-plugin/download/stylelint-bare-webpack-plugin-2.0.0.tgz#b9c0f18c732333c5a7aca48abd8664eb7ba156f0"
+  integrity sha1-ucDxjHMjM8WnrKSKvYZk63uhVvA=
+  dependencies:
+    chalk "^3.0.0"
+    get-value "^3.0.1"
+    is-plain-object "^3.0.0"
+    lodash "^4.17.15"
+    module-available "^1.0.6"
+    webpack-merge "^4.2.2"
+
 stylelint-config-recommended@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npm.taobao.org/stylelint-config-recommended/download/stylelint-config-recommended-3.0.0.tgz#e0e547434016c5539fe2650afd58049a2fd1d657"
@@ -13363,16 +13399,6 @@ stylelint-scss@^3.6.1:
     postcss-resolve-nested-selector "^0.1.1"
     postcss-selector-parser "^6.0.2"
     postcss-value-parser "^4.0.2"
-
-stylelint-webpack-plugin@^0.10.5:
-  version "0.10.5"
-  resolved "https://registry.npm.taobao.org/stylelint-webpack-plugin/download/stylelint-webpack-plugin-0.10.5.tgz?cache=0&sync_timestamp=1575459942708&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fstylelint-webpack-plugin%2Fdownload%2Fstylelint-webpack-plugin-0.10.5.tgz#0b6e0d373ff5e03baa8197ebe0f2625981bd266b"
-  integrity sha1-C24NNz/14DuqgZfr4PJiWYG9Jms=
-  dependencies:
-    arrify "^1.0.1"
-    micromatch "^3.1.8"
-    object-assign "^4.1.0"
-    ramda "^0.25.0"
 
 stylelint@^12.0.0:
   version "12.0.0"

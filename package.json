@@ -18,10 +18,10 @@
   "devDependencies": {
     "@babel/core": "^7.1.0",
     "@babel/plugin-proposal-export-default-from": "^7.2.0",
-    "@danbruegge/gatsby-plugin-stylelint": "^3.4.0",
+    "@danbruegge/gatsby-plugin-stylelint": "^4.0.0",
     "@mdx-js/mdx": "^1.1.5",
     "@mdx-js/react": "^1.1.5",
-    "@types/node": "^12.0.3",
+    "@types/node": "^13.1.0",
     "@types/react": "^16.8.7",
     "@types/react-dom": "^16.8.2",
     "@types/react-helmet": "^5.0.8",

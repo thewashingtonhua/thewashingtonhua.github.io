@@ -21,7 +21,7 @@ const About = (props: GatsbyDataProps) => {
           <h1>我</h1>
           <img src={brain} alt='Code in my left brain. Color in my right brain.' />
           <p>Washington Hua，前端工程师</p>
-          <p>目前在马老师门下修福报，花名「童话」</p>
+          <p>目前在国内某互联网动物园养动物</p>
           <p>征途是成为「懂设计会开发的全栈产品经理」</p>
 
           <h1>联系方式</h1>
