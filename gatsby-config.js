@@ -103,7 +103,8 @@ module.exports = {
       options: {
         includePaths: [
           path.resolve(__dirname, 'node_modules/normalize-scss/sass')
-        ]
+        ],
+        implementation: require("sass")
       }
     },
     {
