@@ -12,7 +12,7 @@ export const Footer: FC = () => {
     <footer id='mf-footer'>
       <div className='mf-footer-wrapper'>
         <p>
-          <span>Designed, Developed & Wrote with</span>
+          <span>Developed with</span>
           <img src={heart} alt='' />
           <span>by {author}</span>
         </p>
