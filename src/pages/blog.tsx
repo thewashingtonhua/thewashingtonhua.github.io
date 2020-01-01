@@ -25,10 +25,10 @@ export default (props: GatsbyDataProps) => {
       : published.push(blog)
   }
 
-  const visibleBlogs = [
-    !IS_PROD && drafts,
-    published
-  ].filter(Boolean).flat()
+  const visibleBlogs = [...published]
+  if (!IS_PROD) {
+    visibleBlogs.unshift(...drafts)
+  }
 
   return (
     <Layout>
