@@ -26,7 +26,7 @@ module.exports = ({ graphql, actions }) => {
       }
 
       if (type === 'project') {
-        tmpl = path.resolve(`./src/templates/project-detail.tsx`)
+        tmpl = path.resolve(`./src/templates/project-post.tsx`)
       }
 
       createPage({

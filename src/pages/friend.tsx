@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { graphql } from 'gatsby'
 import { Layout, SEO } from '../components'
 import './friend.scss'
@@ -52,7 +52,7 @@ const friends = [
   }
 ]
 
-export default (props: GatsbyDataProps) => {
+const FriendPage: FC<GatsbyDataProps> = (props) => {
   const { data } = props
 
   return (
@@ -91,6 +91,9 @@ export default (props: GatsbyDataProps) => {
     </Layout>
   )
 }
+
+export default FriendPage
+
 export const query = graphql`
 query {
   site {

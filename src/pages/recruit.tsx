@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { graphql } from 'gatsby'
 import { Layout, SEO } from '../components'
 import './recruit.scss'
 import { GatsbyDataProps } from '../utils/interface'
 
 
-const About = (props: GatsbyDataProps) => {
+const RecruitPage: FC<GatsbyDataProps> = (props) => {
   const { data } = props
 
   return (
@@ -35,7 +35,7 @@ const About = (props: GatsbyDataProps) => {
   )
 }
 
-export default About
+export default RecruitPage
 
 export const query = graphql`
 query {

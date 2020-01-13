@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { Link, graphql } from 'gatsby'
 import dayjs from 'dayjs'
 import { Layout, SEO } from '../components'
 import './index.scss'
-import { GatsbyDataProps } from '../utils/interface'
+import { GatsbyDataProps, BlogNode } from '../utils/interface'
 
-export default (props: GatsbyDataProps) => {
+const HomePage: FC<GatsbyDataProps> = (props) => {
   const { data } = props
-  const nodes = data.allMarkdownRemark.edges.map(n => n.node)
+  const nodes = data.allMarkdownRemark.edges.map(n => n.node) as BlogNode[]
 
   const latestBlog = nodes
     .filter(node => (node.fields.type === 'blog' && !node.frontmatter.draft))
@@ -40,39 +40,16 @@ export default (props: GatsbyDataProps) => {
                 <p className='date'>
                   <time dateTime={latestBlog.fields.date}>{blogDate}</time>
                 </p>
-                {/* <p className='tags'>Tags: {latestBlog.frontmatter.tags.join(', ')}</p> */}
               </footer>
             </div>
           </Link>
         </div>
-
-        {/* <header className='channel-header'>
-          <Link to='/project' className='title'>最新项目</Link>
-          <Link to='/project' className='more'>查看全部 &raquo;</Link>
-        </header>
-        <div className='channel-body projects'>
-          { latestProjects.map(node => {
-            const cover = node.frontmatter.cover
-              ? node.frontmatter.cover.publicURL
-              : ''
-            return (
-              <Link className='project' to={node.fields.slug} key={node.id}>
-                <div className='cover'>
-                  <img src={cover} alt='' />
-                </div>
-                <div className='intro'>
-                  <h2>{node.frontmatter.title}</h2>
-                  <p>{node.frontmatter.description}</p>
-                </div>
-              </Link>
-            )
-          })}
-        </div> */}
-
       </div>
     </Layout>
   )
 }
+
+export default HomePage
 
 export const query = graphql`
 query {

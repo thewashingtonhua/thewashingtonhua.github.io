@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { Link, graphql } from 'gatsby'
 import { Layout, SEO } from '../components'
-import './project-detail.scss'
-import { GatsbyDataProps } from '../utils/interface'
+import './project-post.scss'
+import { GatsbyDataProps, ProjectNode } from '../utils/interface'
 
-export default (props: GatsbyDataProps) => {
+const ProjectPostPage: FC<GatsbyDataProps> = (props) => {
   const { data } = props
-  const post = data.markdownRemark
+  const post = data.markdownRemark as ProjectNode
 
   return (
     <Layout>
@@ -21,6 +21,8 @@ export default (props: GatsbyDataProps) => {
     </Layout>
   )
 }
+
+export default ProjectPostPage
 
 export const query = graphql`
 query($slug: String!) {

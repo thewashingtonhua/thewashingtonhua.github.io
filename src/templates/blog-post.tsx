@@ -1,20 +1,54 @@
-import React, { useState } from 'react'
+import React, { useState, FC } from 'react'
 import { Link, graphql } from 'gatsby'
 import dayjs from 'dayjs'
 import { Layout, SEO } from '../components'
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 import '../styles/prism-styles.scss'
 import './blog-post.scss'
-import { GatsbyDataProps } from '../utils/interface'
+import { GatsbyDataProps, BlogNode } from '../utils/interface'
 import { IS_PROD } from 'config'
 
-export default (props: GatsbyDataProps) => {
+interface BlogPostContentProps {
+  blog: BlogNode
+  weChatMode?: boolean
+}
+
+const BlogPostContent: FC<BlogPostContentProps> = (props) => {
+  const { blog, weChatMode } = props
+
+  const cover = blog.frontmatter.cover?.publicURL
+  const date = dayjs(blog.fields.date).format('MMM DD, YYYY')
+
+  const articleClassName = [
+    blog.frontmatter.draft && 'draft',
+    weChatMode && 'wechat-mode'
+  ].filter(Boolean).join(' ')
+
+  return (
+    <article className={articleClassName} id={`blog__${blog.fields.id}`}>
+      <h1 className='title'>{blog.frontmatter.title}</h1>
+      <div className='metas'>
+        <p className='publish-date'>
+          <time dateTime={blog.fields.date}>{date}</time>
+        </p>
+      </div>
+      { cover &&
+        <div className='banner'>
+          <img src={cover} alt='' />
+        </div>
+      }
+      <div className='content' dangerouslySetInnerHTML={{ __html: blog.html }} />
+    </article>
+  )
+}
+
+const BlogPostPage: FC<GatsbyDataProps> = (props) => {
   const { data } = props
-  const nodes = data.allMarkdownRemark.edges.map(n => n.node)
+  const nodes = data.allMarkdownRemark.edges.map(n => n.node) as BlogNode[]
   const blogs = nodes
     .filter(node => node.fields.type === 'blog')
     .sort((x, y) => new Date(y.fields.date).getTime() - new Date(x.fields.date).getTime())
-  const thisBlog = data.markdownRemark
+  const thisBlog = data.markdownRemark as BlogNode
 
   const [wechatMode, setWechatMode] = useState()
 
@@ -99,6 +133,8 @@ export default (props: GatsbyDataProps) => {
     </Layout>
   )
 }
+
+export default BlogPostPage
 
 export const query = graphql`
 query($slug: String!) {

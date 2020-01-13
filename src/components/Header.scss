@@ -15,7 +15,6 @@
 
     .mf-header-wrapper {
       width: 100%;
-      // max-width: $theme-max-width-lg;
       height: 100%;
       margin: 0 auto;
       display: flex;
@@ -31,6 +30,11 @@
 
       .brand {
         width: 350px;
+        flex-shrink: 0;
+
+        @media (max-width: $break-point-desktop-small) {
+          width: 42px;
+        }
 
         .logo {
           height: $header-height;
@@ -52,8 +56,8 @@
               color 0.3s ease-out,
               font-size 0.3s ease-out;
 
-            @media (max-width: 480px) {
-              font-size: 16px;
+            @media (max-width: $break-point-desktop-small) {
+              display: none;
             }
 
             &:hover {
@@ -65,6 +69,13 @@
 
       .navigation {
         width: 350px;
+        flex-shrink: 0;
+
+        @media (max-width: $break-point-desktop-small) {
+          width: 32px;
+          display: flex;
+          justify-content: flex-end;
+        }
 
         .hamberger {
           width: 22px;

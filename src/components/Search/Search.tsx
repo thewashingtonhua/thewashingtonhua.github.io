@@ -1,8 +1,9 @@
 import React, { FC, useState, ChangeEvent } from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 import './Search.scss'
-import { GatsbyDataProps } from '../utils/interface'
-import SearchIcon from '../images/ui/icons/search.svg'
+import { GatsbyDataProps } from '../../utils/interface'
+import { SearchInput } from './SearchInput'
+import { SearchResult } from './SearchResult'
 
 interface SearchProps extends GatsbyDataProps {}
 
@@ -21,14 +22,13 @@ function blurSearch (source: string, query: string) {
 }
 
 
-const SearchInner: FC<SearchProps> = (props: SearchProps) => {
+const SearchInner: FC<SearchProps> = (props) => {
   const { data } = props
   const nodes = data.allMarkdownRemark.edges.map(n => n.node)
 
   const [searchText, setSearchText] = useState('')
 
-  function onSearchTextChange (e: ChangeEvent<HTMLInputElement>) {
-    const value = e.target.value
+  function onSearchTextChange (value: string) {
     setSearchText(value)
   }
 
@@ -44,23 +44,16 @@ const SearchInner: FC<SearchProps> = (props: SearchProps) => {
 
   return (
     <div className='search-bar'>
-      <div className='input-wrapper'>
-        <div className='search-icon'>
-          <SearchIcon />
-        </div>
-        <input
-          className='search-input'
-          type='text'
-          placeholder='搜索「童话说」'
-          value={searchText}
-          onChange={onSearchTextChange}
-        />
-      </div>
+      <SearchInput
+        value={searchText}
+        onChange={onSearchTextChange}
+      />
+      <SearchResult data={searchResult} />
    </div>
   )
 }
 
-export const Search: FC<SearchProps> = (props: SearchProps) => {
+export const Search: FC = () => {
   return (
     <StaticQuery
       query={searchQuery}
