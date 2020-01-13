@@ -17,18 +17,10 @@ export default (props: GatsbyDataProps) => {
     .filter(node => node.fields.type === 'blog')
     .sort((x, y) => new Date(y.fields.date).getTime() - new Date(x.fields.date).getTime())
 
-  const drafts = []
-  const published = []
-  for (const blog of blogs) {
-    blog.frontmatter.draft
-      ? drafts.push(blog)
-      : published.push(blog)
-  }
-
-  const visibleBlogs = [...published]
-  if (!IS_PROD) {
-    visibleBlogs.unshift(...drafts)
-  }
+  // 草稿不对外发布
+  const visibleBlogs = IS_PROD
+    ? blogs.filter(blog => !blog.frontmatter.draft)
+    : blogs
 
   return (
     <Layout>
@@ -39,12 +31,15 @@ export default (props: GatsbyDataProps) => {
       <div className='mf-content blog-catalog'>
         <div className='blog-list'>
           { visibleBlogs.map(node => {
-            const cover = node.frontmatter.cover
-              ? node.frontmatter.cover.publicURL
-              : ''
+            const cover = node.frontmatter.cover.publicURL
             const date = dayjs(node.fields.date).format('MMM DD, YYYY')
             return (
-              <Link className={'blog' + (node.frontmatter.draft ? ' draft' : '')} to={node.fields.slug} key={node.id} id={node.fields.id}>
+              <Link
+                className={'blog' + (node.frontmatter.draft ? ' draft' : '')}
+                to={node.fields.slug}
+                key={node.id}
+                id={node.fields.id}
+              >
                 <div className='banner'>
                   <img src={cover} alt='' />
                 </div>

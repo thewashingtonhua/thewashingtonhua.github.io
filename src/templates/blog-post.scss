@@ -332,4 +332,51 @@
       }
     }
   }
+
+  .series {
+    padding: 0 15px 0;
+
+    .header {
+      border-top: 1px dashed $theme-color-text;
+      padding-top: 50px;
+      margin-bottom: 30px;
+
+      .title {
+        color: $theme-color-text;
+        font-size: 20px;
+      }
+    }
+
+    .posts {
+      padding-left: 30px;
+      list-style: circle;
+
+      .post {
+        color: $theme-color-text;
+        font-size: 14px;
+        line-height: 2;
+        transition: color 0.3s ease-out;
+
+        a {
+          color: $theme-color-text;
+          transition: color 0.3s ease-out;
+
+          &.draft {
+            &::before {
+              content: '[ Draft ] ';
+              color: $theme-color-draft;
+            }
+          }
+        }
+
+        &:hover {
+          &,
+          & a {
+            color: $theme-color-primary;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
 }

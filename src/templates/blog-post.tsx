@@ -6,54 +6,95 @@ import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 import '../styles/prism-styles.scss'
 import './blog-post.scss'
 import { GatsbyDataProps } from '../utils/interface'
+import { IS_PROD } from 'config'
 
 export default (props: GatsbyDataProps) => {
   const { data } = props
-  const post = data.markdownRemark
+  const nodes = data.allMarkdownRemark.edges.map(n => n.node)
+  const blogs = nodes
+    .filter(node => node.fields.type === 'blog')
+    .sort((x, y) => new Date(y.fields.date).getTime() - new Date(x.fields.date).getTime())
+  const thisBlog = data.markdownRemark
 
   const [wechatMode, setWechatMode] = useState()
 
-  if (!post) {
-    return null
-  }
-
-  const cover = post.frontmatter && post.frontmatter.cover
-    ? post.frontmatter.cover.publicURL
-    : ''
-  const date = dayjs(post.fields.date).format('MMM DD, YYYY')
+  const cover = thisBlog.frontmatter.cover.publicURL
+  const date = dayjs(thisBlog.fields.date).format('MMM DD, YYYY')
 
   const articleClassName = [
-    post.frontmatter.draft && 'draft',
+    thisBlog.frontmatter.draft && 'draft',
     wechatMode && 'wechat-mode'
   ].filter(Boolean).join(' ')
+
+  const renderSeries = () => {
+    const thisSeries = thisBlog.frontmatter.series
+
+    // 不属于任何系列
+    if (!thisSeries) return null
+
+    const seriesBlogs = blogs
+      .filter(node => node.frontmatter.series === thisSeries)
+
+    // 草稿不对外发布
+    const visibleBlogs = IS_PROD
+      ? seriesBlogs.filter(blog => !blog.frontmatter.draft)
+      : seriesBlogs
+
+    // 无可见博客则不显示
+    if (!visibleBlogs.length) {
+      return null
+    }
+
+    return (
+      <section className='series'>
+        <header className='header'>
+          <p className='title'>该系列的其他文章</p>
+        </header>
+        <ul className='posts'>
+          { seriesBlogs.map(post => (
+            <li className='post' key={post.id}>
+              <Link
+                className={(post.frontmatter.draft ? 'draft' : '')}
+                to={post.fields.slug}
+              >
+                { post.frontmatter.title }
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
 
   return (
     <Layout>
       <SEO
-        title={`${post.frontmatter.title} | 博客`}
+        title={`${thisBlog.frontmatter.title} | 博客`}
         keywords={[
           ...data.site.siteMetadata.keywords,
-          ...post.frontmatter.tags
+          ...thisBlog.frontmatter.tags
         ]}
       />
 
       <div className='mf-content blog-post'>
         <p className='back-to-parent'><Link to='/blog'>&laquo; 回到博客列表</Link></p>
-        <article className={articleClassName} id={`blog__${post.fields.id}`}>
-          <h1 className='title'>{post.frontmatter.title}</h1>
+
+        <article className={articleClassName} id={`blog__${thisBlog.fields.id}`}>
+          <h1 className='title'>{thisBlog.frontmatter.title}</h1>
           <div className='metas'>
             <p className='publish-date'>
-              <time dateTime={post.fields.date}>{date}</time>
+              <time dateTime={thisBlog.fields.date}>{date}</time>
             </p>
-            {/* <p className='tags'>Tags: {post.frontmatter.tags.join(', ')}</p> */}
           </div>
           { cover &&
             <div className='banner'>
               <img src={cover} alt='' />
             </div>
           }
-          <div className='content' dangerouslySetInnerHTML={{ __html: post.html }} />
+          <div className='content' dangerouslySetInnerHTML={{ __html: thisBlog.html }} />
         </article>
+
+        { renderSeries() }
       </div>
     </Layout>
   )
@@ -65,6 +106,31 @@ query($slug: String!) {
     siteMetadata {
       title,
       keywords
+    }
+  }
+  allMarkdownRemark {
+    totalCount
+    edges {
+      node {
+        id
+        frontmatter {
+          title
+          description
+          tags
+          cover {
+            publicURL
+          }
+          series
+          draft
+          original
+        }
+        fields {
+          id
+          slug
+          type
+          date
+        }
+      }
     }
   }
   markdownRemark(fields: { slug: { eq: $slug } }) {
