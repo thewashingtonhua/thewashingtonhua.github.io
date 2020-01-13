@@ -76,7 +76,7 @@
   "scripts": {
     "predev": "rm -rf .cache",
     "dev": "gatsby develop -p 5004",
-    "prebuild": "rm -rf .cache",
+    "prebuild": "rm -rf .cache && rm -rf ./public",
     "build": "gatsby build",
     "postbuild": "cp -f README.md public/README.md",
     "serve": "gatsby serve",
