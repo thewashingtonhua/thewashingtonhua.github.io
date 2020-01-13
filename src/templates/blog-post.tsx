@@ -18,7 +18,7 @@ export default (props: GatsbyDataProps) => {
 
   const [wechatMode, setWechatMode] = useState()
 
-  const cover = thisBlog.frontmatter.cover.publicURL
+  const cover = thisBlog.frontmatter.cover?.publicURL
   const date = dayjs(thisBlog.fields.date).format('MMM DD, YYYY')
 
   const articleClassName = [

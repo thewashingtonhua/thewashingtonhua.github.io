@@ -3,7 +3,7 @@ import { Link, graphql } from 'gatsby'
 import { Layout, SEO } from '../components'
 import './project.scss'
 import { GatsbyDataProps } from '../utils/interface'
-import { IS_PROD } from 'config';
+import { IS_PROD } from 'config'
 
 export default (props: GatsbyDataProps) => {
   const { data } = props
@@ -13,15 +13,16 @@ export default (props: GatsbyDataProps) => {
     .filter(node => !IS_PROD || !node.frontmatter.draft)
     .sort((x, y) => new Date(y.frontmatter.from).getTime() - new Date(x.frontmatter.from).getTime())
 
-  const personalProjects = projects.filter(node => node.frontmatter.category === 'personal')
+  // 商业项目和个人项目分开
   const commercialProjects = projects.filter(node => node.frontmatter.category === 'commercial')
+  const personalProjects = projects.filter(node => node.frontmatter.category === 'personal')
 
   const visibleProjects = []
-  if (personalProjects.length) {
-    visibleProjects.push({ title: '个人作品', data: personalProjects })
-  }
   if (commercialProjects.length) {
     visibleProjects.push({ title: '商业作品', data: commercialProjects })
+  }
+  if (personalProjects.length) {
+    visibleProjects.push({ title: '个人作品', data: personalProjects })
   }
 
   const totalCount = visibleProjects.map(n => n.data.length).reduce((x, y) => x + y, 0)
@@ -39,9 +40,7 @@ export default (props: GatsbyDataProps) => {
             <h2 className='project-category-title'>{item.title} ({item.data.length})</h2>
             <div className='project-list'>
               { item.data.map(node => {
-                const cover = node.frontmatter.cover
-                  ? node.frontmatter.cover.publicURL
-                  : ''
+                const cover = node.frontmatter.cover?.publicURL
                 return (
                   <Link className={'project' + (node.frontmatter.draft ? ' draft' : '')} to={node.fields.slug} key={node.fields.slug} id={node.fields.id}>
                     <div className='cover'>

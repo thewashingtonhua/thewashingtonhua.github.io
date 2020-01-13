@@ -12,13 +12,8 @@ export default (props: GatsbyDataProps) => {
   const latestBlog = nodes
     .filter(node => (node.fields.type === 'blog' && !node.frontmatter.draft))
     .sort((x, y) => new Date(y.fields.date).getTime() - new Date(x.fields.date).getTime())[0]
-  // const latestProjects = nodes
-  //   .filter(node => (node.fields.type === 'project' && !node.frontmatter.draft))
-  //   .sort((x, y) => new Date(y.frontmatter.from).getTime() - new Date(x.frontmatter.from).getTime()).slice(0, 2)
 
-  const blogCover = latestBlog.frontmatter.cover
-    ? latestBlog.frontmatter.cover.publicURL
-    : ''
+  const blogCover = latestBlog.frontmatter.cover?.publicURL
   const blogDate = dayjs(latestBlog.fields.date).format('MMM DD, YYYY')
 
   return (
@@ -43,7 +38,7 @@ export default (props: GatsbyDataProps) => {
               <p className='desc'>{latestBlog.frontmatter.description}</p>
               <footer className='blog__footer'>
                 <p className='date'>
-                  <time dateTime={latestBlog.frontmatter.date}>{blogDate}</time>
+                  <time dateTime={latestBlog.fields.date}>{blogDate}</time>
                 </p>
                 {/* <p className='tags'>Tags: {latestBlog.frontmatter.tags.join(', ')}</p> */}
               </footer>

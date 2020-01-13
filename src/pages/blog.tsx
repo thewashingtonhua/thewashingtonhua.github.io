@@ -4,7 +4,7 @@ import dayjs from 'dayjs'
 import { Layout, SEO } from '../components'
 import './blog.scss'
 import { IS_PROD } from '../config'
-import { GatsbyDataProps } from '../utils/interface'
+import { GatsbyDataProps, GatsbyContentNode } from '../utils/interface'
 
 const BottomLine = (props: { text: string }) => (
   <div className='bottom-line'><span>{props.text}</span></div>
@@ -17,10 +17,17 @@ export default (props: GatsbyDataProps) => {
     .filter(node => node.fields.type === 'blog')
     .sort((x, y) => new Date(y.fields.date).getTime() - new Date(x.fields.date).getTime())
 
+  // 把草稿和已发布的分开
+  const [drafts, published] = blogs.reduce((cache, blog) => (
+    blog.frontmatter.draft
+      ? [[...cache[0], blog], cache[1]]
+      : [cache[0], [...cache[1], blog]]
+  ), [[] as GatsbyContentNode[], [] as GatsbyContentNode[]])
+
   // 草稿不对外发布
   const visibleBlogs = IS_PROD
-    ? blogs.filter(blog => !blog.frontmatter.draft)
-    : blogs
+    ? [...published]
+    : [...drafts, ...published]
 
   return (
     <Layout>
@@ -31,7 +38,7 @@ export default (props: GatsbyDataProps) => {
       <div className='mf-content blog-catalog'>
         <div className='blog-list'>
           { visibleBlogs.map(node => {
-            const cover = node.frontmatter.cover.publicURL
+            const cover = node.frontmatter.cover?.publicURL
             const date = dayjs(node.fields.date).format('MMM DD, YYYY')
             return (
               <Link
