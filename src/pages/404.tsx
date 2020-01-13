@@ -3,13 +3,13 @@ import { Link } from 'gatsby'
 import { Layout, SEO } from '../components'
 import './404.scss'
 
-const code = `\(function whatJustHappened \(\) \{
+const code = `(function whatJustHappened () {
   return \`
     Whatever you are looking for.
     It's not here.
     (any more)
   \`
-\}\)\(\)
+})()
 `
 
 const PageNotFound = () => (
@@ -22,7 +22,7 @@ const PageNotFound = () => (
           __html: code
         }} />
       </pre>
-      <Link className='btn-back' to='/'>returnToBase()</Link>
+      <Link className='btn-back' to='/'>return</Link>
     </div>
   </Layout>
 )
