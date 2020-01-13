@@ -4,7 +4,9 @@
     "stylelint-scss"
   ],
   "ignoreFiles": [
-    "**/*.js"
+    "**/*.js",
+    "**/*.ts",
+    "**/*.tsx",
   ],
   "rules": {
     "at-rule-no-unknown": null,

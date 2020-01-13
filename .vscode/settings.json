@@ -2,5 +2,6 @@
   "standard.validate": [
     "javascript",
     "javascriptreact"
-  ]
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

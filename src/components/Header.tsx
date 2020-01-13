@@ -1,4 +1,4 @@
-import React, { useState, MouseEvent } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'gatsby'
 import logo from '../images/logo.png'
 import './Header.scss'
@@ -18,13 +18,11 @@ export const Header = () => {
 
   const [navMenuOpen, setNavMenuOpen] = useState(false)
 
-  function toggle (e: MouseEvent) {
-    e && e.stopPropagation()
+  function toggle () {
     setNavMenuOpen(!navMenuOpen)
   }
 
-  function close (e: MouseEvent) {
-    e && e.stopPropagation()
+  function close () {
     setNavMenuOpen(false)
   }
 

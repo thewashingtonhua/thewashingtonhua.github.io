@@ -14,10 +14,7 @@ module.exports = ({ node, getNode, actions }) => {
 
     if (relativePath.includes('blog')) {
       const match = BLOG_POST_FILENAME_REGEX.exec(relativePath)
-      const year = match[1]
-      const month = match[2]
-      const day = match[3]
-      const filename = match[4]
+      const [, year, month, day, filename] = match
 
       id = filename
       slug = `/blog/${year}/${month}/${day}/${filename}`

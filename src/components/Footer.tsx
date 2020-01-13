@@ -9,6 +9,7 @@ import IconZhihu from '../images/ui/icons/zhihu.svg'
 import IconJuejin from '../images/ui/icons/juejin.svg'
 
 const year = dayjs().format('YYYY')
+const author = `<Washington Hua />`
 
 export const Footer: FC = () => {
   return (
@@ -17,10 +18,10 @@ export const Footer: FC = () => {
         <p>
           <span>Developed with</span>
           <IconHeart />
-          <span>by Washington Hua</span>
+          <span>by {author}</span>
         </p>
 
-        <p>Copyright &copy; {year} All Rights Reserved</p>
+        <p>Copyright &copy; 2014 - {year} All Rights Reserved</p>
       </div>
 
       <div className='sns'>

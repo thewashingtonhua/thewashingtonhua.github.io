@@ -17,7 +17,7 @@ module.exports = ({ graphql, actions }) => {
     }
   `).then(result => {
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      let tmpl = path.resolve(`./src/pages/404.js`)
+      let tmpl = path.resolve(`./src/pages/404.tsx`)
       const slug = node.fields ? node.fields.slug : '/'
       const type = node.fields ? node.fields.type : ''
 
@@ -28,8 +28,6 @@ module.exports = ({ graphql, actions }) => {
       if (type === 'project') {
         tmpl = path.resolve(`./src/templates/project-detail.tsx`)
       }
-
-      // console.log({ tmpl, slug })
 
       createPage({
         path: slug,
