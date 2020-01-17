@@ -3,5 +3,43 @@
 @import '../../styles/_common.scss';
 
 .search-result {
-  position: absolute;
+  position: fixed;
+  top: $header-height;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $theme-color-bg;
+  z-index: $search-z-index;
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  &.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .result-list {
+    width: 100%;
+    max-width: 350px;
+    overflow-y: auto;
+
+    .result-item {
+      position: relative;
+      transition: background-color 0.3s ease-out;
+
+      .result-item-link {
+        display: flex;
+        padding: 15px;
+        color: $theme-color-text;
+      }
+
+      &.current {
+        background-color: lighten($theme-color-bg, 5%);
+      }
+    }
+  }
 }

@@ -5,7 +5,11 @@
 .search-input {
   display: flex;
   align-items: center;
-  height: 100%;
+  width: 100%;
+  height: $search-bar-height;
+  border-radius: $search-bar-height / 2;
+  background-color: lighten($theme-color-bg, 5%);
+  padding-right: 15px;
 
   & &__icon {
     flex-shrink: 0;
@@ -30,9 +34,16 @@
     border: none;
     font-size: 14px;
     color: #fff;
+    min-width: 0;
 
     &::placeholder {
       color: lighten($theme-color-bg, 20%);
     }
+  }
+
+  .btn-cancel {
+    flex-shrink: 0;
+    padding-left: 10px;
+    color: $theme-color-primary;
   }
 }

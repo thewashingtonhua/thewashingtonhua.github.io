@@ -10,7 +10,7 @@
     width: 100%;
     height: $header-height;
     background-color: $theme-color-bg;
-    z-index: 10;
+    z-index: $mf-header-z-index;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 
     .mf-header-wrapper {
@@ -29,29 +29,22 @@
       }
 
       .brand {
-        width: 350px;
-        flex-shrink: 0;
-
-        @media (max-width: $break-point-desktop-small) {
-          width: 42px;
-        }
-
-        .logo {
+        .brand-link {
           height: $header-height;
           display: flex;
           align-items: center;
 
-          img {
+          .brand-logo {
             height: 32px;
-            margin-right: 15px;
           }
 
-          span {
+          .brand-name {
             display: block;
             font-size: 20px;
             height: $header-height;
             line-height: $header-height;
             color: $theme-color-primary;
+            margin-left: 15px;
             transition:
               color 0.3s ease-out,
               font-size 0.3s ease-out;
@@ -62,134 +55,6 @@
 
             &:hover {
               color: #fff;
-            }
-          }
-        }
-      }
-
-      .navigation {
-        width: 350px;
-        flex-shrink: 0;
-
-        @media (max-width: $break-point-desktop-small) {
-          width: 32px;
-          display: flex;
-          justify-content: flex-end;
-        }
-
-        .hamberger {
-          width: 22px;
-          height: 16px;
-          flex-direction: column;
-          justify-content: space-between;
-          border-top: 2px solid $theme-color-primary;
-          border-bottom: 2px solid $theme-color-primary;
-          position: relative;
-          transition: border-color 0.3s ease-out;
-          cursor: pointer;
-          display: none;
-
-          @media (max-width: $break-point-desktop-small) {
-            display: flex;
-          }
-
-          &::before,
-          &::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            transform-origin: 50% 50%;
-            width: 100%;
-            height: 2px;
-            background-color: $theme-color-primary;
-            transition: transform 0.3s ease-out;
-          }
-
-          &.open {
-            border-top-color: transparent;
-            border-bottom-color: transparent;
-
-            &::before {
-              transform: translate(-50%, -50%) rotate(-45deg);
-            }
-
-            &::after {
-              transform: translate(-50%, -50%) rotate(45deg);
-            }
-          }
-        }
-
-        .nav-menu {
-          @media (max-width: $break-point-desktop-small) {
-            position: fixed;
-            top: $header-height;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: $theme-color-bg;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            pointer-events: none;
-            z-index: 10;
-            opacity: 0;
-            transition: opacity 0.3s ease-out;
-
-            &.open {
-              opacity: 1;
-              pointer-events: all;
-            }
-          }
-
-          .menus {
-            flex-basis: 1;
-            display: flex;
-            align-items: center;
-
-            @media (max-width: $break-point-desktop-small) {
-              flex-direction: column;
-            }
-
-            .menu {
-              &:not(:first-child) {
-                margin-left: 30px;
-
-                @media (max-width: $break-point-desktop-small) {
-                  margin-top: 15px;
-                  margin-left: 0;
-                }
-              }
-            }
-
-            .menu-link {
-              display: block;
-              height: 40px;
-              line-height: 40px;
-              font-size: 16px;
-              color: $theme-color-text;
-              text-align: center;
-              transition: color 0.3s ease-out;
-              user-select: none;
-
-              @media (max-width: $break-point-desktop-small) {
-                width: 180px;
-              }
-
-              &:hover {
-                color: lighten($theme-color-text, 50%);
-              }
-
-              &.active {
-                color: $theme-color-primary;
-
-                @media (max-width: $break-point-desktop-small) {
-                  border-top: 1px solid $theme-color-primary;
-                  border-bottom: 1px solid $theme-color-primary;
-                }
-              }
             }
           }
         }

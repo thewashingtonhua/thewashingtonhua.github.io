@@ -14,7 +14,7 @@ const ProjectPostPage: FC<GatsbyDataProps> = (props) => {
         title={`${post.frontmatter.title} | 代表作`}
         keywords={data.site.siteMetadata.keywords}
       />
-      <div className='mf-content project-detail'>
+      <div className='mf-content project-post'>
         <p className='back-to-parent'><Link to='/project'>&laquo; 回到项目列表</Link></p>
         <article className='content' id={`project__${post.fields.id}`} dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
