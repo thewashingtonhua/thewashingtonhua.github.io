@@ -22,24 +22,40 @@
     pointer-events: all;
   }
 
-  .result-list {
+  .result-container {
     width: 100%;
     max-width: 350px;
-    overflow-y: auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    .result-item {
-      position: relative;
-      transition: background-color 0.3s ease-out;
+    .result-list {
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
 
-      .result-item-link {
-        display: flex;
-        padding: 15px;
-        color: $theme-color-text;
+      .result-item {
+        position: relative;
+        transition: background-color 0.3s ease-out;
+
+        .result-item-link {
+          display: flex;
+          padding: 15px;
+          color: $theme-color-text;
+        }
+
+        &.current {
+          background-color: lighten($theme-color-bg, 5%);
+        }
       }
+    }
 
-      &.current {
-        background-color: lighten($theme-color-bg, 5%);
-      }
+    .placeholder,
+    .no-result {
+      color: $theme-color-text;
+      width: 100%;
+      text-align: center;
     }
   }
 }

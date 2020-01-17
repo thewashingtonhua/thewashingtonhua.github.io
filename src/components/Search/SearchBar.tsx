@@ -57,6 +57,7 @@ const SearchBarComp: FC<SearchBarCompProps> = (props) => {
           onSearchEnd={_onSearchEnd}
         />
         <SearchResult
+          query={searchText}
           open={isSearching}
           data={searchResult}
           onSelect={_onSearchEnd}
