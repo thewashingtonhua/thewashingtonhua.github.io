@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+@import '../../styles/_common.scss';
+
+.navigation {
+  @media (max-width: $break-point-desktop-small) {
+    display: none;
+  }
+
+  .nav-menu {
+    .menus {
+      display: flex;
+      align-items: center;
+
+      .menu {
+        &:not(:first-child) {
+          margin-left: 30px;
+        }
+      }
+
+      .menu-link {
+        display: block;
+        height: 40px;
+        line-height: 40px;
+        font-size: 16px;
+        color: $theme-color-text;
+        text-align: center;
+        transition: color 0.3s ease-out;
+        user-select: none;
+
+        &:hover {
+          color: lighten($theme-color-text, 50%);
+        }
+
+        &.active {
+          color: $theme-color-primary;
+        }
+      }
+    }
+  }
+}

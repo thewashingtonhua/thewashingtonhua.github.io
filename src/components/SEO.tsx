@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
@@ -11,7 +11,7 @@ interface SEOProps {
   exactTitle?: boolean
 }
 
-export const SEO = (props: SEOProps) => {
+export const SEO: FC<SEOProps> = (props) => {
   const { description = '', lang = `zh`, meta = [], keywords = [], title = '', exactTitle = false } = props
 
   return (

@@ -59,6 +59,7 @@ console.log('sync')
 // called
 // sync
 // async
+// then
 ```
 
 - 在函数定义的最前面添加 `async` 表示这是个 async 函数。

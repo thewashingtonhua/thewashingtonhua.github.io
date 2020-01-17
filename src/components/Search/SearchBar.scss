@@ -1,0 +1,42 @@
+@charset "utf-8";
+
+@import '../../styles/_common.scss';
+
+.search-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  background-color: transparent;
+  transition: background-color 0.3s ease-out;
+
+  &.searching {
+    background-color: $theme-color-bg;
+    pointer-events: all;
+
+    .wrapper {
+      @media (max-width: $break-point-mobile) {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .wrapper {
+    width: 100%;
+    max-width: 350px;
+    pointer-events: all;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15px;
+
+    @media (max-width: $break-point-mobile) {
+      transition: max-width 0.3s ease-out;
+      max-width: calc(100vw - 130px);
+    }
+  }
+}

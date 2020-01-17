@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { graphql } from 'gatsby'
 import { Layout, SEO } from '../components'
 import './about.scss'
@@ -6,13 +6,13 @@ import brain from '../images/about/brain.png'
 import qr from '../images/QR/qr-dark.png'
 import { GatsbyDataProps } from '../utils/interface'
 
-const About = (props: GatsbyDataProps) => {
+const About: FC<GatsbyDataProps> = (props) => {
   const { data } = props
 
   return (
     <Layout>
       <SEO
-        title='我'
+        title='关于'
         keywords={data.site.siteMetadata.keywords}
       />
       <div className='mf-content' id='about'>

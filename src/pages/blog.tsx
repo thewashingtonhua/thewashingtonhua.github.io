@@ -1,18 +1,18 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { Link, graphql } from 'gatsby'
 import dayjs from 'dayjs'
 import { Layout, SEO } from '../components'
 import './blog.scss'
 import { IS_PROD } from '../config'
-import { GatsbyDataProps, GatsbyContentNode } from '../utils/interface'
+import { GatsbyDataProps, GatsbyContentNode, BlogNode } from '../utils/interface'
 
-const BottomLine = (props: { text: string }) => (
+const BottomLine: FC<{ text: string }> = (props) => (
   <div className='bottom-line'><span>{props.text}</span></div>
 )
 
-export default (props: GatsbyDataProps) => {
+const BlogCatalogPage: FC<GatsbyDataProps> = (props) => {
   const { data } = props
-  const nodes = data.allMarkdownRemark.edges.map(n => n.node)
+  const nodes = data.allMarkdownRemark.edges.map(n => n.node) as BlogNode[]
   const blogs = nodes
     .filter(node => node.fields.type === 'blog')
     .sort((x, y) => new Date(y.fields.date).getTime() - new Date(x.fields.date).getTime())
@@ -22,7 +22,7 @@ export default (props: GatsbyDataProps) => {
     blog.frontmatter.draft
       ? [[...cache[0], blog], cache[1]]
       : [cache[0], [...cache[1], blog]]
-  ), [[] as GatsbyContentNode[], [] as GatsbyContentNode[]])
+  ), [[] as BlogNode[], [] as BlogNode[]])
 
   // 草稿不对外发布
   const visibleBlogs = IS_PROD
@@ -69,6 +69,8 @@ export default (props: GatsbyDataProps) => {
     </Layout>
   )
 }
+
+export default BlogCatalogPage
 
 export const query = graphql`
 query {

@@ -28,7 +28,7 @@ export interface ProjectFrontMatter {
   category: string
 }
 
-export type FrontMatter = BlogFrontMatter & ProjectFrontMatter
+export type GatsbyFrontMatter = BlogFrontMatter & ProjectFrontMatter
 
 export interface BlogFields {
   id: string
@@ -45,13 +45,23 @@ export interface ProjectFields {
 
 export type GatsbyFields = BlogFields & ProjectFields
 
-export interface GatsbyContentNode {
+export interface BlogNode {
   id: string
-  frontmatter: FrontMatter
-  fields: GatsbyFields
+  frontmatter: BlogFrontMatter
+  fields: BlogFields
   excerpt: string
   html: string
 }
+
+export interface ProjectNode {
+  id: string
+  frontmatter: ProjectFrontMatter
+  fields: ProjectFields
+  excerpt: string
+  html: string
+}
+
+export type GatsbyContentNode = BlogNode | ProjectNode
 
 export interface GatsbyDataProps {
   data: {

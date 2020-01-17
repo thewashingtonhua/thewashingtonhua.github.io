@@ -5,7 +5,7 @@ import 'normalize-scss/sass/normalize/_import-now.scss'
 import './Layout.scss'
 import { Header } from './Header'
 import { Footer } from './Footer'
-import { IS_PROD } from 'config'
+import { IS_PROD } from '../config'
 
 if (IS_PROD) {
   Sentry.init({

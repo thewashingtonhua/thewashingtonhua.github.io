@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, FC } from 'react'
 import { Link, graphql } from 'gatsby'
 import { Layout, SEO } from '../components'
 import './lab.scss'
@@ -42,7 +42,7 @@ const labs = [
   }
 ]
 
-export default (props: GatsbyDataProps) => {
+const LabPage: FC<GatsbyDataProps> = (props) => {
   const { data } = props
 
   const categories = Array.from(new Set(labs.map(n => n.category)))
@@ -50,7 +50,7 @@ export default (props: GatsbyDataProps) => {
   return (
     <Layout>
       <SEO
-        title='实验室'
+        title='工具'
         keywords={data.site.siteMetadata.keywords}
       />
       <div className='mf-content lab-catalog'>
@@ -70,6 +70,8 @@ export default (props: GatsbyDataProps) => {
     </Layout>
   )
 }
+
+export default LabPage
 
 export const query = graphql`
 query {

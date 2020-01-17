@@ -1,13 +1,13 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, FC } from 'react'
 import { Link, graphql } from 'gatsby'
 import { Layout, SEO } from '../components'
 import './project.scss'
-import { GatsbyDataProps } from '../utils/interface'
+import { GatsbyDataProps, ProjectNode } from '../utils/interface'
 import { IS_PROD } from 'config'
 
-export default (props: GatsbyDataProps) => {
+const ProjectCatalog: FC<GatsbyDataProps> = (props) => {
   const { data } = props
-  const nodes = data.allMarkdownRemark.edges.map(n => n.node)
+  const nodes = data.allMarkdownRemark.edges.map(n => n.node) as ProjectNode[]
   const projects = nodes
     .filter(node => node.fields.type === 'project')
     .filter(node => !IS_PROD || !node.frontmatter.draft)
@@ -30,7 +30,7 @@ export default (props: GatsbyDataProps) => {
   return (
     <Layout>
       <SEO
-        title='代表作'
+        title='项目'
         keywords={data.site.siteMetadata.keywords}
       />
       <div className='mf-content project-catalog'>
@@ -60,6 +60,8 @@ export default (props: GatsbyDataProps) => {
     </Layout>
   )
 }
+
+export default ProjectCatalog
 
 export const query = graphql`
 query {

@@ -1,64 +1,42 @@
-import React, { useState } from 'react'
+import React, { FC, useState } from 'react'
 import { Link } from 'gatsby'
 import logo from '../images/logo.png'
 import './Header.scss'
-import { LinkGetProps } from '@reach/router';
+import { Navigation, NavigationMobile } from './Navigation'
+import { SearchBar } from './Search'
 
-const menus = [
-  { to: '/blog', text: '博客' },
-  { to: '/project', text: '代表作' },
-  { to: '/lab', text: '实验室' },
-  { to: '/friend', text: '朋友' },
-  { to: '/recruit', text: '招人' },
-  { to: '/about', text: '我' }
-]
+export const Header: FC = () => {
+  const [isNavigationOpen, setIsNavigationOpen] = useState(false)
 
-export const Header = () => {
-
-  const [navMenuOpen, setNavMenuOpen] = useState(false)
-
-  function toggle () {
-    setNavMenuOpen(!navMenuOpen)
+  const onNavigationToggle = () => {
+    setIsNavigationOpen(!isNavigationOpen)
   }
 
-  function close () {
-    setNavMenuOpen(false)
-  }
-
-  function isMenuActive (isMenuActiveProps: LinkGetProps) {
-    const { isPartiallyCurrent } = isMenuActiveProps
-    return isPartiallyCurrent
-      ? { className: 'menu-link active' }
-      : { className: 'menu-link' }
+  const onNavigationClose = () => {
+    setIsNavigationOpen(false)
   }
 
   return (
     <header id='mf-header'>
       <div className='mf-header-container'>
         <div className='mf-header-wrapper'>
-          <Link to='/' className='logo'>
-            <img src={logo} alt=''/>
-            <span>童话说</span>
-          </Link>
-          <div className={'hamberger' + (navMenuOpen ? ' open' : '')} onClick={toggle}>
-            <div className='bar' />
-            <div className='bar' />
-            <div className='bar' />
+          <div className='brand'>
+            <Link to='/' className='brand-link'>
+              <img className='brand-logo' src={logo} alt=''/>
+              <span className='brand-name'>童话说</span>
+            </Link>
           </div>
-          <nav className={'nav-menu' + (navMenuOpen ? ' open' : '')}>
-            <ul className='menus'>
-              { menus.map(n => (
-                <li className='menu' key={n.to}>
-                  <Link
-                    to={n.to}
-                    getProps={isMenuActive}
-                    onClick={close}
-                  >{n.text}</Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+
+          <Navigation />
+          <NavigationMobile
+            open={isNavigationOpen}
+            onToggle={onNavigationToggle}
+            onClose={onNavigationClose}
+          />
         </div>
+        <SearchBar
+          onSearchBegin={onNavigationClose}
+        />
       </div>
       <div className='mf-header-placeholder' />
     </header>

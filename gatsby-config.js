@@ -109,6 +109,14 @@ module.exports = {
     },
     {
       resolve: `gatsby-plugin-mdx`
+    },
+    {
+      resolve: `gatsby-plugin-react-svg`,
+      options: {
+        rule: {
+          include: path.resolve('./src/images/ui/icons')
+        }
+      }
     }
   ],
   polyfill: false
