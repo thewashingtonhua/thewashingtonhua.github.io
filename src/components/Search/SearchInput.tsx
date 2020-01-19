@@ -1,35 +1,44 @@
-import React, { FC, ChangeEvent, useState, KeyboardEvent, useRef } from 'react'
+import React, { FC, ChangeEvent, useState, KeyboardEvent, useRef, useEffect, useCallback } from 'react'
 import './SearchInput.scss'
 import SearchIcon from '../../images/ui/icons/search.svg'
 
 interface SearchInputProps {
   value: string,
-  onChange: (value: string) => void
-  onSearchBegin: () => void
-  onSearchEnd: () => void
+  onChange?: (value: string) => void
+  onSearchBegin?: () => void
+  onSearchEnd?: () => void
 }
 
 export const SearchInput: FC<SearchInputProps> = (props) => {
   const { value, onChange, onSearchBegin, onSearchEnd } = props
+
+  const [text, setText] = useState('')
   const [isFocused, setIsFocused] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
 
   function _onChange (e: ChangeEvent<HTMLInputElement>) {
-    const value = e.target.value
-    onChange(value)
+    const text = e.target.value
+    setText(text)
+    window.requestAnimationFrame(() => {
+      onChange && onChange(text)
+    })
   }
+
+  useEffect(() => {
+    setText(value)
+  }, [value])
 
   const cancalable = isFocused || value.length > 0
 
   const _onFocus = () => {
     setIsFocused(true)
-    onSearchBegin()
+    onSearchBegin && onSearchBegin()
   }
 
   const _onCancel = () => {
     setIsFocused(false)
-    onChange('')
-    onSearchEnd()
+    onChange && onChange('')
+    onSearchEnd && onSearchEnd()
 
     const elem = inputRef.current as HTMLInputElement
     if (elem) {
@@ -73,7 +82,7 @@ export const SearchInput: FC<SearchInputProps> = (props) => {
         className='search-input__input'
         type='text'
         placeholder='搜索「童话说」'
-        value={value}
+        value={text}
         onChange={_onChange}
         onFocus={_onFocus}
         onKeyDown={_onKeyDown}

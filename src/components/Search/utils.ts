@@ -1,3 +1,4 @@
+import { GatsbyContentNode } from 'utils/interface'
 
 /**
  * @description 模糊搜索
@@ -11,4 +12,17 @@ export const blurSearch =  (source: string, query: string) => {
 
   const match = source.toLowerCase().includes(query.toLowerCase())
   return match
+}
+
+export interface SearchResultData {}
+
+export const search = (nodes: GatsbyContentNode[], query: string): SearchResultData[] => {
+  const result: SearchResultData[] = []
+
+  for (const node of nodes) {
+    const { frontmatter, excerpt } = node
+    const { title, description } = frontmatter
+  }
+
+  return result
 }

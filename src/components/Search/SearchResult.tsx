@@ -2,27 +2,27 @@ import React, { FC, useState, MouseEvent } from 'react'
 import './SearchResult.scss'
 import { GatsbyContentNode } from '../../utils/interface'
 import { Link } from 'gatsby'
+import { search, blurSearch } from './utils'
 
 interface SearchResultProps {
   query: string
-  data: GatsbyContentNode[]
+  nodes: GatsbyContentNode[]
   open: boolean
-  onSelect: () => void
+  onSelect?: () => void
 }
 
 export const SearchResult: FC<SearchResultProps> = (props) => {
-  const { open, query, data, onSelect } = props
+  const { open, query, nodes, onSelect } = props
   const [currentIndex, setCurrentIndex] = useState(-1)
 
   const cls = [
     'search-result',
     open && 'open',
-    !data.length && 'no-data'
   ].filter(Boolean).join(' ')
 
   const _onSelect = (e: MouseEvent<HTMLElement>) => {
     e.stopPropagation()
-    onSelect()
+    onSelect && onSelect()
   }
 
   const _onMouseEnter = (index: number) => (e: MouseEvent<HTMLElement>) => {
@@ -35,8 +35,17 @@ export const SearchResult: FC<SearchResultProps> = (props) => {
     setCurrentIndex(-1)
   }
 
+  // const searchResult = search(data, query)
+  const searchResult = query
+    ? nodes.filter(n => (
+        blurSearch(n.frontmatter.title, query) ||
+        blurSearch(n.frontmatter.description, query) ||
+        blurSearch(n.excerpt, query)
+      ))
+    : []
+
   const renderResult = () => {
-    const result = data.map((n, i) => {
+    const result = searchResult.map((n, i) => {
       const itemCls = [
         'result-item',
         i === currentIndex && 'current'
@@ -53,7 +62,10 @@ export const SearchResult: FC<SearchResultProps> = (props) => {
             className='result-item-link'
             to={n.fields.slug}
             onClick={_onSelect}
-          >{n.frontmatter.title}</Link>
+          >
+            <p className='title'>{n.frontmatter.title}</p>
+            <p className='excerpt'>{n.excerpt}</p>
+          </Link>
         </li>
       )
     })
@@ -74,7 +86,7 @@ export const SearchResult: FC<SearchResultProps> = (props) => {
   }
 
   const content = query
-    ? data.length
+    ? searchResult.length
       ? renderResult()
       : renderNoResult()
     : renderPlaceholder()

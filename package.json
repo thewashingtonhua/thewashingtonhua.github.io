@@ -22,6 +22,7 @@
     "@danbruegge/gatsby-plugin-stylelint": "^4.0.0",
     "@mdx-js/mdx": "^1.1.5",
     "@mdx-js/react": "^1.1.5",
+    "@types/lodash": "^4.14.149",
     "@types/node": "^13.1.0",
     "@types/react": "^16.8.7",
     "@types/react-dom": "^16.8.2",

@@ -1616,6 +1616,11 @@
   resolved "http://r.cnpmjs.org/@types/json-schema/download/@types/json-schema-7.0.4.tgz#38fd73ddfd9b55abb1e1b2ed578cb55bd7b7d339"
   integrity sha1-OP1z3f2bVaux4bLtV4y1W9e30zk=
 
+"@types/lodash@^4.14.149":
+  version "4.14.149"
+  resolved "http://r.cnpmjs.org/@types/lodash/download/@types/lodash-4.14.149.tgz#1342d63d948c6062838fbf961012f74d4e638440"
+  integrity sha1-E0LWPZSMYGKDj7+WEBL3TU5jhEA=
+
 "@types/mdast@^3.0.3":
   version "3.0.3"
   resolved "http://r.cnpmjs.org/@types/mdast/download/@types/mdast-3.0.3.tgz#2d7d671b1cd1ea3deb306ea75036c2a0407d2deb"

@@ -1,12 +1,15 @@
-import React, { FC, useState, ChangeEvent } from 'react'
+import React, { FC, useState, ChangeEvent, useEffect } from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 import './SearchBar.scss'
 import { GatsbyDataProps } from '../../utils/interface'
-import { blurSearch } from './utils'
+import { blurSearch, search } from './utils'
 import { SearchInput } from './SearchInput'
 import { SearchResult } from './SearchResult'
 
 interface SearchBarProps {
+  searchText: string
+  onSearchTextChange?: (value: string) => void
+  isSearching: boolean
   onSearchBegin?: () => void
   onSearchEnd?: () => void
 }
@@ -14,33 +17,15 @@ interface SearchBarProps {
 interface SearchBarCompProps extends GatsbyDataProps, SearchBarProps {}
 
 const SearchBarComp: FC<SearchBarCompProps> = (props) => {
-  const { data, onSearchBegin, onSearchEnd } = props
+  const {
+    data,
+    searchText,
+    isSearching,
+    onSearchTextChange,
+    onSearchBegin,
+    onSearchEnd
+  } = props
   const nodes = data.allMarkdownRemark.edges.map(n => n.node)
-
-  const [searchText, setSearchText] = useState('')
-  const [isSearching, setIsSearching] = useState(false)
-
-  const onSearchTextChange = (value: string) => {
-    setSearchText(value)
-  }
-
-  const _onSearchBegin = () => {
-    setIsSearching(true)
-    onSearchBegin && onSearchBegin()
-  }
-
-  const _onSearchEnd = () => {
-    setIsSearching(false)
-    onSearchEnd && onSearchEnd()
-  }
-
-  const searchResult = searchText
-    ? nodes.filter(n => (
-        blurSearch(n.frontmatter.title, searchText) ||
-        blurSearch(n.frontmatter.description, searchText) ||
-        blurSearch(n.excerpt, searchText)
-      ))
-    : []
 
   const searchBarCls = [
     'search-bar',
@@ -53,14 +38,14 @@ const SearchBarComp: FC<SearchBarCompProps> = (props) => {
         <SearchInput
           value={searchText}
           onChange={onSearchTextChange}
-          onSearchBegin={_onSearchBegin}
-          onSearchEnd={_onSearchEnd}
+          onSearchBegin={onSearchBegin}
+          onSearchEnd={onSearchEnd}
         />
         <SearchResult
           query={searchText}
           open={isSearching}
-          data={searchResult}
-          onSelect={_onSearchEnd}
+          nodes={nodes}
+          onSelect={onSearchEnd}
         />
       </div>
    </div>
@@ -100,6 +85,7 @@ query {
           draft
           original
         }
+        excerpt
         fields {
           id
           slug

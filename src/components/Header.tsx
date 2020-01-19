@@ -1,12 +1,28 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import { Link } from 'gatsby'
 import logo from '../images/logo.png'
 import './Header.scss'
 import { Navigation, NavigationMobile } from './Navigation'
 import { SearchBar } from './Search'
+import { lockBodyScroll, unlockBodyScroll } from '../utils/dom'
 
 export const Header: FC = () => {
   const [isNavigationOpen, setIsNavigationOpen] = useState(false)
+  const [searchText, setSearchText] = useState('')
+  const [isSearching, setIsSearching] = useState(false)
+
+  const onSearchTextChange = (value: string) => {
+    setSearchText(value)
+  }
+
+  const onSearchBegin = () => {
+    setIsSearching(true)
+    onNavigationClose()
+  }
+
+  const onSearchEnd = () => {
+    setIsSearching(false)
+  }
 
   const onNavigationToggle = () => {
     setIsNavigationOpen(!isNavigationOpen)
@@ -15,6 +31,15 @@ export const Header: FC = () => {
   const onNavigationClose = () => {
     setIsNavigationOpen(false)
   }
+
+  useEffect(() => {
+    const isLock = isNavigationOpen || isSearching
+    if (isLock) {
+      lockBodyScroll()
+    } else {
+      unlockBodyScroll()
+    }
+  }, [isNavigationOpen, isSearching])
 
   return (
     <header id='mf-header'>
@@ -35,7 +60,11 @@ export const Header: FC = () => {
           />
         </div>
         <SearchBar
-          onSearchBegin={onNavigationClose}
+          searchText={searchText}
+          isSearching={isSearching}
+          onSearchTextChange={onSearchTextChange}
+          onSearchBegin={onSearchBegin}
+          onSearchEnd={onSearchEnd}
         />
       </div>
       <div className='mf-header-placeholder' />
