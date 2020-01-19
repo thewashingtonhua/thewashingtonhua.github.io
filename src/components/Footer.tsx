@@ -33,13 +33,19 @@ export const Footer: FC = () => {
             <IconWechatDyh />
           </li>
           <li className='link github' title='Github'>
-            <IconGithub />
+            <a href='https://github.com/tonghuashuo' target='_blank' rel='noopener noreferrer'>
+              <IconGithub />
+            </a>
           </li>
           <li className='link zhihu' title='知乎专栏'>
-            <IconZhihu />
+            <a href='https://zhuanlan.zhihu.com/tonghuashuo' target='_blank' rel='noopener noreferrer'>
+              <IconZhihu />
+            </a>
           </li>
           <li className='link juejin' title='掘金专栏'>
-            <IconJuejin />
+            <a href='https://juejin.im/user/57b5967479bc44005e11f313/posts' target='_blank' rel='noopener noreferrer'>
+              <IconJuejin />
+            </a>
           </li>
         </ul>
       </div>
