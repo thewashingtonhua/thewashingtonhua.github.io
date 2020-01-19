@@ -1,6 +1,6 @@
 import { GatsbyContentNode, BlogNode, ProjectNode, NodeType } from 'utils/interface'
 
-type MatchData = [number, string]
+export type MatchData = [number, string]
 
 interface BlurSearchResult {
   valid: boolean,
@@ -28,7 +28,7 @@ export const blurSearch = (source: string, query: string): BlurSearchResult => {
       result.valid = false
       return result
     } else {
-      result.matches.push([idx, s])
+      result.matches.push([idx, source[idx]])
     }
   }
 
@@ -53,7 +53,7 @@ export const search = (
 
   for (const node of nodes) {
     const searchByTitle = blurSearch(node.frontmatter.title, query)
-    const searchByDesc = blurSearch(node.frontmatter.title, query)
+    const searchByDesc = blurSearch(node.frontmatter.description, query)
     if (searchByTitle.valid || searchByDesc.valid) {
       const result: SearchResultData = {
         type: node.fields.type,
