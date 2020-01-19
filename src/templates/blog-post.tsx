@@ -96,6 +96,7 @@ const BlogPostContent: FC<BlogPostProps> = (props) => {
   }
 
   useEffect(() => {
+    if (window.innerWidth < 1280) return
     document.addEventListener('scroll', handleScroll)
 
     return () => {
