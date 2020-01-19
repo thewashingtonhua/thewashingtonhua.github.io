@@ -13,7 +13,6 @@ export const Navigation: FC = () => {
               <Link
                 to={n.to}
                 getProps={isMenuActive}
-                onClick={close}
               >{n.text}</Link>
             </li>
           ))}
