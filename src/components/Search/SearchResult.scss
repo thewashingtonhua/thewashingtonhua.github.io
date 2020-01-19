@@ -24,47 +24,33 @@
 
   .result-container {
     width: 100%;
-    max-width: 350px;
+    max-width: 480px;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0 0 15px;
+
+    @media (max-width: $break-point-desktop-small) {
+      max-width: 350px;
+    }
 
     .result-list {
       width: 100%;
       height: 100%;
       overflow-y: auto;
 
-      .result-item {
-        position: relative;
-        transition: background-color 0.3s ease-out;
+      &::-webkit-scrollbar-track {
+        display: none;
+      }
 
-        .result-item-link {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
+      .result-category {
+        .category-header {
           padding: 15px;
-          color: $theme-color-text;
 
-          p {
-            width: 100%;
+          .category-title {
+            color: $theme-color-text;
           }
-
-          .title {
-            color: $theme-color-primary;
-            font-size: 18px;
-          }
-
-          .excerpt {
-            font-size: 12px;
-            margin-top: 6px;
-
-            @include ellipsis();
-          }
-        }
-
-        &.current {
-          background-color: lighten($theme-color-bg, 5%);
         }
       }
     }

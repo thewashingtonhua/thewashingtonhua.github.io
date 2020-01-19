@@ -81,9 +81,12 @@ query {
           cover {
             publicURL
           }
+          from
+          to
           series
           draft
           original
+          category
         }
         excerpt
         fields {

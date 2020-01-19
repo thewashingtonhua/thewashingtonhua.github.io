@@ -3,14 +3,14 @@ import { Link, graphql } from 'gatsby'
 import dayjs from 'dayjs'
 import { Layout, SEO } from '../components'
 import './index.scss'
-import { GatsbyDataProps, BlogNode } from '../utils/interface'
+import { GatsbyDataProps, BlogNode, NodeType } from '../utils/interface'
 
 const HomePage: FC<GatsbyDataProps> = (props) => {
   const { data } = props
   const nodes = data.allMarkdownRemark.edges.map(n => n.node) as BlogNode[]
 
   const latestBlog = nodes
-    .filter(node => (node.fields.type === 'blog' && !node.frontmatter.draft))
+    .filter(node => (node.fields.type === NodeType.blog && !node.frontmatter.draft))
     .sort((x, y) => new Date(y.fields.date).getTime() - new Date(x.fields.date).getTime())[0]
 
   const blogCover = latestBlog.frontmatter.cover?.publicURL

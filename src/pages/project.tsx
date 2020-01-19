@@ -2,14 +2,14 @@ import React, { Fragment, FC } from 'react'
 import { Link, graphql } from 'gatsby'
 import { Layout, SEO } from '../components'
 import './project.scss'
-import { GatsbyDataProps, ProjectNode } from '../utils/interface'
+import { GatsbyDataProps, ProjectNode, NodeType } from '../utils/interface'
 import { IS_PROD } from 'config'
 
 const ProjectCatalog: FC<GatsbyDataProps> = (props) => {
   const { data } = props
   const nodes = data.allMarkdownRemark.edges.map(n => n.node) as ProjectNode[]
   const projects = nodes
-    .filter(node => node.fields.type === 'project')
+    .filter(node => node.fields.type === NodeType.project)
     .filter(node => !IS_PROD || !node.frontmatter.draft)
     .sort((x, y) => new Date(y.frontmatter.from).getTime() - new Date(x.frontmatter.from).getTime())
 

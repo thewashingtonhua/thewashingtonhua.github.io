@@ -1,8 +1,8 @@
-import React, { FC, useState, MouseEvent } from 'react'
+import React, { FC, Fragment, useState, MouseEvent } from 'react'
 import './SearchResult.scss'
-import { GatsbyContentNode } from '../../utils/interface'
-import { Link } from 'gatsby'
-import { search, blurSearch } from './utils'
+import { GatsbyContentNode, NodeType } from '../../utils/interface'
+import { search, blurSearch, SearchResultData } from './utils'
+import { SearchResultItem } from './SearchResultItem'
 
 interface SearchResultProps {
   query: string
@@ -35,47 +35,48 @@ export const SearchResult: FC<SearchResultProps> = (props) => {
     setCurrentIndex(-1)
   }
 
-  // const searchResult = search(data, query)
-  const searchResult = query
-    ? nodes.filter(n => (
-        blurSearch(n.frontmatter.title, query) ||
-        blurSearch(n.frontmatter.description, query) ||
-        blurSearch(n.excerpt, query)
-      ))
-    : []
+  const searchResult = search(nodes, query)
 
-  const renderResult = () => {
-    const result = searchResult.map((n, i) => {
-      const itemCls = [
-        'result-item',
-        i === currentIndex && 'current'
-      ].filter(Boolean).join(' ')
+  const blogsFound = searchResult.filter(n => n.type === NodeType.blog)
+  const projectsFound = searchResult.filter(n => n.type === NodeType.project)
 
-      return (
-        <li
-          key={n.id}
-          className={itemCls}
-          onMouseEnter={_onMouseEnter(i)}
-          onMouseLeave={_onMouseLeave(i)}
-        >
-          <Link
-            className='result-item-link'
-            to={n.fields.slug}
-            onClick={_onSelect}
-          >
-            <p className='title'>{n.frontmatter.title}</p>
-            <p className='excerpt'>{n.excerpt}</p>
-          </Link>
-        </li>
-      )
+  const list: { title: string, items: SearchResultData[] }[] = []
+  if (blogsFound.length) {
+    list.push({
+      title: '博客',
+      items: blogsFound
     })
-
-    return (
-      <ul className='result-list'>
-        { result }
-      </ul>
-    )
   }
+  if (projectsFound.length) {
+    list.push({
+      title: '项目',
+      items: projectsFound
+    })
+  }
+
+  const renderResult = () => (
+    <div className='result-list'>
+      { list.map(item => (
+        <div key={item.title} className='result-category'>
+          <header className='category-header'>
+            <p className='category-title'>{item.title}</p>
+          </header>
+          <ul className='category-items'>
+            { item.items.map((n, i) => (
+              <SearchResultItem
+                key={n.node.id}
+                data={n}
+                isCurrent={i === currentIndex}
+                onMouseEnter={_onMouseEnter(i)}
+                onMouseLeave={_onMouseLeave(i)}
+                onClick={_onSelect}
+              />
+            ))}
+          </ul>
+        </div>
+      )) }
+    </div>
+  )
 
   const renderPlaceholder = () => {
     return <p className='placeholder'>请开始你的搜索</p>

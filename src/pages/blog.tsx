@@ -4,7 +4,7 @@ import dayjs from 'dayjs'
 import { Layout, SEO } from '../components'
 import './blog.scss'
 import { IS_PROD } from '../config'
-import { GatsbyDataProps, GatsbyContentNode, BlogNode } from '../utils/interface'
+import { GatsbyDataProps, BlogNode, NodeType } from '../utils/interface'
 
 const BottomLine: FC<{ text: string }> = (props) => (
   <div className='bottom-line'><span>{props.text}</span></div>
@@ -14,7 +14,7 @@ const BlogCatalogPage: FC<GatsbyDataProps> = (props) => {
   const { data } = props
   const nodes = data.allMarkdownRemark.edges.map(n => n.node) as BlogNode[]
   const blogs = nodes
-    .filter(node => node.fields.type === 'blog')
+    .filter(node => node.fields.type === NodeType.blog)
     .sort((x, y) => new Date(y.fields.date).getTime() - new Date(x.fields.date).getTime())
 
   // 把草稿和已发布的分开

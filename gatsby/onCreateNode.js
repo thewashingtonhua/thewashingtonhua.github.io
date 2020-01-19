@@ -20,7 +20,7 @@ module.exports = ({ node, getNode, actions }) => {
       slug = `/blog/${year}/${month}/${day}/${filename}`
       type = 'blog'
 
-      const date = new Date(year, month - 1, day)
+      const date = `${year}-${month}-${day}`
       createNodeField({ node, name: 'date', value: date })
     }
 

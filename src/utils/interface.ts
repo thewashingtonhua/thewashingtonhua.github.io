@@ -1,3 +1,8 @@
+export enum NodeType {
+  blog = 'blog',
+  project = 'project'
+}
+
 export interface GatsbyImage {
   id: string
   publicURL: string
@@ -33,14 +38,14 @@ export type GatsbyFrontMatter = BlogFrontMatter & ProjectFrontMatter
 export interface BlogFields {
   id: string
   slug: string
-  type: string
+  type: NodeType
   date: string
 }
 
 export interface ProjectFields {
   id: string
   slug: string
-  type: string
+  type: NodeType
 }
 
 export type GatsbyFields = BlogFields & ProjectFields

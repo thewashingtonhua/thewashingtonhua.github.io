@@ -5,7 +5,7 @@ import { Layout, SEO } from '../components'
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 import '../styles/prism-styles.scss'
 import './blog-post.scss'
-import { GatsbyDataProps, BlogNode } from '../utils/interface'
+import { GatsbyDataProps, BlogNode, NodeType } from '../utils/interface'
 import { IS_PROD } from 'config'
 
 interface BlogPostContentProps {
@@ -46,18 +46,15 @@ const BlogPostPage: FC<GatsbyDataProps> = (props) => {
   const { data } = props
   const nodes = data.allMarkdownRemark.edges.map(n => n.node) as BlogNode[]
   const blogs = nodes
-    .filter(node => node.fields.type === 'blog')
+    .filter(node => node.fields.type === NodeType.blog)
     .sort((x, y) => new Date(y.fields.date).getTime() - new Date(x.fields.date).getTime())
   const thisBlog = data.markdownRemark as BlogNode
-
-  const [wechatMode, setWechatMode] = useState()
 
   const cover = thisBlog.frontmatter.cover?.publicURL
   const date = dayjs(thisBlog.fields.date).format('MMM DD, YYYY')
 
   const articleClassName = [
     thisBlog.frontmatter.draft && 'draft',
-    wechatMode && 'wechat-mode'
   ].filter(Boolean).join(' ')
 
   const renderSeries = () => {
