@@ -201,10 +201,3 @@ npm install babel-core@5
 除了 Babel 之外，还有一款不错的 ES6 转码器叫做 [Traceur](https://github.com/google/traceur-compiler)，是由科技巨头 Google 开发的，支持度虽然差 Babel 一大截，但使用非常简单，可以作为备用方案。Traceur 同样支持浏览器、在线 REPL、命令行、Node.js 四种环境下的使用。
 
 学过计算机网络的同学，或多或少都应该听说过 Linux 下的  `tracerouter`  命令，和 Windows 下的  `tracert` 命令。这两个命令都是用来追踪数据包从起点到终点所经过的路由的。而 Traceur 的名字，和它们实在是太像了，科技圈的命名方式真是一道风景。
-
-
-## 该系列的其他文章
-
-上一篇：[每天一点ES6(3)：解构赋值](/blog/2016/02/02/es6-daily-03-destructuring)
-
-下一篇：[每天一点ES6(5)：字符串的扩展](/blog/2016/04/05/es6-daily-05-string)

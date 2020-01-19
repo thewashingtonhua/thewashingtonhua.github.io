@@ -186,9 +186,3 @@ Map 和 Set 也可以通过 `for...of` 来遍历，不过是按照元素的添�
 ## 小结
 
 有了 Iterator，我们可以自由地定义数据结构的遍历方式。这一部分的两个关键点，一个是 `[Symbol.iterator]` 属性是个函数，包含必须的 `next()` 函数，在一个就是新的循环语法 `for...of` 。至于文中提到的 Generator，我们会在该系列之后的文章中进行介绍。
-
-## 该系列的其他文章
-
-上一篇：[每天一点ES6(13)：Proxy 和 Reflect](/blog/2017/12/20/es6-daily-13-proxy-and-reflect)
-
-下一篇：[每天一点ES6(15)：Promise](/blog/2018/03/04/es6-daily-15-promise)

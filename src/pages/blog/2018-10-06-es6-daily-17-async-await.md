@@ -122,9 +122,3 @@ const spawn = genF => {
 一句话概括：async 函数 === 自动执行器(Generator)。
 
 这个系列名为 ES6，也就是 ES2015，但 async/await 真正加入标准是在 ES2017，晚了 2 年。不过因为是语法糖的关系，主流环境早在这之前就已经给出了 Polyfill，Node.js 从 7.x 开始也已经正式支持了 `async` / `await` ，所以日常可以放心大胆直接用了。
-
-## 该系列的其他文章
-
-上一篇：[每天一点ES6(16)：Generator](/blog/2018/06/14/es6-daily-16-generator)
-
-下一篇：[每天一点ES6(18)：Class](/blog/2018/12/17/es6-daily-18-class)

@@ -326,9 +326,3 @@ Class 的出现给我们写代码的方式带来了巨大的改变，但更多�
 由于一些历史原因，JavaScript 的设计存在大量的缺陷，ES6 的发布掀起了对 JavaScript 大修补的热潮，现在的 JavaScript 正在集各家之所长，快速成长。
 
 下一篇，我们将探索可能是 ES6 中对未来影响最大的一项改变 —— 模块。
-
-## 该系列的其他文章
-
-上一篇：[每天一点ES6(17)：Async / Await](/blog/2018/10/06/es6-daily-17-async-await)
-
-下一篇：[每天一点ES6(19)：Module](/blog/2018/12/19/es6-daily-19-module)

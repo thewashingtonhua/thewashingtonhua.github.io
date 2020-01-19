@@ -55,7 +55,13 @@ export interface BlogNode {
   frontmatter: BlogFrontMatter
   fields: BlogFields
   excerpt: string
+  headings: Array<{
+    value: string,
+    depth: number
+  }>
   html: string
+  tableOfContents: string
+  timeToRead: number
 }
 
 export interface ProjectNode {

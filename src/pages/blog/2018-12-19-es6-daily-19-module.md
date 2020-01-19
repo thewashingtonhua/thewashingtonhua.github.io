@@ -255,9 +255,3 @@ import('./section-modules/${someVariable}.js')
 ## 小结
 
 可能是 ES6 中对未来影响最大的一项改变 —— 这个形容我觉得一点都不过分，原生模块化的加入使得 JavaScript 具备了开发大型系统的能力，可以应对日益复杂的交互需求。
-
-## 该系列的其他文章
-
-上一篇：[每天一点ES6(18)：Class](/blog/2018/12/17/es6-daily-18-class)
-
-<!-- 下一篇：[每天一点ES6(20)：rest & spread]('') -->

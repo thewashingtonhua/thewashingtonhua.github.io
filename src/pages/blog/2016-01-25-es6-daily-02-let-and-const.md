@@ -209,9 +209,3 @@ console.log(window.a);    // 1
 let b = 1;
 console.log(window.b);    // undefined
 ```
-
-## 该系列的其他文章
-
-上一篇：[每天一点ES6(1)：概述](/blog/2016/01/24/es6-daily-01-intro)
-
-下一篇：[每天一点ES6(3)：解构赋值](/blog/2016/02/02/es6-daily-03-destructuring)

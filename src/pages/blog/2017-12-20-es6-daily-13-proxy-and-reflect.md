@@ -131,9 +131,3 @@ Reflect 的设计目的有以下几个：
 ## 小结
 
 通过 Proxy 和 Reflect，我们可以进一步控制对象的行为，甚至改变其默认行为。这可以说是对 JavaScript 能力的又一次提升。
-
-## 该系列的其他文章
-
-上一篇：[每天一点ES6(12)：Map 和 Set](/blog/2017/07/03/es6-daily-12-set-and-map)
-
-下一篇：[每天一点ES6(14)：Iterator](/blog/2018/02/28/es6-daily-14-iterator)

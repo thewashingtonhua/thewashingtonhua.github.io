@@ -347,9 +347,3 @@ Generator 的本质就是一个状态机，相比 ES5 用普通函数实现的�
 Generator 也可以看作是 ES6 对协程的不完全实现，多个 Generator 可以以“时间片轮转”的形式实现并行，通过 `yield` 控制执行权。
 
 当然，Generator 在实际应用中最广泛的用途，还是用来控制异步流，将其转换为更为直观的类似同步流的写法。
-
-## 该系列的其他文章
-
-上一篇：[每天一点ES6(15)：Promise](/blog/2018/03/04/es6-daily-15-promise)
-
-下一篇：[每天一点ES6(17)：Async / Await](/blog/2018/10/06/es6-daily-17-async-await)

@@ -3,6 +3,8 @@
 @import '../styles/_common.scss';
 
 .blog-post {
+  transform: translateX(-120px);
+
   .back-to-parent {
     padding: 50px 15px 20px;
 
@@ -13,6 +15,7 @@
 
   article {
     padding: 10px 15px 50px;
+    position: relative;
 
     h1,
     h2,
@@ -35,7 +38,7 @@
       }
     }
 
-    > h1 {
+    .post-title {
       color: $theme-color-primary;
       font-size: 36px;
       font-weight: 700;
@@ -117,7 +120,13 @@
       }
     }
 
+    .content-wrapper {
+      position: relative;
+    }
+
     .content {
+      position: relative;
+
       h1,
       h2,
       h3,
@@ -331,49 +340,83 @@
         }
       }
     }
-  }
 
-  .series {
-    padding: 0 15px 0;
+    .toc {
+      position: absolute;
+      top: 0;
+      left: calc(100% + 15px);
+      width: 240px;
+      border-left: 1px dotted $theme-color-text;
+      padding-top: 10px;
+      padding-bottom: 10px;
 
-    .header {
-      border-top: 1px dashed $theme-color-text;
-      padding-top: 50px;
-      margin-bottom: 30px;
-
-      .title {
-        color: $theme-color-text;
-        font-size: 20px;
+      @media (max-width: $break-point-desktop-small) {
+        display: none;
       }
-    }
 
-    .posts {
-      padding-left: 30px;
-      list-style: circle;
+      ul {
+        padding-left: 1em;
 
-      .post {
-        color: $theme-color-text;
-        font-size: 14px;
-        line-height: 2;
-        transition: color 0.3s ease-out;
+        li {
+          a {
+            color: $theme-color-text;
+            font-size: 12px;
+            line-height: 2;
+            transition: color 0.3s ease-out;
 
-        a {
-          color: $theme-color-text;
-          transition: color 0.3s ease-out;
-
-          &.draft {
-            &::before {
-              content: '[ Draft ] ';
-              color: $theme-color-draft;
+            &:hover {
+              color: $theme-color-primary;
             }
           }
         }
+      }
+    }
 
-        &:hover {
-          &,
-          & a {
-            color: $theme-color-primary;
-            text-decoration: underline;
+    .series {
+      margin-top: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      .header {
+        border-top: 1px dashed $theme-color-text;
+        padding-top: 50px;
+        margin-bottom: 30px;
+        width: 100%;
+
+        .title {
+          color: $theme-color-text;
+          font-size: 20px;
+        }
+      }
+
+      .posts {
+        padding-left: 30px;
+        list-style: circle;
+
+        .post {
+          color: $theme-color-text;
+          font-size: 14px;
+          line-height: 2;
+          transition: color 0.3s ease-out;
+
+          a {
+            color: $theme-color-text;
+            transition: color 0.3s ease-out;
+
+            &.draft {
+              &::before {
+                content: '[ Draft ] ';
+                color: $theme-color-draft;
+              }
+            }
+          }
+
+          &:hover {
+            &,
+            & a {
+              color: $theme-color-primary;
+            }
           }
         }
       }

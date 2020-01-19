@@ -386,9 +386,3 @@ for (let [, value] of map) { ... }    // 注意逗号不能省，这是数组的
 // 加载模块时，往往需要指定输入哪些方法。解构赋值使得输入语句非常清晰。
 const { SourceMapConsumer, SourceNode } = require("source-map");
 ```
-
-## 该系列的其他文章
-
-上一篇：[每天一点ES6(2)：let 和 const](/blog/2016/01/25/es6-daily-02-let-and-const)
-
-下一篇：[每天一点ES6(4)：Babel](/blog/2016/02/19/es6-daily-04-babel)

@@ -152,9 +152,3 @@ console.log('one'); // 立即执行
 Promise 是 ES6 带来的重要特性之一，也是最为广大开发者熟知的 ES6 新特性之一。从我对应聘者的面试情况来看，当我问及 ES6 有哪些新特性时，应聘者可能未必能说出 ES6 为对象、数组、字符串等添加了什么新的方法，也未必能讲清楚 Symbol、Proxy、Reflect 都是个啥，甚至可能都不知道 Map 和 Set 的存在，但说到 Promise，每个人都可以说上一两句，即便没有专门研究过 ES6，在使用 Axios、Fetch API、Q 等的过程中也会顺带学习到 `then()` 的用法，可见 Promise 在前端圈子的普及度。
 
 当然，在异步流程控制这一块，ES6 的贡献远不止 Promise，还包括 Generator、Async/Await 等方案，别着急，我们马上就会讲到。
-
-## 该系列的其他文章
-
-上一篇：[每天一点ES6(14)：Iterator](/blog/2018/02/08/es6-daily-14-iterator)
-
-下一篇：[每天一点ES6(16)：Generator](/blog/2018/06/14/es6-daily-16-generator)

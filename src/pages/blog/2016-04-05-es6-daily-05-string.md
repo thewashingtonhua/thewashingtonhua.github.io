@@ -172,9 +172,3 @@ String.raw = function (strings, ...values) {
 ```
 
 和标签模板非常类似，但这是一个更加“正常”的函数。 `String.raw()` 的第一个参数必须是一个具有 `raw` 属性的对象，其值为一个数组或类数组对象。
-
-## 该系列的其他文章
-
-上一篇：[每天一点ES6(4)：Babel](/blog/2016/02/19/es6-daily-04-babel)
-
-下一篇：[每天一点ES6(6)：正则的扩展](/blog/2016/04/06/es6-daily-06-regexp)

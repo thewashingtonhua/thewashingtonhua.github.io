@@ -1,4 +1,4 @@
-import React, { useState, FC } from 'react'
+import React, { useState, FC, CSSProperties, createRef, useEffect } from 'react'
 import { Link, graphql } from 'gatsby'
 import dayjs from 'dayjs'
 import { Layout, SEO } from '../components'
@@ -8,25 +8,108 @@ import './blog-post.scss'
 import { GatsbyDataProps, BlogNode, NodeType } from '../utils/interface'
 import { IS_PROD } from 'config'
 
-interface BlogPostContentProps {
+interface BlogPostProps {
   blog: BlogNode
-  weChatMode?: boolean
+  blogs: BlogNode[]
 }
 
-const BlogPostContent: FC<BlogPostContentProps> = (props) => {
-  const { blog, weChatMode } = props
+interface TOCProps {
+  blog: BlogNode
+  style: CSSProperties
+}
+
+const TOC: FC<TOCProps> = (props) => {
+  return (
+    <aside
+      className='toc'
+      style={props.style}
+      dangerouslySetInnerHTML={{
+        __html: props.blog.tableOfContents
+      }}
+    />
+  )
+}
+
+interface SeriesProps {
+  blog: BlogNode
+  blogs: BlogNode[]
+}
+
+const Series: FC<SeriesProps> = (props) => {
+  const { blog, blogs } = props
+  const thisSeries = blog.frontmatter.series
+
+  // 不属于任何系列
+  if (!thisSeries) return null
+
+  const seriesBlogs = blogs
+    .filter(node => node.frontmatter.series === thisSeries)
+
+  // 草稿不对外发布
+  const visibleBlogs = IS_PROD
+    ? seriesBlogs.filter(blog => !blog.frontmatter.draft)
+    : seriesBlogs
+
+  // 无可见博客则不显示
+  if (!visibleBlogs.length) {
+    return null
+  }
+
+  return (
+    <section className='series'>
+      <header className='header'>
+        <p className='title'>该系列的其他文章</p>
+      </header>
+      <ul className='posts'>
+        { seriesBlogs.map(post => (
+          <li className='post' key={post.id}>
+            <Link
+              className={(post.frontmatter.draft ? 'draft' : '')}
+              to={post.fields.slug}
+            >
+              { post.frontmatter.title }
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}
+
+const BlogPostContent: FC<BlogPostProps> = (props) => {
+  const { blog, blogs } = props
 
   const cover = blog.frontmatter.cover?.publicURL
   const date = dayjs(blog.fields.date).format('MMM DD, YYYY')
 
+  const [tocStyle, setTOCStyle] = useState<CSSProperties>({})
+
+  const contentRef = createRef<HTMLDivElement>()
+
+  const handleScroll = () => {
+    const elem = contentRef.current
+    if (!elem) return
+
+    const top = elem.getBoundingClientRect().top
+    const offset = Math.max(60 - top, 0)
+    setTOCStyle({ transform: `translateY(${offset}px)` })
+  }
+
+  useEffect(() => {
+    document.addEventListener('scroll', handleScroll)
+
+    return () => {
+      document.removeEventListener('scroll', handleScroll)
+    }
+  })
+
   const articleClassName = [
     blog.frontmatter.draft && 'draft',
-    weChatMode && 'wechat-mode'
   ].filter(Boolean).join(' ')
 
   return (
     <article className={articleClassName} id={`blog__${blog.fields.id}`}>
-      <h1 className='title'>{blog.frontmatter.title}</h1>
+      <h1 className='post-title'>{blog.frontmatter.title}</h1>
       <div className='metas'>
         <p className='publish-date'>
           <time dateTime={blog.fields.date}>{date}</time>
@@ -37,7 +120,12 @@ const BlogPostContent: FC<BlogPostContentProps> = (props) => {
           <img src={cover} alt='' />
         </div>
       }
-      <div className='content' dangerouslySetInnerHTML={{ __html: blog.html }} />
+      <div className='content-wrapper' ref={contentRef}>
+        <div className='content' dangerouslySetInnerHTML={{ __html: blog.html }} />
+        <TOC blog={blog} style={tocStyle} />
+      </div>
+
+      <Series blog={blog} blogs={blogs} />
     </article>
   )
 }
@@ -48,84 +136,21 @@ const BlogPostPage: FC<GatsbyDataProps> = (props) => {
   const blogs = nodes
     .filter(node => node.fields.type === NodeType.blog)
     .sort((x, y) => new Date(y.fields.date).getTime() - new Date(x.fields.date).getTime())
-  const thisBlog = data.markdownRemark as BlogNode
-
-  const cover = thisBlog.frontmatter.cover?.publicURL
-  const date = dayjs(thisBlog.fields.date).format('MMM DD, YYYY')
-
-  const articleClassName = [
-    thisBlog.frontmatter.draft && 'draft',
-  ].filter(Boolean).join(' ')
-
-  const renderSeries = () => {
-    const thisSeries = thisBlog.frontmatter.series
-
-    // 不属于任何系列
-    if (!thisSeries) return null
-
-    const seriesBlogs = blogs
-      .filter(node => node.frontmatter.series === thisSeries)
-
-    // 草稿不对外发布
-    const visibleBlogs = IS_PROD
-      ? seriesBlogs.filter(blog => !blog.frontmatter.draft)
-      : seriesBlogs
-
-    // 无可见博客则不显示
-    if (!visibleBlogs.length) {
-      return null
-    }
-
-    return (
-      <section className='series'>
-        <header className='header'>
-          <p className='title'>该系列的其他文章</p>
-        </header>
-        <ul className='posts'>
-          { seriesBlogs.map(post => (
-            <li className='post' key={post.id}>
-              <Link
-                className={(post.frontmatter.draft ? 'draft' : '')}
-                to={post.fields.slug}
-              >
-                { post.frontmatter.title }
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </section>
-    )
-  }
+  const blog = data.markdownRemark as BlogNode
 
   return (
     <Layout>
       <SEO
-        title={`${thisBlog.frontmatter.title} | 博客`}
+        title={`${blog.frontmatter.title} | 博客`}
         keywords={[
           ...data.site.siteMetadata.keywords,
-          ...thisBlog.frontmatter.tags
+          ...blog.frontmatter.tags
         ]}
       />
 
       <div className='mf-content blog-post'>
         <p className='back-to-parent'><Link to='/blog'>&laquo; 回到博客列表</Link></p>
-
-        <article className={articleClassName} id={`blog__${thisBlog.fields.id}`}>
-          <h1 className='title'>{thisBlog.frontmatter.title}</h1>
-          <div className='metas'>
-            <p className='publish-date'>
-              <time dateTime={thisBlog.fields.date}>{date}</time>
-            </p>
-          </div>
-          { cover &&
-            <div className='banner'>
-              <img src={cover} alt='' />
-            </div>
-          }
-          <div className='content' dangerouslySetInnerHTML={{ __html: thisBlog.html }} />
-        </article>
-
-        { renderSeries() }
+        <BlogPostContent blog={blog} blogs={blogs} />
       </div>
     </Layout>
   )
@@ -182,5 +207,10 @@ query($slug: String!) {
       id
       date
     }
+    headings {
+      value
+      depth
+    }
+    tableOfContents
   }
 }`
