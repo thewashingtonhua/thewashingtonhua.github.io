@@ -28,11 +28,12 @@
     }
 
     .highlight {
-      color: $theme-color-draft;
+      color: $theme-color-primary;
+      font-weight: 700;
     }
 
     .title {
-      color: $theme-color-primary;
+      color: $theme-color-text;
       font-size: 18px;
     }
 
