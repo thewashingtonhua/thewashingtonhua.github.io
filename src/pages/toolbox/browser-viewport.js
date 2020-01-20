@@ -1,7 +1,7 @@
 import React, { PureComponent, useEffect, useState } from 'react'
 import { Link, graphql } from 'gatsby'
 import { Layout, SEO } from '../../components'
-import './lab.scss'
+import './tool.scss'
 import { GatsbyDataProps } from '../../utils/interface'
 
 const BrowserViewport = (props: GatsbyDataProps) => {
@@ -48,7 +48,7 @@ const BrowserViewport = (props: GatsbyDataProps) => {
   return (
     <Layout>
       <SEO
-        title='Viewport | 实验室'
+        title='Viewport | 工具'
         keywords={props.data.site.siteMetadata.keywords}
       />
       <div className='mf-content lab-item'>

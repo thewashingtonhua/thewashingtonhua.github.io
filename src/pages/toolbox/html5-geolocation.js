@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, graphql } from 'gatsby'
 import { Layout, SEO } from '../../components'
-import './lab.scss'
+import './tool.scss'
 import { GatsbyDataProps } from '../../utils/interface'
 
 const ERROR_TPYE = {
@@ -45,13 +45,13 @@ const HTML5Geolocation = (props: GatsbyDataProps) => {
   return (
     <Layout>
       <SEO
-        title='Geolocation | 实验室'
+        title='Geolocation | 工具'
         keywords={props.data.site.siteMetadata.keywords}
       />
       <div className='mf-content lab-item'>
 
         <article>
-          <Link to='/lab' className='back'>&laquo; Back</Link>
+          <Link to='/toolbox' className='back'>&laquo; Back</Link>
 
           <h1>Geolocation</h1>
 
