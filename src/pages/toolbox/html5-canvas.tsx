@@ -1,16 +1,17 @@
-import React, { PureComponent, useEffect, useRef } from 'react'
-import { Link, graphql } from 'gatsby'
+import React, { FC, useEffect, useRef } from 'react'
+import { graphql } from 'gatsby'
 import { ToolboxLayout } from '../../components'
 import './tool.scss'
 import { GatsbyDataProps } from '../../utils/interface'
 
-const HTML5Canvas = (props: GatsbyDataProps) => {
-  const canvas = useRef()
+const HTML5Canvas: FC<GatsbyDataProps> = (props) => {
+  const canvasRef = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
-    const _canvas = canvas.current
-    if (_canvas.getContext) {
+    const _canvas = canvasRef.current
+    if (_canvas?.getContext) {
       const ctx = _canvas.getContext('2d')
+      if (!ctx) return
       ctx.fillStyle = '#999'
       ctx.font='18px Arial';
       ctx.fillText('This browser supports canvas.', 25, 100);
@@ -21,7 +22,7 @@ const HTML5Canvas = (props: GatsbyDataProps) => {
     <ToolboxLayout title='Canvas'>
       <h1>Canvas</h1>
 
-      <canvas ref={canvas} height='200' width='300' style={{
+      <canvas ref={canvasRef} height='200' width='300' style={{
         'backgroundColor': '#DDD',
         'marginTop': '20px'
       }}>Canvas is not supported on this browser</canvas>

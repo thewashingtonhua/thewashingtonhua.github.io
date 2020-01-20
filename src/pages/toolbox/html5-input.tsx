@@ -1,13 +1,26 @@
-import React, { Fragment } from 'react'
-import { Link, graphql } from 'gatsby'
+import React, { Fragment, FC } from 'react'
+import { graphql } from 'gatsby'
 import { ToolboxLayout } from '../../components'
 import './tool.scss'
 import './html5-input.scss'
 import { GatsbyDataProps } from '../../utils/interface'
 
-const types = ['text', 'password', 'tel', 'email', 'file', 'date', 'datetime', 'number', 'url', 'search', 'range', 'color']
+const types = [
+  'text',
+  'password',
+  'tel',
+  'email',
+  'file',
+  'date',
+  'datetime',
+  'number',
+  'url',
+  'search',
+  'range',
+  'color'
+]
 
-const HTML5Input = (props: GatsbyDataProps) => {
+const HTML5Input: FC<GatsbyDataProps> = (props) => {
   return (
     <ToolboxLayout title='Input Type' id='tool-html5-input'>
       <h1>Input</h1>

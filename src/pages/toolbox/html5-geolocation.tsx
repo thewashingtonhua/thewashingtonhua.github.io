@@ -1,23 +1,24 @@
 import React, { useState, useEffect } from 'react'
-import { Link, graphql } from 'gatsby'
-import { ToolboxLayout, SEO } from '../../components'
+import { graphql } from 'gatsby'
+import { ToolboxLayout } from '../../components'
 import './tool.scss'
 import { GatsbyDataProps } from '../../utils/interface'
 
-const ERROR_TPYE = {
-  1: 'service denied',
-  2: 'cannot access geolocation info',
-  3: 'timeout'
-}
+const ERROR_TPYE = [
+  undefined,
+  'service denied',
+  'cannot access geolocation info',
+  'timeout'
+]
 
 const HTML5Geolocation = (props: GatsbyDataProps) => {
-  const [latitude, setLatitude] = useState(null)
-  const [longitude, setLongitude] = useState(null)
-  const [accuracy, setAccuracy] = useState(null)
-  const [altitude, setAltitude] = useState(null)
-  const [altitudeAccuracy, setAltitudeAccuracy] = useState(null)
-  const [heading, setHeading] = useState(null)
-  const [speed, setSpeed] = useState(null)
+  const [latitude, setLatitude] = useState<number|null>(null)
+  const [longitude, setLongitude] = useState<number|null>(null)
+  const [accuracy, setAccuracy] = useState<number|null>(null)
+  const [altitude, setAltitude] = useState<number|null>(null)
+  const [altitudeAccuracy, setAltitudeAccuracy] = useState<number|null>(null)
+  const [heading, setHeading] = useState<number|null>(null)
+  const [speed, setSpeed] = useState<number|null>(null)
   const [error, setError] = useState('')
 
   useEffect(() => {
@@ -31,11 +32,13 @@ const HTML5Geolocation = (props: GatsbyDataProps) => {
           setAltitude(position.coords.altitude)
           setAltitudeAccuracy(position.coords.altitudeAccuracy)
           setHeading(position.coords.heading)
-          setSpeed(position.coords.speed)        },
+          setSpeed(position.coords.speed)
+        },
         error => {
+          error.code
           setError('[Error] ' + ERROR_TPYE[error.code])
         },
-        { enableHighAcuracy: true }
+        { enableHighAccuracy: true }
       )
     } else {
       setError('[Error] Geolocation is not supported on this browser.')

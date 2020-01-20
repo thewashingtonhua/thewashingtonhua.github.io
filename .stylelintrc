@@ -15,7 +15,7 @@
       ignoreAtRules: ["if", "else"]
     }],
     "declaration-empty-line-before": null,
-    "font-family-no-missing-generic-family-keyword": "null",
+    "font-family-no-missing-generic-family-keyword": "never",
     "no-descending-specificity": null,
     "number-leading-zero": "always",
     "selector-pseudo-class-no-unknown": null,

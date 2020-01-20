@@ -93,3 +93,30 @@ export interface GatsbyDataProps {
     markdownRemark: GatsbyContentNode
   }
 }
+
+export interface IScreen extends Screen {
+  readonly msOrientation?: ScreenOrientation
+  readonly mozOrientation?: ScreenOrientation
+  readonly deviceXDPI?: number
+}
+
+export interface INetworkInformation extends EventTarget {
+  readonly downlink: number
+  readonly downlinkMax: number
+  readonly effectiveType:  'slow-2g' | '2g' | '3g' | '4g'
+  readonly rtt: number
+  readonly saveData: boolean
+  readonly type: 'bluetooth' | 'cellular' | 'ethernet' | 'none' | 'wifi' | 'wimax' | 'other' | 'unknown'
+  readonly onchange: () => void
+}
+
+export interface INavigator extends Navigator {
+  readonly connection?: INetworkInformation
+  readonly mozConnection?: INetworkInformation
+  readonly webkitConnection?: INetworkInformation
+}
+
+export interface IWindow extends Window {
+  screen: IScreen
+  navigator: INavigator
+}

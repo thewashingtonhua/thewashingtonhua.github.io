@@ -1,10 +1,10 @@
-import React, { PureComponent, useEffect, useState } from 'react'
-import { Link, graphql } from 'gatsby'
+import React, { FC, useEffect, useState } from 'react'
+import { graphql } from 'gatsby'
 import { ToolboxLayout } from '../../components'
 import './tool.scss'
-import { GatsbyDataProps } from '../../utils/interface'
+import { GatsbyDataProps, IWindow } from '../../utils/interface'
 
-const BrowserViewport = (props: GatsbyDataProps) => {
+const BrowserViewport: FC<GatsbyDataProps> = (props) => {
   const [innerWidth, setInnerWidth] = useState('')
   const [innerHeight, setInnerHeight] = useState('')
   const [outerWidth, setOuterWidth] = useState('')
@@ -20,18 +20,20 @@ const BrowserViewport = (props: GatsbyDataProps) => {
   const [devicePixelRatio, setDevicePixelRatio] = useState('')
 
   const getSize = () => {
+    const _window = window as IWindow
+    const screen = _window.screen
     setInnerWidth(window.innerWidth + ' px')
     setInnerHeight(window.innerHeight + ' px')
     setOuterWidth(window.outerWidth + ' px')
     setOuterHeight(window.outerHeight + ' px')
     setClientWidth(document.documentElement.clientWidth + ' px')
     setClientHeight(document.documentElement.clientHeight + ' px')
-    setScreenWidth(window.screen.width + ' px')
-    setScreenHeight(window.screen.height + ' px')
-    setScreenAvailWidth(window.screen.availWidth + ' px')
-    setScreenAvailHeight(window.screen.availHeight + ' px')
-    setScreenOrientation(screen.msOrientation || (screen.orientation || screen.mozOrientation || {}).type)
-    setScreenDeviceXDPI(window.screen.deviceXDPI ? (window.screen.deviceXDPI + ' px') : 'N/A')
+    setScreenWidth(screen.width + ' px')
+    setScreenHeight(screen.height + ' px')
+    setScreenAvailWidth(screen.availWidth + ' px')
+    setScreenAvailHeight(screen.availHeight + ' px')
+    setScreenOrientation((screen.msOrientation || screen.mozOrientation || screen.orientation || { type: '' }).type)
+    setScreenDeviceXDPI(screen.deviceXDPI ? (screen.deviceXDPI + ' px') : 'N/A')
     setDevicePixelRatio(window.devicePixelRatio + '')
   }
 
@@ -50,6 +52,7 @@ const BrowserViewport = (props: GatsbyDataProps) => {
       <h1>Viewport</h1>
 
       <table cellSpacing={0}>
+        <thead></thead>
         <tbody>
 
           <tr className='title'>
@@ -121,6 +124,7 @@ const BrowserViewport = (props: GatsbyDataProps) => {
   )
 }
 
+export default BrowserViewport
 export const query = graphql`
 query {
   site {

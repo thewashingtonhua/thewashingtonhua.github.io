@@ -1,11 +1,11 @@
-import React, { PureComponent, useState, useEffect } from 'react'
-import { Link, graphql } from 'gatsby'
-import { Layout, ToolboxLayout, SEO } from '../../components'
+import React, { FC } from 'react'
+import { graphql } from 'gatsby'
+import { ToolboxLayout } from '../../components'
 import './tool.scss'
 import { GatsbyDataProps } from '../../utils/interface'
 import platform from 'platform'
 
-const BrowserUA = (props: GatsbyDataProps) => {
+const BrowserUA: FC<GatsbyDataProps> = (props) => {
   const {
     name,
     version,

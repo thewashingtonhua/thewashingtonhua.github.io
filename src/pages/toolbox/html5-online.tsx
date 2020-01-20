@@ -8,7 +8,7 @@ import { GatsbyDataProps } from '../../utils/interface'
 const HTML5Online = (props: GatsbyDataProps) => {
   const [status, setStatus] = useState('')
 
-  const updateStatus = (e: Event) => {
+  const updateStatus = () => {
     const status = navigator.onLine ? 'online' : 'offline'
     setStatus(status)
   }
