@@ -1,21 +1,28 @@
 # Changelog
-All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
-and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+## [4.0.0] - 2020-01-20
 
-## [Unreleased]
-- In Site Search.
-- Comment System.
+### Feat
+- In-site Search
+- Table of Content
+- Blogs of this series
+- Time to Read
+- Rename 'Lab' to 'Toolbox'
 
-## [3.0.0] - 2017-08-13
-### Added
-- Migrated to Gatsby
+### Chore
+- Migrate to TypeScript。
+
+
+## [3.0.0] - 2019-02-08
+### Chore
+- Migrate to Gatsby
 
 ## [2.0.0] - 2017-08-13
 ### Added
-- Developed a Gulp-plugin to concatinate templates so HTML codes can be reused.
 - Friend link to my friend [everain.me](https://everain.me)
+
+### Chore
+- Developed a Gulp-plugin to concatinate templates so HTML codes can be reused.
 
 ### Changed
 - New visual style & layout.
