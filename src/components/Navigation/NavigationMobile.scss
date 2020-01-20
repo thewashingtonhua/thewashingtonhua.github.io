@@ -87,6 +87,31 @@
         text-align: center;
         transition: color 0.3s ease-out;
         user-select: none;
+        position: relative;
+
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          height: 1px;
+          background:
+            linear-gradient(
+              to right,
+              rgba(255, 255, 255, 0),
+              rgba(255, 255, 255, 0),
+              rgba(255, 255, 255, 0)
+            );
+        }
+
+        &::before {
+          top: 0;
+        }
+
+        &::after {
+          bottom: 0;
+        }
 
         &:hover {
           color: color.adjust(ths.$theme-color-text, $lightness: 50%);
@@ -94,8 +119,17 @@
 
         &.active {
           color: ths.$theme-color-primary;
-          border-top: 1px solid ths.$theme-color-primary;
-          border-bottom: 1px solid ths.$theme-color-primary;
+
+          &::before,
+          &::after {
+            background:
+              linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0),
+                rgba(255, 255, 255, 0.3),
+                rgba(255, 255, 255, 0)
+              );
+          }
         }
       }
     }
