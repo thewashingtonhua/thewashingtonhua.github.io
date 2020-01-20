@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link, graphql } from 'gatsby'
-import { Layout, SEO } from '../../components'
+import { ToolboxLayout, SEO } from '../../components'
 import './tool.scss'
 import { GatsbyDataProps } from '../../utils/interface'
 
@@ -43,30 +43,19 @@ const HTML5Geolocation = (props: GatsbyDataProps) => {
   }, [])
 
   return (
-    <Layout>
-      <SEO
-        title='Geolocation | 工具'
-        keywords={props.data.site.siteMetadata.keywords}
-      />
-      <div className='mf-content lab-item'>
+    <ToolboxLayout title='Geolocation '>
+      <h1>Geolocation</h1>
 
-        <article>
-          <Link to='/toolbox' className='back'>&laquo; Back</Link>
+      <p>Latitude: {latitude}</p>
+      <p>Longtitude: {longitude}</p>
+      <p>Accuracy: {accuracy}</p>
+      <p>Altitude: {altitude}</p>
+      <p>Altitude Accuracy: {altitudeAccuracy}</p>
+      <p>Heading: {heading}</p>
+      <p>Speed: {speed}</p>
 
-          <h1>Geolocation</h1>
-
-          <p>Latitude: {latitude}</p>
-          <p>Longtitude: {longitude}</p>
-          <p>Accuracy: {accuracy}</p>
-          <p>Altitude: {altitude}</p>
-          <p>Altitude Accuracy: {altitudeAccuracy}</p>
-          <p>Heading: {heading}</p>
-          <p>Speed: {speed}</p>
-
-          <p id='error'>{error}</p>
-        </article>
-      </div>
-    </Layout>
+      <p id='error'>{error}</p>
+    </ToolboxLayout>
   )
 }
 

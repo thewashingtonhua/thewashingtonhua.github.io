@@ -12,63 +12,71 @@ interface SEOProps {
 }
 
 export const SEO: FC<SEOProps> = (props) => {
-  const { description = '', lang = `zh`, meta = [], keywords = [], title = '', exactTitle = false } = props
+  const {
+    description = '',
+    lang = `zh`,
+    meta = [],
+    keywords = [],
+    title = '',
+    exactTitle = false
+  } = props
+
 
   return (
     <StaticQuery
       query={detailsQuery}
       render={data => {
-        const metaDescription = description || data.site.siteMetadata.description
+        const { siteMetadata } = data.site
+        const metaDescription = description || siteMetadata.description
+        const metaKeywords = keywords || siteMetadata.keywords
+
+        const metas = [
+          {
+            name: `description`,
+            content: metaDescription,
+          },
+          {
+            property: `og:title`,
+            content: title,
+          },
+          {
+            property: `og:description`,
+            content: metaDescription,
+          },
+          {
+            property: `og:type`,
+            content: `website`,
+          },
+          {
+            name: `twitter:card`,
+            content: `summary`,
+          },
+          {
+            name: `twitter:creator`,
+            content: siteMetadata.author,
+          },
+          {
+            name: `twitter:title`,
+            content: title,
+          },
+          {
+            name: `twitter:description`,
+            content: metaDescription,
+          },
+          {
+            name: `keywords`,
+            content: metaKeywords.join(`,`),
+          }
+        ].concat(meta)
+
+        const titleTemplate = exactTitle ? '' : `%s | ${siteMetadata.title}`
 
         return (
           <Helmet
-            htmlAttributes={{
-              lang,
-            }}
+            htmlAttributes={{ lang }}
             title={title}
-            titleTemplate={exactTitle ? '' : `%s | ${data.site.siteMetadata.title}`}
-            meta={[
-              {
-                name: `description`,
-                content: metaDescription,
-              },
-              {
-                property: `og:title`,
-                content: title,
-              },
-              {
-                property: `og:description`,
-                content: metaDescription,
-              },
-              {
-                property: `og:type`,
-                content: `website`,
-              },
-              {
-                name: `twitter:card`,
-                content: `summary`,
-              },
-              {
-                name: `twitter:creator`,
-                content: data.site.siteMetadata.author,
-              },
-              {
-                name: `twitter:title`,
-                content: title,
-              },
-              {
-                name: `twitter:description`,
-                content: metaDescription,
-              }
-            ].concat(
-              keywords.length > 0
-                ? {
-                    name: `keywords`,
-                    content: keywords.join(`,`),
-                  }
-                : []
-            )
-            .concat(meta)}
+            titleTemplate={titleTemplate}
+            meta={metas}
           />
         )
       }}
@@ -83,6 +91,7 @@ const detailsQuery = graphql`
         title
         description
         author
+        keywords
       }
     }
   }

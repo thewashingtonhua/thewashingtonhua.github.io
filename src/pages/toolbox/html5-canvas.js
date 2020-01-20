@@ -1,6 +1,6 @@
 import React, { PureComponent, useEffect, useRef } from 'react'
 import { Link, graphql } from 'gatsby'
-import { Layout, SEO } from '../../components'
+import { ToolboxLayout } from '../../components'
 import './tool.scss'
 import { GatsbyDataProps } from '../../utils/interface'
 
@@ -18,25 +18,14 @@ const HTML5Canvas = (props: GatsbyDataProps) => {
   }, [])
 
   return (
-    <Layout>
-      <SEO
-        title='Canvas | 工具'
-        keywords={props.data.site.siteMetadata.keywords}
-      />
-      <div className='mf-content lab-item'>
+    <ToolboxLayout title='Canvas'>
+      <h1>Canvas</h1>
 
-        <article>
-          <Link to='/toolbox' className='back'>&laquo; Back</Link>
-
-          <h1>Canvas</h1>
-
-          <canvas ref={canvas} height='200' width='300' style={{
-            'backgroundColor': '#DDD',
-            'marginTop': '20px'
-          }}>Canvas is not supported on this browser</canvas>
-        </article>
-      </div>
-    </Layout>
+      <canvas ref={canvas} height='200' width='300' style={{
+        'backgroundColor': '#DDD',
+        'marginTop': '20px'
+      }}>Canvas is not supported on this browser</canvas>
+    </ToolboxLayout>
   )
 }
 

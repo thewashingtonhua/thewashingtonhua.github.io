@@ -1,6 +1,6 @@
 import React, { PureComponent, useEffect, useState } from 'react'
 import { Link, graphql } from 'gatsby'
-import { Layout, SEO } from '../../components'
+import { ToolboxLayout } from '../../components'
 import './tool.scss'
 import './html5-online.scss'
 import { GatsbyDataProps } from '../../utils/interface'
@@ -26,23 +26,10 @@ const HTML5Online = (props: GatsbyDataProps) => {
   }, [])
 
   return (
-    <Layout>
-      <SEO
-        title='Input Type | 工具'
-        keywords={props.data.site.siteMetadata.keywords}
-      />
-      <div className='mf-content lab-item' id='lab-html5-online'>
-
-        <article>
-          <Link to='/toolbox' className='back'>&laquo; Back</Link>
-
-          <h1>Online</h1>
-
-          <p>Status: <span id='status' className={status}>{status}</span></p>
-        </article>
-
-      </div>
-    </Layout>
+    <ToolboxLayout title='Input Type' id='tool-html5-online'>
+      <h1>Online</h1>
+      <p>Status: <span id='status' className={status}>{status}</span></p>
+    </ToolboxLayout>
   )
 }
 

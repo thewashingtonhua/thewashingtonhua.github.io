@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link, graphql } from 'gatsby'
-import { Layout, SEO } from '../../components'
+import { ToolboxLayout } from '../../components'
 import './tool.scss'
 import { GatsbyDataProps } from '../../utils/interface'
 
@@ -29,23 +29,10 @@ const HTML5Connection = (props: GatsbyDataProps) => {
   }, [])
 
   return (
-    <Layout>
-      <SEO
-        title='Connection | 工具'
-        keywords={props.data.site.siteMetadata.keywords}
-      />
-      <div className='mf-content lab-item'>
-
-        <article>
-          <Link to='/toolbox' className='back'>&laquo; Back</Link>
-
-          <h1>Connection</h1>
-
-          <p>Type: <span id='type'>{connectionType}</span></p>
-        </article>
-
-      </div>
-    </Layout>
+    <ToolboxLayout title='Connection'>
+      <h1>Connection</h1>
+      <p>Type: <span id='type'>{connectionType}</span></p>
+    </ToolboxLayout>
   )
 }
 

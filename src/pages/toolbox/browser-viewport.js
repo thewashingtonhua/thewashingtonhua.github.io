@@ -1,6 +1,6 @@
 import React, { PureComponent, useEffect, useState } from 'react'
 import { Link, graphql } from 'gatsby'
-import { Layout, SEO } from '../../components'
+import { ToolboxLayout } from '../../components'
 import './tool.scss'
 import { GatsbyDataProps } from '../../utils/interface'
 
@@ -46,92 +46,80 @@ const BrowserViewport = (props: GatsbyDataProps) => {
   }, [])
 
   return (
-    <Layout>
-      <SEO
-        title='Viewport | 工具'
-        keywords={props.data.site.siteMetadata.keywords}
-      />
-      <div className='mf-content lab-item'>
-        <article>
-          <a href='/lab' className='back'>&laquo; Back</a>
+    <ToolboxLayout title='Viewport'>
+      <h1>Viewport</h1>
 
-          <h1>Viewport</h1>
+      <table cellSpacing={0}>
+        <tbody>
 
-          <table cellSpacing={0}>
-            <tbody>
+          <tr className='title'>
+            <td colSpan={2}>Content</td>
+          </tr>
+          <tr>
+            <td>document.documentElement.clientWidth (No ScrollBar)</td>
+            <td>{clientWidth}</td>
+          </tr>
+          <tr>
+            <td>document.documentElement.clientHeight (No TopBar, No DevTool)</td>
+            <td>{clientHeight}</td>
+          </tr>
 
-              <tr className='title'>
-                <td colSpan={2}>Content</td>
-              </tr>
-              <tr>
-                <td>document.documentElement.clientWidth (No ScrollBar)</td>
-                <td>{clientWidth}</td>
-              </tr>
-              <tr>
-                <td>document.documentElement.clientHeight (No TopBar, No DevTool)</td>
-                <td>{clientHeight}</td>
-              </tr>
+          <tr className='title'>
+            <td colSpan={2}>Browser</td>
+          </tr>
+          <tr>
+            <td>window.innerWidth</td>
+            <td>{innerWidth}</td>
+          </tr>
+          <tr>
+            <td>window.innerHeight (No TopBar, No DevTool)</td>
+            <td>{innerHeight}</td>
+          </tr>
+          <tr>
+            <td>window.outerWidth</td>
+            <td>{outerWidth}</td>
+          </tr>
+          <tr>
+            <td>window.outerHeight</td>
+            <td>{outerHeight}</td>
+          </tr>
 
-              <tr className='title'>
-                <td colSpan={2}>Browser</td>
-              </tr>
-              <tr>
-                <td>window.innerWidth</td>
-                <td>{innerWidth}</td>
-              </tr>
-              <tr>
-                <td>window.innerHeight (No TopBar, No DevTool)</td>
-                <td>{innerHeight}</td>
-              </tr>
-              <tr>
-                <td>window.outerWidth</td>
-                <td>{outerWidth}</td>
-              </tr>
-              <tr>
-                <td>window.outerHeight</td>
-                <td>{outerHeight}</td>
-              </tr>
-
-              <tr className='title'>
-                <td colSpan={2}>Device</td>
-              </tr>
-              <tr>
-                <td>window.screen.width</td>
-                <td>{screenWidth}</td>
-              </tr>
-              <tr>
-                <td>window.screen.height</td>
-                <td>{screenHeight}</td>
-              </tr>
-              <tr>
-                <td>window.screen.availWidth</td>
-                <td>{screenAvailWidth}</td>
-              </tr>
-              <tr>
-                <td>window.screen.availHeight (No TopBar)</td>
-                <td>{screenAvailHeight}</td>
-              </tr>
-              <tr>
-                <td>window.screen.orientation</td>
-                <td>{screenOrientation}</td>
-              </tr>
-              <tr>
-                <td>window.screen.deviceXDPI (IE Only)</td>
-                <td>{screenDeviceXDPI}</td>
-              </tr>
-              <tr>
-                <td>window.devicePixelRatio</td>
-                <td>{devicePixelRatio}</td>
-              </tr>
-            </tbody>
-          </table>
-        </article>
-      </div>
-    </Layout>
+          <tr className='title'>
+            <td colSpan={2}>Device</td>
+          </tr>
+          <tr>
+            <td>window.screen.width</td>
+            <td>{screenWidth}</td>
+          </tr>
+          <tr>
+            <td>window.screen.height</td>
+            <td>{screenHeight}</td>
+          </tr>
+          <tr>
+            <td>window.screen.availWidth</td>
+            <td>{screenAvailWidth}</td>
+          </tr>
+          <tr>
+            <td>window.screen.availHeight (No TopBar)</td>
+            <td>{screenAvailHeight}</td>
+          </tr>
+          <tr>
+            <td>window.screen.orientation</td>
+            <td>{screenOrientation}</td>
+          </tr>
+          <tr>
+            <td>window.screen.deviceXDPI (IE Only)</td>
+            <td>{screenDeviceXDPI}</td>
+          </tr>
+          <tr>
+            <td>window.devicePixelRatio</td>
+            <td>{devicePixelRatio}</td>
+          </tr>
+        </tbody>
+      </table>
+    </ToolboxLayout>
   )
 }
-
-export default BrowserViewport
 
 export const query = graphql`
 query {
