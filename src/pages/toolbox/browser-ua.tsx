@@ -24,7 +24,7 @@ const BrowserUA: FC<GatsbyDataProps> = (props) => {
       <h1>UserAgent</h1>
 
       <p>Browser: {browser}</p>
-      <p>OS: {os.toString()}</p>
+      <p>OS: {os?.toString()}</p>
       <p>UA: {ua}</p>
       { displayDevice && <p>Device: {device}</p> }
     </ToolboxLayout>

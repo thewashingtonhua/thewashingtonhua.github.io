@@ -14,7 +14,6 @@ module.exports = ({stage, actions}) => {
     resolve: {
       modules: [
         resolve(__dirname, '../src'),
-        resolve(__dirname, '../content'),
         resolve(__dirname, '../node_modules'),
       ],
     },
