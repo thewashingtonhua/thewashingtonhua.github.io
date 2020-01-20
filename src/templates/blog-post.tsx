@@ -79,9 +79,6 @@ const Series: FC<SeriesProps> = (props) => {
 const BlogPostContent: FC<BlogPostProps> = (props) => {
   const { blog, blogs } = props
 
-  const cover = blog.frontmatter.cover?.publicURL
-  const date = dayjs(blog.fields.date).format('MMM DD, YYYY')
-
   const [tocStyle, setTOCStyle] = useState<CSSProperties>({})
 
   const contentRef = createRef<HTMLDivElement>()
@@ -104,6 +101,9 @@ const BlogPostContent: FC<BlogPostProps> = (props) => {
     }
   })
 
+  const cover = blog.frontmatter.cover?.publicURL
+  const date = dayjs(blog.fields.date).format('MMM DD, YYYY')
+
   const articleClassName = [
     blog.frontmatter.draft && 'draft',
   ].filter(Boolean).join(' ')
@@ -111,11 +111,10 @@ const BlogPostContent: FC<BlogPostProps> = (props) => {
   return (
     <article className={articleClassName} id={`blog__${blog.fields.id}`}>
       <h1 className='post-title'>{blog.frontmatter.title}</h1>
-      <div className='metas'>
-        <p className='publish-date'>
-          <time dateTime={blog.fields.date}>{date}</time>
-        </p>
-      </div>
+      <p className='metas'>
+        <span className='meta'>{date}</span>
+        <span className='meta'>阅读本文大约需要 {blog.timeToRead} 分钟</span>
+      </p>
       { cover &&
         <div className='banner'>
           <img src={cover} alt='' />
@@ -213,5 +212,6 @@ query($slug: String!) {
       depth
     }
     tableOfContents
+    timeToRead
   }
 }`

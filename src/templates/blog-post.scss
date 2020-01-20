@@ -68,7 +68,7 @@
         flex-direction: column;
       }
 
-      .publish-date {
+      .meta {
         color: $theme-color-text;
         font-size: 18px;
         font-weight: 100;
@@ -81,34 +81,20 @@
           margin-bottom: 4px;
           font-size: 14px;
         }
-      }
 
-      .tags {
-        color: $theme-color-text;
-        font-size: 18px;
-        line-height: 1;
-        margin-bottom: 0;
-        transition: font-size 0.3s ease-out;
-        position: relative;
-        padding-left: 1em;
-        margin-left: 1em;
+        &:not(:first-child) {
+          margin-left: 30px;
 
-        @media (max-width: $break-point-mobile) {
-          font-size: 14px;
-        }
-
-        &::after {
-          content: '';
-          position: absolute;
-          top: 50%;
-          left: 0;
-          transform: translate(0, -50%);
-          width: 1px;
-          height: 16px;
-          background-color: $theme-color-text;
-
-          @media (max-width: $break-point-mobile) {
-            content: none;
+          &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -15px;
+            transform: translate(-50%, -50%);
+            width: 4px;
+            height: 4px;
+            background-color: $theme-color-text;
+            border-radius: 50%;
           }
         }
       }
