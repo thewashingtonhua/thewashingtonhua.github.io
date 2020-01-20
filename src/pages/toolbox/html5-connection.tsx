@@ -1,10 +1,9 @@
 import React, { FC, useState, useEffect } from 'react'
-import { graphql } from 'gatsby'
 import { ToolboxLayout } from '../../components'
 import './tool.scss'
-import { GatsbyDataProps, IWindow, INetworkInformation } from '../../utils/interface'
+import { IWindow, INetworkInformation } from '../../utils/interface'
 
-const HTML5Connection: FC<GatsbyDataProps> = (props) => {
+const HTML5Connection: FC = () => {
   const [connectionType, setConnectionType] = useState('unknown')
 
   const _window = window as IWindow
@@ -38,13 +37,3 @@ const HTML5Connection: FC<GatsbyDataProps> = (props) => {
 }
 
 export default HTML5Connection
-
-export const query = graphql`
-query {
-  site {
-    siteMetadata {
-      title,
-      keywords
-    }
-  }
-}`

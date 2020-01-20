@@ -29,6 +29,7 @@ export const SEO: FC<SEOProps> = (props) => {
         const { siteMetadata } = data.site
         const metaDescription = description || siteMetadata.description
         const metaKeywords = keywords || siteMetadata.keywords
+        const metaTitle = title ? `${title} | ${siteMetadata.title}` : siteMetadata.title
 
         const metas = [
           {
@@ -37,7 +38,7 @@ export const SEO: FC<SEOProps> = (props) => {
           },
           {
             property: `og:title`,
-            content: title,
+            content: metaTitle,
           },
           {
             property: `og:description`,

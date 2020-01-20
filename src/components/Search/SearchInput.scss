@@ -1,6 +1,7 @@
 @charset "utf-8";
 
 @use '../../styles/ths';
+@use 'sass:color';
 
 .search-input {
   display: flex;
@@ -8,7 +9,7 @@
   width: 100%;
   height: ths.$search-bar-height;
   border-radius: ths.$search-bar-height / 2;
-  background-color: lighten(ths.$theme-color-bg, 5%);
+  background-color: color.adjust(ths.$theme-color-bg, $lightness: 5%);
   padding-right: 15px;
 
   & &__icon {
@@ -22,7 +23,7 @@
     svg {
       width: 14px;
       height: 14px;
-      fill: lighten(ths.$theme-color-bg, 20%);
+      fill: color.adjust(ths.$theme-color-bg, $lightness: 20%);
     }
   }
 
@@ -37,7 +38,7 @@
     min-width: 0;
 
     &::placeholder {
-      color: lighten(ths.$theme-color-bg, 20%);
+      color: color.adjust(ths.$theme-color-bg, $lightness: 20%);
     }
   }
 

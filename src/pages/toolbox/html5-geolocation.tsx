@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import { graphql } from 'gatsby'
+import React, { FC, useState, useEffect } from 'react'
 import { ToolboxLayout } from '../../components'
 import './tool.scss'
-import { GatsbyDataProps } from '../../utils/interface'
 
 const ERROR_TPYE = [
   undefined,
@@ -11,7 +9,7 @@ const ERROR_TPYE = [
   'timeout'
 ]
 
-const HTML5Geolocation = (props: GatsbyDataProps) => {
+const HTML5Geolocation: FC = () => {
   const [latitude, setLatitude] = useState<number|null>(null)
   const [longitude, setLongitude] = useState<number|null>(null)
   const [accuracy, setAccuracy] = useState<number|null>(null)
@@ -63,12 +61,3 @@ const HTML5Geolocation = (props: GatsbyDataProps) => {
 }
 
 export default HTML5Geolocation
-export const query = graphql`
-query {
-  site {
-    siteMetadata {
-      title,
-      keywords
-    }
-  }
-}`

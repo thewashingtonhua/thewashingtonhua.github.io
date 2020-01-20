@@ -1,10 +1,9 @@
 import React, { FC, useEffect, useState } from 'react'
-import { graphql } from 'gatsby'
 import { ToolboxLayout } from '../../components'
 import './tool.scss'
-import { GatsbyDataProps, IWindow } from '../../utils/interface'
+import { IWindow } from '../../utils/interface'
 
-const BrowserViewport: FC<GatsbyDataProps> = (props) => {
+const BrowserViewport: FC = () => {
   const [innerWidth, setInnerWidth] = useState('')
   const [innerHeight, setInnerHeight] = useState('')
   const [outerWidth, setOuterWidth] = useState('')
@@ -125,12 +124,3 @@ const BrowserViewport: FC<GatsbyDataProps> = (props) => {
 }
 
 export default BrowserViewport
-export const query = graphql`
-query {
-  site {
-    siteMetadata {
-      title,
-      keywords
-    }
-  }
-}`

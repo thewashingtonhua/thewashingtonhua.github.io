@@ -1,10 +1,8 @@
 import React, { FC, useEffect, useRef } from 'react'
-import { graphql } from 'gatsby'
 import { ToolboxLayout } from '../../components'
 import './tool.scss'
-import { GatsbyDataProps } from '../../utils/interface'
 
-const HTML5Canvas: FC<GatsbyDataProps> = (props) => {
+const HTML5Canvas: FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
@@ -31,13 +29,3 @@ const HTML5Canvas: FC<GatsbyDataProps> = (props) => {
 }
 
 export default HTML5Canvas
-
-export const query = graphql`
-query {
-  site {
-    siteMetadata {
-      title,
-      keywords
-    }
-  }
-}`

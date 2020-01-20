@@ -21,17 +21,22 @@
   }
 
   .friends {
-    @include ths.clearfix;
+    display: flex;
+    flex-wrap: wrap;
   }
 
   .friend {
     display: block;
-    float: left;
-    width: 50%;
+    flex-shrink: 0;
+    width: calc((100% - 20px) / 3);
     padding: 10px 15px 30px;
     transition: background-color 0.3s ease-out;
 
-    @media (max-width: 480px) {
+    @media (max-width: ths.$break-point-tablet) {
+      width: calc((100% - 10px) / 2);
+    }
+
+    @media (max-width: ths.$break-point-mobile) {
       width: 100%;
     }
 
@@ -68,7 +73,7 @@
 
         @include ths.ellipsis;
 
-        @media (max-width: 480px) {
+        @media (max-width: ths.$break-point-mobile) {
           font-size: 12px;
         }
       }

@@ -29,7 +29,7 @@ export const Layout: FC = (props) => {
   const render = () => (
     <div className='layout'>
       <Header />
-      <main id='mf-content'>
+      <main id='mf-main'>
         {children}
       </main>
       <Footer />

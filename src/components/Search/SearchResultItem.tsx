@@ -37,7 +37,6 @@ export const SearchResultItem: FC<SearchResultItemProps> = (props) => {
     const _matches = [...matches]
 
     for (let currentIdx = 0; currentIdx < source.length; currentIdx++) {
-      console.log('for', _matches)
       const [idx, str] = _matches.length ? _matches[0] : [-1, '']
       const contentLen = content.length
       const lastContent = content[contentLen - 1]

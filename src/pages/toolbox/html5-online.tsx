@@ -1,11 +1,9 @@
-import React, { PureComponent, useEffect, useState } from 'react'
-import { Link, graphql } from 'gatsby'
+import React, { FC, useEffect, useState } from 'react'
 import { ToolboxLayout } from '../../components'
 import './tool.scss'
 import './html5-online.scss'
-import { GatsbyDataProps } from '../../utils/interface'
 
-const HTML5Online = (props: GatsbyDataProps) => {
+const HTML5Online: FC = () => {
   const [status, setStatus] = useState('')
 
   const updateStatus = () => {
@@ -34,12 +32,3 @@ const HTML5Online = (props: GatsbyDataProps) => {
 }
 
 export default HTML5Online
-export const query = graphql`
-query {
-  site {
-    siteMetadata {
-      title,
-      keywords
-    }
-  }
-}`

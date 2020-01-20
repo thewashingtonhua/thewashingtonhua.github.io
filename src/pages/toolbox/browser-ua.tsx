@@ -1,11 +1,9 @@
 import React, { FC } from 'react'
-import { graphql } from 'gatsby'
 import { ToolboxLayout } from '../../components'
 import './tool.scss'
-import { GatsbyDataProps } from '../../utils/interface'
 import platform from 'platform'
 
-const BrowserUA: FC<GatsbyDataProps> = (props) => {
+const BrowserUA: FC = () => {
   const {
     name,
     version,
@@ -32,14 +30,3 @@ const BrowserUA: FC<GatsbyDataProps> = (props) => {
 }
 
 export default BrowserUA
-
-export const query = graphql`
-
-query {
-  site {
-    siteMetadata {
-      title,
-      keywords
-    }
-  }
-}`

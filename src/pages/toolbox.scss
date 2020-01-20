@@ -1,9 +1,10 @@
 @charset "utf-8";
 
 @use '../styles/ths';
+@use 'sass:color';
 
 .tool-catalog {
-  h1 {
+  .category-title {
     color: ths.$theme-color-primary;
     margin-bottom: 20px;
     font-size: 32px;
@@ -26,37 +27,42 @@
     }
   }
 
-  .category {
-    @include ths.clearfix;
-
+  .category-items {
     margin-bottom: 20px;
     width: 100%;
     padding: 0 15px;
+    display: flex;
+    flex-wrap: wrap;
 
     .item {
       display: block;
-      float: left;
+      flex-shrink: 0;
       width: calc((100% - 20px) / 3);
       padding: 50px 10px;
       margin-right: 10px;
       margin-bottom: 10px;
-      border: 1px solid ths.$theme-color-text;
+      background-color: color.adjust(ths.$theme-color-bg, $lightness: 5%);
+      border-radius: 4px;
       color: ths.$theme-color-text;
       text-align: center;
       font-family: ths.$theme-font-code;
       transition:
         color 0.3s ease-out,
-        border-color 0.3s ease-out;
+        background-color 0.3s ease-out;
 
       @include ths.ellipsis;
 
-      @media (max-width: 480px) {
+      @media (max-width: ths.$break-point-tablet) {
         width: calc((100% - 10px) / 2);
+      }
+
+      @media (max-width: ths.$break-point-mobile) {
+        width: 100%;
       }
 
       &:hover {
         color: ths.$theme-color-primary;
-        border-color: ths.$theme-color-primary;
+        background-color: color.adjust(ths.$theme-color-bg, $lightness: 20%);
       }
 
       &:nth-child(3n+3) {

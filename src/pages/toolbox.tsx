@@ -16,6 +16,11 @@ const tools = [
     title: "Viewport"
   },
   {
+    category: "Browser",
+    url: "/toolbox/browser-keyboard",
+    title: "Keyboard"
+  },
+  {
     category: "HTML5",
     url: "/toolbox/html5-canvas",
     title: "Canvas"
@@ -57,8 +62,8 @@ const ToolBoxPage: FC<GatsbyDataProps> = (props) => {
 
         { categories.map(category => (
           <Fragment key={category}>
-            <h1>{category}</h1>
-            <div className='category'>
+            <h1 className='category-title'>{category}</h1>
+            <div className='category-items'>
               { tools.filter(n => n.category === category).map(tool => (
                 <Link key={tool.url} className='item' to={tool.url}>{tool.title}</Link>
               )) }

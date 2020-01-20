@@ -1,10 +1,11 @@
 @charset "utf-8";
 
 @use '../../styles/ths';
+@use 'sass:color';
 
 .result-item {
   position: relative;
-  background-color: lighten(ths.$theme-color-bg, 5%);
+  background-color: color.adjust(ths.$theme-color-bg, $lightness: 5%);
   border-radius: 4px;
   transition: background-color 0.3s ease-out;
 
@@ -13,7 +14,7 @@
   }
 
   &.current {
-    background-color: lighten(ths.$theme-color-bg, 20%);
+    background-color: color.adjust(ths.$theme-color-bg, $lightness: 20%);
   }
 
   .result-item-link {

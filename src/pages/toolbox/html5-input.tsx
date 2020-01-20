@@ -1,9 +1,7 @@
 import React, { Fragment, FC } from 'react'
-import { graphql } from 'gatsby'
 import { ToolboxLayout } from '../../components'
 import './tool.scss'
 import './html5-input.scss'
-import { GatsbyDataProps } from '../../utils/interface'
 
 const types = [
   'text',
@@ -20,7 +18,7 @@ const types = [
   'color'
 ]
 
-const HTML5Input: FC<GatsbyDataProps> = (props) => {
+const HTML5Input: FC = () => {
   return (
     <ToolboxLayout title='Input Type' id='tool-html5-input'>
       <h1>Input</h1>
@@ -41,12 +39,3 @@ const HTML5Input: FC<GatsbyDataProps> = (props) => {
 }
 
 export default HTML5Input
-export const query = graphql`
-query {
-  site {
-    siteMetadata {
-      title,
-      keywords
-    }
-  }
-}`

@@ -1,6 +1,7 @@
 @charset "utf-8";
 
 @use '../../styles/ths';
+@use 'sass:color';
 
 .navigation {
   @media (max-width: ths.$break-point-desktop-small) {
@@ -29,7 +30,7 @@
         user-select: none;
 
         &:hover {
-          color: lighten(ths.$theme-color-text, 50%);
+          color: color.adjust(ths.$theme-color-text, $lightness: 50%);
         }
 
         &.active {

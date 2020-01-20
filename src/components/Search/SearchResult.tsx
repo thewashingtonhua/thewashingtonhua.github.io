@@ -14,6 +14,7 @@ interface SearchResultProps {
 export const SearchResult: FC<SearchResultProps> = (props) => {
   const { open, query, nodes, onSelect } = props
   const [currentIndex, setCurrentIndex] = useState(-1)
+  const [currentCategory, setCurrentCategory] = useState<NodeType>()
 
   const cls = [
     'search-result',
@@ -25,14 +26,22 @@ export const SearchResult: FC<SearchResultProps> = (props) => {
     onSelect && onSelect()
   }
 
-  const _onMouseEnter = (index: number) => (e: MouseEvent<HTMLElement>) => {
+  const _onMouseEnter = (
+    index: number,
+    type: NodeType
+  ) => (e: MouseEvent<HTMLElement>) => {
     e.stopPropagation()
     setCurrentIndex(index)
+    setCurrentCategory(type)
   }
 
-  const _onMouseLeave = (index: number) => (e: MouseEvent<HTMLElement>) => {
+  const _onMouseLeave = (
+    index: number,
+    type: NodeType
+  ) => (e: MouseEvent<HTMLElement>) => {
     e.stopPropagation()
     setCurrentIndex(-1)
+    setCurrentCategory(type)
   }
 
   const searchResult = search(nodes, query)
@@ -56,19 +65,19 @@ export const SearchResult: FC<SearchResultProps> = (props) => {
 
   const renderResult = () => (
     <div className='result-list'>
-      { list.map(item => (
-        <div key={item.title} className='result-category'>
+      { list.map(category => (
+        <div key={category.title} className='result-category'>
           <header className='category-header'>
-            <p className='category-title'>{item.title}</p>
+            <p className='category-title'>{category.title}</p>
           </header>
           <ul className='category-items'>
-            { item.items.map((n, i) => (
+            { category.items.map((item, i) => (
               <SearchResultItem
-                key={n.node.id}
-                data={n}
-                isCurrent={i === currentIndex}
-                onMouseEnter={_onMouseEnter(i)}
-                onMouseLeave={_onMouseLeave(i)}
+                key={item.node.id}
+                data={item}
+                isCurrent={i === currentIndex && item.type === currentCategory}
+                onMouseEnter={_onMouseEnter(i, item.type)}
+                onMouseLeave={_onMouseLeave(i, item.type)}
                 onClick={_onSelect}
               />
             ))}

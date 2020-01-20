@@ -3,11 +3,6 @@
   "plugins": [
     "stylelint-scss"
   ],
-  "ignoreFiles": [
-    "**/*.js",
-    "**/*.ts",
-    "**/*.tsx",
-  ],
   "rules": {
     "at-rule-empty-line-before": null,
     "at-rule-no-unknown": null,
@@ -15,7 +10,7 @@
       ignoreAtRules: ["if", "else"]
     }],
     "declaration-empty-line-before": null,
-    "font-family-no-missing-generic-family-keyword": "never",
+    "font-family-no-missing-generic-family-keyword": null,
     "no-descending-specificity": null,
     "number-leading-zero": "always",
     "selector-pseudo-class-no-unknown": null,

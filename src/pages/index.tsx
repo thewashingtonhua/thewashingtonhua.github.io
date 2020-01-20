@@ -18,31 +18,29 @@ const HomePage: FC<GatsbyDataProps> = (props) => {
 
   return (
     <Layout>
-      <SEO
-        title={data.site.siteMetadata.title}
-        exactTitle
-        keywords={data.site.siteMetadata.keywords}
-      />
+      <SEO />
       <div className='mf-content'>
-        <header className='channel-header'>
-          <Link to='/blog' className='title'>最新博客</Link>
-          <Link to='/blog' className='more'>查看全部 &raquo;</Link>
-        </header>
-        <div className='channel-body blogs'>
-          <Link className='blog' to={latestBlog.fields.slug}>
-            <div className='banner'>
-              <img src={blogCover} alt='' />
-            </div>
-            <div className='info'>
-              <h2 className='title'>{latestBlog.frontmatter.title}</h2>
-              <p className='desc'>{latestBlog.frontmatter.description}</p>
-              <footer className='blog__footer'>
-                <p className='date'>
-                  <time dateTime={latestBlog.fields.date}>{blogDate}</time>
-                </p>
-              </footer>
-            </div>
-          </Link>
+        <div className='landing'>
+          <header className='landing-header'>
+            <p className='title'>最新博客</p>
+            <Link to='/blog' className='more'>查看全部 &raquo;</Link>
+          </header>
+          <section className='landing-body'>
+            <Link className='blog' to={latestBlog.fields.slug}>
+              <div className='banner'>
+                <img src={blogCover} alt='' />
+              </div>
+              <div className='info'>
+                <h2 className='title'>{latestBlog.frontmatter.title}</h2>
+                <p className='desc'>{latestBlog.frontmatter.description}</p>
+                <footer className='blog__footer'>
+                  <p className='date'>
+                    <time dateTime={latestBlog.fields.date}>{blogDate}</time>
+                  </p>
+                </footer>
+              </div>
+            </Link>
+          </section>
         </div>
       </div>
     </Layout>
