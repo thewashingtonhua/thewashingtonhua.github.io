@@ -19,7 +19,7 @@ export const ToolboxLayout: FC<ToolboxLayoutProps> = (props) => {
       <SEO title={_title} />
       <div className='mf-content lab-item' id={id}>
         <article>
-          <a href='/lab' className='back'>&laquo; Back</a>
+          <a href='/toolbox' className='back'>&laquo; Back</a>
           { children }
         </article>
       </div>

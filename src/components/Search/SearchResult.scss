@@ -1,15 +1,15 @@
 @charset "utf-8";
 
-@import '../../styles/_common.scss';
+@use '../../styles/ths';
 
 .search-result {
   position: fixed;
-  top: $header-height;
+  top: ths.$mf-header-height;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: $theme-color-bg;
-  z-index: $search-z-index;
+  background-color: ths.$theme-color-bg;
+  z-index: ths.$search-bar-z-index;
   opacity: 0;
   transition: opacity 0.3s ease-out;
   pointer-events: none;
@@ -31,7 +31,7 @@
     align-items: center;
     padding: 0 0 15px;
 
-    @media (max-width: $break-point-desktop-small) {
+    @media (max-width: ths.$break-point-desktop-small) {
       max-width: 350px;
     }
 
@@ -49,7 +49,7 @@
           padding: 15px;
 
           .category-title {
-            color: $theme-color-text;
+            color: ths.$theme-color-text;
           }
         }
       }
@@ -57,7 +57,7 @@
 
     .placeholder,
     .no-result {
-      color: $theme-color-text;
+      color: ths.$theme-color-text;
       width: 100%;
       text-align: center;
     }

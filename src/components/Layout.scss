@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-@import '../styles/_common.scss';
+@use '../styles/ths';
 
 * {
   box-sizing: border-box;
@@ -13,14 +13,14 @@ body {
 }
 
 html {
-  font-family: $theme-font;
+  font-family: ths.$theme-font;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
-  background-color: $theme-color-bg;
+  background-color: ths.$theme-color-bg;
   -webkit-overflow-scrolling: touch;
   position: relative;
 }
@@ -56,15 +56,15 @@ a {
 
 .mf-content {
   width: 100%;
-  max-width: $theme-max-width-lg;
+  max-width: ths.$theme-max-width-lg;
   margin: 0 auto 30px;
   transition: max-width 0.3s ease-out;
 
-  @media (max-width: $break-point-desktop-small) {
-    max-width: $theme-max-width-md;
+  @media (max-width: ths.$break-point-desktop-small) {
+    max-width: ths.$theme-max-width-md;
   }
 
-  @media (max-width: $break-point-tablet) {
+  @media (max-width: ths.$break-point-tablet) {
     max-width: 100%;
   }
 }

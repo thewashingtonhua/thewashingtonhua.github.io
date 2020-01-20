@@ -1,9 +1,9 @@
 @charset "utf-8";
 
-@import '../styles/_common.scss';
+@use '../styles/ths';
 
 #page-not-found {
-  height: calc(100vh - #{$header-height});
+  height: calc(100vh - #{ths.$mf-header-height});
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,7 +11,7 @@
   padding: 15px;
 
   h1 {
-    color: $theme-color-primary;
+    color: ths.$theme-color-primary;
     font-size: 36px;
   }
 
@@ -21,11 +21,11 @@
 
     code {
       font-size: 16px;
-      font-family: $theme-font-code;
-      color: $theme-color-text;
+      font-family: ths.$theme-font-code;
+      color: ths.$theme-color-text;
       line-height: 1.75;
 
-      @media (max-width: $break-point-mobile) {
+      @media (max-width: ths.$break-point-mobile) {
         font-size: 14px;
       }
     }
@@ -33,26 +33,26 @@
 
   .btn-back {
     font-size: 16px;
-    font-family: $theme-font-code;
-    color: $theme-color-primary;
+    font-family: ths.$theme-font-code;
+    color: ths.$theme-color-primary;
     margin-top: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 15px 30px;
-    border: 1px solid $theme-color-primary;
+    border: 1px solid ths.$theme-color-primary;
     border-radius: 4px;
     transition:
       background-color 0.15s ease-out,
       color 0.15s ease-out;
 
-    @media (max-width: $break-point-mobile) {
+    @media (max-width: ths.$break-point-mobile) {
       font-size: 14px;
     }
 
     &:hover {
-      background-color: $theme-color-primary;
-      color: $theme-color-bg;
+      background-color: ths.$theme-color-primary;
+      color: ths.$theme-color-bg;
     }
   }
 }

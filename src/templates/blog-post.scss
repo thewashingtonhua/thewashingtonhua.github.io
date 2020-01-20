@@ -1,11 +1,11 @@
 @charset "utf-8";
 
-@import '../styles/_common.scss';
+@use '../styles/ths';
 
 .blog-post {
   transform: translateX(-120px);
 
-  @media (max-width: $break-point-desktop-small) {
+  @media (max-width: ths.$break-point-desktop-small) {
     transform: translateX(0);
   }
 
@@ -13,7 +13,7 @@
     padding: 50px 15px 20px;
 
     a {
-      color: $theme-color-text;
+      color: ths.$theme-color-text;
     }
   }
 
@@ -37,13 +37,13 @@
     th,
     td {
       &::selection {
-        background-color: $theme-color-primary;
-        color: $theme-color-bg;
+        background-color: ths.$theme-color-primary;
+        color: ths.$theme-color-bg;
       }
     }
 
     .post-title {
-      color: $theme-color-primary;
+      color: ths.$theme-color-primary;
       font-size: 36px;
       font-weight: 700;
       line-height: 1.3;
@@ -51,11 +51,11 @@
       transition: font-size 0.3s ease-out;
       position: relative;
 
-      @media (max-width: $break-point-desktop-small) {
+      @media (max-width: ths.$break-point-desktop-small) {
         font-size: 32px;
       }
 
-      @media (max-width: $break-point-tablet) {
+      @media (max-width: ths.$break-point-tablet) {
         font-size: 28px;
       }
     }
@@ -64,12 +64,12 @@
       display: flex;
       margin-bottom: 20px;
 
-      @media (max-width: $break-point-mobile) {
+      @media (max-width: ths.$break-point-mobile) {
         flex-direction: column;
       }
 
       .meta {
-        color: $theme-color-text;
+        color: ths.$theme-color-text;
         font-size: 18px;
         font-weight: 100;
         line-height: 1;
@@ -77,7 +77,7 @@
         margin-bottom: 0;
         transition: font-size 0.3s ease-out, margin-bottom 0.3s ease-out;
 
-        @media (max-width: $break-point-mobile) {
+        @media (max-width: ths.$break-point-mobile) {
           margin-bottom: 4px;
           font-size: 14px;
         }
@@ -93,7 +93,7 @@
             transform: translate(-50%, -50%);
             width: 4px;
             height: 4px;
-            background-color: $theme-color-text;
+            background-color: ths.$theme-color-text;
             border-radius: 50%;
           }
         }
@@ -123,7 +123,7 @@
       h4,
       h5,
       h6 {
-        color: $theme-color-primary;
+        color: ths.$theme-color-primary;
         font-weight: 700;
         line-height: 1.5;
         margin-top: 1.5em;
@@ -134,7 +134,7 @@
       h1 {
         font-size: 32px;
 
-        @media (max-width: $break-point-mobile) {
+        @media (max-width: ths.$break-point-mobile) {
           font-size: 28px;
         }
       }
@@ -142,7 +142,7 @@
       h2 {
         font-size: 28px;
 
-        @media (max-width: $break-point-mobile) {
+        @media (max-width: ths.$break-point-mobile) {
           font-size: 24px;
         }
       }
@@ -150,7 +150,7 @@
       h3 {
         font-size: 24px;
 
-        @media (max-width: $break-point-mobile) {
+        @media (max-width: ths.$break-point-mobile) {
           font-size: 20px;
         }
       }
@@ -158,7 +158,7 @@
       h4 {
         font-size: 20px;
 
-        @media (max-width: $break-point-mobile) {
+        @media (max-width: ths.$break-point-mobile) {
           font-size: 18px;
         }
       }
@@ -166,7 +166,7 @@
       h5 {
         font-size: 18px;
 
-        @media (max-width: $break-point-mobile) {
+        @media (max-width: ths.$break-point-mobile) {
           font-size: 16px;
         }
       }
@@ -177,24 +177,24 @@
 
       p {
         font-size: 15px;
-        color: $theme-color-text;
+        color: ths.$theme-color-text;
         line-height: 1.75;
         margin-bottom: 1em;
         transition: font-size 0.3s ease-out;
 
-        @media (max-width: $break-point-mobile) {
+        @media (max-width: ths.$break-point-mobile) {
           font-size: 14px;
         }
       }
 
       a {
-        color: $theme-color-primary;
+        color: ths.$theme-color-primary;
         word-wrap: break-word;
         padding: 0 0.5em 2px;
         transition: border-bottom-color 0.3s ease-out;
 
         &:not(.gatsby-resp-image-link) {
-          border-bottom: 1px dotted $theme-color-primary;
+          border-bottom: 1px dotted ths.$theme-color-primary;
 
           &[target='_blank'] {
             display: inline-flex;
@@ -234,10 +234,10 @@
         p {
           line-height: 1.8;
           margin-bottom: 0.5em;
-          color: $theme-color-text;
+          color: ths.$theme-color-text;
           transition: font-size 0.3s ease-out;
 
-          @media (max-width: $break-point-mobile) {
+          @media (max-width: ths.$break-point-mobile) {
             font-size: 14px;
           }
         }
@@ -249,17 +249,17 @@
         border-collapse: collapse;
 
         thead tr {
-          background-color: $theme-color-table-primary;
+          background-color: ths.$theme-color-table-primary;
         }
 
         tbody {
           tr {
             &:nth-child(odd) {
-              background-color: $theme-color-table-secondary;
+              background-color: ths.$theme-color-table-secondary;
             }
 
             &:nth-child(even) {
-              background-color: $theme-color-table-primary;
+              background-color: ths.$theme-color-table-primary;
             }
           }
         }
@@ -274,10 +274,10 @@
           text-align: left;
           white-space: nowrap;
           word-wrap: normal;
-          color: $theme-color-text;
+          color: ths.$theme-color-text;
           transition: font-size 0.3s ease-out;
 
-          @media (max-width: $break-point-mobile) {
+          @media (max-width: ths.$break-point-mobile) {
             font-size: 14px;
           }
 
@@ -289,17 +289,17 @@
 
       blockquote {
         margin: 0 0 1em;
-        border-left: 3px solid $theme-color-text;
-        background-color: $theme-color-blockquote;
+        border-left: 3px solid ths.$theme-color-text;
+        background-color: ths.$theme-color-blockquote;
         padding: 15px;
 
         p {
-          color: $theme-color-text;
+          color: ths.$theme-color-text;
           font-size: 14px;
           line-height: 1.75;
           margin-bottom: 1em;
 
-          @media (max-width: $break-point-mobile) {
+          @media (max-width: ths.$break-point-mobile) {
             font-size: 12px;
           }
 
@@ -317,7 +317,7 @@
         margin: 50px auto;
         width: 80%;
         height: 1px;
-        background-color: $theme-color-text;
+        background-color: ths.$theme-color-text;
         border: none;
       }
     }
@@ -326,7 +326,7 @@
       .title {
         &::before {
           content: '[ Draft ] ';
-          color: $theme-color-draft;
+          color: ths.$theme-color-draft;
         }
       }
     }
@@ -338,14 +338,14 @@
       width: 240px;
       height: calc(100vh - 70px);
       overflow-y: auto;
-      border-left: 1px dotted $theme-color-text;
+      border-left: 1px dotted ths.$theme-color-text;
       padding: 10px 15px 10px 0;
 
       &::-webkit-scrollbar {
         display: none;
       }
 
-      @media (max-width: $break-point-desktop-small) {
+      @media (max-width: ths.$break-point-desktop-small) {
         display: none;
       }
 
@@ -360,13 +360,13 @@
           margin-bottom: 0.5em;
 
           a {
-            color: $theme-color-text;
+            color: ths.$theme-color-text;
             font-size: 12px;
             line-height: 1.3;
             transition: color 0.3s ease-out;
 
             &:hover {
-              color: $theme-color-primary;
+              color: ths.$theme-color-primary;
             }
           }
         }
@@ -380,13 +380,13 @@
       align-items: flex-start;
 
       .header {
-        border-top: 1px dashed $theme-color-text;
+        border-top: 1px dashed ths.$theme-color-text;
         padding-top: 50px;
         margin-bottom: 30px;
         width: 100%;
 
         .title {
-          color: $theme-color-text;
+          color: ths.$theme-color-text;
           font-size: 20px;
         }
       }
@@ -396,19 +396,19 @@
         list-style: circle;
 
         .post {
-          color: $theme-color-text;
+          color: ths.$theme-color-text;
           font-size: 14px;
           line-height: 2;
           transition: color 0.3s ease-out;
 
           a {
-            color: $theme-color-text;
+            color: ths.$theme-color-text;
             transition: color 0.3s ease-out;
 
             &.draft {
               &::before {
                 content: '[ Draft ] ';
-                color: $theme-color-draft;
+                color: ths.$theme-color-draft;
               }
             }
           }
@@ -416,7 +416,7 @@
           &:hover {
             &,
             & a {
-              color: $theme-color-primary;
+              color: ths.$theme-color-primary;
             }
           }
         }

@@ -1,13 +1,13 @@
 @charset "utf-8";
 
-@import '../styles/_common.scss';
+@use '../styles/ths';
 
 .blog-catalog {
   .blog-list {
     padding-top: 50px;
     transition: padding-top 0.3s ease-out;
 
-    @media (max-width: $break-point-tablet) {
+    @media (max-width: ths.$break-point-tablet) {
       padding-top: 0;
     }
 
@@ -18,11 +18,11 @@
       padding: 15px;
       margin-bottom: 20px;
 
-      @media (max-width: $break-point-tablet) {
+      @media (max-width: ths.$break-point-tablet) {
         align-items: stretch;
       }
 
-      @media (max-width: $break-point-mobile) {
+      @media (max-width: ths.$break-point-mobile) {
         width: 100%;
         margin-bottom: 0;
       }
@@ -35,18 +35,18 @@
         flex-shrink: 0;
         transition: width 0.3s ease-out, height 0.3s ease-out;
 
-        @media (max-width: $break-point-desktop-small) {
+        @media (max-width: ths.$break-point-desktop-small) {
           width: 240px;
           height: 135px;
         }
 
-        @media (max-width: $break-point-tablet) {
+        @media (max-width: ths.$break-point-tablet) {
           width: 200px;
           min-height: 135px;
           height: auto;
         }
 
-        @media (max-width: $break-point-mobile) {
+        @media (max-width: ths.$break-point-mobile) {
           width: 120px;
           min-height: 90px;
         }
@@ -68,7 +68,7 @@
         justify-content: space-between;
 
         .title {
-          color: $theme-color-primary;
+          color: ths.$theme-color-primary;
           font-size: 20px;
           font-weight: 700;
           line-height: 1.375;
@@ -76,22 +76,22 @@
           word-wrap: break-word;
           transition: font-size 0.3s ease-out, margin-bottom 0.3s ease-out;
 
-          @media (max-width: $break-point-desktop-small) {
+          @media (max-width: ths.$break-point-desktop-small) {
             margin-bottom: 8px;
           }
 
-          @media (max-width: $break-point-tablet) {
+          @media (max-width: ths.$break-point-tablet) {
             font-size: 18px;
           }
 
-          @media (max-width: $break-point-mobile) {
+          @media (max-width: ths.$break-point-mobile) {
             font-size: 14px;
             margin-bottom: 4px;
           }
         }
 
         .desc {
-          color: $theme-color-text;
+          color: ths.$theme-color-text;
           line-height: 1.375;
           word-wrap: break-word;
           margin-bottom: 8px;
@@ -102,7 +102,7 @@
             font-size 0.3s ease-out,
             margin-bottom 0.3s ease-out;
 
-          @media (max-width: $break-point-mobile) {
+          @media (max-width: ths.$break-point-mobile) {
             font-size: 12px;
             margin-bottom: 4px;
           }
@@ -111,19 +111,19 @@
         .blog__footer {
           display: flex;
 
-          @media (max-width: $break-point-tablet) {
+          @media (max-width: ths.$break-point-tablet) {
             flex-direction: column;
           }
 
           .date {
             font-size: 14px;
-            color: $theme-color-text;
+            color: ths.$theme-color-text;
             line-height: 1;
             position: relative;
             white-space: nowrap;
             transition: font-size 0.3s ease-out, margin-bottom 0.3s ease-out;
 
-            @media (max-width: $break-point-tablet) {
+            @media (max-width: ths.$break-point-tablet) {
               margin-bottom: 2px;
               font-size: 12px;
             }
@@ -133,13 +133,13 @@
             padding-left: 10px;
             margin-left: 10px;
             display: flex;
-            color: $theme-color-text;
+            color: ths.$theme-color-text;
             line-height: 1;
             font-size: 14px;
             transition: font-size 0.3s ease-out;
             position: relative;
 
-            @media (max-width: $break-point-tablet) {
+            @media (max-width: ths.$break-point-tablet) {
               font-size: 12px;
             }
 
@@ -151,9 +151,9 @@
               transform: translate(0, -50%);
               width: 1px;
               height: 12px;
-              background-color: $theme-color-text;
+              background-color: ths.$theme-color-text;
 
-              @media (max-width: $break-point-tablet) {
+              @media (max-width: ths.$break-point-tablet) {
                 content: none;
               }
             }
@@ -165,7 +165,7 @@
         .title {
           &::before {
             content: '[ Draft ] ';
-            color: $theme-color-draft;
+            color: ths.$theme-color-draft;
           }
         }
       }
@@ -181,7 +181,7 @@
     justify-content: space-between;
 
     span {
-      color: $theme-color-text;
+      color: ths.$theme-color-text;
       padding: 0 0.5em;
     }
 
@@ -189,7 +189,7 @@
     &::after {
       content: '';
       height: 1px;
-      background-color: $theme-color-text;
+      background-color: ths.$theme-color-text;
       flex-grow: 1;
     }
   }

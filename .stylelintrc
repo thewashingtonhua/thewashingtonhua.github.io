@@ -9,8 +9,17 @@
     "**/*.tsx",
   ],
   "rules": {
+    "at-rule-empty-line-before": null,
     "at-rule-no-unknown": null,
+    "block-closing-brace-newline-after": ["always", {
+      ignoreAtRules: ["if", "else"]
+    }],
+    "declaration-empty-line-before": null,
+    "font-family-no-missing-generic-family-keyword": "null",
+    "no-descending-specificity": null,
+    "number-leading-zero": "always",
+    "selector-pseudo-class-no-unknown": null,
     "scss/at-rule-no-unknown": true,
-    "no-descending-specificity": null
+    "scss/at-else-if-parentheses-space-before": "always"
   }
 }

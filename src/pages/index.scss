@@ -1,37 +1,37 @@
 @charset "utf-8";
 
-@import '../styles/_common.scss';
+@use '../styles/ths';
 
 .channel-header {
-  @include clearfix;
+  @include ths.clearfix;
 
   padding: 10px 15px;
 
   &:first-of-type {
     margin-top: 50px;
 
-    @media (max-width: $break-point-mobile) {
+    @media (max-width: ths.$break-point-mobile) {
       margin-top: 20px;
     }
   }
 
   .title {
     float: left;
-    color: $theme-color-primary;
+    color: ths.$theme-color-primary;
     font-size: 28px;
     line-height: 32px;
   }
 
   .more {
     float: right;
-    color: $theme-color-text;
+    color: ths.$theme-color-text;
     font-size: 16px;
     line-height: 32px;
   }
 }
 
 .channel-body {
-  @include clearfix;
+  @include ths.clearfix;
 
   margin-bottom: 40px;
 
@@ -41,7 +41,7 @@
 }
 
 .blogs {
-  @include clearfix;
+  @include ths.clearfix;
 
   .blog {
     display: block;
@@ -65,7 +65,7 @@
       padding: 10px 0;
 
       .title {
-        color: $theme-color-primary;
+        color: ths.$theme-color-primary;
         font-size: 22px;
         font-weight: 700;
         line-height: 1.375;
@@ -83,39 +83,39 @@
         line-height: 1.3;
         word-wrap: break-word;
         margin-bottom: 10px;
-        color: $theme-color-text;
+        color: ths.$theme-color-text;
       }
 
       .blog__footer {
         display: flex;
 
-        @media (max-width: $break-point-tablet) {
+        @media (max-width: ths.$break-point-tablet) {
           flex-direction: column;
         }
 
         .date {
           font-size: 14px;
-          color: $theme-color-text;
+          color: ths.$theme-color-text;
           line-height: 1;
           position: relative;
           white-space: nowrap;
           transition: margin-bottom 0.3s ease-out;
 
-          @media (max-width: $break-point-tablet) {
+          @media (max-width: ths.$break-point-tablet) {
             margin-bottom: 6px;
           }
         }
 
         .tags {
           display: flex;
-          color: $theme-color-text;
+          color: ths.$theme-color-text;
           line-height: 1;
           font-size: 14px;
           padding-left: 10px;
           margin-left: 10px;
           transition: font-size 0.3s ease-out;
 
-          @media (max-width: $break-point-tablet) {
+          @media (max-width: ths.$break-point-tablet) {
             font-size: 12px;
           }
 
@@ -127,9 +127,9 @@
             transform: translate(0, -50%);
             width: 1px;
             height: 12px;
-            background-color: $theme-color-text;
+            background-color: ths.$theme-color-text;
 
-            @media (max-width: $break-point-tablet) {
+            @media (max-width: ths.$break-point-tablet) {
               content: none;
             }
           }
@@ -166,10 +166,10 @@
       h2 {
         font-size: 26px;
         line-height: 1.5;
-        color: $theme-color-primary;
+        color: ths.$theme-color-primary;
         transition: font-size 0.3s ease-out;
 
-        @include ellipsis;
+        @include ths.ellipsis;
 
         @media (max-width: 480px) {
           font-size: 20px;
@@ -177,12 +177,12 @@
       }
 
       p {
-        color: $theme-color-text;
+        color: ths.$theme-color-text;
         transition: font-size 0.3s ease-out;
         font-size: 14px;
         line-height: 1.5;
 
-        @include ellipsis;
+        @include ths.ellipsis;
 
         @media (max-width: 480px) {
           font-size: 12px;

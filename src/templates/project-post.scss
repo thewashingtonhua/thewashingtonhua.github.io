@@ -1,13 +1,13 @@
 @charset "utf-8";
 
-@import '../styles/_common.scss';
+@use '../styles/ths';
 
 .project-post {
   .back-to-parent {
     padding: 50px 15px 20px;
 
     a {
-      color: $theme-color-text;
+      color: ths.$theme-color-text;
     }
   }
 
@@ -19,7 +19,7 @@
     h3,
     h4,
     h5 {
-      color: $theme-color-primary;
+      color: ths.$theme-color-primary;
       font-weight: 700;
       line-height: 1.5;
       transition: font-size 0.3s ease-out;
@@ -30,7 +30,7 @@
       margin-top: 1em;
       margin-bottom: 0.5em;
 
-      @media (max-width: $break-point-mobile) {
+      @media (max-width: ths.$break-point-mobile) {
         font-size: 28px;
       }
     }
@@ -40,7 +40,7 @@
       margin-top: 1.5em;
       margin-bottom: 0.8em;
 
-      @media (max-width: $break-point-mobile) {
+      @media (max-width: ths.$break-point-mobile) {
         font-size: 24px;
       }
     }
@@ -50,7 +50,7 @@
       margin-top: 1.5em;
       margin-bottom: 0.5em;
 
-      @media (max-width: $break-point-mobile) {
+      @media (max-width: ths.$break-point-mobile) {
         font-size: 20px;
       }
     }
@@ -60,7 +60,7 @@
       margin-top: 1.5em;
       margin-bottom: 0.5em;
 
-      @media (max-width: $break-point-mobile) {
+      @media (max-width: ths.$break-point-mobile) {
         font-size: 18px;
       }
     }
@@ -70,25 +70,25 @@
       margin-top: 1.5em;
       margin-bottom: 0.5em;
 
-      @media (max-width: $break-point-mobile) {
+      @media (max-width: ths.$break-point-mobile) {
         font-size: 16px;
       }
     }
 
     p {
-      color: $theme-color-text;
+      color: ths.$theme-color-text;
       line-height: 1.75;
       margin-top: 0;
       margin-bottom: 1em;
       transition: font-size 0.3s ease-out;
 
-      @media (max-width: $break-point-mobile) {
+      @media (max-width: ths.$break-point-mobile) {
         font-size: 14px;
       }
     }
 
     a {
-      color: $theme-color-primary;
+      color: ths.$theme-color-primary;
       text-decoration: none;
       font-size: 16px;
       font-weight: 300;
@@ -127,8 +127,8 @@
     th,
     td {
       &::selection {
-        background-color: $theme-color-primary;
-        color: $theme-color-bg;
+        background-color: ths.$theme-color-primary;
+        color: ths.$theme-color-bg;
       }
     }
   }

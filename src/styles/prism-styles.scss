@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-@import './_common.scss';
+@use './ths';
 
 $prism-color-base: #ccc;
 $prism-color-dark: #2d2d2d;
@@ -22,20 +22,20 @@ $prism-color-operator: #fc929e;
 
 .gatsby-code-text {
   font-size: 0.8em;
-  font-family: $theme-font-code;
-  color: $theme-color-primary;
-  background-color: $theme-color-code;
+  font-family: ths.$theme-font-code;
+  color: ths.$theme-color-primary;
+  background-color: ths.$theme-color-code;
   border-radius: 6px;
   padding: 0.5em 0.8em;
 
-  @media (max-width: $break-point-desktop-small) {
+  @media (max-width: ths.$break-point-desktop-small) {
     padding: 0.2em 0.5em;
   }
 }
 
 .gatsby-highlight {
   // background: $prism-color-dark;
-  background: $theme-color-code;
+  background: ths.$theme-color-code;
   color: $prism-color-white;
   border-radius: 10px;
   overflow: auto;
@@ -46,7 +46,7 @@ $prism-color-operator: #fc929e;
 
   code,
   span {
-    font-family: $theme-font-code;
+    font-family: ths.$theme-font-code;
   }
 
   code {

@@ -1,20 +1,20 @@
 @charset "utf-8";
 
-@import '../../styles/_common.scss';
+@use '../../styles/ths';
 
 .search-input {
   display: flex;
   align-items: center;
   width: 100%;
-  height: $search-bar-height;
-  border-radius: $search-bar-height / 2;
-  background-color: lighten($theme-color-bg, 5%);
+  height: ths.$search-bar-height;
+  border-radius: ths.$search-bar-height / 2;
+  background-color: lighten(ths.$theme-color-bg, 5%);
   padding-right: 15px;
 
   & &__icon {
     flex-shrink: 0;
-    width: $search-bar-height;
-    height: $search-bar-height;
+    width: ths.$search-bar-height;
+    height: ths.$search-bar-height;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,7 +22,7 @@
     svg {
       width: 14px;
       height: 14px;
-      fill: lighten($theme-color-bg, 20%);
+      fill: lighten(ths.$theme-color-bg, 20%);
     }
   }
 
@@ -37,13 +37,13 @@
     min-width: 0;
 
     &::placeholder {
-      color: lighten($theme-color-bg, 20%);
+      color: lighten(ths.$theme-color-bg, 20%);
     }
   }
 
   .btn-cancel {
     flex-shrink: 0;
     padding-left: 10px;
-    color: $theme-color-primary;
+    color: ths.$theme-color-primary;
   }
 }
