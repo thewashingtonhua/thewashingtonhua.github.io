@@ -1,3 +1,4 @@
+import 'core-js/stable'
 import React, { FC, Attributes, ReactNode } from 'react'
 
 interface HTMLProps {

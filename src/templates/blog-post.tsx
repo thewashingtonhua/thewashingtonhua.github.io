@@ -8,23 +8,20 @@ import './blog-post.scss'
 import { GatsbyDataProps, BlogNode, NodeType } from '../utils/interface'
 import { IS_PROD } from 'config'
 
-interface BlogPostProps {
-  blog: BlogNode
-  blogs: BlogNode[]
-}
-
 interface TOCProps {
   blog: BlogNode
   style: CSSProperties
 }
 
 const TOC: FC<TOCProps> = (props) => {
+  const { tableOfContents } = props.blog
+  if (!tableOfContents) return null
   return (
     <aside
       className='toc'
       style={props.style}
       dangerouslySetInnerHTML={{
-        __html: props.blog.tableOfContents
+        __html: tableOfContents
       }}
     />
   )
@@ -74,6 +71,11 @@ const Series: FC<SeriesProps> = (props) => {
       </ul>
     </section>
   )
+}
+
+interface BlogPostProps {
+  blog: BlogNode
+  blogs: BlogNode[]
 }
 
 const BlogPostContent: FC<BlogPostProps> = (props) => {

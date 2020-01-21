@@ -336,7 +336,7 @@
       top: 0;
       left: calc(100% + 15px);
       width: 240px;
-      height: calc(100vh - 70px);
+      max-height: calc(100vh - 70px);
       overflow-y: auto;
       border-left: 1px dotted ths.$theme-color-text;
       padding: 10px 15px 10px 0;

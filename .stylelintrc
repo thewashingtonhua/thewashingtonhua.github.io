@@ -3,6 +3,12 @@
   "plugins": [
     "stylelint-scss"
   ],
+  "ignoreFiles": [
+    "**/*.js",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.md",
+  ],
   "rules": {
     "at-rule-empty-line-before": null,
     "at-rule-no-unknown": null,

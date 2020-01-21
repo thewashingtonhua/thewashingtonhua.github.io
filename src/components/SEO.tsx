@@ -28,7 +28,7 @@ export const SEO: FC<SEOProps> = (props) => {
       render={data => {
         const { siteMetadata } = data.site
         const metaDescription = description || siteMetadata.description
-        const metaKeywords = keywords || siteMetadata.keywords
+        const metaKeywords = keywords.length ? keywords : siteMetadata.keywords
         const metaTitle = title ? `${title} | ${siteMetadata.title}` : siteMetadata.title
 
         const metas = [

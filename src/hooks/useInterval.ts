@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-export default function useInterval(callback: () => void, delay: number | null) {
+export const useInterval = (callback: () => void, delay: number | null) => {
   const savedCallback = useRef(() => {})
 
   // 保存新回调

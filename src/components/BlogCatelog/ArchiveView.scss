@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+@use '../../styles/ths';
+
+.blog-list {
+  .category {
+    position: relative;
+
+    .category-header {
+      position: relative;
+    }
+
+    .category-posts {
+      position: relative;
+    }
+  }
+}

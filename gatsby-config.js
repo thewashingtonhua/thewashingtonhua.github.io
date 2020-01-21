@@ -99,16 +99,16 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-catch-links',
     {
-      resolve: `gatsby-plugin-sass`,
-      options: {
-        includePaths: [
-          path.resolve(__dirname, 'node_modules/normalize-scss/sass')
-        ],
-        implementation: require("sass")
-      }
+      resolve: `gatsby-plugin-mdx`
     },
     {
-      resolve: `gatsby-plugin-mdx`
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        implementation: require("sass"),
+        postCssPlugins: [
+          require('autoprefixer')
+        ]
+      }
     },
     {
       resolve: `gatsby-plugin-react-svg`,

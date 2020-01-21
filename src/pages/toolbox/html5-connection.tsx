@@ -6,10 +6,10 @@ import { IWindow, INetworkInformation } from '../../utils/interface'
 const HTML5Connection: FC = () => {
   const [connectionType, setConnectionType] = useState('unknown')
 
-  const _window = window as IWindow
   let _connection: INetworkInformation | null = null
 
   function getConnectionType () {
+    const _window = window as IWindow
     const { navigator } = _window
     const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection
     if (connection) {

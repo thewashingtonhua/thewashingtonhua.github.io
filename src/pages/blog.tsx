@@ -1,69 +1,45 @@
-import React, { FC } from 'react'
-import { Link, graphql } from 'gatsby'
-import dayjs from 'dayjs'
-import { Layout, SEO } from '../components'
+import React, { FC, useState, useEffect } from 'react'
+import { graphql } from 'gatsby'
+import {
+  Layout,
+  SEO,
+  BlogCatelogNormalView,
+  BlogCatelogArchiveView,
+  Toolbar,
+  BlogCatalogViewMode
+} from '../components'
 import './blog.scss'
-import { IS_PROD } from '../config'
 import { GatsbyDataProps, BlogNode, NodeType } from '../utils/interface'
+import { useBlogViewMode } from 'hooks'
 
 const BottomLine: FC<{ text: string }> = (props) => (
   <div className='bottom-line'><span>{props.text}</span></div>
 )
+const renderView = (viewMode: BlogCatalogViewMode, blogs: BlogNode[]) => {
+  switch (viewMode) {
+    case BlogCatalogViewMode.normal:
+      return <BlogCatelogNormalView blogs={blogs} />
+    case BlogCatalogViewMode.archive:
+      return <BlogCatelogArchiveView blogs={blogs} />
+    default:
+      return null
+  }
+}
 
 const BlogCatalogPage: FC<GatsbyDataProps> = (props) => {
-  const { data } = props
-  const nodes = data.allMarkdownRemark.edges.map(n => n.node) as BlogNode[]
-  const blogs = nodes
-    .filter(node => node.fields.type === NodeType.blog)
+  const blogs = props.data.allMarkdownRemark.edges
+    .map(n => n.node as BlogNode)
+    .filter(node => node.fields.type === NodeType.blog && !node.frontmatter.draft)
     .sort((x, y) => new Date(y.fields.date).getTime() - new Date(x.fields.date).getTime())
 
-  // 把草稿和已发布的分开
-  const [drafts, published] = blogs.reduce((cache, blog) => (
-    blog.frontmatter.draft
-      ? [[...cache[0], blog], cache[1]]
-      : [cache[0], [...cache[1], blog]]
-  ), [[] as BlogNode[], [] as BlogNode[]])
-
-  // 草稿不对外发布
-  const visibleBlogs = IS_PROD
-    ? [...published]
-    : [...drafts, ...published]
+  const { viewMode, setViewMode } = useBlogViewMode()
 
   return (
     <Layout>
-      <SEO
-        title='博客'
-        keywords={data.site.siteMetadata.keywords}
-      />
+      <SEO title='博客' />
       <div className='mf-content blog-catalog'>
-        <div className='blog-list'>
-          { visibleBlogs.map(node => {
-            const cover = node.frontmatter.cover?.publicURL
-            const date = dayjs(node.fields.date).format('MMM DD, YYYY')
-            return (
-              <Link
-                className={'blog' + (node.frontmatter.draft ? ' draft' : '')}
-                to={node.fields.slug}
-                key={node.id}
-                id={node.fields.id}
-              >
-                <div className='banner'>
-                  <img src={cover} alt='' />
-                </div>
-                <div className='info'>
-                  <p className='title'>{node.frontmatter.title}</p>
-                  <p className='desc'>{node.frontmatter.description}</p>
-                  <footer className='blog__footer'>
-                    <p className='date'>
-                      <time dateTime='{blog.node.fields.date}'>{date}</time>
-                    </p>
-                    {/* <p className='tags'>Tags: {blog.node.frontmatter.tags.join(', ')}</p> */}
-                  </footer>
-                </div>
-              </Link>
-            )
-          })}
-        </div>
+        <Toolbar viewMode={viewMode} onViewModeChange={setViewMode} />
+        { renderView(viewMode, blogs) }
         <BottomLine text='The End' />
       </div>
     </Layout>
