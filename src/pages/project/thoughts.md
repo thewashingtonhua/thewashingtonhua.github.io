@@ -1,6 +1,6 @@
 ---
 title: 'Thoughts 所思'
-description: '企业知识管理应用'
+description: 'Teambition 出品的企业知识管理应用'
 cover: '../../images/project/thoughts.jpg'
 from: '2019-07-01'
 to: ''
