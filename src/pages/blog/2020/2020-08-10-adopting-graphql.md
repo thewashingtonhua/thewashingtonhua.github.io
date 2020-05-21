@@ -1,5 +1,5 @@
 ---
-title: '设计一套乐观更新机制'
+title: 'GraphQL：从起飞到落地'
 description: '要乐观，也要悲观'
 tags: ['design']
 cover: '../../../images/blog/blank.jpg'
@@ -8,4 +8,6 @@ draft: true
 original: true
 ---
 
-## 什么「乐观更新」
+## The Good in GraphQL
+
+## The Not Good in GraphQL
