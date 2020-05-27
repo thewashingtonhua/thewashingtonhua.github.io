@@ -1,1 +1,2 @@
 - 新增渠道：Medium、infoQ
+- svg 使用 CRA 的 babel-plugin-named-asset-import 引入
