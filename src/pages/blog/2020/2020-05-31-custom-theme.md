@@ -48,6 +48,7 @@ Sass
 CSS Variables
 - 需要支持 IE 11（虽然放弃 IE 已经提上日程，但毕竟还没）
 - CSS Ponyfill 的问题
+- 和 Sass 变量混用，Sass 函数无法作用于 CSS Variables
 
 Theme Generator
 - 要求基准样式都在一个 style 里。
