@@ -30,4 +30,4 @@ draft: false
 
 ## 项目截图
 
-![截图](../../images/project/xinyue/screenshot.jpg)
+![截图](../../images/project/xinyue/screencapture.png)

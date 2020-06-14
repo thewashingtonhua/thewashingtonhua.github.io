@@ -103,7 +103,8 @@
     }
 
     > img,
-    section img {
+    section img,
+    .gatsby-resp-image-wrapper {
       max-width: 100%;
       margin-bottom: 15px;
 
