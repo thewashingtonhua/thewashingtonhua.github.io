@@ -1,7 +1,7 @@
 ---
 title: '基于 Sass 的主题定制方案'
 description: '本以为很简单的事情，然而……'
-tags: ['css', 'sass, 'theme']
+tags: ['css', 'sass', 'theme']
 cover: '../../../images/blog/blank.jpg'
 series: ''
 draft: true
