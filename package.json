@@ -65,7 +65,7 @@
     "gatsby-source-filesystem": "^2.0.33",
     "gatsby-transformer-remark": "^2.3.12",
     "gatsby-transformer-sharp": "^2.4.4",
-    "gh-pages": "^2.0.1",
+    "gh-pages": "^3.0.0",
     "normalize-scss": "^7.0.1",
     "prismjs": "^1.16.0",
     "sass": "^1.24.0",

@@ -44,6 +44,11 @@ const tools = [
     category: "HTML5",
     url: "/toolbox/html5-online",
     title: "Online"
+  },
+  {
+    category: "Device",
+    url: "/toolbox/device-data",
+    title: "Device Data"
   }
 ]
 

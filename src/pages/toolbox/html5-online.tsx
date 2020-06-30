@@ -2,6 +2,7 @@ import React, { FC, useEffect, useState } from 'react'
 import { ToolboxLayout } from '../../components'
 import './tool.scss'
 import './html5-online.scss'
+import { hasWindow } from 'utils'
 
 const HTML5Online: FC = () => {
   const [status, setStatus] = useState('')
@@ -14,10 +15,14 @@ const HTML5Online: FC = () => {
   useEffect(() => {
     updateStatus()
 
+    if (!hasWindow()) return
+
     window.addEventListener('online', updateStatus)
     window.addEventListener('offline', updateStatus)
 
     return () => {
+      if (!hasWindow()) return
+
       window.removeEventListener('online', updateStatus)
       window.removeEventListener('offline', updateStatus)
     }

@@ -19,3 +19,7 @@ export const unlockBodyScroll = () => {
   const body = document.querySelector('body')
   setScrollLock(body, false)
 }
+
+export const hasWindow = () => {
+  return typeof window !== 'undefined'
+}

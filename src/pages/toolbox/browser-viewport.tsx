@@ -2,6 +2,7 @@ import React, { FC, useEffect, useState } from 'react'
 import { ToolboxLayout } from '../../components'
 import './tool.scss'
 import { IWindow } from '../../utils/interface'
+import { hasWindow } from 'utils'
 
 const BrowserViewport: FC = () => {
   const [innerWidth, setInnerWidth] = useState('')
@@ -19,6 +20,8 @@ const BrowserViewport: FC = () => {
   const [devicePixelRatio, setDevicePixelRatio] = useState('')
 
   const getSize = () => {
+    if (!hasWindow()) return
+
     const _window = window as IWindow
     const screen = _window.screen
     setInnerWidth(window.innerWidth + ' px')
@@ -39,9 +42,11 @@ const BrowserViewport: FC = () => {
   useEffect(() => {
     getSize()
 
+    if (!hasWindow()) return
     window.addEventListener('resize', getSize)
 
     return () => {
+      if (!hasWindow()) return
       window.removeEventListener('resize', getSize)
     }
   }, [])

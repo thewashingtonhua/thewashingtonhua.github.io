@@ -1,12 +1,16 @@
 import React, { useState, FC, CSSProperties, createRef, useEffect } from 'react'
 import { Link, graphql } from 'gatsby'
 import dayjs from 'dayjs'
+import advancedFormat from 'dayjs/plugin/advancedFormat'
 import { Layout, SEO } from '../components'
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 import '../styles/prism-styles.scss'
 import './blog-post.scss'
 import { GatsbyDataProps, BlogNode, NodeType } from '../utils/interface'
 import { IS_PROD } from 'config'
+import { hasWindow } from 'utils'
+
+dayjs.extend(advancedFormat)
 
 interface TOCProps {
   blog: BlogNode
@@ -95,6 +99,7 @@ const BlogPostContent: FC<BlogPostProps> = (props) => {
   }
 
   useEffect(() => {
+    if (!hasWindow()) return
     if (window.innerWidth < 1280) return
     document.addEventListener('scroll', handleScroll)
 
@@ -104,7 +109,7 @@ const BlogPostContent: FC<BlogPostProps> = (props) => {
   })
 
   const cover = blog.frontmatter.cover?.publicURL
-  const date = dayjs(blog.fields.date).format('MMM DD, YYYY')
+  const date = dayjs(blog.fields.date).format('MMM Do, YYYY')
 
   const articleClassName = [
     blog.frontmatter.draft && 'draft',

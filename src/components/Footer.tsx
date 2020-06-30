@@ -7,6 +7,7 @@ import IconWechatDyh from '../images/ui/icons/wechat-dyh.svg'
 import IconGithub from '../images/ui/icons/github.svg'
 import IconZhihu from '../images/ui/icons/zhihu.svg'
 import IconJuejin from '../images/ui/icons/juejin.svg'
+import { IS_DEV } from 'config'
 
 const year = dayjs().format('YYYY')
 const author = `<Washington Hua />`
@@ -26,12 +27,16 @@ export const Footer: FC = () => {
 
       <div className='sns'>
         <ul className='links'>
-          <li className='link wechat' title='个人微信号'>
-            <IconWechat />
-          </li>
-          <li className='link wechat-dyh' title='微信订阅号'>
-            <IconWechatDyh />
-          </li>
+          { IS_DEV &&
+            <li className='link wechat' title='个人微信号'>
+              <IconWechat />
+            </li>
+          }
+          { IS_DEV &&
+            <li className='link wechat-dyh' title='微信订阅号'>
+              <IconWechatDyh />
+            </li>
+          }
           <li className='link github' title='Github'>
             <a href='https://github.com/tonghuashuo' target='_blank' rel='noopener noreferrer'>
               <IconGithub />

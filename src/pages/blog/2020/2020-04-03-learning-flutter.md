@@ -1,6 +1,6 @@
 ---
 title: 'Flutter 扫雷记'
-description: '目标，移动端，走起'
+description: '穿上新买的鞋，走上复古的小路'
 tags: ['flutter']
 cover: '../../../images/blog/flutter.jpg'
 series: ''

@@ -1,6 +1,6 @@
 ---
 title: 'GraphQL：从起飞到落地'
-description: '要乐观，也要悲观'
+description: '你经手的下一个项目，很可能就有它'
 tags: ['design']
 cover: '../../../images/blog/blank.jpg'
 series: ''

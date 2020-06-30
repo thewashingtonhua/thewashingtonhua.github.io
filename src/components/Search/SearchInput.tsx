@@ -1,6 +1,7 @@
 import React, { FC, ChangeEvent, useState, KeyboardEvent, useRef, useEffect, useCallback } from 'react'
 import './SearchInput.scss'
 import SearchIcon from '../../images/ui/icons/search.svg'
+import { hasWindow } from 'utils'
 
 interface SearchInputProps {
   value: string,
@@ -19,9 +20,11 @@ export const SearchInput: FC<SearchInputProps> = (props) => {
   function _onChange (e: ChangeEvent<HTMLInputElement>) {
     const text = e.target.value
     setText(text)
-    window.requestAnimationFrame(() => {
-      onChange && onChange(text)
-    })
+    if (hasWindow()) {
+      window.requestAnimationFrame(() => {
+        onChange && onChange(text)
+      })
+    }
   }
 
   useEffect(() => {

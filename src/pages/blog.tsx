@@ -11,6 +11,7 @@ import {
 import './blog.scss'
 import { GatsbyDataProps, BlogNode, NodeType } from '../utils/interface'
 import { useBlogViewMode } from 'hooks'
+import { IS_DEV } from 'config'
 
 const BottomLine: FC<{ text: string }> = (props) => (
   <div className='bottom-line'><span>{props.text}</span></div>
@@ -29,7 +30,7 @@ const renderView = (viewMode: BlogCatalogViewMode, blogs: BlogNode[]) => {
 const BlogCatalogPage: FC<GatsbyDataProps> = (props) => {
   const blogs = props.data.allMarkdownRemark.edges
     .map(n => n.node as BlogNode)
-    .filter(node => node.fields.type === NodeType.blog && !node.frontmatter.draft)
+    .filter(node => node.fields.type === NodeType.blog && (!node.frontmatter.draft || IS_DEV))
     .sort((x, y) => new Date(y.fields.date).getTime() - new Date(x.fields.date).getTime())
 
   const { viewMode, setViewMode } = useBlogViewMode()
@@ -38,7 +39,9 @@ const BlogCatalogPage: FC<GatsbyDataProps> = (props) => {
     <Layout>
       <SEO title='博客' />
       <div className='mf-content blog-catalog'>
-        <Toolbar viewMode={viewMode} onViewModeChange={setViewMode} />
+        { IS_DEV &&
+          <Toolbar viewMode={viewMode} onViewModeChange={setViewMode} />
+        }
         { renderView(viewMode, blogs) }
         <BottomLine text='The End' />
       </div>

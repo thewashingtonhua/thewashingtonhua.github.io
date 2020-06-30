@@ -2,6 +2,7 @@ import React, { FC, useState, useEffect } from 'react'
 import { ToolboxLayout } from '../../components'
 import './tool.scss'
 import { IWindow, INetworkInformation } from '../../utils/interface'
+import { hasWindow } from 'utils'
 
 const HTML5Connection: FC = () => {
   const [connectionType, setConnectionType] = useState('unknown')
@@ -9,7 +10,9 @@ const HTML5Connection: FC = () => {
   let _connection: INetworkInformation | null = null
 
   function getConnectionType () {
+    if (!hasWindow()) return
     const _window = window as IWindow
+
     const { navigator } = _window
     const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection
     if (connection) {

@@ -1,5 +1,5 @@
 ---
-title: 'TypeScriptS + Vue 踩坑纪实'
+title: 'TypeScript + Vue 踩坑纪实'
 description: '坑这种东西，多踩踩就平了'
 tags: ['typescript', 'vue']
 cover: '../../../images/blog/guide-for-vue-with-typescript.jpg'
@@ -126,4 +126,4 @@ Vue 官方对于 TypeScript 的态度，目前还不是很明确，提供了必�
 
 最终，我还是选择了放弃 TypeScript，用回 JavaScript 来完成这次的项目，毕竟是公司的项目，虽然不大，但也是有 deadline 的，稳定性上也有要求，盲目加入风险不可控的新技术是非常不负责任的行为。
 
-我并不否认 TypeScript 的优点，我依然很期待有一天 TypeScript 能够成为大前端开发的主流。但就目前而言，在除了 Angular 生态意外的环境下使用 TypeScript 还是坑太多。我会持续关注 TypeScript 的发展，但这一次，我选择 Pass。
+我并不否认 TypeScript 的优点，我依然很期待有一天 TypeScript 能够成为大前端开发的主流。但就目前而言，在除了 Angular 生态以外的环境下使用 TypeScript 还是坑太多。我会持续关注 TypeScript 的发展，但这一次，我选择 Pass。

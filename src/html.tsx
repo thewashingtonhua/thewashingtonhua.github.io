@@ -21,7 +21,7 @@ const HTML : FC<HTMLProps> = (props) => {
         <meta httpEquiv='format-detection' content='telephone=no' />
         <meta
           name='viewport'
-          content='width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, userscalable=no, shrink-to-fit=no, viewport-fit=cover'
+          content='width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no, viewport-fit=cover'
         />
         {/* <script src="https://cdn.bootcss.com/vConsole/3.3.0/vconsole.min.js"></script>
         <script>
