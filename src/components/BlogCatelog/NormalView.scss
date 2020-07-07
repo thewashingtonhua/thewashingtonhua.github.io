@@ -1,14 +1,18 @@
 @charset "utf-8";
 
 @use '../../styles/ths';
+@use 'sass:color';
 
 .blog-list {
   .blog {
     display: flex;
     flex-direction: row-reverse;
     transition: background-color 0.3s ease-out;
-    padding: 15px;
+    // padding: 15px;
     margin-bottom: 20px;
+    border-radius: 16px;
+    background-color: color.adjust(ths.$theme-color-bg, $lightness: 5%);
+    overflow: hidden;
 
     @media (max-width: ths.$break-point-tablet) {
       align-items: stretch;
@@ -26,6 +30,7 @@
       height: 135px;
       flex-shrink: 0;
       transition: width 0.3s ease-out, height 0.3s ease-out;
+      border-radius: 0 16px 16px 0;
 
       @media (max-width: ths.$break-point-desktop-small) {
         width: 240px;
@@ -53,7 +58,7 @@
     }
 
     .info {
-      padding-right: 10px;
+      padding: 24px;
       flex-grow: 1;
       display: flex;
       flex-direction: column;
@@ -61,9 +66,9 @@
 
       .title {
         color: ths.$theme-color-primary;
-        font-size: 20px;
+        font-size: 22px;
         font-weight: 700;
-        line-height: 1.375;
+        line-height: 30px;
         margin-bottom: 12px;
         word-wrap: break-word;
         transition: font-size 0.3s ease-out, margin-bottom 0.3s ease-out;
@@ -84,10 +89,10 @@
 
       .desc {
         color: ths.$theme-color-text;
-        line-height: 1.375;
         word-wrap: break-word;
         margin-bottom: 8px;
         font-size: 14px;
+        line-height: 20px;
         flex-grow: 1;
         transition:
           color 0.3s ease-out,
@@ -109,8 +114,8 @@
 
         .date {
           font-size: 14px;
+          line-height: 20px;
           color: ths.$theme-color-text;
-          line-height: 1;
           position: relative;
           white-space: nowrap;
           transition: font-size 0.3s ease-out, margin-bottom 0.3s ease-out;

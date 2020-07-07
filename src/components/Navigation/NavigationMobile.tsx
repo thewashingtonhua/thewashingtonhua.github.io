@@ -15,10 +15,14 @@ export const NavigationMobile: FC<NavigationMobileProps> = (props) => {
   return (
     <div className='navigation-mobile'>
       <div
-        className={'hamberger' + (open ? ' open' : '')}
+        className='hamberger'
+        data-is-open={ open }
         onClick={onToggle}
-      />
-      <nav className={'nav-menu' + (open ? ' open' : '')}>
+        />
+      <nav
+        className='nav-menu'
+        data-is-open={ open }
+      >
         <ul className='menus'>
           { MENUS.map(n => (
             <li className='menu' key={n.to}>

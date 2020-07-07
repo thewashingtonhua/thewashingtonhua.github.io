@@ -10,11 +10,16 @@ export const isMenuActive =  (isMenuActiveProps: LinkGetProps) => {
   return { className }
 }
 
-export const MENUS = [
+interface MenuSchema {
+  to: string,
+  text: string
+}
+
+export const MENUS: MenuSchema[] = [
   !IS_PROD && { to: '/draft', text: '草稿' },
   { to: '/blog', text: '博客' },
   { to: '/project', text: '项目' },
   { to: '/toolbox', text: '工具' },
   { to: '/friend', text: '友人' },
   { to: '/about', text: '关于' }
-].filter(Boolean)
+].filter(Boolean) as MenuSchema[]

@@ -35,7 +35,7 @@
       transition: transform 0.3s ease-out;
     }
 
-    &.open {
+    &[data-is-open='true'] {
       border-top-color: transparent;
       border-bottom-color: transparent;
 
@@ -65,7 +65,7 @@
     opacity: 0;
     transition: opacity 0.3s ease-out;
 
-    &.open {
+    &[data-is-open='true'] {
       opacity: 1;
       pointer-events: all;
     }
@@ -89,47 +89,14 @@
         user-select: none;
         position: relative;
 
-        &::before,
-        &::after {
-          content: '';
-          position: absolute;
-          left: 0;
-          right: 0;
-          height: 1px;
-          background:
-            linear-gradient(
-              to right,
-              rgba(255, 255, 255, 0),
-              rgba(255, 255, 255, 0),
-              rgba(255, 255, 255, 0)
-            );
-        }
-
-        &::before {
-          top: 0;
-        }
-
-        &::after {
-          bottom: 0;
-        }
-
         &:hover {
           color: color.adjust(ths.$theme-color-text, $lightness: 50%);
         }
 
         &.active {
-          color: ths.$theme-color-primary;
-
-          &::before,
-          &::after {
-            background:
-              linear-gradient(
-                to right,
-                rgba(255, 255, 255, 0),
-                rgba(255, 255, 255, 0.3),
-                rgba(255, 255, 255, 0)
-              );
-          }
+          color: color.adjust(ths.$theme-color-text, $lightness: 50%);
+          background-color: color.adjust(ths.$theme-color-bg, $lightness: 5%);
+          border-radius: 8px;
         }
       }
     }

@@ -22,10 +22,10 @@ export const Footer: FC = () => {
           <span>by {author}</span>
         </p>
 
-        <p>Copyright &copy; 2014 - {year} All Rights Reserved</p>
+        <p>&copy; 2014 - {year} All Rights Reserved</p>
       </div>
 
-      <div className='sns'>
+      {/* <div className='sns'>
         <ul className='links'>
           { IS_DEV &&
             <li className='link wechat' title='个人微信号'>
@@ -53,7 +53,7 @@ export const Footer: FC = () => {
             </a>
           </li>
         </ul>
-      </div>
+      </div> */}
     </footer>
   )
 }
