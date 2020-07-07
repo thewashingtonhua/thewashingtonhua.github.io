@@ -50,8 +50,58 @@ original: true
 
 ## 自己搭一套乐观更新机制
 
+### 架构
+
 首先，我们来设计一下乐观更新的基本架构。
 
 ![optimistic-update-arch](../../../images/blog/optimistic-update/optimistic-update-arch.jpg)
 
-大体上和 Flux 的架构差不多，还是一个 `reducer(state, action) => state` 的过程
+大体上和 Flux 的架构差不多，还是一个 reducer (state, action) => state 的过程，只不过中间的 action 是不确定的，不能即时消费掉，需要保存到一个队列中，直到状态被确认才能真正被消费掉。
+
+乐观更新的 Action 和一般我们在 Redux 或者 Vuex 里见到的 Action 比较不同，由于不是即时消费掉的，它需要附带一些额外的信息来记录当前的状态，可能的结构如下：
+
+```typescript
+/**
+ * @description 乐观更新的 Action
+ */
+export interface UpdateAction {
+  /**
+   * @description Action 的 ID（用于唯一标识一个 Action）
+   */
+  id: UpdateActionId,
+  /**
+   * @description Action 的类型（用于描述该 Action 做了什么）
+   */
+  type: UpdateActionType,
+  /**
+   * @description 操作产生的时间戳（毫秒）
+   */
+  createdAt?: number,
+  /**
+   * @description 操作更新的时间戳（毫秒）
+   */
+  updatedAt?: number,
+  /**
+   * @description 操作确认的时间戳（毫秒）
+   */
+  confirmedAt?: number,
+  /**
+   * @description 附带的数据
+   */
+  payload?: any
+}
+```
+
+乐观更新的 Action 的生命周期有点类似 Promise，开始之后进入 pending 状态，之后要么被 confirm，要么被 cancel。最基本的例子就是在发送请求的同时，创建一个 Action 并将其添加到队列中，然后将队列中的 Action 依次应用到当前的 state 上得到新的 state。
+
+比较特别的是，乐观更新的 Action 是可以被 update 的。因为一次乐观更新有时未必只包含一个对象的操作，有可能还包含一系列的关联数据。这就涉及到接下来要讲的「ID 管理」。
+
+### ID 管理
+
+在传统的 CRUD 结构中，通常都是由服务端负责生成数据的 ID，客户端只是读取。但在乐观更新中，客户端在接口返回之前就已经需要用到这些 ID，为此客户端必须要自己生成这些 ID。可如果直接把服务端生成 ID 的逻辑搬到客户端，在数据安全方面会有很大的隐患，因此客户端只能生成一个临时的 tempID，等拿到服务端生成的真正的 ID 之后再进行替换。对于只涉及单个个对象的场景，替换 ID 的操作安排在 confirm 时就好了。但如果创建一个对象的同时还需要创建若干个与之相关联的对象的话，问题就比较复杂了。
+
+举个例子：创建父节点的同时，生成若干个子节点。
+
+
+
+### 时序问题
