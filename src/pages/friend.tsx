@@ -7,6 +7,7 @@ import infiniteScript from '../images/friend/infinite-script.jpg'
 import everain from '../images/friend/everain.jpg'
 import silvermac from '../images/friend/silvermac.jpg'
 import zhiyao from '../images/friend/zhiyao.jpg'
+import wenhaoqi from '../images/friend/wenhaoqi.jpg'
 import { GatsbyDataProps } from '../utils/interface'
 
 const friends = [
@@ -27,11 +28,11 @@ const friends = [
     ]
   },
   {
-    url: 'https://everain.me/',
-    cover: everain,
-    name: 'Everain',
+    url: 'https://lizhiyao.github.io/',
+    cover: zhiyao,
+    name: '丁香园记',
     desc: [
-      '暮雨 · 网易'
+      '志遥 · 丁香园'
     ]
   },
   {
@@ -43,11 +44,11 @@ const friends = [
     ]
   },
   {
-    url: 'https://lizhiyao.github.io/',
-    cover: zhiyao,
-    name: '丁香园记',
+    url: 'https://wenhaoqi.com/',
+    cover: wenhaoqi,
+    name: 'Dr. Cat',
     desc: [
-      '志遥 · 丁香园'
+      'Dr. Cat · 阿里'
     ]
   }
 ]

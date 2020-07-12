@@ -30,7 +30,7 @@ const DEVICE_DATA: DeviceByCategory[] = [
         }
       },
       {
-        name: 'Macbook Pro (13 inch)',
+        name: 'Macbook Pro (15 inch)',
         resolution: {
           width: 2880,
           height:  1800,

@@ -11,10 +11,10 @@ const BottomLine: FC<{ text: string }> = (props) => (
 
 const BlogDraftPage: FC<GatsbyDataProps> = (props) => {
   const { data } = props
-  const nodes = data.allMarkdownRemark.edges.map(n => n.node) as BlogNode[]
-  const drafts = nodes
+  const drafts = data.allMarkdownRemark.edges
+    .map(n => n.node as BlogNode)
     .filter(node => node.fields.type === NodeType.blog && node.frontmatter.draft)
-    .sort((x, y) => new Date(x.fields.date).getTime() - new Date(y.fields.date).getTime())
+    .sort((x, y) => new Date(y.fields.date).getTime() - new Date(x.fields.date).getTime())
 
   return (
     <Layout>

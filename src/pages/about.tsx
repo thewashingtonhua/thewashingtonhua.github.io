@@ -22,7 +22,7 @@ const About: FC<GatsbyDataProps> = (props) => {
 
           <img src={brain} alt='Code in my left brain. Color in my right brain.' />
           <p>Washington Hua，花名「童话」</p>
-          <p>前端工程师 / 交互设计师 / 独立摄影师</p>
+          <p>前端工程师 / 交互设计师 / 独立摄影师 / 咖啡爱好者</p>
           <p>目前在国内某互联网动物园养动物</p>
           <p>征途是成为「懂设计会开发的产品经理」</p>
 

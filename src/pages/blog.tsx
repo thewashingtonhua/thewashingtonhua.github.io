@@ -30,7 +30,7 @@ const renderView = (viewMode: BlogCatalogViewMode, blogs: BlogNode[]) => {
 const BlogCatalogPage: FC<GatsbyDataProps> = (props) => {
   const blogs = props.data.allMarkdownRemark.edges
     .map(n => n.node as BlogNode)
-    .filter(node => node.fields.type === NodeType.blog && (!node.frontmatter.draft || IS_DEV))
+    .filter(node => node.fields.type === NodeType.blog && !node.frontmatter.draft)
     .sort((x, y) => new Date(y.fields.date).getTime() - new Date(x.fields.date).getTime())
 
   const { viewMode, setViewMode } = useBlogViewMode()

@@ -1,2 +1,2 @@
-- 新增渠道：Medium、infoQ
 - svg 使用 CRA 的 babel-plugin-named-asset-import 引入
+- prism 配色调整，使用 citylight 主题
