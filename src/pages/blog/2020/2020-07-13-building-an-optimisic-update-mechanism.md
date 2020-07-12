@@ -1,10 +1,10 @@
 ---
 title: '设计一套乐观更新机制'
 description: '做人呐，最重要的就是乐观啦'
-tags: ['design']
+tags: ['design', 'optimistic', 'update']
 cover: '../../../images/blog/optimistic-update.jpg'
 series: ''
-draft: true
+draft: false
 original: true
 ---
 
