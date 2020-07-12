@@ -37,7 +37,9 @@ const ProjectCatalog: FC<GatsbyDataProps> = (props) => {
         <h1 className='title'>代表作 ({totalCount})</h1>
         { visibleProjects.map(item =>
           <Fragment key={item.title}>
-            <h2 className='project-category-title'>{item.title} ({item.data.length})</h2>
+            <h2 className='project-category-title'>
+              {item.title} ({item.data.length})
+            </h2>
             <div className='project-list'>
               { item.data.map(node => {
                 const cover = node.frontmatter.cover?.publicURL

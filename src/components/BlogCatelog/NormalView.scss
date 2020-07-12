@@ -4,6 +4,12 @@
 @use 'sass:color';
 
 .blog-list {
+  @media (max-width: ths.$break-point-tablet) {
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
   .blog {
     display: flex;
     flex-direction: row-reverse;
@@ -16,11 +22,7 @@
 
     @media (max-width: ths.$break-point-tablet) {
       align-items: stretch;
-    }
-
-    @media (max-width: ths.$break-point-mobile) {
-      width: 100%;
-      margin-bottom: 0;
+      margin-bottom: 15px;
     }
 
     .banner {

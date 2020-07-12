@@ -26,7 +26,7 @@ const About: FC<GatsbyDataProps> = (props) => {
           <p>目前在国内某互联网动物园养动物</p>
           <p>征途是成为「懂设计会开发的产品经理」</p>
 
-          <h1>为什么写博客</h1>
+          <h2>为什么写博客</h2>
 
           <ul>
             <li>把「以为懂了」的东西讲出来，看是不是真的懂了。</li>
@@ -36,9 +36,16 @@ const About: FC<GatsbyDataProps> = (props) => {
             <li>装逼这事儿没什么说不出口的。</li>
           </ul>
 
-          <h1>联系方式</h1>
+          <h2>联系方式</h2>
 
-          <img src={qr} alt='' />
+          {/* <img src={qr} alt='' /> */}
+          <ul>
+            <li>Github: <a target='_blank' rel='noopener noreferrer' href='https://github.com/tonghuashuo'>@tonghuashuo</a></li>
+            <li>掘金: <a target='_blank' rel='noopener noreferrer' href='https://juejin.im/user/57b5967479bc44005e11f313/posts'>@Washington Hua</a></li>
+            <li>知乎专栏: <a target='_blank' rel='noopener noreferrer' href='https://zhuanlan.zhihu.com/tonghuashuo'>@童话说</a></li>
+            <li>微信公众号: 童话说</li>
+            <li>微信号: thewashingtonhua</li>
+          </ul>
 
         </article>
 

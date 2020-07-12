@@ -12,27 +12,11 @@ import { GatsbyDataProps } from '../utils/interface'
 
 const friends = [
   {
-    url: 'http://www.lucode.net',
-    cover: lucode,
-    name: 'LuCode',
+    url: 'https://wenhaoqi.com/',
+    cover: wenhaoqi,
+    name: 'Dr. Cat',
     desc: [
-      'CodeSun · 阿里'
-    ]
-  },
-  {
-    url: 'https://infinitescript.com/',
-    cover: infiniteScript,
-    name: 'InfiniteScript',
-    desc: [
-      'Dr.Xie · 商汤'
-    ]
-  },
-  {
-    url: 'https://lizhiyao.github.io/',
-    cover: zhiyao,
-    name: '丁香园记',
-    desc: [
-      '志遥 · 丁香园'
+      'Dr. Cat · 阿里'
     ]
   },
   {
@@ -44,11 +28,27 @@ const friends = [
     ]
   },
   {
-    url: 'https://wenhaoqi.com/',
-    cover: wenhaoqi,
-    name: 'Dr. Cat',
+    url: 'https://lizhiyao.github.io/',
+    cover: zhiyao,
+    name: '丁香园记',
     desc: [
-      'Dr. Cat · 阿里'
+      '志遥 · 丁香园'
+    ]
+  },
+  {
+    url: 'https://infinitescript.com/',
+    cover: infiniteScript,
+    name: 'InfiniteScript',
+    desc: [
+      'Dr.Xie · 商汤'
+    ]
+  },
+  {
+    url: 'http://www.lucode.net',
+    cover: lucode,
+    name: 'LuCode',
+    desc: [
+      'CodeSun · 阿里'
     ]
   }
 ]
