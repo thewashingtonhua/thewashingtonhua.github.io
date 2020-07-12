@@ -76,6 +76,10 @@
       width: 100%;
       margin-bottom: 1em;
 
+      &.cover {
+        border-radius: 16px;
+      }
+
       &.qr-wechat {
         max-width: 160px;
 
