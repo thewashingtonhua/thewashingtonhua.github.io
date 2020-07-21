@@ -1,6 +1,7 @@
 @charset "utf-8";
 
 @use '../styles/ths';
+@use 'sass:color';
 
 .landing {
   position: relative;
@@ -51,6 +52,8 @@
 
     .banner {
       position: relative;
+      border-radius: 16px;
+      overflow: hidden;
 
       img {
         width: 100%;

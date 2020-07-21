@@ -57,7 +57,7 @@ a {
 .mf-content {
   width: 100%;
   max-width: ths.$theme-max-width-lg;
-  margin: 0 auto 30px;
+  margin: 0 auto;
   transition: max-width 0.3s ease-out;
 
   @media (max-width: ths.$break-point-desktop-small) {

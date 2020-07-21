@@ -6,7 +6,7 @@
 .result-item {
   position: relative;
   background-color: color.adjust(ths.$theme-color-bg, $lightness: 5%);
-  border-radius: 4px;
+  border-radius: 16px;
   transition: background-color 0.3s ease-out;
 
   &:not(:first-of-type) {
@@ -30,18 +30,22 @@
 
     .highlight {
       color: ths.$theme-color-primary;
+      background-color: color.change(ths.$theme-color-text, $alpha: 0.2);
       font-weight: 700;
+      line-height: inherit;
+      display: inline-flex;
     }
 
     .title {
       color: ths.$theme-color-text;
       font-size: 18px;
+      line-height: 26px;
     }
 
     .desc {
       font-size: 12px;
+      line-height: 20px;
       margin-top: 10px;
-
       @include ths.ellipsis();
     }
   }

@@ -1,14 +1,9 @@
 @charset "utf-8";
 
 @use '../styles/ths';
+@use 'sass:color';
 
 .blog-post {
-  transform: translateX(-120px);
-
-  @media (max-width: ths.$break-point-desktop-small) {
-    transform: translateX(0);
-  }
-
   .back-to-parent {
     padding: 50px 15px 20px;
 
@@ -20,6 +15,10 @@
   article {
     padding: 10px 15px 50px;
     position: relative;
+
+    @media (max-width: ths.$break-point-tablet) {
+      padding: 10px 15px 15px;
+    }
 
     h1,
     h2,
@@ -50,6 +49,7 @@
       margin-bottom: 0.5em;
       transition: font-size 0.3s ease-out;
       position: relative;
+      text-align: center;
 
       @media (max-width: ths.$break-point-desktop-small) {
         font-size: 32px;
@@ -62,6 +62,7 @@
 
     .metas {
       display: flex;
+      justify-content: center;
       margin-bottom: 20px;
 
       @media (max-width: ths.$break-point-mobile) {
@@ -84,6 +85,9 @@
 
         &:not(:first-child) {
           margin-left: 30px;
+          @media (max-width: ths.$break-point-mobile) {
+            margin-left: 0;
+          }
 
           &::before {
             content: '';
@@ -95,6 +99,10 @@
             height: 4px;
             background-color: ths.$theme-color-text;
             border-radius: 50%;
+
+            @media (max-width: ths.$break-point-mobile) {
+              content: none;
+            }
           }
         }
       }
@@ -102,11 +110,12 @@
 
     .banner {
       margin-bottom: 20px;
+      border-radius: 16px;
+      overflow: hidden;
 
       img {
         width: 100%;
         display: block;
-        border-radius: 16px;
       }
     }
 
@@ -178,7 +187,7 @@
       p {
         font-size: 15px;
         color: ths.$theme-color-text;
-        line-height: 1.75;
+        line-height: 2;
         margin-bottom: 1em;
         transition: font-size 0.3s ease-out;
 

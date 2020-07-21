@@ -38,14 +38,15 @@
     min-width: 0;
 
     &::placeholder {
-      color: color.adjust(ths.$theme-color-bg, $lightness: 20%);
+      color: color.change(ths.$theme-color-text, $alpha: 0.3);
     }
   }
 
   .btn-cancel {
     flex-shrink: 0;
     padding-left: 10px;
-    color: ths.$theme-color-primary;
+    font-size: 14px;
+    color: ths.$theme-color-text;
     cursor: pointer;
   }
 }

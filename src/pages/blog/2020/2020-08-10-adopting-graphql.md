@@ -16,3 +16,5 @@ original: true
 
 
 [用了6个月的GraphQL，真香](https://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&mid=2651030717&idx=2&sn=10f30280c9249d332211537767928248&chksm=bdbe7cee8ac9f5f82b2747d9f7c5f4c9ca1db3f83146a881aa7f8ce7b92928e2770e4fe1d9da&mpshare=1&scene=23&srcid&sharer_sharetime=1592111468468&sharer_shareid=50faa6f39b5c2a5570136b3643728a35%23rd)
+
+[GraphQL两年实战避坑经验](https://mp.weixin.qq.com/s?__biz=MzUxMzcxMzE5Ng==&mid=2247497990&idx=1&sn=ee7d71a3a868dbe8a8ade60ac7eb8c90&chksm=f9524c45ce25c553cb581015574da14b0bbae9d422abdfeb25dc8f585ece889efaebabfe48ac&mpshare=1&scene=23&srcid=0717KMoEmEHr6kqYFEc3IGOk&sharer_sharetime=1594984596198&sharer_shareid=50faa6f39b5c2a5570136b3643728a35%23rd)
