@@ -4,9 +4,9 @@ import { Layout, SEO } from '../components'
 import './friend.scss'
 import lucode from '../images/friend/lucode.jpg'
 import infiniteScript from '../images/friend/infinite-script.jpg'
-import everain from '../images/friend/everain.jpg'
 import silvermac from '../images/friend/silvermac.jpg'
 import zhiyao from '../images/friend/zhiyao.jpg'
+import vic from '../images/friend/vic.jpg'
 import wenhaoqi from '../images/friend/wenhaoqi.jpg'
 import { GatsbyDataProps } from '../utils/interface'
 
@@ -16,39 +16,47 @@ const friends = [
     cover: wenhaoqi,
     name: 'Dr. Cat',
     desc: [
-      'Dr. Cat · 阿里'
+      '阿里 · Designer'
+    ]
+  },
+  {
+    url: 'http://vicjiangyu.com/',
+    cover: vic,
+    name: 'Vic',
+    desc: [
+      'Dlab · Designer'
     ]
   },
   {
     url: 'https://silvermac.io/',
     cover: silvermac,
-    name: 'Silvermac',
+    name: 'Sam',
     desc: [
-      'Sam · Autodesk'
+      'Autodesk · Developer'
     ]
   },
   {
     url: 'https://lizhiyao.github.io/',
     cover: zhiyao,
-    name: '丁香园记',
+    name: '志遥',
     desc: [
-      '志遥 · 丁香园'
+      '丁香园 · Developer'
     ]
   },
   {
     url: 'https://infinitescript.com/',
     cover: infiniteScript,
-    name: 'InfiniteScript',
+    name: 'Dr.Xie',
     desc: [
-      'Dr.Xie · 商汤'
+      '商汤 · Developer'
     ]
   },
   {
     url: 'http://www.lucode.net',
     cover: lucode,
-    name: 'LuCode',
+    name: 'CodeSun',
     desc: [
-      'CodeSun · 阿里'
+      '阿里 · Developer'
     ]
   }
 ]
