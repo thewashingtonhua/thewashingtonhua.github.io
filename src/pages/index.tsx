@@ -18,7 +18,7 @@ const HomePage: FC<GatsbyDataProps> = (props) => {
 
   return (
     <Layout>
-      <SEO />
+      <SEO exactTitle title='童话说' />
       <div className='mf-content'>
         <div className='landing'>
           <header className='landing-header'>
