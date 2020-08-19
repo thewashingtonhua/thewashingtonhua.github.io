@@ -1,7 +1,7 @@
 ---
 title: '小图标'
 description: '一站式 Favicon 解决方案'
-cover: '../../images/project/blank.jpg'
+cover: '../../images/project/the-favicon.jpg'
 from: '2019-04-20'
 to: '2019-06-25'
 category: 'personal'
