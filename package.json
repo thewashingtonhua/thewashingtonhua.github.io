@@ -89,7 +89,7 @@
     "dev": "gatsby develop -p 5004",
     "prebuild": "rm -rf .cache && rm -rf ./public",
     "build": "gatsby build",
-    "postbuild": "cp -f README.md public/README.md",
+    "postbuild": "cp -f README.md CNAME ./public",
     "serve": "gatsby serve",
     "gh-pages": "gh-pages -d public -b master",
     "deploy": "yarn build && yarn gh-pages"
