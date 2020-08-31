@@ -4,7 +4,7 @@ description: '做人呐，最重要的就是乐观啦'
 tags: ['design', 'optimistic', 'update']
 cover: '../../../images/blog/optimistic-update.jpg'
 series: ''
-draft: false
+draft: true
 original: true
 ---
 
