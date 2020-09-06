@@ -1,2 +1,3 @@
 - svg 使用 CRA 的 babel-plugin-named-asset-import 引入
 - prism 配色调整，使用 citylight 主题
+- 项目系列命名「能动手尽量不BB」
