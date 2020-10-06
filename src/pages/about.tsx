@@ -18,12 +18,13 @@ const About: FC<GatsbyDataProps> = (props) => {
       <div className='mf-content' id='about'>
         <article>
 
-          <h1>关于我</h1>
+          <h1>我</h1>
 
           <img className='cover' src={brain} alt='Code in my left brain. Color in my right brain.' />
           <p>Washington Hua，花名「童话」</p>
           <p>前端工程师 / 交互设计师 / 独立摄影师 / 咖啡爱好者</p>
           <p>目前在国内某互联网动物园养动物</p>
+          <p>长期拖更原创博客主</p>
           <p>征途是成为「懂设计会开发的产品经理」</p>
 
           <h2>为什么写博客</h2>
