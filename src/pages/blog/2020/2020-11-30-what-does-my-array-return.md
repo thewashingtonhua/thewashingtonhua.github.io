@@ -14,16 +14,46 @@ original: true
 
 好记性不如烂笔头，与其每次去想、去翻 MDN，不如自己来整理一遍，好好复习一下，顺带做个速查。虽然本文的内容基本就是对 MDN 上资料的二次整合，但怎么来的不重要，重要的是我们得到了想要的内容。
 
-注意：本文只讨论可以对数组进行修改，切返回内容依然为数组的方法，其它数组相关的内容不在本文讨论范围内，如：
+注意：本文只讨论可以对数组进行修改，且返回内容依然为数组的方法，其它数组相关的内容不在本文讨论范围内，如：
 
 - `toString()`、`join()` 等返回 String 的方法
-- `some()`、`every()`、`includes()` 等返回 Boolean 的方法
-- `indexOf()`、`findIndex()` 等返回 Number 的方法
-- `find()` 等可能返回 Object 的方法
-- `keys()`、`values()`、`entries()` 等只读不修改的方法
-- `name`、`length` 等制度不修改的属性
+- `some()`、`every()`、`includes()` 等只读且返回 Boolean 的方法
+- `indexOf()`、`findIndex()` 等只读且返回 Number 的方法
+- `find()` 等只读且返回 Object 的方法
+- `keys()`、`values()`、`entries()` 等只读方法
+- `name`、`length` 等只读属性
 
-## 返回新数组的方法
+## TL,DR;
+
+**返回新数组**
+
+- Array.prototype.concat()
+- Array.prototype.filter()
+- Array.prototype.map()
+- Array.prototype.reduce()
+- Array.prototype.reduceRight()
+- Array.prototype.flat()
+- Array.prototype.flatMap()
+
+**修改数组自身，并返回修改后的数组**
+
+- Array.prototype.copyWithin()
+- Array.prototype.fill()
+- Array.prototype.forEach()
+- Array.prototype.reverse()
+- Array.prototype.sort()
+
+**修改数组自身，并返回修改后的数组长度**
+
+- Array.prototype.push()
+- Array.prototype.unshift()
+
+**修改数组自身，并返回被修改的数组元素**
+
+- Array.prototype.pop()
+- Array.prototype.shift()
+
+## 返回新数组
 
 ### Array.prototype.concat()
 
@@ -34,13 +64,13 @@ original: true
 虽然 concat() 作用于某个数组实例，但它并不会修改这个实例，这是最容易让人迷惑的点。
 
 ```typescript
-const num1 = [1, 2, 3];
-const num2 = [4, 5, 6];
-const num3 = [7, 8, 9];
+const num1 = [1, 2, 3]
+const num2 = [4, 5, 6]
+const num3 = [7, 8, 9]
 
-const numbers = num1.concat(num2, num3);
+const numbers = num1.concat(num2, num3)
 
-console.log(numbers, num1, num2, num3);
+console.log(numbers, num1, num2, num3)
 // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 // [1, 2, 3]
 // [4, 5, 6]
@@ -56,13 +86,19 @@ console.log(numbers, num1, num2, num3);
 非常常用的方法，用于按条件进行筛选，并形成新的结果集。记住这一点很有用。
 
 ```typescript
-const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+const numbers = [1, 2, 3, 4, 5, 6]
+const oddNumbers = numbers.filter(n => n % 2 === 1)
 
-const result = words.filter(word => word.length > 6);
-
-console.log(result);
-// expected output: Array ["exuberant", "destruction", "present"]
+console.log(number, oddNumbers)
+// [1, 2, 3, 4, 5, 6]
+// [1, 3, 5]
 ```
+
+### Array.prototype.map()
+
+### Array.prototype.reduce()
+
+### Array.prototype.reduceRight()
 
 ### Array.prototype.flat()
 
@@ -70,18 +106,14 @@ console.log(result);
 >
 > flat() 方法创建一个新的数组，内容为其所有子数组元素被拍平指定深度后再连接起来。
 
-flat() 是一个非常有破坏性的操作，会直接改变数组的层级结构，因此它会返回新数组理所当然。
+flat() 是一个非常有破坏性的操作，会直接改变数组的层级结构，因此很容易误以为它会作用域数组自身。
 
 ```typescript
 const arr1 = [0, 1, 2, [3, 4]];
-
-console.log(arr1.flat());
-// expected output: [0, 1, 2, 3, 4]
-
-const arr2 = [0, 1, 2, [[[3, 4]]]];
-
-console.log(arr2.flat(2));
-// expected output: [0, 1, 2, [3, 4]]
+const arr2 = arr1.flat()
+console.log(arr1, arr2);
+// [0, 1, 2, [3, 4]]
+// [0, 1, 2, 3, 4]
 ```
 
 ### Array.prototype.flatMap()
@@ -92,7 +124,7 @@ console.log(arr2.flat(2));
 
 flatMap 相当于 map + flat，两者都会创建新数组，合到一起更是理所当然。
 
-## 修改数组自身的方法
+## 修改数组自身，并返回修改后的数组
 
 ### Array.prototype.copyWithin()
 
@@ -147,6 +179,22 @@ console.log(array1.fill(6), array1);
 严格说来 forEach 并不一定改变数组自身，它只是单纯地读取数组元素进行一次循环，它甚至未必会碰到数组，一切都取决于传入的函数是否对会数组做什么。如果在循环过程中函数对数组进行了修改，那么下一个循环就会读取到新的值。
 
 但可以确定的是，forEach 函数本身的返回是 undefined，并不是一个数组，因此这里我们把它算作修改数组自身。
+
+### Array.prototype.reverse()
+
+### Array.prototype.sort()
+
+## 修改数组自身，并返回修改后的数组长度
+
+### Array.prototype.push()
+
+### Array.prototype.unshift()
+
+## 修改数组自身，并返回被修改的数组元素
+
+### Array.prototype.pop()
+
+### Array.prototype.shift()
 
 ## 创建一个函数的 N 种方法
 

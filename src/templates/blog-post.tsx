@@ -129,7 +129,9 @@ const BlogPostContent: FC<BlogPostProps> = (props) => {
       }
       <div className='content-wrapper' ref={contentRef}>
         <div className='content' dangerouslySetInnerHTML={{ __html: blog.html }} />
-        <TOC blog={blog} style={tocStyle} />
+        { !IS_PROD &&
+          <TOC blog={blog} style={tocStyle} />
+        }
       </div>
 
       <Series blog={blog} blogs={blogs} />
