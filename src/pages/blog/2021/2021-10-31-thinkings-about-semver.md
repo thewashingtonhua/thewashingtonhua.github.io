@@ -2,7 +2,7 @@
 title: '关于 Semver 的迷思'
 description: '做人呐，最重要的就是乐观啦'
 tags: ['design', 'optimistic', 'update']
-cover: '../../../images/blog/optimistic-update.jpg'
+cover: '../../../images/blog/blank.jpg'
 series: ''
 draft: true
 original: true

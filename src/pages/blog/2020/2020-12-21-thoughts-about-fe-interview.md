@@ -1,8 +1,8 @@
 ---
-title: '再来聊聊前端面试'
+title: '年底了，聊聊前端面试'
 description: '人嘛，总是在不断的试错中成长起来的'
 tags: ['interview']
-cover: '../../../images/blog/interview.jpg'
+cover: '../../../images/blog/blank.jpg'
 series: ''
 draft: true
 original: true
@@ -10,7 +10,9 @@ original: true
 
 ## 写在前面
 
-去年，我在知乎上回答了一个[问题](https://www.zhihu.com/question/293047616/answer/502672659)，引起了不少关注，近 2K 的赞同，500+ 条的评论，着实超乎我的意料。
+年底了，又到了猎头冲 KPI 的时间了，那么正好，我们就来聊聊面试吧。
+
+去年，我在知乎上回答了一个[问题](https://www.zhihu.com/question/293047616/answer/502672659)，引起了不少关注。截止到发稿当天已经有 2K+ 的赞同，500+ 条的评论，算是一个人生小巅峰吧。
 
 时隔一年，我的职业生涯也经历了一些变化，对这个问题也有了新的理解，在这里分享一下：
 
