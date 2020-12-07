@@ -10,11 +10,11 @@ original: true
 
 TypeScript 真的是个很神奇的东西，关于它我已经写过好几篇文章了。
 
-我分享过一些[上手指南](/blog/2019/07/28/typescript-the-second-day)，也探讨过它的[出生和死亡]('/blog/2019/10/10/typescript-another-fading-youth')。
+我曾经分享过一些[上手指南](/blog/2019/07/28/typescript-the-second-day)，也探讨过它的[出生和死亡]('/blog/2019/10/10/typescript-another-fading-youth')。
 
 这一篇，我们来谈谈由它引发的一些焦虑。
 
-## 一旦开始依赖，越是怀疑
+## 提笔忘字，是进步还是退步
 
 自从用上 TypeScript 之后，就越发的离不开它了，突然要我用回 JavaScript，总有种隐隐的不安全感，就是那种你明明已经用过几百遍的函数，却依然不确定自己写的对不对。
 
