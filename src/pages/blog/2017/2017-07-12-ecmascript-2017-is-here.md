@@ -3,7 +3,7 @@ title: 'ECMAScript 2017 正式到来'
 description: 'ES 的世界开始日趋平静'
 tags: ['ecmascript', '2017', 'es8', 'javascript']
 cover: '../../../images/blog/es2017.jpg'
-series: ''
+series: 'ecmascript'
 draft: false
 original: true
 ---
