@@ -2,7 +2,7 @@
 title: 'TypeScript 焦虑'
 description: '这东西，有毒'
 tags: ['typescript']
-cover: '../../../images/blog/blank.jpg'
+cover: '../../../images/blog/typescript-anxiety.jpg'
 series: ''
 draft: true
 original: true
