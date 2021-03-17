@@ -8,6 +8,7 @@
 ## Design
 - prism 配色调整，使用 citylight 主题
 - 参考 Gatsby 新官网的风格（清爽，简约）
+- 看看能不能用 [conic-gradient](https://developer.mozilla.org/en-US/docs/Web/CSS/conic-gradient()) 干点啥
 
 # Develop
 - svg 使用 CRA 的 babel-plugin-named-asset-import 引入
