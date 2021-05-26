@@ -62,7 +62,7 @@ const Series: FC<SeriesProps> = (props) => {
         <p className='title'>该系列的其他文章</p>
       </header>
       <ul className='posts'>
-        { seriesBlogs.map(post => (
+        { visibleBlogs.map(post => (
           <li className='post' key={post.id}>
             <Link
               className={(post.frontmatter.draft ? 'draft' : '')}
