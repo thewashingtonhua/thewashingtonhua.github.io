@@ -44,7 +44,7 @@ const Series: FC<SeriesProps> = (props) => {
   if (!thisSeries) return null
 
   const seriesBlogs = blogs
-    .filter(node => node.frontmatter.series === thisSeries)
+    .filter(node => node.frontmatter.series === thisSeries && node.id !== blog.id)
 
   // 草稿不对外发布
   const visibleBlogs = IS_PROD
@@ -201,6 +201,7 @@ query($slug: String!) {
     }
   }
   markdownRemark(fields: { slug: { eq: $slug } }) {
+    id
     html
     frontmatter {
       title
