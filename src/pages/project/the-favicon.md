@@ -4,7 +4,7 @@ description: '一站式 Favicon 解决方案'
 cover: '../../images/project/the-favicon.jpg'
 from: '2019-04-20'
 to: '2019-06-25'
-category: 'personal'
+category: 'individual'
 draft: false
 ---
 
@@ -22,7 +22,7 @@ draft: false
 
 ## 相关链接
 
-[线上地址](https://tonghuashuo.github.io/the-favicon/)
+[线上地址](https://thewashingtonhua.github.io/the-favicon/)
 
 
 ## 项目截图

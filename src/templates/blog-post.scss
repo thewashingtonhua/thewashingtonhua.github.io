@@ -204,6 +204,7 @@
 
         &:not(.gatsby-resp-image-link) {
           border-bottom: 1px dotted ths.$theme-color-primary;
+          font-weight: 500;
 
           &[target='_blank'] {
             display: inline-flex;

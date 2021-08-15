@@ -20,6 +20,6 @@ draft: true
 
 ## 相关链接
 
-[线上地址](http://tonghuashuo.github.io/github-flutter)
+[线上地址](http://thewashingtonhua.github.io/github-flutter)
 
 ## 项目截图

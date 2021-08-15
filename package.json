@@ -1,5 +1,5 @@
 {
-  "name": "tonghuashuo.github.io",
+  "name": "thewashingtonhua.github.io",
   "version": "4.0.0",
   "description": "Washington Hua's blog. Focus on Front-End development and related CS skills.",
   "author": "Washington Hua <thewashingtonhua@qq.com>",
@@ -7,11 +7,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tonghuashuo/tonghuashuo.github.io"
+    "url": "https://github.com/thewashingtonhua/thewashingtonhua.github.io"
   },
   "keywords": [
     "gatsby",
-    "tonghuashuo",
+    "thewashingtonhua",
     "blog",
     "frontend"
   ],

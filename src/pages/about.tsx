@@ -21,8 +21,8 @@ const About: FC<GatsbyDataProps> = (props) => {
           <h1>我</h1>
 
           <img className='cover' src={brain} alt='Code in my left brain. Color in my right brain.' />
-          <p>Washington Hua，花名「童话」</p>
-          <p>前端工程师 / 交互设计师 / 独立摄影师 / 咖啡爱好者</p>
+          <p>Washington Hua，花名「童话」。</p>
+          <p>职业开发者 / 业余设计师 / 摄影爱好者 / 咖啡爱好者</p>
           <p>目前在国内某互联网动物园养动物</p>
           <p>长期拖更原创博客主</p>
           <p>征途是成为「懂设计会开发的产品经理」</p>
@@ -41,9 +41,9 @@ const About: FC<GatsbyDataProps> = (props) => {
 
           {/* <img src={qr} alt='' /> */}
           <ul>
-            <li>Github: <a target='_blank' rel='noopener noreferrer' href='https://github.com/tonghuashuo'>@tonghuashuo</a></li>
+            <li>Github: <a target='_blank' rel='noopener noreferrer' href='https://github.com/thewashingtonhua'>@thewashingtonhua</a></li>
             <li>掘金: <a target='_blank' rel='noopener noreferrer' href='https://juejin.im/user/57b5967479bc44005e11f313/posts'>@Washington Hua</a></li>
-            <li>知乎专栏: <a target='_blank' rel='noopener noreferrer' href='https://zhuanlan.zhihu.com/tonghuashuo'>@童话说</a></li>
+            <li>知乎专栏: <a target='_blank' rel='noopener noreferrer' href='https://zhuanlan.zhihu.com/thewashingtonhua'>@童话说</a></li>
             <li>微信公众号: 童话说</li>
             <li>微信号: thewashingtonhua</li>
           </ul>

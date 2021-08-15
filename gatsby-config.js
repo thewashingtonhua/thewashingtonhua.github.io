@@ -6,7 +6,7 @@ module.exports = {
     description: `Washington Hua 的个人博客，专注大前端技术`,
     author: `Washington Hua`,
     keywords: [
-      'tonghuashuo',
+      'thewashingtonhua',
       'github',
       'front-end',
       'javascript',

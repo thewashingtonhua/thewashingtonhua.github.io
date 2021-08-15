@@ -36,7 +36,7 @@ React 组件的生命周期，相信大家都非常熟悉了，无非那么几�
 
 ## 3）那么我们就来做个实验吧
 
-为了一探究竟，我写了一个 [Demo](https://tonghuashuo.github.io/react-lifecycle) 来模拟一些常见的用例：父子组件、兄弟组件、同步/异步路由、类组件和 Hooks、组件初始化时的异步操作（如访问 API）等。
+为了一探究竟，我写了一个 [Demo](https://thewashingtonhua.github.io/react-lifecycle) 来模拟一些常见的用例：父子组件、兄弟组件、同步/异步路由、类组件和 Hooks、组件初始化时的异步操作（如访问 API）等。
 
 如果你有遇到 Demo 没覆盖到的使用场景，欢迎提 Issue。
 

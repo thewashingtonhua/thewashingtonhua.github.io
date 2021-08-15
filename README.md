@@ -1,4 +1,4 @@
-<h1 align="center">tonghuashuo.github.io</h1>
+<h1 align="center">thewashingtonhua.github.io</h1>
 
 <p align="center">Washington Hua's blog. Focus on Front-End development and related CS skills.</p>
 

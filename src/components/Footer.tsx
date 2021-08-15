@@ -38,12 +38,12 @@ export const Footer: FC = () => {
             </li>
           }
           <li className='link github' title='Github'>
-            <a href='https://github.com/tonghuashuo' target='_blank' rel='noopener noreferrer'>
+            <a href='https://github.com/thewashingtonhua' target='_blank' rel='noopener noreferrer'>
               <IconGithub />
             </a>
           </li>
           <li className='link zhihu' title='知乎专栏'>
-            <a href='https://zhuanlan.zhihu.com/tonghuashuo' target='_blank' rel='noopener noreferrer'>
+            <a href='https://zhuanlan.zhihu.com/thewashingtonhua' target='_blank' rel='noopener noreferrer'>
               <IconZhihu />
             </a>
           </li>

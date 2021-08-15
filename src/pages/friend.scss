@@ -20,6 +20,23 @@
     }
   }
 
+  h2.subtitle {
+    font-weight: 100;
+    font-size: 24px;
+    color: ths.$theme-color-primary;
+    padding: 0 15px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    transition:
+      margin-top 0.3s ease-out,
+      font-size 0.3s ease-out;
+
+    @media (max-width: ths.$break-point-tablet) {
+      margin-top: 20px;
+      font-size: 20px;
+    }
+  }
+
   .friends {
     display: flex;
     flex-wrap: wrap;

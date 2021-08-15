@@ -15,14 +15,14 @@ const ProjectCatalog: FC<GatsbyDataProps> = (props) => {
 
   // 商业项目和个人项目分开
   const commercialProjects = projects.filter(node => node.frontmatter.category === 'commercial')
-  const personalProjects = projects.filter(node => node.frontmatter.category === 'personal')
+  const individualProjects = projects.filter(node => node.frontmatter.category === 'individual')
 
   const visibleProjects = []
   if (commercialProjects.length) {
     visibleProjects.push({ title: '商业作品', data: commercialProjects })
   }
-  if (personalProjects.length) {
-    visibleProjects.push({ title: '个人作品', data: personalProjects })
+  if (individualProjects.length) {
+    visibleProjects.push({ title: '个人作品', data: individualProjects })
   }
 
   const totalCount = visibleProjects.map(n => n.data.length).reduce((x, y) => x + y, 0)

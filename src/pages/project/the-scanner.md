@@ -20,7 +20,7 @@ draft: true
 
 ## 相关链接
 
-[线上地址](http://tonghuashuo.github.io/the-scanner)
+[线上地址](http://thewashingtonhua.github.io/the-scanner)
 
 
 ## 项目截图

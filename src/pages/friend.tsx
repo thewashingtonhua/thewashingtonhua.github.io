@@ -10,29 +10,13 @@ import vic from '../images/friend/vic.jpg'
 import wenhaoqi from '../images/friend/wenhaoqi.jpg'
 import { GatsbyDataProps } from '../utils/interface'
 
-const friends = [
-  {
-    url: 'https://wenhaoqi.com/',
-    cover: wenhaoqi,
-    name: 'Dr. Cat',
-    desc: [
-      '阿里 · Designer'
-    ]
-  },
-  {
-    url: 'http://vicjiangyu.com/',
-    cover: vic,
-    name: 'Vic',
-    desc: [
-      'Dlab · Designer'
-    ]
-  },
+const DEVELOPERS = [
   {
     url: 'https://silvermac.io/',
     cover: silvermac,
     name: 'Sam',
     desc: [
-      'Autodesk · Developer'
+      'Autodesk'
     ]
   },
   {
@@ -40,7 +24,7 @@ const friends = [
     cover: zhiyao,
     name: '志遥',
     desc: [
-      '丁香园 · Developer'
+      'Alibaba'
     ]
   },
   {
@@ -48,7 +32,7 @@ const friends = [
     cover: infiniteScript,
     name: 'Dr.Xie',
     desc: [
-      '商汤 · Developer'
+      'Tencent'
     ]
   },
   {
@@ -56,7 +40,26 @@ const friends = [
     cover: lucode,
     name: 'CodeSun',
     desc: [
-      '阿里 · Developer'
+      'Alibaba'
+    ]
+  }
+]
+
+const DESIGNERS = [
+  {
+    url: 'https://wenhaoqi.com/',
+    cover: wenhaoqi,
+    name: 'Dr. Cat',
+    desc: [
+      'Alibaba'
+    ]
+  },
+  {
+    url: 'http://vicjiangyu.com/',
+    cover: vic,
+    name: 'Vic',
+    desc: [
+      'Dlab'
     ]
   }
 ]
@@ -71,10 +74,37 @@ const FriendPage: FC<GatsbyDataProps> = (props) => {
         keywords={data.site.siteMetadata.keywords}
       />
       <div className='mf-content' id='friends'>
-        <h1 className='title'>未来，就在这里</h1>
+        <h1 className='title'>Friends</h1>
+
+        <h2 className='subtitle'>Developers</h2>
 
         <div className='friends'>
-          { friends.map(friend => (
+          { DEVELOPERS.map(friend => (
+            <a
+              key={friend.name}
+              className='friend'
+              id={`friend__${friend.name.toLowerCase()}`}
+              target='_blank'
+              href={friend.url}
+              rel='noopener noreferrer'
+            >
+              <div className='cover fix-ratio ratio-16-9'>
+                <img src={friend.cover} alt='' />
+              </div>
+              <div className='intro'>
+                <h2>{friend.name}</h2>
+                <ul>
+                  { friend.desc.map(desc => <li key={desc}>{desc}</li>) }
+                </ul>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        <h2 className='subtitle'>Designers</h2>
+
+        <div className='friends'>
+          { DESIGNERS.map(friend => (
             <a
               key={friend.name}
               className='friend'
