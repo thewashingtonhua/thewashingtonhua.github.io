@@ -13,15 +13,22 @@ module.exports = ({ node, getNode, actions }) => {
     let type = ''
 
     if (relativePath.includes('blog')) {
-      const match = BLOG_POST_FILENAME_REGEX.exec(relativePath)
-      const [, year, month, day, filename] = match
-
-      id = filename
-      slug = `/blog/${year}/${month}/${day}/${filename}`
       type = 'blog'
 
-      const date = `${year}-${month}-${day}`
-      createNodeField({ node, name: 'date', value: date })
+      const match = BLOG_POST_FILENAME_REGEX.exec(relativePath)
+      if (match) {
+        const [, year, month, day, filename] = match
+
+        id = filename
+        slug = `/blog/${year}/${month}/${day}/${filename}`
+
+        const date = `${year}-${month}-${day}`
+        createNodeField({ node, name: 'date', value: date })
+      } else {
+        const filename = relativePath.replace(/\.md$/, '')
+        id = filename
+        slug = `/blog/${filename}`
+      }
     }
 
     if (relativePath.includes('project')) {
