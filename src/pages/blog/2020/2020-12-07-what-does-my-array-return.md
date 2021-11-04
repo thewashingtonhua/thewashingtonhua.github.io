@@ -16,7 +16,7 @@ original: true
 
 虽然本文的内容基本就是对 MDN 上资料的二次整合，但怎么来的不重要，重要的是我们得到了想要的内容。
 
-注意：本文只讨论可以对数组进行修改，且返回内容依然为数组的方法，其它数组相关的内容不在本文讨论范围内，如：
+【注1】本文只讨论名称涉及数组变更的方法，其它数组相关的属性（如：显然只读的；仅作判断、查找、格式化输出的；）不在本文讨论范围内，如：
 
 - `toString()`、`join()` 等只读且返回 String 的方法
 - `some()`、`every()`、`includes()` 等只读且返回 Boolean 的方法
@@ -25,35 +25,37 @@ original: true
 - `keys()`、`values()`、`entries()` 等只读方法
 - `name`、`length` 等只读属性
 
-## TL,DR;
+【注2】本文只讨论符合方法用途定义的常规用法，诸如在回调函数中直接修改数组导致结果变化的操作不在本文讨论范围内。
 
-### 原数组不变，返回新数组
+## 原数组不变，返回新数组
 
-- Array.prototype.concat()
-- Array.prototype.filter()
-- Array.prototype.flat()
-- Array.prototype.flatMap()
-- Array.prototype.map()
-- Array.prototype.reduce()
-- Array.prototype.reduceRight()
+- [Array.prototype.concat()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/concat)
+- [Array.prototype.filter()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
+- [Array.prototype.flat()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/flat)
+- [Array.prototype.flatMap()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap)
+- [Array.prototype.map()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+- [Array.prototype.reduce()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
+- [Array.prototype.reduceRight()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/reduceRight)
+- [Array.prototype.slice()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)
 
-### 修改原数组，并返回修改后的数组
+## 修改原数组，并返回修改后的数组
 
-- Array.prototype.copyWithin()
-- Array.prototype.fill()
-- Array.prototype.forEach()
-- Array.prototype.reverse()
-- Array.prototype.sort()
+- [Array.prototype.copyWithin()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin)
+- [Array.prototype.fill()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/fill)
+- [Array.prototype.forEach()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
+- [Array.prototype.reverse()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse)
+- [Array.prototype.sort()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
 
-### 修改原数组，并返回修改后的数组长度
+## 修改原数组，并返回修改后的数组长度
 
-- Array.prototype.push()
-- Array.prototype.unshift()
+- [Array.prototype.push()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/push)
+- [Array.prototype.unshift()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift)
 
-### 修改原数组，并返回被修改的数组元素
+## 修改原数组，并返回被修改的数组元素
 
-- Array.prototype.pop()
-- Array.prototype.shift()
+- [Array.prototype.pop()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/pop)
+- [Array.prototype.shift()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/shift)
+- [Array.prototype.splice()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)
 
 ## 留神：藕断丝连的陷阱
 
