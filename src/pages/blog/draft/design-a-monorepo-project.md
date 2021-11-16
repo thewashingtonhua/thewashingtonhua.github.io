@@ -41,6 +41,14 @@ original: true
 
 阿里云盘选择了前者，直接引用源码，通过 package 的拆分和的构建配置的统一规划，来规避 ESM 和 CMD 的兼容问题。
 
+### Babel 的实践
+
+```json
+{
+  rootMode: "upward"
+}
+```
+
 ### package.json 的实践
 
 ### tsconfig.json 的实践
@@ -50,3 +58,7 @@ original: true
 难免会遇到需要往 Windows 上挂一点东西，或者手动给一些没有提供类型定义的模块添加类型定义的场景。通常的做法就是在模块的根目录放这么一个 *.d.ts 的文件。
 
 实践发现，如果多个 app 都有这样的需要，且内容相同（例如页面加载前往 Windows 上挂了一些全局配置项）
+
+## Reference
+
+[https://segmentfault.com/a/1190000040291971](https://segmentfault.com/a/1190000040291971)
