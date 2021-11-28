@@ -15,6 +15,7 @@
   - Gatsby 新官网的风格（清爽，简约）
   - Antfu 的官网（黑色系，极简）
 - 看看能不能用 [conic-gradient](https://developer.mozilla.org/en-US/docs/Web/CSS/conic-gradient()) 干点啥
+- 联系方式转图标
 
 # Develop
 - svg 使用 CRA 的 babel-plugin-named-asset-import 引入
