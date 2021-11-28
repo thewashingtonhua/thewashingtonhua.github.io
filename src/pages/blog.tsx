@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from 'react'
+import React, { FC } from 'react'
 import { graphql } from 'gatsby'
 import {
   Layout,
@@ -16,6 +16,7 @@ import { IS_DEV } from 'config'
 const BottomLine: FC<{ text: string }> = (props) => (
   <div className='bottom-line'><span>{props.text}</span></div>
 )
+
 const renderView = (viewMode: BlogCatalogViewMode, blogs: BlogNode[]) => {
   switch (viewMode) {
     case BlogCatalogViewMode.normal:

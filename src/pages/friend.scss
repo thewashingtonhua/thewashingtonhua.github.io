@@ -59,7 +59,7 @@
 
     .cover {
       width: 100%;
-      border-radius: 16px;
+      border-radius: 10px;
       overflow: hidden;
 
       img {
@@ -72,7 +72,7 @@
       padding: 10px 0;
 
       h2 {
-        font-size: 26px;
+        font-size: 18px;
         color: ths.$theme-color-primary;
         line-height: 1.5;
         transition: color 0.3s ease-out;
@@ -80,7 +80,7 @@
         @include ths.ellipsis;
 
         @media (max-width: 480px) {
-          font-size: 24px;
+          font-size: 18px;
         }
       }
 

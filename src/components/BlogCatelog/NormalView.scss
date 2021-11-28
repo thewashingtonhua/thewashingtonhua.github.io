@@ -16,7 +16,7 @@
     transition: background-color 0.3s ease-out;
     // padding: 15px;
     margin-bottom: 20px;
-    border-radius: 16px;
+    border-radius: 10px;
     background-color: color.adjust(ths.$theme-color-bg, $lightness: 5%);
     overflow: hidden;
 
@@ -32,7 +32,6 @@
       height: 135px;
       flex-shrink: 0;
       transition: width 0.3s ease-out, height 0.3s ease-out;
-      border-radius: 0 16px 16px 0;
 
       @media (max-width: ths.$break-point-desktop-small) {
         width: 240px;

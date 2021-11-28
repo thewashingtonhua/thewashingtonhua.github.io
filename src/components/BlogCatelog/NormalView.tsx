@@ -13,7 +13,8 @@ export const BlogCatelogNormalView: FC<Props> = (props) => {
     <div className='blog-list'>
       { blogs.map(node => {
         const cover = node.frontmatter.cover?.publicURL
-        const date = dayjs(node.fields.date).format('MMM DD, YYYY')
+        console.log(node.fields.date)
+        const date = node.fields.date ? dayjs(node.fields.date).format('MMM DD, YYYY') : 'Unknown'
         return (
           <Link
             className={'blog' + (node.frontmatter.draft ? ' draft' : '')}

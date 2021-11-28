@@ -1,20 +1,44 @@
 import React, { FC } from 'react'
-import { Link, graphql } from 'gatsby'
-import dayjs from 'dayjs'
-import { Layout, SEO } from '../components'
+import { graphql } from 'gatsby'
+import {
+  Layout,
+  SEO,
+  BlogCatelogNormalView,
+  BlogCatelogArchiveView,
+  Toolbar,
+  BlogCatalogViewMode
+} from '../components'
 import './blog.scss'
 import { GatsbyDataProps, BlogNode, NodeType } from '../utils/interface'
+import { useBlogViewMode } from 'hooks'
+import { IS_DEV } from 'config'
 
 const BottomLine: FC<{ text: string }> = (props) => (
   <div className='bottom-line'><span>{props.text}</span></div>
 )
+
+const renderView = (viewMode: BlogCatalogViewMode, blogs: BlogNode[]) => {
+  switch (viewMode) {
+    case BlogCatalogViewMode.normal:
+      return <BlogCatelogNormalView blogs={blogs} />
+    case BlogCatalogViewMode.archive:
+      return <BlogCatelogArchiveView blogs={blogs} />
+    default:
+      return null
+  }
+}
 
 const BlogDraftPage: FC<GatsbyDataProps> = (props) => {
   const { data } = props
   const drafts = data.allMarkdownRemark.edges
     .map(n => n.node as BlogNode)
     .filter(node => node.fields.type === NodeType.blog && node.frontmatter.draft)
-    .sort((x, y) => new Date(x.fields.date).getTime() - new Date(y.fields.date).getTime())
+    .sort((x, y) => {
+      if (x.fields.date && !y.fields.date) return -1
+      return new Date(x.fields.date).getTime() - new Date(y.fields.date).getTime()
+    })
+
+  const { viewMode, setViewMode } = useBlogViewMode()
 
   return (
     <Layout>
@@ -23,34 +47,10 @@ const BlogDraftPage: FC<GatsbyDataProps> = (props) => {
         keywords={data.site.siteMetadata.keywords}
       />
       <div className='mf-content blog-catalog'>
-        <div className='blog-list'>
-          { drafts.map(node => {
-            const cover = node.frontmatter.cover?.publicURL
-            const date = dayjs(node.fields.date).format('MMM DD, YYYY')
-            return (
-              <Link
-                className={'blog' + (node.frontmatter.draft ? ' draft' : '')}
-                to={node.fields.slug}
-                key={node.id}
-                id={node.fields.id}
-              >
-                <div className='banner'>
-                  <img src={cover} alt='' />
-                </div>
-                <div className='info'>
-                  <p className='title'>{node.frontmatter.title}</p>
-                  <p className='desc'>{node.frontmatter.description}</p>
-                  <footer className='blog__footer'>
-                    <p className='date'>
-                      <time dateTime='{blog.node.fields.date}'>{date}</time>
-                    </p>
-                    {/* <p className='tags'>Tags: {blog.node.frontmatter.tags.join(', ')}</p> */}
-                  </footer>
-                </div>
-              </Link>
-            )
-          })}
-        </div>
+        { IS_DEV &&
+          <Toolbar viewMode={viewMode} onViewModeChange={setViewMode} />
+        }
+        { renderView(viewMode, drafts) }
         <BottomLine text='The End' />
       </div>
     </Layout>
