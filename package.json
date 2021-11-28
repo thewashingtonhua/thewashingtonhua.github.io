@@ -93,7 +93,7 @@
     "normalize-scss": "^7.0.1",
     "prismjs": "^1.16.0",
     "sass": "^1.24.0",
-    "stylelint": "^13.0.0",
+    "stylelint": "14.0.1",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-scss": "^3.6.1",
     "typescript": "^3.3.3333"
