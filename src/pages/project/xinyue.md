@@ -1,7 +1,7 @@
 ---
 title: '新阅'
 description: '在线视频协作平台'
-cover: '../../images/project/xinyue.jpg'
+cover: '../../images/project/yueliu.jpg'
 from: '2017-08-01'
 to: '2017-10-01'
 category: 'commercial'
@@ -26,7 +26,8 @@ draft: false
 
 ## 相关链接
 
-[线上地址](https://www.uxinyue.com)
+[线上地址](https://www.yueliu.cn/)
+[影视飓风的评价，11 分钟开始](https://www.bilibili.com/video/BV1Kz41187Pe)
 
 ## 项目截图
 
