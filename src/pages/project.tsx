@@ -13,9 +13,9 @@ const ProjectCatalog: FC<GatsbyDataProps> = (props) => {
     .filter(node => !IS_PROD || !node.frontmatter.draft)
     .sort((x, y) => new Date(y.frontmatter.from).getTime() - new Date(x.frontmatter.from).getTime())
 
-  // 商业项目和个人项目分开
-  const commercialProjects = projects.filter(node => node.frontmatter.category === 'commercial')
-  const individualProjects = projects.filter(node => node.frontmatter.category === 'individual')
+    // 商业项目和个人项目分开
+    const commercialProjects = projects.filter(node => node.frontmatter.category === 'commercial')
+    const individualProjects = projects.filter(node => node.frontmatter.category === 'individual')
 
   const visibleProjects = []
   if (commercialProjects.length) {

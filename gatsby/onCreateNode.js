@@ -12,7 +12,7 @@ module.exports = ({ node, getNode, actions }) => {
     let slug = ''
     let type = ''
 
-    if (relativePath.includes('blog')) {
+    if (relativePath.startsWith('blog')) {
       type = 'blog'
 
       const match = BLOG_POST_FILENAME_REGEX.exec(relativePath)
@@ -29,14 +29,14 @@ module.exports = ({ node, getNode, actions }) => {
         id = filename
         slug = `/blog/${filename}`
       }
-    }
+    } else {
+      if (relativePath.startsWith('project')) {
+        const projectName = relativePath.slice(8, -3)
 
-    if (relativePath.includes('project')) {
-      const projectName = relativePath.slice(8, -3)
-
-      id = projectName
-      slug = `/project/${projectName}`
-      type = 'project'
+        id = projectName
+        slug = `/project/${projectName}`
+        type = 'project'
+      }
     }
 
     createNodeField({ node, name: 'id', value: id, })

@@ -4,7 +4,7 @@ description: 'VSCode 扩展，自动补全 CSS 变量'
 cover: '../../images/project/blank.jpg'
 from: '2019-08-01'
 to: '2019-09-01'
-category: 'personal'
+category: 'individual'
 draft: true
 ---
 
