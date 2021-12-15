@@ -55,7 +55,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: ths.$theme-color-bg;
+    background-color: rgba(32, 30, 30, 0.88);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -63,7 +63,8 @@
     pointer-events: none;
     z-index: ths.$navigation-z-index;
     opacity: 0;
-    transition: opacity 0.3s ease-out;
+    transition: opacity 0.66s cubic-bezier(0.66, 0, 0.01, 1);
+    backdrop-filter: saturate(200%) blur(1.25rem);
 
     &[data-is-open='true'] {
       opacity: 1;
@@ -83,20 +84,24 @@
         height: 40px;
         line-height: 40px;
         font-size: 16px;
-        color: ths.$theme-color-secondary;
+        color: ths.$theme-color-tertiary;
         text-align: center;
         transition: color 0.3s ease-out;
         user-select: none;
         position: relative;
 
         &:hover {
-          color: color.adjust(ths.$theme-color-secondary, $lightness: 50%);
+          color: ths.$theme-color-secondary;
         }
 
         &.active {
-          color: color.adjust(ths.$theme-color-secondary, $lightness: 50%);
-          background-color: color.adjust(ths.$theme-color-bg, $lightness: 5%);
+          color: ths.$theme-color-primary;
           border-radius: 8px;
+          font-size: 24px;
+          font-weight: 700;
+          text-shadow:
+            0 0 20 rgba(28, 28, 32, 0.8),
+            0 1px 3px rgba(28, 28, 32, 0.2);
         }
       }
     }

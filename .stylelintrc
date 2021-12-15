@@ -7,13 +7,13 @@
     "**/*.js",
     "**/*.ts",
     "**/*.tsx",
-    "**/*.md",
+    "**/*.md"
   ],
   "rules": {
     "at-rule-empty-line-before": null,
     "at-rule-no-unknown": null,
     "block-closing-brace-newline-after": ["always", {
-      ignoreAtRules: ["if", "else"]
+      "ignoreAtRules": ["if", "else"]
     }],
     "declaration-empty-line-before": null,
     "font-family-no-missing-generic-family-keyword": null,
