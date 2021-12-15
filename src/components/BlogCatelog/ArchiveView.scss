@@ -8,10 +8,35 @@
 
     .category-header {
       position: relative;
+      color: ths.$theme-color-primary;
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 24px;
     }
 
     .category-posts {
       position: relative;
+      margin-bottom: 24px;
+
+      .category-post {
+        color: ths.$theme-color-secondary;
+        font-size: 14px;
+        line-height: 1.7;
+        margin-bottom: 12px;
+
+        a {
+          color: ths.$theme-color-secondary;
+
+          .date {
+            margin-left: 12px;
+            font-family: ths.$theme-font-code;
+          }
+
+          .name {
+            margin-left: 12px;
+          }
+        }
+      }
     }
   }
 }

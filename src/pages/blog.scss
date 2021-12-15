@@ -18,7 +18,7 @@
     justify-content: space-between;
 
     span {
-      color: ths.$theme-color-text;
+      color: ths.$theme-color-secondary;
       padding: 0 0.5em;
     }
 
@@ -26,7 +26,7 @@
     &::after {
       content: '';
       height: 1px;
-      background-color: ths.$theme-color-text;
+      background-color: ths.$theme-color-secondary;
       flex-grow: 1;
     }
   }

@@ -5,7 +5,7 @@ cover: '../../images/project/xshowroom.jpg'
 from: '2016-03-01'
 to: '2017-03-01'
 category: 'commercial'
-draft: true
+draft: false
 ---
 
 # Xshowroom「买手圈」

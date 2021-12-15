@@ -51,7 +51,6 @@ const BlogDraftPage: FC<GatsbyDataProps> = (props) => {
           <Toolbar viewMode={viewMode} onViewModeChange={setViewMode} />
         }
         { renderView(viewMode, drafts) }
-        <BottomLine text='The End' />
       </div>
     </Layout>
   )

@@ -23,14 +23,10 @@ draft: false
 
 ## 相关链接
 
-[线上地址](https://www.inex.exchange)
+[已下线](https://www.inex.exchange)
 
 ## 项目截图
 
-![首页](../../images/project/inex/home.png)
-
 ![交易主页](../../images/project/inex/trading.png)
-
-![应用中心](../../images/project/inex/apps.png)
 
 ![币种资料](../../images/project/inex/profile.png)

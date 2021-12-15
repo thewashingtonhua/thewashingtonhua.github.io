@@ -8,6 +8,8 @@ import silvermac from '../images/friend/silvermac.jpg'
 import zhiyao from '../images/friend/zhiyao.jpg'
 import vic from '../images/friend/vic.jpg'
 import wenhaoqi from '../images/friend/wenhaoqi.jpg'
+import excitedCosmos from '../images/friend/excited-cosmos.jpg'
+import chara from '../images/friend/chara-fm.jpg'
 import { GatsbyDataProps } from '../utils/interface'
 
 const DEVELOPERS = [
@@ -47,9 +49,25 @@ const DEVELOPERS = [
 
 const DESIGNERS = [
   {
+    url: 'https://chara.fm/',
+    cover: chara,
+    name: 'Chara',
+    desc: [
+      'Alibaba'
+    ]
+  },
+  {
+    url: 'https://excitedcosmos.com/',
+    cover: excitedCosmos,
+    name: 'XinYu Li',
+    desc: [
+      'Alibaba'
+    ]
+  },
+  {
     url: 'https://wenhaoqi.com/',
     cover: wenhaoqi,
-    name: 'Dr. Cat',
+    name: 'Curiosity Wen',
     desc: [
       'Alibaba'
     ]

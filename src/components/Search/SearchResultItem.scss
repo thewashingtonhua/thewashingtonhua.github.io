@@ -22,7 +22,7 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 15px;
-    color: ths.$theme-color-text;
+    color: ths.$theme-color-secondary;
 
     p {
       width: 100%;
@@ -30,14 +30,14 @@
 
     .highlight {
       color: ths.$theme-color-primary;
-      background-color: color.change(ths.$theme-color-text, $alpha: 0.2);
+      background-color: color.change(ths.$theme-color-secondary, $alpha: 0.2);
       font-weight: 700;
       line-height: inherit;
       display: inline-flex;
     }
 
     .title {
-      color: ths.$theme-color-text;
+      color: ths.$theme-color-secondary;
       font-size: 18px;
       line-height: 26px;
     }

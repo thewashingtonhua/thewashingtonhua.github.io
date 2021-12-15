@@ -13,7 +13,7 @@
     p {
       font-size: 14px;
       line-height: 20px;
-      color: ths.$theme-color-text;
+      color: ths.$theme-color-secondary;
       width: 100%;
       text-align: center;
 
@@ -42,7 +42,7 @@
           display: block;
           width: 100%;
           height: 100%;
-          fill: ths.$theme-color-text;
+          fill: ths.$theme-color-secondary;
           transition: fill 0.3s ease-out;
 
           &:hover {

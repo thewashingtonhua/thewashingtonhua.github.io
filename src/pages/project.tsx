@@ -25,8 +25,6 @@ const ProjectCatalog: FC<GatsbyDataProps> = (props) => {
     visibleProjects.push({ title: '个人作品', data: individualProjects })
   }
 
-  const totalCount = visibleProjects.map(n => n.data.length).reduce((x, y) => x + y, 0)
-
   return (
     <Layout>
       <SEO
@@ -34,12 +32,10 @@ const ProjectCatalog: FC<GatsbyDataProps> = (props) => {
         keywords={data.site.siteMetadata.keywords}
       />
       <div className='mf-content project-catalog'>
-        <h1 className='title'>代表作 ({totalCount})</h1>
+        <h1 className='title'>代表作</h1>
         { visibleProjects.map(item =>
           <Fragment key={item.title}>
-            <h2 className='project-category-title'>
-              {item.title} ({item.data.length})
-            </h2>
+            <h2 className='project-category-title'>{item.title}</h2>
             <div className='project-list'>
               { item.data.map(node => {
                 const cover = node.frontmatter.cover?.publicURL

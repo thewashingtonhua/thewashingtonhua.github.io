@@ -19,7 +19,7 @@ const categorizeBlogs = (blogs: BlogNode[]): BlogCategory[] => {
   } = {}
 
   blogs.forEach(blog => {
-    const year = dayjs(blog.fields.date).year()
+    const year = blog.fields.date ? dayjs(blog.fields.date).year() : dayjs().year() + 1
     if (!Reflect.has(categoryObj, year)) {
       categoryObj[year] = []
       years.push(year)
@@ -35,11 +35,13 @@ const categorizeBlogs = (blogs: BlogNode[]): BlogCategory[] => {
 
 const renderBlogs = (blogs: BlogNode[]) => {
   return blogs.map(node => {
-    const date = dayjs(node.fields.date).format('YYYY-MM-DD')
-    const title = `${date}-${node.frontmatter.title}`
+    const date = node.fields.date ? dayjs(node.fields.date).format('YYYY-MM-DD') : dayjs().add(1, 'year').format('YYYY-MM-DD')
     return (
       <li key={node.id} className='category-post'>
-        <Link to={node.fields.slug}>{title}</Link>
+        <Link to={node.fields.slug}>
+          <span className="date">[{date}]</span>
+          <span className="name">{node.frontmatter.title}</span>
+        </Link>
       </li>
     )
   })

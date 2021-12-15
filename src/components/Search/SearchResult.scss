@@ -49,7 +49,7 @@
           padding: 15px;
 
           .category-title {
-            color: ths.$theme-color-text;
+            color: ths.$theme-color-secondary;
           }
         }
       }
@@ -57,7 +57,7 @@
 
     .placeholder,
     .no-result {
-      color: ths.$theme-color-text;
+      color: ths.$theme-color-secondary;
       width: 100%;
       text-align: center;
     }

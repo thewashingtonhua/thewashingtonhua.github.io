@@ -31,6 +31,4 @@ Thoughts 是 Teambition 出品的一款企业知识管理应用，如果你没�
 
 ## 项目截图
 
-![官网介绍](../../images/project/thoughts/thoughts.png)
-
-![截图](../../images/project/thoughts/screenshot.png)
+![编辑器](../../images/project/thoughts/screenshot.png)

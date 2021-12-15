@@ -44,7 +44,7 @@ const BlogCatalogPage: FC<GatsbyDataProps> = (props) => {
           <Toolbar viewMode={viewMode} onViewModeChange={setViewMode} />
         }
         { renderView(viewMode, blogs) }
-        <BottomLine text='Beginning of the Dawn' />
+        <BottomLine text='That will be all' />
       </div>
     </Layout>
   )

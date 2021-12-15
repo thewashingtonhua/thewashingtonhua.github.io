@@ -32,10 +32,10 @@ Teambition 网盘，是 Teambition 出品的一款网盘应用，曾经是 Teamb
 
 ## 相关链接
 
-[线上地址](https://www.teambition.com/pan/)
+[已下线](https://www.teambition.com/pan/)
 
 ## 项目截图
 
-![截图](../../images/project/teamedia/site.png)
 ![文件列表](../../images/project/teamedia/folder.png)
+
 ![文件详情](../../images/project/teamedia/file.png)

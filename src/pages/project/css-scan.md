@@ -24,7 +24,7 @@ FBC 会员服务 Web App，设计用于微信端，会员可通过该 App 进行
 
 ## 相关链接
 
-[线上地址](http://app.futurebusinesslab.com/wap)
+[线上地址](https://thewashingtonhua.github.io/css-scan/)
 
 
 ## 项目截图

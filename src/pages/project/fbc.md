@@ -5,7 +5,7 @@ cover: '../../images/project/fbc.jpg'
 from: '2017-04-01'
 to: '2017-06-01'
 category: 'commercial'
-draft: true
+draft: false
 ---
 
 # FBC
@@ -24,7 +24,7 @@ FBC 会员服务 Web App，设计用于微信端，会员可通过该 App 进行
 
 ## 相关链接
 
-[线上地址](http://app.futurebusinesslab.com/wap)
+[已下线](http://app.futurebusinesslab.com/wap)
 
 
 ## 项目截图

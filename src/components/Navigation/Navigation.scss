@@ -24,13 +24,13 @@
         height: 40px;
         line-height: 40px;
         font-size: 16px;
-        color: ths.$theme-color-text;
+        color: ths.$theme-color-secondary;
         text-align: center;
         transition: color 0.3s ease-out;
         user-select: none;
 
         &:hover {
-          color: color.adjust(ths.$theme-color-text, $lightness: 50%);
+          color: color.adjust(ths.$theme-color-secondary, $lightness: 50%);
         }
 
         &.active {

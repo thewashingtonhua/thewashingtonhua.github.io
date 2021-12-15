@@ -8,7 +8,7 @@
     padding: 50px 15px 20px;
 
     a {
-      color: ths.$theme-color-text;
+      color: ths.$theme-color-secondary;
     }
   }
 
@@ -70,7 +70,7 @@
       }
 
       .meta {
-        color: ths.$theme-color-text;
+        color: ths.$theme-color-secondary;
         font-size: 14px;
         line-height: 20px;
         font-weight: 100;
@@ -97,7 +97,7 @@
             transform: translate(-50%, -50%);
             width: 4px;
             height: 4px;
-            background-color: ths.$theme-color-text;
+            background-color: ths.$theme-color-secondary;
             border-radius: 50%;
 
             @media (max-width: ths.$break-point-mobile) {
@@ -186,8 +186,8 @@
 
       p {
         font-size: 15px;
-        color: ths.$theme-color-text;
-        line-height: 2;
+        color: ths.$theme-color-secondary;
+        line-height: 1.8;
         margin-bottom: 1em;
         transition: font-size 0.3s ease-out;
 
@@ -244,7 +244,7 @@
         p {
           line-height: 1.8;
           margin-bottom: 0.5em;
-          color: ths.$theme-color-text;
+          color: ths.$theme-color-secondary;
           transition: font-size 0.3s ease-out;
 
           @media (max-width: ths.$break-point-mobile) {
@@ -284,7 +284,7 @@
           text-align: left;
           white-space: nowrap;
           word-wrap: normal;
-          color: ths.$theme-color-text;
+          color: ths.$theme-color-secondary;
           transition: font-size 0.3s ease-out;
 
           @media (max-width: ths.$break-point-mobile) {
@@ -299,12 +299,12 @@
 
       blockquote {
         margin: 0 0 1em;
-        border-left: 3px solid ths.$theme-color-text;
+        border-left: 3px solid ths.$theme-color-secondary;
         background-color: ths.$theme-color-blockquote;
         padding: 15px;
 
         p {
-          color: ths.$theme-color-text;
+          color: ths.$theme-color-secondary;
           font-size: 14px;
           line-height: 1.75;
           margin-bottom: 1em;
@@ -327,7 +327,7 @@
         margin: 50px auto;
         width: 80%;
         height: 1px;
-        background-color: ths.$theme-color-text;
+        background-color: ths.$theme-color-secondary;
         border: none;
       }
     }
@@ -348,7 +348,7 @@
       width: 240px;
       max-height: calc(100vh - 70px);
       overflow-y: auto;
-      border-left: 1px dotted ths.$theme-color-text;
+      border-left: 1px dotted ths.$theme-color-secondary;
       padding: 10px 15px 10px 0;
 
       &::-webkit-scrollbar {
@@ -370,7 +370,7 @@
           margin-bottom: 0.5em;
 
           a {
-            color: ths.$theme-color-text;
+            color: ths.$theme-color-secondary;
             font-size: 12px;
             line-height: 1.3;
             transition: color 0.3s ease-out;
@@ -390,13 +390,13 @@
       align-items: flex-start;
 
       .header {
-        border-top: 1px dashed ths.$theme-color-text;
+        border-top: 1px dashed ths.$theme-color-secondary;
         padding-top: 50px;
         margin-bottom: 30px;
         width: 100%;
 
         .title {
-          color: ths.$theme-color-text;
+          color: ths.$theme-color-secondary;
           font-size: 20px;
         }
       }
@@ -406,13 +406,13 @@
         list-style: circle;
 
         .post {
-          color: ths.$theme-color-text;
+          color: ths.$theme-color-secondary;
           font-size: 14px;
           line-height: 2;
           transition: color 0.3s ease-out;
 
           a {
-            color: ths.$theme-color-text;
+            color: ths.$theme-color-secondary;
             transition: color 0.3s ease-out;
 
             &.draft {

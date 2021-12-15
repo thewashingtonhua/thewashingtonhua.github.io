@@ -89,7 +89,7 @@
       }
 
       .desc {
-        color: ths.$theme-color-text;
+        color: ths.$theme-color-secondary;
         word-wrap: break-word;
         margin-bottom: 8px;
         font-size: 14px;
@@ -116,7 +116,7 @@
         .date {
           font-size: 14px;
           line-height: 20px;
-          color: ths.$theme-color-text;
+          color: ths.$theme-color-secondary;
           position: relative;
           white-space: nowrap;
           transition: font-size 0.3s ease-out, margin-bottom 0.3s ease-out;
@@ -131,7 +131,7 @@
           padding-left: 10px;
           margin-left: 10px;
           display: flex;
-          color: ths.$theme-color-text;
+          color: ths.$theme-color-secondary;
           line-height: 1;
           font-size: 14px;
           transition: font-size 0.3s ease-out;
@@ -149,7 +149,7 @@
             transform: translate(0, -50%);
             width: 1px;
             height: 12px;
-            background-color: ths.$theme-color-text;
+            background-color: ths.$theme-color-secondary;
 
             @media (max-width: ths.$break-point-tablet) {
               content: none;

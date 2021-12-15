@@ -27,7 +27,7 @@
   }
 
   .more {
-    color: ths.$theme-color-text;
+    color: ths.$theme-color-secondary;
     font-size: 16px;
     line-height: 32px;
   }
@@ -82,7 +82,7 @@
         line-height: 1.3;
         word-wrap: break-word;
         margin-bottom: 10px;
-        color: ths.$theme-color-text;
+        color: ths.$theme-color-secondary;
       }
 
       .blog__footer {
@@ -94,7 +94,7 @@
 
         .date {
           font-size: 14px;
-          color: ths.$theme-color-text;
+          color: ths.$theme-color-secondary;
           line-height: 1;
           position: relative;
           white-space: nowrap;

@@ -29,6 +29,6 @@ draft: false
 
 ## 项目截图
 
-![截图](../../images/project/adrive/site.png)
-![截图](../../images/project/adrive/folder.png)
-![截图](../../images/project/adrive/file.png)
+![文件列表](../../images/project/adrive/folder.png)
+
+![文件详情](../../images/project/adrive/file.png)
