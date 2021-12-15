@@ -1,6 +1,6 @@
 ---
 title: 'The Bookmark'
-description: '让整理 Chrome 书签不那么麻烦'
+description: 'Chrome 书签管理器'
 cover: '../../images/project/blank.jpg'
 from: '2019-09-01'
 to: '2019-10-01'

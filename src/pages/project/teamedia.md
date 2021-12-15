@@ -1,6 +1,6 @@
 ---
 title: 'Teambition 网盘'
-description: 'Teambition 出品的网盘应用'
+description: '企业级网盘'
 cover: '../../images/project/teamedia.jpg'
 from: '2020-04-01'
 to: ''

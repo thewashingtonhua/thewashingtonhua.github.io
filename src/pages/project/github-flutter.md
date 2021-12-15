@@ -1,6 +1,6 @@
 ---
 title: 'Github-Flutter'
-description: '基于 Flutter 开发的 Github 客户端'
+description: '基于 Flutter 的 Github 客户端'
 cover: '../../images/project/blank.jpg'
 from: '2019-12-01'
 to: '2020-01-01'

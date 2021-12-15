@@ -1,6 +1,6 @@
 ---
 title: 'The Scanner'
-description: '一眼看清磁盘占用情况'
+description: '可视化磁盘空间分析工具'
 cover: '../../images/project/blank.jpg'
 from: '2019-11-01'
 to: '2019-12-01'

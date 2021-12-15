@@ -1,6 +1,6 @@
 ---
 title: '影力所'
-description: '泛娱乐领域的垂直数字货币交易所'
+description: '数字货币交易所'
 cover: '../../images/project/inex.jpg'
 from: '2018-01-01'
 to: ''

@@ -1,6 +1,6 @@
 ---
 title: '阿里云盘'
-description: '阿里云出品的网盘应用'
+description: '个人网盘'
 cover: '../../images/project/adrive.jpg'
 from: '2020-12-01'
 to: ''
